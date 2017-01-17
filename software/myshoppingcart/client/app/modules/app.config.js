@@ -1,0 +1,36 @@
+/**
+ * Created by Lenovo on 1/17/2017.
+ */
+(function(){
+    angular.module('myApp').config(navConfig);
+    navConfig.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
+    function navConfig($stateProvider, $urlRouterProvider, $locationProvider)
+    {
+
+        console.log("uuuuuuuuuuu");
+        $stateProvider.state('home', {
+            url:"/index",
+            /*            controller: 'electronicHomeController',
+             controllerAs: 'hc',*/
+            templateUrl: '/app/partials/home.html'
+
+        });
+        $stateProvider.state('electronics', {
+            url:"/electronics",
+            controller: 'electronicHomeController',
+            controllerAs: 'hc',
+            templateUrl: '/app/partials/electronicGoods.html'
+
+        });
+        $stateProvider.state('books', {
+            url:"/books",
+            /*            controller: 'electronicHomeController',
+             controllerAs: 'hc',*/
+            templateUrl: '/app/partials/books.html'
+
+        });
+        $urlRouterProvider.otherwise('/home');
+        $locationProvider.html5Mode(true);
+    }
+})();
+
