@@ -13,6 +13,7 @@
             url : "dataset.json"
         }).then(function mySucces(response) {
             vm.message = response.data.electronics;
+            vm.eachElect = vm.message;
 
         }, function myError(response) {
             vm.message = response.statusText;

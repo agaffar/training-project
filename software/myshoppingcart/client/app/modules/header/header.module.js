@@ -3,5 +3,5 @@
  */
 (function(){
     'use strict'
-    angular.module('myApp.header',[]);
+    angular.module('myApp.header',['ui.select','home']);
 })();

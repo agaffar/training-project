@@ -13,7 +13,7 @@
 <nav class="navbar navbar-default">
     <div class="container-fluid">
         <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
+            <li class="active"><a ui-sref="home">Home</a></li>
             <li ><a ui-sref="electronics">Electronics</a>
             <ul class="subMenu">
                 <li>Mobiles</li>
@@ -23,9 +23,9 @@
             </li>
             <li ><a ui-sref="books">Books</a>
                 <ul class="subMenu">
-                    <li>Mobiles</li>
-                    <li>Pendrives</li>
-                    <li>Laptops</li>
+                    <li>Fiction</li>
+                    <li>Comics</li>
+                    <li>Biography</li>
                 </ul>
             </li>
             <li ><a href="#">Home & Furniture</a>
@@ -36,9 +36,18 @@
                 </ul>
             </li>
         </ul>
+        <div class="search" ng-controller="headController as headc">
+            <ui-select ng-model="headc.selected">
+                <ui-select-match placeholder="Select or search a product ..."> {{ headc.selected.name}}</ui-select-match>
+                <ui-select-choices repeat="prod in headc.products | filter: $select.search track by prod.name">
+                    {{prod.name}}
+                </ui-select-choices>
+            </ui-select>
+        {{ headc.selected.name}}
+        </div>
     </div>
+
 </nav>
-<div>
 
 </div>
 </body>

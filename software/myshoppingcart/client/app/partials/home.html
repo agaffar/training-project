@@ -1,1 +1,18 @@
-<p>Your in home Page</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body class="container">
+<h1>Your are in Home page </h1>
+
+<div class="top5products">
+    <h2>Top rated products</h2>
+    {{ hc.message }}
+    <ui>
+        <li class="products" ng-repeat="product in hc.products | orderBy:'-rating'| limitTo:5"><img src="images/mobiles/{{product.id}}.jpg"><span>{{product.name}}</span></li>
+    </ui>
+</div>
+</body>
+</html>

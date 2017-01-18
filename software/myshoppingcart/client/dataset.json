@@ -16,6 +16,7 @@
         "front": "5MP",
         "rear": "8MP"
       },
+      "rating" : 4,
       "comments": [
         {
           "text": "Worst phone",
@@ -59,6 +60,7 @@
         "front": "5MP",
         "rear": "8MP"
       },
+      "rating" : 2,
       "comments": [
         {
           "text": "Worst phone",
@@ -102,6 +104,7 @@
         "front": "5MP",
         "rear": "8MP"
       },
+      "rating" : 4,
       "comments": [
         {
           "text": "Worst phone",
@@ -111,7 +114,7 @@
         },
         {
           "text": "Awesome phone",
-          "rating": "5",
+          "rating": "4",
           "commentedOn": "15/01/2017",
           "username": "Jhon Deo brother"
         },
@@ -141,6 +144,7 @@
       "modelName": "Galaxy Note 3",
       "color": "Gold",
       "battery": "12600 mAh Li-Ion Battery",
+      "rating" : 5,
       "comments": [
         {
           "text": "Worst notebook",
@@ -180,6 +184,7 @@
       "modelName": "Inspiron 3558 Notebook",
       "color": "Black",
       "battery": "40 Watt Hours",
+      "rating" : 1,
       "comments": [
         {
           "text": "Worst notebook",
@@ -204,6 +209,222 @@
         {
           "type": "exchange",
           "amount": 2000
+        }
+      ]
+    },
+    {
+      "id":"ELEC_PRD_6",
+      "name": "Hp Envy",
+      "price": 27250.00,
+      "description": "Big entertainment, bold features, get your hands on a versatile 15 inches laptop packed with entertainment features that deliver an outstanding multimedia experience at an affordable price, with Ubuntu Linux OS - for a smooth, versatile PC experience.",
+      "type": "electronics",
+      "subType": "laptop",
+      "brand": "Hp",
+      "RAM": "4GB DDR3L",
+      "modelName": "Hp envy",
+      "color": "Black",
+      "battery": "40 Watt Hours",
+      "rating" : 3,
+      "comments": [
+        {
+          "text": "Worst notebook",
+          "rating": "1",
+          "commentedOn": "13/01/2017",
+          "username": "Jhon Deo"
+        },
+        {
+          "text": "Awesome notebook",
+          "rating": "5",
+          "commentedOn": "15/01/2017",
+          "username": "Jhon Deo brother"
+        },
+        {
+          "text": "Worth price. The notebook does not look cheap from any angle. Some have even confused this with the Galaxy A5, so this says a lot!",
+          "rating": "1",
+          "commentedOn": "14/01/2017",
+          "username": "Jhon Deo Sister"
+        }
+      ],
+      "offers": [
+        {
+          "type": "exchange",
+          "amount": 2000
+        }
+      ]
+    },
+    {
+      "id": "ELEC_PRD_7",
+      "name": "SAMSUNG Galaxy Grand",
+      "price": 7500,
+      "description": "SAMSUNG Galaxy 2 is a smart phone and blah blah",
+      "type": "electronics",
+      "subType": "mobile",
+      "brand": "Samsung",
+      "RAM": "1GB",
+      "modelName": "Galaxy 2",
+      "color": "Gold",
+      "battery": "2600 mAh Li-Ion Battery",
+      "camera": {
+        "front": "5MP",
+        "rear": "8MP"
+      },
+      "rating" : 4.5,
+      "comments": [
+        {
+          "text": "Worst phone",
+          "rating": "1",
+          "commentedOn": "13/01/2017",
+          "username": "Jhon Deo"
+        },
+        {
+          "text": "Awesome phone",
+          "rating": "5",
+          "commentedOn": "15/01/2017",
+          "username": "Jhon Deo brother"
+        },
+        {
+          "text": "Worth price. The phone does not look cheap from any angle. Some have even confused this with the Galaxy A5, so this says a lot!",
+          "rating": "1",
+          "commentedOn": "14/01/2017",
+          "username": "Jhon Deo Sister"
+        }
+      ],
+      "offers": [
+        {
+          "type": "discount",
+          "percentage": 10
+        }
+      ]
+    },
+    {
+      "id": "ELEC_PRD_8",
+      "name": "SAMSUNG Galaxy Grand Quatro",
+      "price": 20000,
+      "description": "SAMSUNG Galaxy 2 is a smart phone and blah blah",
+      "type": "electronics",
+      "subType": "mobile",
+      "brand": "Samsung",
+      "RAM": "1GB",
+      "modelName": "Galaxy 2",
+      "color": "Gold",
+      "battery": "2600 mAh Li-Ion Battery",
+      "camera": {
+        "front": "5MP",
+        "rear": "8MP"
+      },
+      "rating" : 3.5,
+      "comments": [
+        {
+          "text": "Worst phone",
+          "rating": "1",
+          "commentedOn": "13/01/2017",
+          "username": "Jhon Deo"
+        },
+        {
+          "text": "Awesome phone",
+          "rating": "5",
+          "commentedOn": "15/01/2017",
+          "username": "Jhon Deo brother"
+        },
+        {
+          "text": "Worth price. The phone does not look cheap from any angle. Some have even confused this with the Galaxy A5, so this says a lot!",
+          "rating": "1",
+          "commentedOn": "14/01/2017",
+          "username": "Jhon Deo Sister"
+        }
+      ],
+      "offers": [
+        {
+          "type": "discount",
+          "percentage": 10
+        }
+      ]
+    },
+    {
+      "id": "ELEC_PRD_9",
+      "name": "SAMSUNG Galaxy Grand Nitro",
+      "price": 20000,
+      "description": "SAMSUNG Galaxy 2 is a smart phone and blah blah",
+      "type": "electronics",
+      "subType": "mobile",
+      "brand": "Samsung",
+      "RAM": "1GB",
+      "modelName": "Galaxy Grand Nitro",
+      "color": "Gold",
+      "battery": "2600 mAh Li-Ion Battery",
+      "rating" : 2,
+      "camera": {
+        "front": "5MP",
+        "rear": "8MP"
+      },
+      "comments": [
+        {
+          "text": "Worst phone",
+          "rating": "1",
+          "commentedOn": "13/01/2017",
+          "username": "Jhon Deo"
+        },
+        {
+          "text": "Awesome phone",
+          "rating": "5",
+          "commentedOn": "15/01/2017",
+          "username": "Jhon Deo brother"
+        },
+        {
+          "text": "Worth price. The phone does not look cheap from any angle. Some have even confused this with the Galaxy A5, so this says a lot!",
+          "rating": "1",
+          "commentedOn": "14/01/2017",
+          "username": "Jhon Deo Sister"
+        }
+      ],
+      "offers": [
+        {
+          "type": "discount",
+          "percentage": 10
+        }
+      ]
+    },
+    {
+      "id": "ELEC_PRD_10",
+      "name": "Xiaomi Mi Note3",
+      "price": 20000,
+      "description": "Xiaomi Mi Note3 is a smart phone and blah blah",
+      "type": "electronics",
+      "subType": "mobile",
+      "brand": "Xiaomi",
+      "RAM": "1GB",
+      "modelName": "Xiaomi Mi Note3",
+      "color": "Gold",
+      "battery": "2600 mAh Li-Ion Battery",
+      "camera": {
+        "front": "5MP",
+        "rear": "8MP"
+      },
+      "rating" : 3.9,
+      "comments": [
+        {
+          "text": "Worst phone",
+          "rating": "1",
+          "commentedOn": "13/01/2017",
+          "username": "Jhon Deo"
+        },
+        {
+          "text": "Awesome phone",
+          "rating": "5",
+          "commentedOn": "15/01/2017",
+          "username": "Jhon Deo brother"
+        },
+        {
+          "text": "Worth price. The phone does not look cheap from any angle. Some have even confused this with the Galaxy A5, so this says a lot!",
+          "rating": "1",
+          "commentedOn": "14/01/2017",
+          "username": "Jhon Deo Sister"
+        }
+      ],
+      "offers": [
+        {
+          "type": "discount",
+          "percentage": 10
         }
       ]
     }

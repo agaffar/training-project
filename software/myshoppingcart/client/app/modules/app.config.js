@@ -9,16 +9,16 @@
 
         console.log("uuuuuuuuuuu");
         $stateProvider.state('home', {
-            url:"/index",
-            /*            controller: 'electronicHomeController',
-             controllerAs: 'hc',*/
+            url:"/home",
+            controller: 'homeController',
+             controllerAs: 'hc',
             templateUrl: '/app/partials/home.html'
 
         });
         $stateProvider.state('electronics', {
             url:"/electronics",
             controller: 'electronicHomeController',
-            controllerAs: 'hc',
+            controllerAs: 'ec',
             templateUrl: '/app/partials/electronicGoods.html'
 
         });
@@ -29,7 +29,7 @@
             templateUrl: '/app/partials/books.html'
 
         });
-        $urlRouterProvider.otherwise('/home');
+        $urlRouterProvider.otherwise('home');
         $locationProvider.html5Mode(true);
     }
 })();

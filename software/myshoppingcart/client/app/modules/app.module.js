@@ -4,10 +4,15 @@
 
 (function(){
     angular.module('myApp', [
+        'ui.select',
+        'ngSanitize',
         'ui.router',
         'myApp.version',
         'ui.bootstrap',
-        'myApp.header',
-        'electronics'
+        'myApp.header',,
+        'home',
+        'electronics',
+        'myApp.header'
+
     ]);
 })();
