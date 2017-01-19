@@ -9,10 +9,11 @@
         'ui.router',
         'myApp.version',
         'ui.bootstrap',
-        'myApp.header',,
+        'myApp.header',
         'home',
         'electronics',
-        'myApp.header'
+        "viewProduct"
+
 
     ]);
 })();

@@ -28,7 +28,7 @@
                     <li>Biography</li>
                 </ul>
             </li>
-            <li ><a href="#">Home & Furniture</a>
+            <li ><a href="#">Home&Furniture</a>
                 <ul class="subMenu">
                     <li>Chairs</li>
                     <li>Beds</li>
@@ -37,9 +37,12 @@
             </li>
         </ul>
         <div class="search" ng-controller="headController as headc">
-            <ui-select ng-model="headc.selected">
-                <ui-select-match placeholder="Select or search a product ..."> {{ headc.selected.name}}</ui-select-match>
-                <ui-select-choices repeat="prod in headc.products | filter: $select.search track by prod.name">
+            <ui-select ng-model="headc.selected" theme='bootstrap' reset-search-input='true' >
+                <ui-select-match placeholder="Select or search a product ..." > {{ $select.selected.name}}</ui-select-match>
+                <ui-select-choices refresh="headc.refreshProds($select.search)"
+                                   refresh-delay="0"
+                                   repeat="prod in products | filter: $select.search | limitTo: headc.limitNameDisplay"
+                                   >
                     {{prod.name}}
                 </ui-select-choices>
             </ui-select>

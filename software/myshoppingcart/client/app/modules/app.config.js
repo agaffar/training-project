@@ -29,6 +29,13 @@
             templateUrl: '/app/partials/books.html'
 
         });
+        $stateProvider.state('product', {
+            url:"/id?id",
+            controller: 'viewProductController',
+             controllerAs: 'vpc',
+            templateUrl: '/app/partials/viewProduct.html'
+
+        });
         $urlRouterProvider.otherwise('home');
         $locationProvider.html5Mode(true);
     }
