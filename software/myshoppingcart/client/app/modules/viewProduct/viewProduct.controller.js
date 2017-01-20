@@ -7,14 +7,17 @@
     function viewCtrl($stateParams,$rootScope)
     {
             var vm = this;
-            vm.message = $stateParams.id;
+            var prodId = $stateParams.id;
+        //var ter = vm.message;
+        //console.log("stateparam = "+ $stateParams.id);
             for(var i=0;i<$rootScope.products.length;i++)
             {
                 var prod = $rootScope.products[i];
-                if(prod.id == vm.message)
+                if(prod.id == prodId)
                 {
                     vm.product = prod;
                 }
             }
+        vm.prodName = vm.product.name;
     }
 })();

@@ -11,7 +11,11 @@
     <h2>Top rated products</h2>
     {{ hc.message }}
     <ui>
-        <li ui-sref="product({ id : product.id })" class="products" ng-repeat="product in products | orderBy:'-rating' | filter: { subType: 'mobile'} | limitTo:5"><img src="images/mobiles/{{ product.id }}.jpg"><span>{{product.name}}</span></li>
+        <li ui-sref="product({ id : product.id })" class="products" ng-repeat="product in products | orderBy:'-rating' | filter: { subType: 'mobile'} | limitTo:5">
+            <img src="images/mobiles/{{ product.id }}.jpg"><span>{{product.name}}</span>
+            Cost:<span>{{product.price | currency:'&#8377;'}}</span>
+            Rating:<jk-rating-stars rating="product.rating" read-only="true"></jk-rating-stars>
+        </li>
     </ui>
 </div>
 <!-- to display top rated mobiles-->

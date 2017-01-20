@@ -7,6 +7,7 @@
         'ui.select',
         'ngSanitize',
         'ui.router',
+        'jkAngularRatingStars',
         'myApp.version',
         'ui.bootstrap',
         'myApp.header',

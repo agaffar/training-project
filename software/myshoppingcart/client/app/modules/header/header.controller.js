@@ -25,29 +25,36 @@
             });
         }
         resultObj();
-            var refreshed = [];
             vm.refreshProds = function(valueEntered)
             {
-               /* for(var i=0;i<$rootScope.products.length;i++)
+
+                vm.refreshed = [];
+                if(valueEntered)
                 {
-                    var product = $rootScope.products[i];
-                    var regex = new RegExp('/'+valueEntered+'/i');
-                    if(regex.test(product.name.toString()))
+                    for(var i=0;i<$rootScope.products.length;i++)
                     {
-                    /!*    console.log(valueEntered);
-                        console.log(regex.test(product.name));
-                        console.log(product.name);*!/
-                        refreshed.push(product);
+                        var product = $rootScope.products[i];
+                        var regex = new RegExp(valueEntered,"ig");
+                        console.log(valueEntered);
+                        //product.name.toString().match(regex)
+                        if(regex.test(product.name))
+                        {
+                            console.log(valueEntered);
+                            console.log(regex.test(product.name));
+                            console.log(product.name);
+                            vm.refreshed.push(product);
+                        }
                     }
-                }*/
-                vm.limitNameDisplay = 0;
+
+                }
+               /* vm.limitNameDisplay = 0;
                 if(valueEntered.length>2)
                 {
                     vm.limitNameDisplay = 500;
                 }
                 else {
                     vm.limitNameDisplay = 0;
-                }
+                }*/
                /* console.log("refreshed");
                 console.log(refreshed);*/
             }

@@ -4,13 +4,52 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<body>
-{{vpc.message}}
-<div >
-    <img src="images/mobiles/{{vpc.product.id}}.jpg">
-    <ul>
-        <li class="prodDetails" ng-repeat="productDetail in vpc.product"> {{ productDetail }}</li>
-    </ul>
+<body id="container">
+<!--{{vpc.message}}-->
+<div class="viewProd" align="center">
+    <div id="prodimage">
+
+        <img class="proim" src="images/mobiles/{{vpc.product.id}}.jpg"><br>
+
+        <span >price : {{vpc.product.price | currency:'&#8377;'}}</span><br>
+        <label>Rating</label><jk-rating-stars rating="vpc.product.rating" read-only="true" on-rating="vpc.onRating(rating)" >
+        </jk-rating-stars>
+    </div>
+    <div id="details">
+        <h1 > {{vpc.prodName}} </h1><br>
+
+
+        <!--<span >Rating : {{vpc.product.rating}}</span><br>-->
+
+        <span ><h4>Specifications</h4></span>
+        <label>Brand</label><span>{{vpc.product.brand}}</span><br>
+        <label>Ram</label><span>{{vpc.product.RAM}}</span><br>
+        <label>Color</label><span>{{vpc.product.color}}</span><br>
+        <label>Battery</label><span>{{vpc.product.battery}}</span><br>
+        <label>Comments</label><br>
+        <ul id="commentProd">
+            <li ng-repeat="comment in vpc.product.comments">
+                <label>{{ comment.username }}:</label>&nbsp&nbsp<span>{{ comment.text }}</span><br>
+                <jk-rating-stars rating="comment.rating" read-only="true" on-rating="vpc.onRating(rating)" >
+                </jk-rating-stars>
+                <label>Rating</label><span>{{ comment.rating }}</span><br>
+                <span>on {{ comment.commentedOn }}</span><br>
+                <hr>
+                <br>
+            </li>
+
+        </ul>
+      <!--  <ul class="prodDetails">
+
+            <li ng-repeat="productDetail in vpc.product"> {{ productDetail }}</li>
+            <label>Brand</label><span>vpc.product.brand</span>
+        </ul>-->
+    </div>
+
 </div>
+<hr>
+<ui>
+    <li ui-sref="product({ id : product.id })" class="products" ng-repeat="product in products | orderBy:'-rating' | filter: { subType: vpc.product.subType} | limitTo:5"><img src="images/mobiles/{{ product.id }}.jpg"><span>{{product.name}}</span></li>
+</ui>
 </body>
 </html>

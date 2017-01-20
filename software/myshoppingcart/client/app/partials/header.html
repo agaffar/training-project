@@ -6,7 +6,7 @@
 </head>
 <body class="container">
 <div class="header">
-    <h1>
+    <h1 class="">
         MyShopping Cart
     </h1>
 </div>
@@ -39,10 +39,9 @@
         <div class="search" ng-controller="headController as headc">
             <ui-select ng-model="headc.selected" theme='bootstrap' reset-search-input='true' >
                 <ui-select-match placeholder="Select or search a product ..." > {{ $select.selected.name}}</ui-select-match>
-                <ui-select-choices refresh="headc.refreshProds($select.search)"
+                <ui-select-choices minimum-input-length="3" refresh="headc.refreshProds($select.search)"
                                    refresh-delay="0"
-                                   repeat="prod in products | filter: $select.search | limitTo: headc.limitNameDisplay"
-                                   >
+                                   repeat="prod in headc.refreshed | filter: $select.search | limitTo: headc.limitNameDisplay">
                     {{prod.name}}
                 </ui-select-choices>
             </ui-select>
