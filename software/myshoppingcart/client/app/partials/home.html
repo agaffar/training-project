@@ -6,19 +6,35 @@
 </head>
 <body class="container">
 <h1>Your are in Home page </h1>
-
 <div class="top5products">
     <h2>Top rated products</h2>
     {{ hc.message }}
-    <ui>
-        <li ui-sref="product({ id : product.id })" class="products" ng-repeat="product in products | orderBy:'-rating' | filter: { subType: 'mobile'} | limitTo:5">
-            <img src="images/mobiles/{{ product.id }}.jpg"><span>{{product.name}}</span>
-            Cost:<span>{{product.price | currency:'&#8377;'}}</span>
-            Rating:<jk-rating-stars rating="product.rating" read-only="true"></jk-rating-stars>
-        </li>
-    </ui>
+
+    <div id="mobiles" class="row">
+        <h3>Mobiles</h3>
+            <div ui-sref="product({ id : product.id })" class="products col-md-3" ng-repeat="product in products | orderBy:'-rating' | filter: { subType: 'mobile'} | limitTo:5">
+                <!--<div class="container">-->
+                    <img  src="images/mobile/{{ product.id }}.jpg"><span>{{product.name}}</span>
+                    <label>Cost:</label><span>{{product.price | currency:'&#8377;'}}</span>
+                    <label>Rating:</label><jk-rating-stars class="rating" rating="product.rating" read-only="true"></jk-rating-stars>
+                <!--</div>-->
+
+            </div>
+    </div><br><br>
+    <hr>
+    <div id="laptops" class="row">
+        <h3>Laptops</h3>
+            <div ui-sref="product({ id : product.id })"class="products col-md-3" ng-repeat="product in products | orderBy:'-rating' | filter: { subType: 'laptop'} | limitTo:5">
+                <img src="images/laptop/{{ product.id }}.jpg"><span>{{product.name}}</span>
+                Cost:<span>{{product.price | currency:'&#8377;'}}</span>
+                Rating:<jk-rating-stars class="rating" rating="product.rating" read-only="true"></jk-rating-stars>&nbsp;&nbsp;
+                &nbsp;&nbsp;
+            </div>
+    </div>
+
+
 </div>
-<!-- to display top rated mobiles-->
+<!-- to display top rated mobile-->
 <!--<div class="col-sm-10 col-md-10">
     <h1>Top Rated Items</h1>
     <hr>

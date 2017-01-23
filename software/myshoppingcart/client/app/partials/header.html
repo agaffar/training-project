@@ -37,15 +37,19 @@
             </li>
         </ul>
         <div class="search" ng-controller="headController as headc">
-            <ui-select ng-model="headc.selected" theme='bootstrap' reset-search-input='true' >
+            <!--{{headc.refreshed}}//-->
+            <ui-select ng-model="headc.selected" theme='bootstrap' reset-search-input='true' on-select="headc.viewProduct(headc.selected.id)">
                 <ui-select-match placeholder="Select or search a product ..." > {{ $select.selected.name}}</ui-select-match>
-                <ui-select-choices minimum-input-length="3" refresh="headc.refreshProds($select.search)"
+                <!--minimum-input-length=3 check in future-->
+                <ui-select-choices  refresh="headc.refreshProds($select.search)"
                                    refresh-delay="0"
-                                   repeat="prod in headc.refreshed | filter: $select.search | limitTo: headc.limitNameDisplay">
-                    {{prod.name}}
+                                   repeat="prod in headc.refreshed track by prod.id" >
+                    <a ui-sref="product({ id : prod.id })" >{{prod.name}}</a><br>
+                    Cost:{{prod.price | currency:'&#8377;'}}
+                    Rating:<jk-rating-stars class="rating" rating=prod.rating  read-only="true" ></jk-rating-stars>
                 </ui-select-choices>
             </ui-select>
-        {{ headc.selected.name}}
+        <span>{{ headc.selected.name}}</span>
         </div>
     </div>
 

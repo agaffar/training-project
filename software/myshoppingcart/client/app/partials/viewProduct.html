@@ -6,10 +6,10 @@
 </head>
 <body id="container">
 <!--{{vpc.message}}-->
-<div class="viewProd" align="center">
+<div class="row viewProd" align="center">
     <div id="prodimage">
 
-        <img class="proim" src="images/mobiles/{{vpc.product.id}}.jpg"><br>
+        <img class="proim" src="images/{{vpc.product.subType}}/{{vpc.product.id}}.jpg"><br>
 
         <span >price : {{vpc.product.price | currency:'&#8377;'}}</span><br>
         <label>Rating</label><jk-rating-stars rating="vpc.product.rating" read-only="true" on-rating="vpc.onRating(rating)" >
@@ -21,18 +21,19 @@
 
         <!--<span >Rating : {{vpc.product.rating}}</span><br>-->
 
-        <span ><h4>Specifications</h4></span>
-        <label>Brand</label><span>{{vpc.product.brand}}</span><br>
-        <label>Ram</label><span>{{vpc.product.RAM}}</span><br>
-        <label>Color</label><span>{{vpc.product.color}}</span><br>
-        <label>Battery</label><span>{{vpc.product.battery}}</span><br>
-        <label>Comments</label><br>
+        <span><h4>General Specifications</h4></span>
+        <label>Brand : </label><span> {{vpc.product.brand}}</span><br>
+        <label>Ram : </label><span> {{vpc.product.RAM}}</span><br>
+        <label>Color : </label><span> {{vpc.product.color}}</span><br>
+        <label>Battery : </label><span> {{vpc.product.battery}}</span><br>
+
+        <label>Comments :</label><br>
+        <hr>
         <ul id="commentProd">
             <li ng-repeat="comment in vpc.product.comments">
                 <label>{{ comment.username }}:</label>&nbsp&nbsp<span>{{ comment.text }}</span><br>
-                <jk-rating-stars rating="comment.rating" read-only="true" on-rating="vpc.onRating(rating)" >
-                </jk-rating-stars>
-                <label>Rating</label><span>{{ comment.rating }}</span><br>
+                <label>Rating: </label>{{ comment.rating }}<jk-rating-stars class="rating" rating="comment.rating" read-only="true" on-rating="vpc.onRating(rating)" >
+                </jk-rating-stars><br>
                 <span>on {{ comment.commentedOn }}</span><br>
                 <hr>
                 <br>
@@ -48,8 +49,27 @@
 
 </div>
 <hr>
-<ui>
-    <li ui-sref="product({ id : product.id })" class="products" ng-repeat="product in products | orderBy:'-rating' | filter: { subType: vpc.product.subType} | limitTo:5"><img src="images/mobiles/{{ product.id }}.jpg"><span>{{product.name}}</span></li>
-</ui>
+<h3>Similar Products</h3>
+<div class="pager">
+    <button class="previous" >previous</button>
+    <div class="row">
+        <div ui-sref="product({ id : product.id })" class="products col-md-3" ng-repeat="product in products | orderBy:'-rating' | filter: { subType: vpc.product.subType}">
+            <img src="images/{{product.subType}}/{{ product.id }}.jpg">
+            <span>{{product.name}}</span></li>
+            Cost : {{product.price}}
+            <jk-rating-stars class="rating" rating="product.rating" read-only="true" on-rating="vpc.onRating(rating)" >
+            </jk-rating-stars>
+        </div>
+    </div>
+    <button class="next" >next</button>
+</div>
+
+
+        <!--<div class="col-md-6" style="background-color:pink;">-->
+        <!--<p>Sed ut perspiciatis...</p>-->
+        <!--</div>-->
+
+
+
 </body>
 </html>
