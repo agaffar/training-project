@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>MyShoppingCart</title>
+  <base href="/">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
+  <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
+  <link rel="stylesheet" href="bower_components/angular-ui-select/dist/select.css">
+  <link rel="stylesheet" href="bower_components/angular-jk-rating-stars/dist/jk-rating-stars.css">
+
+  <link rel="stylesheet" href="app/css/app.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+
+
+</head>
+<body>
+  <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+  <![endif]-->
+  <div class="hContainer" ng-include="'app/partials/header.html'"></div>
+  <!--<div  class="nav">
+    <li><a href="#!/view1">view1</a></li>
+    <li><a href="#!/view2">view2</a></li>
+  </div>-->
+
+<br>
+  <!--<div>Angular seed app: v<span app-version></span></div>-->
+  <div  class="container">
+    <div class="statecontent" ui-view></div>
+
+  </div>
+  <div ng-include="'app/partials/footer.html'"></div>
+
+  <!-- In production use:
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+  -->
+
+
+  <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+  <script src="bower_components/angular-bootstrap/ui-bootstrap.js"></script>
+  <script src="bower_components/angular-ui-select/dist/select.js"></script>
+  <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+  <script src="bower_components/angular-jk-rating-stars/dist/jk-rating-stars.js"></script>
+  <script src="app/modules/header/header.module.js"></script>
+  <script src="app/modules/header/header.controller.js"></script>
+
+
+  <script src="app/modules/app.module.js"></script>
+  <script src="app/modules/app.config.js"></script>
+  <script src="app/modules/app.run.js"></script>
+  <script src="app/modules/app.factory.js"></script>
+
+
+  <script src="app/modules/home/home.module.js"></script>
+  <script src="app/modules/home/home.factory.js"></script>
+  <script src="app/modules/home/home.controller.js"></script>
+
+  <script src="app/modules/viewProduct/viewProduct.module.js"></script>
+  <script src="app/modules/viewProduct/viewProduct.controller.js"></script>
+
+  <script src="app/modules/header/header.module.js"></script>
+  <script src="app/modules/header/header.controller.js"></script>
+
+  <script src="app/modules/electronics/electronics.module.js"></script>
+  <script src="app/modules/electronics/electronics.controller.js"></script>
+
+  <!--<script src="app/modules/app.config.js"></script>
+  <script src="app/modules/app.run.js"></script>
+-->
+  <script src="app/components/version/version.js"></script>
+  <script src="app/components/version/version-directive.js"></script>
+  <script src="app/components/version/interpolate-filter.js"></script>
+
+<!--
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+</body>
+</html>
