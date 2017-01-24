@@ -16,7 +16,7 @@
         </jk-rating-stars>
     </div>
     <div id="details">
-        <h1 > {{vpc.prodName}} </h1><br>
+        <h1 > {{vpc.product.name}} </h1><br>
 
 
         <!--<span >Rating : {{vpc.product.rating}}</span><br>-->
@@ -50,19 +50,22 @@
 </div>
 <hr>
 <h3>Similar Products</h3>
-<div class="pager">
-    <button class="previous" >previous</button>
-    <div class="row">
-        <div ui-sref="product({ id : product.id })" class="products col-md-3" ng-repeat="product in products | orderBy:'-rating' | filter: { subType: vpc.product.subType}">
-            <img src="images/{{product.subType}}/{{ product.id }}.jpg">
-            <span>{{product.name}}</span></li>
-            Cost : {{product.price}}
-            <jk-rating-stars class="rating" rating="product.rating" read-only="true" on-rating="vpc.onRating(rating)" >
-            </jk-rating-stars>
+        <button ng-click="vpc.prevList()"><i class="fa fa-caret-square-o-left" aria-hidden="true"></i>&nbsp;&nbsp;previous</button>
+        <div class="row"></div>
+
+            <div ui-sref="product({ id : prod.id })" class="products col-md-3"  ng-repeat="prod in vpc.currentList | orderBy:'-rating' | filter: { subType: vpc.product.subType}" ng-if="prod.id!=vpc.product.id">
+                <img src="images/{{prod.subType}}/{{ prod.id }}.jpg">
+                <span>{{prod.name}}</span></li>
+                Cost : {{prod.price}}
+                {{ prod.rating }}
+                <jk-rating-stars class="rating" rating="prod.rating" read-only="true" on-rating="vpc.onRating(rating)" >
+                </jk-rating-stars>
+            </div>
+
         </div>
-    </div>
-    <button class="next" >next</button>
-</div>
+        <button class="next" ng-click="vpc.nextList()" >next</button>
+
+
 
 
         <!--<div class="col-md-6" style="background-color:pink;">-->
