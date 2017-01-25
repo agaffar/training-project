@@ -26,7 +26,11 @@
         <label>Ram : </label><span> {{vpc.product.RAM}}</span><br>
         <label>Color : </label><span> {{vpc.product.color}}</span><br>
         <label>Battery : </label><span> {{vpc.product.battery}}</span><br>
-
+        <label>Offers : </label>
+            <div ng-repeat="offers in vpc.product.offers">
+                <label>{{offers.type}} : </label><span> {{offers.amount |currency:'&#8377;' }}</span><br>
+            </div>
+            <br>
         <label>Comments :</label><br>
         <hr>
         <ul id="commentProd">

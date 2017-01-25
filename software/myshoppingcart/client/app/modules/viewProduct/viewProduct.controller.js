@@ -19,6 +19,7 @@
                 {
                     vm.product = prod;
                     subType = prod.subType;
+                    console.log(vm.product.offers);
                 }
             }
         //vm.prodName = vm.product.name;

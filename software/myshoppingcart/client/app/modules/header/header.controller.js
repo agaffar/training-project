@@ -11,10 +11,10 @@
         vm.refreshProds = refreshProductList;
         vm.viewProduct = viewSelectedProduct;
 
-        $scope.$watch("headc.refreshed", function(oldV, newV){
+      /*  $scope.$watch("headc.refreshed", function(oldV, newV){
             console.log("coming in list change");
-        },true);
-        function refreshProductList(valueEntered)
+        },true);*/
+      /*  function refreshProductList(valueEntered)
         {
             var refreshed = [];
             console.log("entered fun");
@@ -45,12 +45,12 @@
                     vm.refreshed = [];
                 }
             //});
-        }
-        function viewSelectedProduct(productid)
+        }*/
+        /*function viewSelectedProduct(productid)
         {
 
             console.log("state go = "+productid);
             $state.go("product",{id:productid});
-        }
+        }*/
     }
 })();

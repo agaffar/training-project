@@ -466,6 +466,725 @@
         "amount": 2000
       }
     ]
+  },
+  {
+    "id":"ELEC_PRD_12",
+    "name": "HP 14-AM081TU",
+    "price": 39990.00,
+    "description": "4 cell Lithium ion battery allows you to keep working for longer.",
+    "type": "electronics",
+    "subType": "laptop",
+    "brand": "HP",
+    "RAM": "4GB DDR4",
+    "modelName": "14-AM081TU",
+    "color": "Turbo Silver",
+    "battery": "4 cell Lithium ion ",
+    "comments": [
+      {
+        "text": "Good laptop for office and medium use purpose",
+        "rating": "4",
+        "commentedOn": "02/11/2016",
+        "username": "Pranav S"
+      },
+      {
+        "text": "Excellent and Beautiful Product with good processing speed and THE PERFECT DESIGN",
+        "rating": "5",
+        "commentedOn": "06/08/2016",
+        "username": "Shakeel Samdani"
+      },
+      {
+        "text": "Worst Experience with the Product & the Services.",
+        "rating": "1",
+        "commentedOn": "10/10/2016",
+        "username": "Deadpool"
+      }
+    ],
+    "offers": [
+      {
+        "type": "AmazonBasics 14-Inch Laptop Sleeves (Black)",
+        "amount": 849
+      }
+    ],
+    "rating": "5"
+  },
+  {
+    "id":"ELEC_PRD_13",
+    "name": "Apple MacBook Air",
+    "price":  59891.00,
+    "description": "MacBook Air is powered by 5th generation Intel Core i5 and i7 processors.",
+    "type": "electronics",
+    "subType": "laptop",
+    "brand": "Apple",
+    "RAM": "8GB DDR3",
+    "modelName": "MMGF2HN/A",
+    "color": "white",
+    "battery": "12 Hours",
+    "comments": [
+      {
+        "text": "Great For College Students & Professionals Alike! Worth Every Penny!",
+        "rating": "5",
+        "commentedOn": "20/11/2016",
+        "username": "Seabiscuit"
+      },
+      {
+        "text": "model is not latest its last year model.",
+        "rating": "2",
+        "commentedOn": "16/11/2016",
+        "username": "Gunjan"
+      },
+      {
+        "text": "This is the best buy if you are looking for on ultra portable ",
+        "rating": "5",
+        "commentedOn": "22/08/2016",
+        "username": "Ayush Patel"
+      }
+    ],
+    "offers": [
+      {
+        "type": "OnsiteGo 2 Year Extended Warranty for Laptops from Rs. 50001 to Rs. 70000",
+        "amount": 5999
+      }
+    ],
+    "rating": "5"
+  },
+  {
+    "id":"ELEC_PRD_14",
+    "name": "Asus X540LA-XX596D",
+    "price":  24999.00,
+    "description": "Its only for beginners to do basic works.",
+    "type": "electronics",
+    "subType": "laptop",
+    "brand": "Asus",
+    "RAM": "4GB DDR3 SDRAM",
+    "modelName": "X540LA-XX596D",
+    "color": "Silver",
+    "battery": "12 Hours",
+    "comments": [
+      {
+        "text": "Very nice laptop",
+        "rating": "5",
+        "commentedOn": "21/12/2016",
+        "username": "Himanshu bansal"
+      },
+      {
+        "text": "Awesome Laptop!!",
+        "rating": "5",
+        "commentedOn": "30/12/2016",
+        "username": "Rakesh Sharma V "
+      },
+      {
+        "text": "Its only for beginners to do basic works",
+        "rating": "2",
+        "commentedOn": "29/12/2016",
+        "username": "SATENDRA P"
+      }
+    ],
+    "offers": [
+      {
+        "type": "No offer",
+        "amount": 0
+      }
+    ],
+    "rating": "4"
+  },
+  {
+    "id":"ELEC_PRD_15",
+    "name": "Acer Aspire",
+    "price":  16599.00,
+    "description": "Acer Aspire E Series ES1-521 NX.G2KSI.024 AMD E1-6010 - (4 GB DDR3/1 TB HDD/Linux) Notebook (15.6 inch, Charcoal).",
+    "type": "electronics",
+    "subType": "laptop",
+    "brand": "Acer",
+    "RAM": "4GB DDR3 SDRAM",
+    "modelName": "ES1-521 (NX.G2KSI.024)",
+    "color": "Diamond Black",
+    "battery": "12 Hours",
+    "comments": [
+      {
+        "text": "Beauty with performance.",
+        "rating": "4",
+        "commentedOn": "25/08/2016",
+        "username": "Himanshu bansal"
+      },
+      {
+        "text": "Buy It Only if you have nothing else in the world to do",
+        "rating": "1",
+        "commentedOn": "21/12/2016",
+        "username": "Shailesh"
+      },
+      {
+        "text": "Bad product. Don't buy it",
+        "rating": "1",
+        "commentedOn": "12/12/2016",
+        "username": "bhatt waseem"
+      }
+    ],
+    "offers": [
+      {
+        "type": "Acer Laptop Backpack",
+        "amount": 499
+      }
+    ],
+    "rating": "3"
+  },
+  {
+    "id":"ELEC_PRD_16",
+    "name": "Micromax Canvas Lapbook",
+    "price":  9490.00,
+    "description": "Make a snappy & brilliant start every time on the Canvas Lapbook L1160.",
+    "type": "electronics",
+    "subType": "laptop",
+    "brand": "Micromax",
+    "RAM": "2G DDR3",
+    "modelName": "L1160",
+    "color": "Black",
+    "battery": "7.4V/4100mAh",
+    "comments": [
+      {
+        "text": "decently amazing product.",
+        "rating": "5",
+        "commentedOn": "14/07/2016",
+        "username": "suman Dharmana"
+      },
+      {
+        "text": "Dont touch a Micromax!",
+        "rating": "1",
+        "commentedOn": "15/12/2016",
+        "username": "Kamal Aneja"
+      },
+      {
+        "text": "1.0 out of 5 starsNever puchase online products",
+        "rating": "1",
+        "commentedOn": "21/06/2016",
+        "username": "Abhinav"
+      }
+    ],
+    "offers": [
+      {
+        "type": "Saco Soft Durable Pouch for HCL ME G1 10 inch Tablet",
+        "amount": 400
+      }
+    ],
+    "rating": "3"
+  },
+  {
+    "id":"ELEC_PRD_17",
+    "name": "Lenovo Yoga 500",
+    "price":  39990.00,
+    "description": "the Lenovo Yoga 500 makes computing stylish and effortless.",
+    "type": "electronics",
+    "subType": "laptop",
+    "brand": "Lenovo",
+    "RAM": "4GB DDR3"    ,
+    "modelName": "Yoga",
+    "color": "Black",
+    "battery": "3 cell",
+    "comments": [
+      {
+        "text": "Nice product",
+        "rating": "4",
+        "commentedOn": "15/09/2016",
+        "username": "Kiran Teja Settipalli"
+      },
+      {
+        "text": "Wonderful",
+        "rating": "5",
+        "commentedOn": "29/08/2016",
+        "username": "Kartik Solanki"
+      },
+      {
+        "text": "Highly recommended",
+        "rating": "4",
+        "commentedOn": "21/10/2016",
+        "username": "ashok reddy"
+      }
+    ],
+    "offers": [
+      {
+        "type": "exchange",
+        "amount": 7000
+      }
+    ],
+    "rating": "4"
+  },
+  {
+    "id":"ELEC_PRD_18",
+    "name": "HP Pavilion Celeron",
+    "price":  14990.00,
+    "description": "the HP Pavilion laptop is a sleek and compact everyday laptop that you can invest for your home office.",
+    "type": "electronics",
+    "subType": "laptop",
+    "brand": "HP",
+    "RAM": "2GB DDR3"    ,
+    "modelName": "Pavilion",
+    "color": "Black",
+    "battery": "2 cell",
+    "comments": [
+      {
+        "text": "Small and Good Travel Companion",
+        "rating": "4",
+        "commentedOn": "07/08/2016",
+        "username": "Vijay Subramaniam"
+      },
+      {
+        "text": "Wastage of Money",
+        "rating": "1",
+        "commentedOn": "24/05/2016",
+        "username": "Bimalendu Mandal"
+      },
+      {
+        "text": "Unsatisfactory",
+        "rating": "1",
+        "commentedOn": "22/12/2016",
+        "username": "Mazhar"
+      }
+    ],
+    "offers": [
+      {
+        "type": "exchange",
+        "amount": 1000
+      }
+    ],
+    "rating": "1"
+  },
+  {
+    "id":"ELEC_PRD_19",
+    "name": "HP APU Quad Core",
+    "price":  24990.00,
+    "description": "Invest in this HP notebook if you are looking for a new laptop.",
+    "type": "electronics",
+    "subType": "laptop",
+    "brand": "HP",
+    "RAM": "4GB DDR3"    ,
+    "modelName": "15-af114AU",
+    "color": "Turbo SIlver Color With Diamond & Cross Brush Pattern",
+    "battery": "41 Wh Li-Ion Battery",
+    "comments": [
+      {
+        "text": "Great for the price but watchout",
+        "rating": "4",
+        "commentedOn": "08/09/2016",
+        "username": "Kaushik Somaiya"
+      },
+      {
+        "text": "Good performance with Windows 10 out of the box",
+        "rating": "4",
+        "commentedOn": "04/10/2016",
+        "username": "Satyabrata Panda"
+      },
+      {
+        "text": "nice product",
+        "rating": "4",
+        "commentedOn": "22/10/2016",
+        "username": "mohit "
+      }
+    ],
+    "offers": [
+      {
+        "type": "Bank offer",
+        "amount": 1000
+      }
+    ],
+    "rating": "4"
+  },
+  {
+    "id":"ELEC_PRD_20",
+    "name": "Asus APU Quad Core",
+    "price":  21990.00,
+    "description": "Sleek, fast and spacious, the ASUS X540YA notebook ticks all the right boxes.",
+    "type": "electronics",
+    "subType": "laptop",
+    "brand": "Asus",
+    "RAM": "4GB"    ,
+    "modelName": "APU Quad",
+    "color": "Black",
+    "battery": "3 cell",
+    "comments": [
+      {
+        "text": "Worth every penny!",
+        "rating": "4",
+        "commentedOn": "27/09/2016",
+        "username": "aseem vm"
+      },
+      {
+        "text": "Met Expectations",
+        "rating": "3",
+        "commentedOn": "25/10/2016",
+        "username": "Akshay Desai"
+      },
+      {
+        "text": "Poor graphics",
+        "rating": "3",
+        "commentedOn": "17/12/2016",
+        "username": "ABY ABRAHAM"
+      }
+    ],
+    "offers": [
+      {
+        "type": "Bank offer",
+        "amount": 1000
+      }
+    ],
+    "rating": "3"
+  },
+  {
+    "id":"ELEC_PRD_21",
+    "name": "HP Atom",
+    "price":  20990.00,
+    "description": "Sleek, fast and spacious, the ASUS X540YA notebook ticks all the right boxes.",
+    "type": "electronics",
+    "subType": "laptop",
+    "brand": "HP",
+    "RAM": "4GB DDR3"    ,
+    "modelName": "Detachable PC",
+    "color": "SIlver",
+    "battery": "Upto 10 hours",
+    "comments": [
+      {
+        "text": "Delightful",
+        "rating": "4",
+        "commentedOn": "13/01/2017",
+        "username": "Nirmal Shalhata"
+      },
+      {
+        "text": "Terrific purchase",
+        "rating": "5",
+        "commentedOn": "17/01/2017",
+        "username": "Asish kumar Beura"
+      },
+      {
+        "text": "Wonderful",
+        "rating": "5",
+        "commentedOn": "16/01/2017",
+        "username": "Ravi Prasad"
+      }
+    ],
+    "offers": [
+      {
+        "type": "Bank offer",
+        "amount": 1000
+      }
+    ],
+    "rating": "3"
+  },
+  {
+    "id":"ELEC_PRD_22",
+    "name": "Lenovo Ideapad",
+    "price":  25990.00,
+    "description": "Very good product is a great gaming graphics and features .buy this item is very excellent.",
+    "type": "electronics",
+    "subType": "laptop",
+    "brand": "Lenovo",
+    "RAM": "8GB"    ,
+    "modelName": "Ideapad",
+    "color": "Black Texture",
+    "battery": "Upto 4 hours",
+    "comments": [
+      {
+        "text": "Delightful",
+        "rating": "4",
+        "commentedOn": "13/01/2017",
+        "username": "Nirmal Shalhata"
+      },
+      {
+        "text": "Terrific purchase",
+        "rating": "5",
+        "commentedOn": "17/01/2017",
+        "username": "Asish kumar Beura"
+      },
+      {
+        "text": "Wonderful",
+        "rating": "5",
+        "commentedOn": "16/01/2017",
+        "username": "Ravi Prasad"
+      }
+    ],
+    "offers": [
+      {
+        "type": "Bank offer",
+        "amount": 1000
+      }
+    ],
+    "rating": "3"
+  },
+  {
+    "id":"ELEC_PRD_23",
+    "name": "HP Pavilion x360 Core",
+    "price":  41990.00,
+    "description": "With a thin profile and 360 degree foldable design, this laptop from HP is portable and versatile.",
+    "type": "electronics",
+    "subType": "laptop",
+    "brand": "HP",
+    "RAM": "4GB DDR3"    ,
+    "modelName": "Pavilion",
+    "color": "Natural SIlver Colour",
+    "battery": "3 Cell",
+    "comments": [
+      {
+        "text": "The best in class for the price range.",
+        "rating": "5",
+        "commentedOn": "11/10/2016",
+        "username": "Ameet Latkan"
+      },
+      {
+        "text": "Awesome laptop in market best in class",
+        "rating": "5",
+        "commentedOn": "11/10/2016",
+        "username": "Sovanlal Mukhopadhyay"
+      },
+      {
+        "text": "Nice product",
+        "rating": "4",
+        "commentedOn": "22/12/2016",
+        "username": "vishwas patel"
+      }
+    ],
+    "offers": [
+      {
+        "type": "exchange",
+        "amount": 5000
+      }
+    ],
+    "rating": "4"
+  },
+  {
+    "id":"ELEC_PRD_24",
+    "name": "Asus EeeBook Atom",
+    "price":  13990.00,
+    "description": " Compact and lightweight enough to fit your shoulder bag",
+    "type": "electronics",
+    "subType": "laptop",
+    "brand": "Asus ",
+    "RAM": "2GB DDR3"    ,
+    "modelName": "EeeBook",
+    "color": "Dark Blue",
+    "battery": "2Cells 38 Whrs Polymer Battery",
+    "comments": [
+      {
+        "text": "Value-for-money",
+        "rating": "4",
+        "commentedOn": "26/10/2016",
+        "username": "Vinit Rahmi"
+      },
+      {
+        "text": "Unsatisfactory",
+        "rating": "1",
+        "commentedOn": "14/11/2016",
+        "username": "Nagendra"
+      },
+      {
+        "text": "Decent product",
+        "rating": "3",
+        "commentedOn": "23/01/2017",
+        "username": "Pratik forward"
+      }
+    ],
+    "offers": [
+      {
+        "type": "Bank offer",
+        "amount": 5000
+      }
+    ],
+    "rating": "2"
+  },
+  {
+    "id":"ELEC_PRD_25",
+    "name": "Micromax Ignite",
+    "price":  17990.00,
+    "description": "Get this Micromax Ignite Pentium Quad Core laptop and take your entertainment experience to the next level.",
+    "type": "electronics",
+    "subType": "laptop",
+    "brand": "Micromax",
+    "RAM": "4GB DDR3"    ,
+    "modelName": "Ignite",
+    "color": "Black",
+    "battery": "2Cells",
+    "comments": [
+      {
+        "text": "faulty touchpad",
+        "rating": "1",
+        "commentedOn": "30/09/2016",
+        "username": "Pankaj Dev Kashyap"
+      },
+      {
+        "text": "Just okay",
+        "rating": "3",
+        "commentedOn": "19/01/2017",
+        "username": "Rakshith Alva"
+      },
+      {
+        "text": "Good configuration but pathetic performance",
+        "rating": "1",
+        "commentedOn": "18/01/2017",
+        "username": "Santosh Sharma"
+      }
+    ],
+    "offers": [
+      {
+        "type": "Bank offer",
+        "amount": 5000
+      }
+    ],
+    "rating": "1"
+  },
+  {
+    "id":"ELEC_PRD_26",
+    "name": "Apple Macbook Pro",
+    "price":  52490.00,
+    "description": "Stylish and powerful, this laptop delivers seamless multitasking",
+    "type": "electronics",
+    "subType": "laptop",
+    "brand": "Apple",
+    "RAM": "4GB DDR3"    ,
+    "modelName": "Macbook Pro",
+    "color": "SIlver",
+    "battery": "Up to 7 hours",
+    "comments": [
+      {
+        "text": "Brilliant",
+        "rating": "5",
+        "commentedOn": "17/01/2017",
+        "username": "Ujjwal Mittal"
+      },
+      {
+        "text": "Wonderful",
+        "rating": "5",
+        "commentedOn": "18/01/2017",
+        "username": "Uday Sai kumar"
+      },
+      {
+        "text": "Classy product",
+        "rating": "5",
+        "commentedOn": "24/01/2017",
+        "username": "vyankatesh patil"
+      }
+    ],
+    "offers": [
+      {
+        "type": "Bank offer",
+        "amount": 5000
+      }
+    ],
+    "rating": "5"
+  },
+  {
+    "id":"ELEC_PRD_27",
+    "name": "Acer ES 11 Celeron",
+    "price":  15190.00,
+    "description": "The product is very good for the price",
+    "type": "electronics",
+    "subType": "laptop",
+    "brand": "Acer",
+    "RAM": "2GB DDR3"    ,
+    "modelName": "Aspire",
+    "color": "Diamond Black",
+    "battery": "3 cell",
+    "comments": [
+      {
+        "text": "Best in the market!",
+        "rating": "5",
+        "commentedOn": "01/11/2016",
+        "username": "venkat"
+      },
+      {
+        "text": "Wonderful",
+        "rating": "4",
+        "commentedOn": "12/01/2017",
+        "username": "jitu thakor"
+      },
+      {
+        "text": "Dont Purchase",
+        "rating": "1",
+        "commentedOn": "07/12/2016",
+        "username": "Ghanshyam Nagrecha"
+      }
+    ],
+    "offers": [
+      {
+        "type": "Bank offer",
+        "amount": 5000
+      }
+    ],
+    "rating": "3"
+  },
+  {
+    "id":"ELEC_PRD_28",
+    "name": "Dell Inspiron Core",
+    "price":  27851.00,
+    "description": "Featuring a wide screen HD LED screen, this Dell Inspiron laptop allows for a pleasant viewing experience.",
+    "type": "electronics",
+    "subType": "laptop",
+    "brand": "Dell",
+    "RAM": "4GB DDR3",
+    "modelName": "Inspiron 15",
+    "color": "Black",
+    "battery": "4ells",
+    "comments": [
+      {
+        "text": "Fabulous!",
+        "rating": "5",
+        "commentedOn": "04/01/2017",
+        "username": "satyendra yadav"
+      },
+      {
+        "text": "Nice product",
+        "rating": "4",
+        "commentedOn": "22/12/2016",
+        "username": "Maruti Vishwakarma"
+      },
+      {
+        "text": "Met Expectations",
+        "rating": "3",
+        "commentedOn": "18/12/2016",
+        "username": "Balamurugan V"
+      }
+    ],
+    "offers": [
+      {
+        "type": "Bank offer",
+        "amount": 5000
+      }
+    ],
+    "rating": "3"
+  },
+  {
+    "id":"ELEC_PRD_29",
+    "name": "Samsung NP300E5E-A04IN",
+    "price":  24990.00,
+    "description": "The product is very good for the price",
+    "type": "electronics",
+    "subType": "laptop",
+    "brand": "Samsung",
+    "RAM": "2GB DDR3"    ,
+    "modelName": "NP300E5E-A04IN",
+    "color": "Sleek Silver",
+    "battery": "6 cell",
+    "comments": [
+      {
+        "text": "Good",
+        "rating": "4",
+        "commentedOn": "11/11/2016",
+        "username": "Sairam"
+      },
+      {
+        "text": "Wonderful",
+        "rating": "4",
+        "commentedOn": "12/01/2017",
+        "username": "Sada"
+      },
+      {
+        "text": "Dont Purchase",
+        "rating": "2",
+        "commentedOn": "07/12/2016",
+        "username": "Ganga"
+      }
+    ],
+    "offers": [
+      {
+        "type": "exchange",
+        "amount": 5000
+      }
+    ],
+    "rating": "3"
   }
-
 ]
