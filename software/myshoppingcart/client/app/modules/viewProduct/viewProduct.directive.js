@@ -3,31 +3,32 @@
  */
 (function()
 {
-    angular.module('viewProduct').directive('viewProduct',viewProductDirective);
+    angular.module('viewProduct').directive('similarProducts',viewProductDirective);
     function viewProductDirective()
     {
         var directive = {
             scope :{
-                productList :'=',
-                productType :'@'
+                similarProductList :'=',
+                productType :'@',
+                productId : '@'
 
             },
-            templateUrl : 'app/partials/viewProduct.html',
-            link : viewLinkFunction,
-            controller : viewProductDirectContoller,
+            templateUrl : 'app/partials/similarProducts.html',
+            link : similarProductsFunction,
+            controller : similarProductsDirectContoller,
+            controllerAs:"sim"
         }
-        function  viewLinkFunction(scope,elements,attr)
+        function  similarProductsFunction(scope,elements,attr)
         {
-            console.log("hhhhhhhhhhhhhhhhhhhhhhhhhhhh ");
+            console.log("hhhhhhhhhhhhhhhhhhhhhhhhhhhh "+attr.productType);
 
         }
 
         return directive;
     }
-    viewProductDirectContoller.$inject = ['$scope', 'CartData','$rootScope', '$timeout','$stateParams'];
+    similarProductsDirectContoller.$inject = ['$scope', 'CartData','$rootScope', '$timeout','$stateParams'];
 
-    function viewProductDirectContoller($scope,cartData,$rootScope,$timeout,$stateParams)
-    {
-        console.log($rootScope.products);
+    function similarProductsDirectContoller($scope,cartData,$rootScope,$timeout,$stateParams) {
+
     }
 })();

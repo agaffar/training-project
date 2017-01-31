@@ -54,22 +54,13 @@
 </div>
 <hr>
 <h3>Similar Products</h3>
-        <button ng-click="vpc.prevList()"><i class="fa fa-caret-square-o-left" aria-hidden="true"></i>&nbsp;&nbsp;previous</button>
-        <div class="row"></div>
+<button ng-click="vpc.prevList()"><i class="fa fa-caret-square-o-left" aria-hidden="true"></i>&nbsp;&nbsp;previous</button>
+<!--{{vpc.currentList}}-->
+      <similar-products similar-product-list="vpc.currentList" product-type="{{vpc.product.subType}}" product-id="{{vpc.product.id}}">
 
-            <div ui-sref="product({ id : prod.id })" class="products col-md-3"  ng-repeat="prod in vpc.currentList | orderBy:'-rating' | filter: { subType: vpc.product.subType}" ng-if="prod.id!=vpc.product.id">
-                <img src="images/{{prod.subType}}/{{ prod.id }}.jpg">
-                <span>{{prod.name}}</span></li>
-                Cost : {{prod.price}}
-                {{ prod.rating }}
-                <jk-rating-stars class="rating" rating="prod.rating" read-only="true" on-rating="vpc.onRating(rating)" >
-                </jk-rating-stars>
-            </div>
+      </similar-products>
 
-        </div>
-        <button class="next" ng-click="vpc.nextList()" >next</button>
-
-
+<button class="next" ng-click="vpc.nextList()" >next</button>
 
 
         <!--<div class="col-md-6" style="background-color:pink;">-->
