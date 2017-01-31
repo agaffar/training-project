@@ -1,36 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body class="container">
 <h1>Your are in Home page </h1>
 <div class="top5products">
     <h2>Top rated products</h2>
     {{ hc.message }}
 
-    <div id="mobiles" class="row">
+    <!--<div id="mobiles" class="row">
         <h3>Mobiles</h3>
             <div ui-sref="product({ id : product.id })" class="products col-md-3" ng-repeat="product in products | orderBy:'-rating' | filter: { subType: 'mobile'} | limitTo:5">
-                <!--<div class="container">-->
+                &lt;!&ndash;<div class="container">&ndash;&gt;
                     <img  src="images/mobile/{{ product.id }}.jpg"><span>{{product.name}}</span>
                     <label>Cost:</label><span>{{product.price | currency:'&#8377;'}}</span>
                     <label>Rating:</label><jk-rating-stars class="rating" rating="product.rating" read-only="true"></jk-rating-stars>
-                <!--</div>-->
+                &lt;!&ndash;</div>&ndash;&gt;
+            </div>
+    </div>-->
 
-            </div>
-    </div><br><br>
+    <top-rated-directive product-list="products" product-type="mobile">
+
+    </top-rated-directive>
+    <br><br>
     <hr>
-    <div id="laptops" class="row">
-        <h3>Laptops</h3>
-            <div ui-sref="product({ id : product.id })"class="products col-md-3" ng-repeat="product in products | orderBy:'-rating' | filter: { subType: 'laptop'} | limitTo:5">
-                <img src="images/laptop/{{ product.id }}.jpg"><span>{{product.name}}</span>
-                Cost:<span>{{product.price | currency:'&#8377;'}}</span>
-                Rating:<jk-rating-stars class="rating" rating="product.rating" read-only="true"></jk-rating-stars>&nbsp;&nbsp;
-                &nbsp;&nbsp;
-            </div>
-    </div>
+    <top-rated-directive product-list="products" product-type="laptop">
+
+    <!--<div id="laptops" class="row">-->
+        <!--<h3>Laptops</h3>-->
+            <!--<div ui-sref="product({ id : product.id })"class="products col-md-3" ng-repeat="product in products | orderBy:'-rating' | filter: { subType: 'laptop'} | limitTo:5">-->
+                <!--<img src="images/laptop/{{ product.id }}.jpg"><span>{{product.name}}</span>-->
+                <!--Cost:<span>{{product.price | currency:'&#8377;'}}</span>-->
+                <!--Rating:<jk-rating-stars class="rating" rating="product.rating" read-only="true"></jk-rating-stars>&nbsp;&nbsp;-->
+                <!--&nbsp;&nbsp;-->
+            <!--</div>-->
+    <!--</div>-->
 
 
 </div>
@@ -49,5 +48,3 @@
 
     </div>
     </div>-->
-</body>
-</html>

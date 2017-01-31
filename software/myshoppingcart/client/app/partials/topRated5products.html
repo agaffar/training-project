@@ -1,0 +1,8 @@
+
+    <div ui-sref="product({ id : product.id })" class="products col-md-3" ng-repeat="product in productList | orderBy:'-rating' | filter: { subType: productType} | limitTo:5">
+        <!--<div class="container">-->
+        <img  src="images/{{productType}}/{{ product.id }}.jpg"><span>{{product.name}}</span>
+        <label>Cost:</label><span>{{product.price | currency:'&#8377;'}}</span>
+        <label>Rating:</label><jk-rating-stars class="rating" rating="product.rating" read-only="true"></jk-rating-stars>
+        <!--</div>-->
+    </div>
