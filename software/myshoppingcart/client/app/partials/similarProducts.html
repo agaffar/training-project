@@ -6,8 +6,10 @@
     <span>{{prod.name}}</span></li>
     Cost : {{prod.price}}
     {{ prod.rating }}
-    <jk-rating-stars class="rating" rating="prod.rating" read-only="true" on-rating="vpc.onRating(rating)" >
-    </jk-rating-stars>
+    <ng-rate-it min = 0 max = 5 read-only = "true" ng-model=prod.rating >
+    </ng-rate-it>
+    <!--<jk-rating-stars class="rating" rating="prod.rating" read-only="true" on-rating="vpc.onRating(rating)" >
+    </jk-rating-stars>-->
 </div>
 
 </div>

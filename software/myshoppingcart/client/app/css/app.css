@@ -205,3 +205,16 @@ div.topmages {
 .item:not(.prev) {visibility: visible;}
 .item.right:not(.prev) {visibility: hidden;}
 .rightest{ visibility: visible;}
+.scroll
+{
+  height:200px;
+  width:auto;
+  border:solid 2px #d5d5d5;
+  overflow:scroll;
+  overflow-x:hidden;
+  overflow-y:scroll;
+}
+/*
+.vertical_line{
+  height:150px; width:1px;background:#000;}
+*/

@@ -1,7 +1,6 @@
 <h1>Your are in Home page </h1>
 <div class="top5products">
     <h2>Top rated products</h2>
-    {{ hc.message }}
 
     <!--<div id="mobiles" class="row">
         <h3>Mobiles</h3>
@@ -13,14 +12,21 @@
                 &lt;!&ndash;</div>&ndash;&gt;
             </div>
     </div>-->
+    <h3>Mobiles</h3>
+    <div class="row">
+        <top-rated-directive product-list="products" product-type="mobile">
 
-    <top-rated-directive product-list="products" product-type="mobile">
+        </top-rated-directive>
+    </div>
 
-    </top-rated-directive>
     <br><br>
     <hr>
-    <top-rated-directive product-list="products" product-type="laptop">
 
+    <h3>Laptops</h3>
+    <div class="row">
+    <top-rated-directive product-list="products" product-type="laptop">
+    </top-rated-directive>
+        </div>
     <!--<div id="laptops" class="row">-->
         <!--<h3>Laptops</h3>-->
             <!--<div ui-sref="product({ id : product.id })"class="products col-md-3" ng-repeat="product in products | orderBy:'-rating' | filter: { subType: 'laptop'} | limitTo:5">-->

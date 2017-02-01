@@ -1,0 +1,11 @@
+<div>
+    <img class="proim" src="images/{{pip.product.subType}}/{{pip.product.id}}.jpg"><br>
+
+    <span >price : {{pip.product.price | currency:'&#8377;'}}</span><br>
+    <label>Rating</label>{{pip.product.rating}}
+    <!--<jk-rating-stars rating="vpc.product.rating" read-only="true" on-rating="vpc.onRating(rating)" >
+</jk-rating-stars>-->
+    <ng-rate-it min = 0 max = 5 read-only = "true" ng-model=pip.product.rating >
+    </ng-rate-it>
+</div>
+

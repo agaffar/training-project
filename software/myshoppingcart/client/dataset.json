@@ -1186,5 +1186,1854 @@
       }
     ],
     "rating": "3"
+  },
+  {
+    "id": "ELEC_PRD_30",
+    "name": "Lenovo Z2 Plus",
+    "price": 14999,
+    "description": "The Lenovo Z2 Plus is powered by a Qualcomm Snapdragon 820 processor and comes equipped with Pro-fitness Sensors",
+    "type": "electronics",
+    "subType": "mobile",
+    "brand": "Lenovo",
+    "RAM": "3GB",
+    "modelName": "Z2 Plus",
+    "color": "Black",
+    "battery": "3500 mAh",
+    "camera": {
+      "front": "8MP",
+      "rear": "13MP"
+    },
+    "comments": [
+      {
+        "text": "Pretty smart",
+        "rating": "5",
+        "commentedOn": "17/01/2017",
+        "username": "Rehan Rio"
+      },
+      {
+        "text": "Wonderful",
+        "rating": "5",
+        "commentedOn": "18/01/2017",
+        "username": "Debmalya Das"
+      },
+      {
+        "text": "damn amazing phone!",
+        "rating": "5",
+        "commentedOn": "24/01/2017",
+        "username": "Ankush Singh"
+      }
+    ],
+    "offers": [
+      {
+        "type": "exchange",
+        "amount": 13000
+      }
+    ],
+    "rating": "5"
+  },
+  {
+    "id": "ELEC_PRD_31",
+    "name": "Apple iPhone 6",
+    "price": 36990,
+    "description": "Phone is Amazing, Super Fast, Light weight, sleek & dashing look.",
+    "type": "electronics",
+    "subType": "mobile",
+    "brand": "Apple",
+    "RAM": "1GB",
+    "modelName": "iPhone 6",
+    "color": "Silver",
+    "battery": "Li-Ion",
+    "camera": {
+      "front": "1.2MP",
+      "rear": "8MP"
+    },
+    "comments": [
+      {
+        "text": "Great Buy",
+        "rating": "5",
+        "commentedOn": "13/01/2017",
+        "username": "Prabhath MP"
+      },
+      {
+        "text": "Excellent Service",
+        "rating": "4",
+        "commentedOn": "26/01/2017",
+        "username": "SAIBY HANSPAL"
+      },
+      {
+        "text": "Met some expectations",
+        "rating": "2",
+        "commentedOn": "29/10/2016",
+        "username": "Nkit Gattani"
+      }
+    ],
+    "offers": [
+      {
+        "type": "exchange",
+        "amount": 20000
+      }
+    ],
+    "rating": "3"
+  },
+  {
+    "id": "ELEC_PRD_32",
+    "name": "OPPO F1s",
+    "price": 18990,
+    "description": "Meet the Selfie Expert - The Oppo F1s. Equipped with stunning 16 MP front camera and a 13 MP rear camera, this smartphone is a must-have in every photo enthusiast's hands.",
+    "type": "electronics",
+    "subType": "mobile",
+    "brand": "OPPO",
+    "RAM": "4GB",
+    "modelName": "F1s",
+    "color": "Gold",
+    "battery": "3075 mAh",
+    "camera": {
+      "front": "13MP",
+      "rear": "16MP"
+    },
+    "comments": [
+      {
+        "text": "Wonderful",
+        "rating": "4",
+        "commentedOn": "08/10/2016",
+        "username": "Rahul Yadav"
+      },
+      {
+        "text": "Worth every penny",
+        "rating": "5",
+        "commentedOn": "11/09/2016",
+        "username": "Gaurav Solanki"
+      },
+      {
+        "text": "EXCELLENT PHONE",
+        "rating": "4",
+        "commentedOn": "09/09/2016",
+        "username": "NITESH KUMAR AGARWAL"
+      }
+    ],
+    "offers": [
+      {
+        "type": "Bank Offer",
+        "amount": 1000
+      }
+    ],
+    "rating": "4"
+  },
+  {
+    "id": "ELEC_PRD_33",
+    "name": "Lenovo P2",
+    "price": 17999,
+    "description": "With a 5100 mAh battery that can last for hours on end, there’s never a dull moment with the Lenovo P2 smartphone.",
+    "type": "electronics",
+    "subType": "mobile",
+    "brand": "Lenovo",
+    "RAM": "4GB",
+    "modelName": "P2",
+    "color": "Grey",
+    "battery": "5100 mAh",
+    "camera": {
+      "front": "5MP",
+      "rear": "13MP"
+    },
+    "comments": [
+      {
+        "text": "Battery Life brings you bliss",
+        "rating": "4",
+        "commentedOn": "14/01/2017",
+        "username": "Sandeep Kavety"
+      },
+      {
+        "text": "Brilliant",
+        "rating": "5",
+        "commentedOn": "16/01/2017",
+        "username": "Ankit Nirwal"
+      },
+      {
+        "text": "Delightful",
+        "rating": "4",
+        "commentedOn": "13/01/2017",
+        "username": "Rajesh kumar Nimmagadda"
+      }
+    ],
+    "offers": [
+      {
+        "type": "exchange",
+        "amount": 15000
+      }
+    ],
+    "rating": "5"
+  },
+  {
+    "id": "ELEC_PRD_34",
+    "name": "Micromax Canvas Mega",
+    "price": 6999,
+    "description": "Add more colour to your life with Micromax's Canvas Mega 4G.",
+    "type": "electronics",
+    "subType": "mobile",
+    "brand": "Micromax",
+    "RAM": "3GB",
+    "modelName": "Canvas Mega 4G",
+    "color": "Blue",
+    "battery": "2500 mAh",
+    "camera": {
+      "front": "5MP",
+      "rear": "13MP"
+    },
+    "comments": [
+      {
+        "text": "Nice product",
+        "rating": "4",
+        "commentedOn": "04/01/2017",
+        "username": "Nithin"
+      },
+      {
+        "text": "Value-for-money",
+        "rating": "4",
+        "commentedOn": "16/11/2016",
+        "username": "Mihir Vichare"
+      },
+      {
+        "text": "Wonderful",
+        "rating": "4",
+        "commentedOn": "28/12/2016",
+        "username": "Shashank"
+      }
+    ],
+    "offers": [
+      {
+        "type": "Bank Offer",
+        "amount": 1000
+      }
+    ],
+    "rating": "4"
+  },
+  {
+    "id": "ELEC_PRD_35",
+    "name": "LeEco Le 1s Eco",
+    "price": 9999,
+    "description": "Built with the Android Lollipop and the Octa Core processor",
+    "type": "electronics",
+    "subType": "mobile",
+    "brand": "LeEco",
+    "RAM": "3GB",
+    "modelName": "Le 1s Eco",
+    "color": "Gold",
+    "battery": "3000 mAh",
+    "camera": {
+      "front": "5MP",
+      "rear": "13MP"
+    },
+    "comments": [
+      {
+        "text": "Wonderful",
+        "rating": "4",
+        "commentedOn": "21/10/2016",
+        "username": "Yash Bais"
+      },
+      {
+        "text": "Delightful",
+        "rating": "4",
+        "commentedOn": "24/09/2016",
+        "username": "Ninad Rathod"
+      },
+      {
+        "text": "Good but poor battery life",
+        "rating": "3",
+        "commentedOn": "29/08/2016",
+        "username": "Harshit Gupta"
+      }
+    ],
+    "offers": [
+      {
+        "type": "Bank Offer",
+        "amount": 1000
+      }
+    ],
+    "rating": "4"
+  },
+  {
+    "id": "ELEC_PRD_36",
+    "name": "XOLO Era 2X",
+    "price": 6666,
+    "description": "The Xolo Era 2X is equipped with a multi-purpose fingerprint scanner which allows you to click pictures",
+    "type": "electronics",
+    "subType": "mobile",
+    "brand": "XOLO",
+    "RAM": "2GB",
+    "modelName": "Era 2X",
+    "color": "Black and Gun",
+    "battery": "2500 mAh",
+    "camera": {
+      "front": "5MP",
+      "rear": "8MP"
+    },
+    "comments": [
+      {
+        "text": "Just okay",
+        "rating": "3",
+        "commentedOn": "14/01/2017",
+        "username": "Shaan Sharma"
+      },
+      {
+        "text": "amazing",
+        "rating": "4",
+        "commentedOn": "14/01/2017",
+        "username": "HIMANSHU SRIVASTAVA"
+      },
+      {
+        "text": "Did not meet expectations",
+        "rating": "1",
+        "commentedOn": "12/01/2017",
+        "username": "Santosh Devi"
+      }
+    ],
+    "offers": [
+      {
+        "type": "Bank Offer",
+        "amount": 1000
+      }
+    ],
+    "rating": "2"
+  },
+  {
+    "id": "ELEC_PRD_37",
+    "name": "Lenovo Vibe K5 Note",
+    "price": 13499,
+    "description": "Its TheatreMax technology gives you a 100 degree diagonal field view of videos so your experience is enhanced.",
+    "type": "electronics",
+    "subType": "mobile",
+    "brand": "Lenovo",
+    "RAM": "4GB",
+    "modelName": "Vibe K5 Note",
+    "color": "Gold",
+    "battery": "3500 mAh",
+    "camera": {
+      "front": "8MP",
+      "rear": "13MP"
+    },
+    "comments": [
+      {
+        "text": "Good choice",
+        "rating": "4",
+        "commentedOn": "08/11/2016",
+        "username": "SURENDRA KUMAR MEENA"
+      },
+      {
+        "text": "Really good experience with VR mode",
+        "rating": "5",
+        "commentedOn": "12/08/2016",
+        "username": "Vinoth B"
+      },
+      {
+        "text": "With limited budget comes a great phone!",
+        "rating": "5",
+        "commentedOn": "07/08/2016",
+        "username": "Kaustubh Bendale"
+      }
+    ],
+    "offers": [
+      {
+        "type": "exchange",
+        "amount": 1000
+      }
+    ],
+    "rating": "5"
+  },
+  {
+    "id": "ELEC_PRD_38",
+    "name": "Asus Zenfone 2 Laser",
+    "price": 8499,
+    "description": "Boasting a seamless and intuitive UI",
+    "type": "electronics",
+    "subType": "mobile",
+    "brand": "Asus",
+    "RAM": "2GB",
+    "modelName": "Zenfone 2 Laser ZE550KL",
+    "color": "Black",
+    "battery": "3000 mAh",
+    "camera": {
+      "front": "5MP",
+      "rear": "13MP"
+    },
+    "comments": [
+      {
+        "text": "worth more for the price",
+        "rating": "4",
+        "commentedOn": "29/08/2015",
+        "username": "swaroop sambhayya"
+      },
+      {
+        "text": "Awesome Phone in 10 K",
+        "rating": "4",
+        "commentedOn": "29/08/2016",
+        "username": "Bibhu Chandan Dey"
+      },
+      {
+        "text": "Excellent Gadget. A totally unbiased view.",
+        "rating": "5",
+        "commentedOn": "03/10/2016",
+        "username": "VIVEK SHEEL"
+      }
+    ],
+    "offers": [
+      {
+        "type": "Bank Offer",
+        "amount": 1000
+      }
+    ],
+    "rating": "4"
+  },
+  {
+    "id": "ELEC_PRD_39",
+    "name": "SAMSUNG Galaxy On Nxt",
+    "price": 15900,
+    "description": "Flaunt your style with the Samsung Galaxy On Nxt.",
+    "type": "electronics",
+    "subType": "mobile",
+    "brand": "SAMSUNG",
+    "RAM": "3GB",
+    "modelName": "Galaxy On Nxt",
+    "color": "Black",
+    "battery": "3300 mAh",
+    "camera": {
+      "front": "8MP",
+      "rear": "13MP"
+    },
+    "comments": [
+      {
+        "text": "worth more for the price",
+        "rating": "4",
+        "commentedOn": "29/08/2015",
+        "username": "swaroop sambhayya"
+      },
+      {
+        "text": "Really Nice",
+        "rating": "4",
+        "commentedOn": "25/10/2016",
+        "username": "Mohammed Arif"
+      },
+      {
+        "text": "superb product..must buy",
+        "rating": "4",
+        "commentedOn": "25/10/2016",
+        "username": "g kiran kumar reddy"
+      }
+    ],
+    "offers": [
+      {
+        "type": "exchange",
+        "amount": 15000
+      }
+    ],
+    "rating": "4"
+  },
+  {
+    "id": "ELEC_PRD_40",
+    "name": "Panasonic P77",
+    "price": 5299,
+    "description": "Equipped with 4G VoLTE technology, this Panasonic smartphone will enhance your internet calling experience.",
+    "type": "electronics",
+    "subType": "mobile",
+    "brand": "Panasonic",
+    "RAM": "1GB",
+    "modelName": "P77",
+    "color": "Grey",
+    "battery": "2000 mAh",
+    "camera": {
+      "front": "2MP",
+      "rear": "8MP"
+    },
+    "comments": [
+      {
+        "text": "Fair",
+        "rating": "3",
+        "commentedOn": "10/12/2016",
+        "username": "Tarun Shyamani"
+      },
+      {
+        "text": "Not Recommended",
+        "rating": "2",
+        "commentedOn": "16/12/2016",
+        "username": "Sushant S Zingade"
+      },
+      {
+        "text": "Worth the money",
+        "rating": "4",
+        "commentedOn": "28/12/2016",
+        "username": "Sarafraj ansari"
+      }
+    ],
+    "offers": [
+      {
+        "type": "Bank Offer",
+        "amount": 1000
+      }
+    ],
+    "rating": "3"
+  },
+  {
+    "id": "ELEC_PRD_41",
+    "name": "Asus Zenfone 3 Deluxe",
+    "price": 49999,
+    "description": "Fast service & quality of mobile is as per expectation. Highly recommended.",
+    "type": "electronics",
+    "subType": "mobile",
+    "brand": "Asus",
+    "RAM": "6GB",
+    "modelName": "Zenfone 3 Deluxe",
+    "color": "Silver",
+    "battery": "3000 mAh",
+    "camera": {
+      "front": "8MP",
+      "rear": "23MP"
+    },
+    "comments": [
+      {
+        "text": "Awesome",
+        "rating": "5",
+        "commentedOn": "18/12/2016",
+        "username": "DrGunjan Modi"
+      },
+      {
+        "text": "Good choice",
+        "rating": "4",
+        "commentedOn": "11/01/2017",
+        "username": "Tejal Katwa"
+      },
+      {
+        "text": "Worth the money",
+        "rating": "4",
+        "commentedOn": "21/12/2016",
+        "username": "SatyaKiran A"
+      }
+    ],
+    "offers": [
+      {
+        "type": "Bank Offer",
+        "amount": 1000
+      }
+    ],
+    "rating": "4"
+  },
+  {
+    "id": "ELEC_PRD_42",
+    "name": "Micromax Bolt Q381",
+    "price": 3499,
+    "description": "The Micromax Bolt Q381 is designed to keep you entertained all-day long; watch movies on YouTube, play games, download interesting apps from the Play Store and do much more with this stunning smartphone",
+    "type": "electronics",
+    "subType": "mobile",
+    "brand": "Micromax",
+    "RAM": "1GB",
+    "modelName": "Bolt Q381",
+    "color": "Black",
+    "battery": "2000 mAh",
+    "camera": {
+      "front": "0.3MP",
+      "rear": "5MP"
+    },
+    "comments": [
+      {
+        "text": "Very Good",
+        "rating": "4",
+        "commentedOn": "18/09/2016",
+        "username": "FARHAN AHMED SAIFI"
+      },
+      {
+        "text": "Nice",
+        "rating": "3",
+        "commentedOn": "15/06/2016",
+        "username": "KADA GOPALAKRISHNA"
+      },
+      {
+        "text": "Bad quality",
+        "rating": "2",
+        "commentedOn": "06/12/2016",
+        "username": "Ruchika"
+      }
+    ],
+    "offers": [
+      {
+        "type": "Special Offer Flat",
+        "amount": 500
+      }
+    ],
+    "rating": "3.7"
+  },
+  {
+    "id": "ELEC_PRD_43",
+    "name": "Nexus 6P Special Edition",
+    "price": 30998,
+    "description": "A 14.478 cm (5.7), high-resolution WQHD AMOLED display and front-facing stereo speakers - all housed in a contoured aluminium body and powered by Android 6.0 Marshmallow.",
+    "type": "electronics",
+    "subType": "mobile",
+    "brand": "Nexus",
+    "RAM": "3GB",
+    "modelName": "Nexus 6P Special Edition",
+    "color": "Gold",
+    "battery": "3450 mAh",
+    "camera": {
+      "front": "8MP",
+      "rear": "12.3MP"
+    },
+    "comments": [
+      {
+        "text": "Pretty good",
+        "rating": "4",
+        "commentedOn": "23/01/2017",
+        "username": "Kritesh Bir Bagga"
+      },
+      {
+        "text": "Met some expectations",
+        "rating": "3",
+        "commentedOn": "08/11/2016",
+        "username": "DHAWAN ABHISHEK"
+      },
+      {
+        "text": "It's better than those Samsungs",
+        "rating": "4",
+        "commentedOn": "10/07/2016",
+        "username": "Atir Bhatia"
+      }
+    ],
+    "offers": [
+      {
+        "type": "Special Offer Flat",
+        "amount": 500
+      }
+    ],
+    "rating": "4.4"
+  },
+  {
+    "id": "ELEC_PRD_44",
+    "name": "Swipe Konnect Plus",
+    "price": 4499,
+    "description": "2 GB RAM and 16 GB ROM. Impressive.",
+    "type": "electronics",
+    "subType": "mobile",
+    "brand": "Swipe",
+    "RAM": "2GB",
+    "modelName": "Konnect Plus",
+    "color": "Black",
+    "battery": "3000 mAh",
+    "camera": {
+      "front": "5MP",
+      "rear": "13MP"
+    },
+    "comments": [
+      {
+        "text": "Nice",
+        "rating": "4",
+        "commentedOn": "02/01/2017",
+        "username": "Girish Reddy"
+      },
+      {
+        "text": "Worth the money",
+        "rating": "3",
+        "commentedOn": "06/12/2016",
+        "username": "Siva Samanthapudi"
+      },
+      {
+        "text": "Does the job",
+        "rating": "3",
+        "commentedOn": "10/12/2016",
+        "username": "Rabius Sunny"
+      }
+    ],
+    "offers": [
+      {
+        "type": "Bank Offer",
+        "amount": 1000
+      }
+    ],
+    "rating": "3.5"
+  },
+  {
+    "id": "ELEC_PRD_45",
+    "name": "Yu Yureka Plus",
+    "price": 6499,
+    "description": "Designed with subtle curvature, here is a phone from Yureka that will stand out from all other boring rectangular phones out there.",
+    "type": "electronics",
+    "subType": "mobile",
+    "brand": "Yureka",
+    "RAM": "2GB",
+    "modelName": "Yureka Plus",
+    "color": "Moon Dust Grey",
+    "battery": "2500 mAh",
+    "camera": {
+      "front": "5MP",
+      "rear": "13MP"
+    },
+    "comments": [
+      {
+        "text": "Classy product",
+        "rating": "5",
+        "commentedOn": "10/10/2016",
+        "username": "Pushpendra Singh"
+      },
+      {
+        "text": "Delightful",
+        "rating": "4",
+        "commentedOn": "18/10/2016",
+        "username": "kundan kumar singh"
+      },
+      {
+        "text": "Absolute rubbish!",
+        "rating": "1",
+        "commentedOn": "03/10/2016",
+        "username": "ASHUTOSH KUMAR"
+      }
+    ],
+    "offers": [
+      {
+        "type": "Bank Offer",
+        "amount": 1000
+      }
+    ],
+    "rating": "3.7"
+  },
+  {
+    "id": "ELEC_PRD_46",
+    "name": "Karbonn Titanium Machfive",
+    "price": 6499,
+    "description": "it's so slim and good looking phone,camera is also very good,love this product",
+    "type": "electronics",
+    "subType": "mobile",
+    "brand": "Karbonn",
+    "RAM": "2GB",
+    "modelName": "Titanium Machfive",
+    "color": "Silver",
+    "battery": "2200 mAh",
+    "camera": {
+      "front": "5MP",
+      "rear": "8MP"
+    },
+    "comments": [
+      {
+        "text": "Really Nice",
+        "rating": "2",
+        "commentedOn": "24/10/2016",
+        "username": "Praveen Kumar"
+      },
+      {
+        "text": "Delightful",
+        "rating": "4",
+        "commentedOn": "26/10/2016",
+        "username": "Swati Saxena"
+      },
+      {
+        "text": "very nice phone",
+        "rating": "3",
+        "commentedOn": "22/10/2016",
+        "username": "DHANAVATH HATHIRAM NAYAK"
+      }
+    ],
+    "offers": [
+      {
+        "type": "Bank Offer",
+        "amount": 1000
+      }
+    ],
+    "rating": "3.7"
+  },
+  {
+    "id": "ELEC_PRD_47",
+    "name": "Honor Holly 2 Plus",
+    "price": 8499,
+    "description": "This sleek and powerful honor Holly 2 Plus features a brilliant 12.7 cm HD display and is backed by powerful Quad Core performance.",
+    "type": "electronics",
+    "subType": "mobile",
+    "brand": "Honor Holly",
+    "RAM": "2GB",
+    "modelName": "Holly 2 Plus",
+    "color": "Grey",
+    "battery": "4000 mAh",
+    "camera": {
+      "front": "5MP",
+      "rear": "13MP"
+    },
+    "comments": [
+      {
+        "text": "Moderate",
+        "rating": "2",
+        "commentedOn": "20/10/2016",
+        "username": "Deepak Singh"
+      },
+      {
+        "text": "Better Performance",
+        "rating": "4",
+        "commentedOn": "16/10/2016",
+        "username": "srikanth v"
+      },
+      {
+        "text": "Worth the money",
+        "rating": "4",
+        "commentedOn": "21/10/2016",
+        "username": "Awinash"
+      }
+    ],
+    "offers": [
+      {
+        "type": "Bank Offer",
+        "amount": 1000
+      }
+    ],
+    "rating": "4"
+  },
+  {
+    "id": "ELEC_PRD_48",
+    "name": "HTC Desire 620G Dual Sim",
+    "price": 6780,
+    "description": " Good Display, Nice touch, Nice color production, good Ram, nice processor, Good Sound, good battery back up, No hang problem, Both the cameras are good in this range",
+    "type": "electronics",
+    "subType": "mobile",
+    "brand": "HTC",
+    "RAM": "1GB",
+    "modelName": "Desire 620G Dual Sim",
+    "color": "Milky-way Grey",
+    "battery": "2100 mAh",
+    "camera": {
+      "front": "5MP",
+      "rear": "8MP"
+    },
+    "comments": [
+      {
+        "text": "Good mid range Kitkat device",
+        "rating": "3",
+        "commentedOn": "15/12/2016",
+        "username": "Kaustav Roy"
+      },
+      {
+        "text": "CHECK PRICE",
+        "rating": "4",
+        "commentedOn": "16/10/2016",
+        "username": "BIPLOV HALDER"
+      },
+      {
+        "text": "Good One",
+        "rating": "3",
+        "commentedOn": "21/09/2016",
+        "username": "Ranjith Ganesan"
+      }
+    ],
+    "offers": [
+      {
+        "type": "Bank Offer",
+        "amount": 1000
+      }
+    ],
+    "rating": "3.8"
+  },
+  {
+    "id": "ELEC_PRD_49",
+    "name": "Google Pixel",
+    "price": 66000,
+    "description": "The power of Google(TM), at your fingertips. Every touch, every interaction, every moment - made easy. Available in two sizes.",
+    "type": "electronics",
+    "subType": "mobile",
+    "brand": "Google",
+    "RAM": "4GB",
+    "modelName": "Pixel",
+    "color": "Quite Black",
+    "battery": "2770 mAh",
+    "camera": {
+      "front": "8MP",
+      "rear": "12.3MP"
+    },
+    "comments": [
+      {
+        "text": "Excellent",
+        "rating": "5",
+        "commentedOn": "01/11/2016",
+        "username": "adi"
+      },
+      {
+        "text": "Very Good",
+        "rating": "4",
+        "commentedOn": "06/10/2016",
+        "username": "Manish Kumar"
+      },
+      {
+        "text": "Awesome product",
+        "rating": "4",
+        "commentedOn": "27/09/2016",
+        "username": "Dheeraj reddy"
+      }
+    ],
+    "offers": [
+      {
+        "type": "Bank Offer",
+        "amount": 10000
+      }
+    ],
+    "rating": "4.5"
+  },
+  {
+    "id": "ELEC_PRD_50",
+    "name": "Redmi Note 4",
+    "price": 12999,
+    "description": "The power of Google(TM), at your fingertips. Every touch, every interaction, every moment - made easy. Available in two sizes.",
+    "type": "electronics",
+    "subType": "mobile",
+    "brand": "Redmi",
+    "RAM": "4GB",
+    "modelName": "Redmi Note 4",
+    "color": "Dark Grey",
+    "battery": "4100 mAh",
+    "camera": {
+      "front": "5MP",
+      "rear": "13MP"
+    },
+    "comments": [
+      {
+        "text": "Classy product",
+        "rating": "5",
+        "commentedOn": "25/01/2017",
+        "username": "Raj Kumar"
+      },
+      {
+        "text": "Highly recommended",
+        "rating": "4",
+        "commentedOn": "24/01/2017",
+        "username": "Kumar Medar"
+      },
+      {
+        "text": "Got the Phone Next day On 24th, Till date totally satisfied",
+        "rating": "5",
+        "commentedOn": "25/01/2017",
+        "username": "Awinaash Sharmaa"
+      }
+    ],
+    "offers": [
+      {
+        "type": "Bank Offer",
+        "amount": 1000
+      }
+    ],
+    "rating": "5"
+  },
+  {
+    "id": "Book_PRD_51",
+    "name": "Room On The Roof Vagrants In T : Two Novels of Adolescence",
+    "price": 270,
+    "type": "books",
+    "rating": 4.3,
+    "subType": "fiction",
+    "Author": "Ruskin Bond",
+    "Features": {
+      "Language": "English",
+      "ISBN": "9780140239591",
+      "Pages" : "223",
+      "Publisher" : "Penguin",
+      "Edition" : "1st, 2000"
+    },
+    "comments": [
+      {
+        "text": "Bond with the Best..!!",
+        "rating": "5",
+        "commentedOn": "14/02/2015",
+        "username": "Ritesh Shrivastav"
+      },
+      {
+        "text": "Satisfied",
+        "rating": "4",
+        "commentedOn": "27/02/2016",
+        "username": "Hitesh Dodeja"
+      },
+      {
+        "text": "awesome",
+        "rating": "4",
+        "commentedOn": "14/10/2016",
+        "username": "SWETABJA MALLIK"
+      }
+    ],
+    "offers": [
+      {
+        "type": "discount",
+        "percentage": 5
+      }
+    ]
+  },
+  {
+    "id": "Book_PRD_52",
+    "name": "ALCHEMIST - Graphic Novel",
+    "price": 140,
+    "type": "books",
+    "rating": 4.3,
+    "subType": "fiction",
+    "Author": "Coelho, Paulo",
+    "Features": {
+      "Language": "English",
+      "ISBN": "9780007435180",
+      "Pages" : "250",
+      "Publisher" : "HarperCollins",
+      "Edition" : "1, 2011"
+    },
+    "comments": [
+      {
+        "text": "A worth Read",
+        "rating": "5",
+        "commentedOn": "16/10/2011",
+        "username": "purushottam kumar"
+      },
+      {
+        "text": "Looks good in my collection",
+        "rating": "4",
+        "commentedOn": "16/10/2011",
+        "username": "Subhashish Nandi"
+      },
+      {
+        "text": "MUST READ",
+        "rating": "4",
+        "commentedOn": "17/04/2016",
+        "username": "Momin Ahmad"
+      }
+    ],
+    "offers": [
+      {
+        "type": "discount",
+        "percentage": 5
+      }
+    ]
+  },
+  {
+    "id": "Book_PRD_53",
+    "name": "Sherlock Holmes: The Complete Novels and Stories Volume I",
+    "price": 224,
+    "type": "books",
+    "rating": 4.5,
+    "subType": "fiction",
+    "Author": "Conan Doyle",
+    "Features": {
+      "Language": "English",
+      "ISBN": "9780553212419",
+      "Pages" : "1086",
+      "Publisher" : "Random House Publishing Group",
+      "Edition" : "1986"
+    },
+    "comments": [
+      {
+        "text": "ENTHRALLING...",
+        "rating": "4",
+        "commentedOn": "08/10/2016",
+        "username": "rray"
+      },
+      {
+        "text": "Classic stories but horrible paper quality",
+        "rating": "4",
+        "commentedOn": "09/07/2014",
+        "username": "Prithwiraj Pal"
+      },
+      {
+        "text": "good better best",
+        "rating": "5",
+        "commentedOn": "27/04/2015",
+        "username": "Aritra Mazumder"
+      }
+    ],
+    "offers": [
+      {
+        "type": "discount",
+        "percentage": 5
+      }
+    ]
+  },
+  {
+    "id": "Book_PRD_54",
+    "name": "Sherlock Holmes: The Complete Novels and Stories Volume I",
+    "price": 224,
+    "type": "books",
+    "rating": 4.5,
+    "subType": "fiction",
+    "Author": "Conan Doyle",
+    "Features": {
+      "Language": "English",
+      "ISBN": "9780553212419",
+      "Pages" : "1086",
+      "Publisher" : "Random House Publishing Group",
+      "Edition" : "1986"
+    },
+    "comments": [
+      {
+        "text": "ENTHRALLING...",
+        "rating": "4",
+        "commentedOn": "08/10/2016",
+        "username": "rray"
+      },
+      {
+        "text": "Classic stories but horrible paper quality",
+        "rating": "4",
+        "commentedOn": "09/07/2014",
+        "username": "Prithwiraj Pal"
+      },
+      {
+        "text": "good better best",
+        "rating": "5",
+        "commentedOn": "27/04/2015",
+        "username": "Aritra Mazumder"
+      }
+    ],
+    "offers": [
+      {
+        "type": "discount",
+        "percentage": 5
+      }
+    ]
+  },
+  {
+    "id": "Book_PRD_55",
+    "name": "The Dalai Lama's Cat: A Novel",
+    "price": 282,
+    "type": "books",
+    "rating": 4.5,
+    "subType": "fiction",
+    "Author": "David Michie",
+    "Features": {
+      "Language": "English",
+      "ISBN": "9789381431719",
+      "Pages" : "220",
+      "Publisher" : "Hay House",
+      "Edition" : "1st Edition, 2012"
+    },
+    "comments": [
+      {
+        "text": "Awesome Book",
+        "rating": "4",
+        "commentedOn": "07/02/2013",
+        "username": "Sayantika Adak ghosh"
+      },
+      {
+        "text": "Amazing book.. Made me see life from a different perspective..",
+        "rating": "5",
+        "commentedOn": "06/01/2016",
+        "username": "Amrita Sikdar"
+      },
+      {
+        "text": "Great read!",
+        "rating": "4",
+        "commentedOn": "27/07/2016",
+        "username": "Dnyanashree Patki"
+      }
+    ],
+    "offers": [
+      {
+        "type": "discount",
+        "percentage": 5
+      }
+    ]
+  },
+  {
+    "id": "Book_PRD_55",
+    "name": "One Shot",
+    "price": 299,
+    "type": "books",
+    "rating": 4.6,
+    "subType": "fiction",
+    "Author": "Lee Child",
+    "Features": {
+      "Language": "English",
+      "ISBN": " 9780553815863",
+      "Pages" : "496",
+      "Publisher" : "Transworld",
+      "Edition" : " 01, 2006"
+    },
+    "comments": [
+      {
+        "text": "One Shot: Irresistablely Good",
+        "rating": "5",
+        "commentedOn": "18/10/2016",
+        "username": "Pratik Deshpande"
+      },
+      {
+        "text": "THRILLING",
+        "rating": "4",
+        "commentedOn": "10/01/2017",
+        "username": "Kiron"
+      },
+      {
+        "text": "Jack Reacher for me!",
+        "rating": "5",
+        "commentedOn": "27/03/2016",
+        "username": "Shashank Gosavi"
+      }
+    ],
+    "offers": [
+      {
+        "type": "discount",
+        "percentage": 5
+      }
+    ]
+  },
+  {
+    "id": "Book_PRD_56",
+    "name": "How Not to Make Money : A Novel Based on a True Story",
+    "price": 178,
+    "type": "books",
+    "rating": 3,
+    "subType": "fiction",
+    "Author": "Raj Kundra",
+    "Features": {
+      "Language": "English",
+      "ISBN": "  9788184003970",
+      "Pages" : "397",
+      "Publisher" : "Random House",
+      "Edition" : "1st, 2013"
+    },
+    "comments": [
+      {
+        "text": "recomended",
+        "rating": "3",
+        "commentedOn": "02/12/2016",
+        "username": "shoaib zaidi"
+      },
+      {
+        "text": "must read",
+        "rating": "4",
+        "commentedOn": "10/01/2017",
+        "username": "Ekta Oberoi"
+      },
+      {
+        "text": "Fantastic page turner",
+        "rating": "3",
+        "commentedOn": "27/07/2016",
+        "username": "Tejashri Mohite"
+      }
+    ],
+    "offers": [
+      {
+        "type": "discount",
+        "percentage": 15
+      }
+    ]
+  },
+  {
+    "id": "Book_PRD_57",
+    "name": "THE NAMESAKE",
+    "price": 262,
+    "type": "books",
+    "rating": 4.4,
+    "subType": "fiction",
+    "Author": "Lahiri, Jhumpa",
+    "Features": {
+      "Language": "English",
+      "ISBN": "9780007258918",
+      "Pages" : "304",
+      "Publisher" : "Harper Collins India",
+      "Edition" : "1, 2007"
+    },
+    "comments": [
+      {
+        "text": "Loved it",
+        "rating": "4",
+        "commentedOn": "12/01/2017",
+        "username": "Shilpi Dutta"
+      },
+      {
+        "text": "Deep Impact on my mind",
+        "rating": "4",
+        "commentedOn": "21/03/2016",
+        "username": "Nisarga B.V"
+      },
+      {
+        "text": "Can't express it in words",
+        "rating": "5",
+        "commentedOn": "09/10/2016",
+        "username": "Neha Chatterjee"
+      }
+    ],
+    "offers": [
+      {
+        "type": "discount",
+        "percentage": 5
+      }
+    ]
+  },
+  {
+    "id": "Book_PRD_58",
+    "name": "One Indian Girl",
+    "price": 70,
+    "type": "books",
+    "rating": 4.2,
+    "subType": "fiction",
+    "Author": "Chetan Bhagat",
+    "Features": {
+      "Language": "English",
+      "ISBN": "9788129142146",
+      "Pages" : "280",
+      "Publisher" : "Rupa Publications India",
+      "Edition" : "1, 2016"
+    },
+    "comments": [
+      {
+        "text": "That's more like it",
+        "rating": "4",
+        "commentedOn": "01/10/2016",
+        "username": "Harikrishnan R"
+      },
+      {
+        "text": "Good quality product",
+        "rating": "4",
+        "commentedOn": "02/10/2016",
+        "username": "Kingsuk Sarkhel"
+      },
+      {
+        "text": "nice read.. But bit lengthy at times, ending is a bit boring",
+        "rating": "3",
+        "commentedOn": "11/12/2016",
+        "username": "vikram gupta"
+      }
+    ],
+    "offers": [
+      {
+        "type": "discount",
+        "percentage": 5
+      }
+    ]
+  },
+  {
+    "id": "Book_PRD_59",
+    "name": "PALACE OF ILLUSIONS",
+    "price": 160,
+    "type": "books",
+    "rating": 4.4,
+    "subType": "fiction",
+    "Author": "Chitra Banerjee Divakaruni",
+    "Features": {
+      "Language": "English",
+      "ISBN": " 9780330458535",
+      "Pages" : "384",
+      "Publisher" : "Picador",
+      "Edition" : "1st, 2009"
+    },
+    "comments": [
+      {
+        "text": "A woman's take",
+        "rating": "4",
+        "commentedOn": "06/03/2016",
+        "username": "Janki Vora"
+      },
+      {
+        "text": "Read, Think, Debate the Perspective, but don't Judge the Epic!",
+        "rating": "3",
+        "commentedOn": "12/08/2016",
+        "username": "Aishwarya Omprakash"
+      },
+      {
+        "text": "A treat !!!",
+        "rating": "4",
+        "commentedOn": "05/07/2015",
+        "username": "Nikita Bhutani"
+      }
+    ],
+    "offers": [
+      {
+        "type": "discount",
+        "percentage": 5
+      }
+    ]
+  },
+  {
+    "id": "Book_PRD_60",
+    "name": "The Tirukkural : A New English Version",
+    "price": 291,
+    "type": "books",
+    "rating": 3.9,
+    "subType": "fiction",
+    "Author": "Tiruvalluvar",
+    "Features": {
+      "Language": "English",
+      "ISBN": " 9789383064700",
+      "Pages" : "188",
+      "Publisher" : "Aleph Book Company",
+      "Edition" : "2015"
+    },
+    "comments": [
+      {
+        "text": "Not for serious reading",
+        "rating": "2",
+        "commentedOn": "24/12/2016",
+        "username": "Meenal Purohit"
+      },
+      {
+        "text": "What a gripping and beautiful read!!",
+        "rating": "3",
+        "commentedOn": "24/05/2016",
+        "username": "Garima Jain"
+      },
+      {
+        "text": "Wonderful",
+        "rating": "4",
+        "commentedOn": "05/04/2016",
+        "username": "shrestha bandopadhyay"
+      }
+    ],
+    "offers": [
+      {
+        "type": "discount",
+        "percentage": 5
+      }
+    ]
+  },
+  {
+    "id": "Book_PRD_61",
+    "name": "SIDNEY SHELDON'S RECKLESS",
+    "price": 160,
+    "type": "books",
+    "rating": 4,
+    "subType": "fiction",
+    "Author": "Sheldon, Sidney & Bagshawe, Tilly",
+    "Features": {
+      "Language": "English",
+      "ISBN": " 9780008146849",
+      "Pages" : "400",
+      "Publisher" : "Harper Collins",
+      "Edition" : "1, 2015"
+    },
+    "comments": [
+      {
+        "text": "Good quality product",
+        "rating": "2",
+        "commentedOn": "06/11/2016",
+        "username": "Dr MADHUKAR KUMAR"
+      },
+      {
+        "text": "Must buy!",
+        "rating": "4",
+        "commentedOn": "04/06/2016",
+        "username": "Arijit Sinha"
+      },
+      {
+        "text": "Just passes the bencmark",
+        "rating": "4",
+        "commentedOn": "13/08/2016",
+        "username": "Jayasree Siva"
+      }
+    ],
+    "offers": [
+      {
+        "type": "discount",
+        "percentage": 5
+      }
+    ]
+  },
+  {
+    "id": "Book_PRD_61",
+    "name": "Forget Me Not, Stranger",
+    "price": 61,
+    "type": "books",
+    "rating": 4.3,
+    "subType": "fiction",
+    "Author": "Novoneel Chakraborty",
+    "Features": {
+      "Language": "English",
+      "ISBN": " 9788184007305",
+      "Pages" : "296",
+      "Publisher" : "Random House India",
+      "Edition" : "2016"
+    },
+    "comments": [
+      {
+        "text": "Good quality product",
+        "rating": "4",
+        "commentedOn": "19/10/2016",
+        "username": "Priyanka brah"
+      },
+      {
+        "text": "Perfect book.",
+        "rating": "4",
+        "commentedOn": "10/04/2016",
+        "username": "manju sachdeva"
+      },
+      {
+        "text": "Mind-blowing purchase",
+        "rating": "5",
+        "commentedOn": "21/08/2016",
+        "username": "Sneha sunil Vaidya"
+      }
+    ],
+    "offers": [
+      {
+        "type": "discount",
+        "percentage": 15
+      }
+    ]
+  },
+  {
+    "id": "Book_PRD_62",
+    "name": "Harry Potter and the Cursed Child - Parts I and II ",
+    "price": 405,
+    "type": "books",
+    "rating": 4.4,
+    "subType": "fiction",
+    "Author": "J K Rowling,John Tiffany,Jack Thorne",
+    "Features": {
+      "Language": "English",
+      "ISBN": " 9780751565355",
+      "Pages" : "352",
+      "Publisher" : "Hachette India",
+      "Edition" : "2016"
+    },
+    "comments": [
+      {
+        "text": "Clearing away the confusion",
+        "rating": "5",
+        "commentedOn": "19/04/2016",
+        "username": "Himanshu"
+      },
+      {
+        "text": "Fabulous!",
+        "rating": "4",
+        "commentedOn": "24/06/2016",
+        "username": "Shlok Gupta"
+      },
+      {
+        "text": "Simply awesome",
+        "rating": "4",
+        "commentedOn": "17/07/2016",
+        "username": "Abhi"
+      }
+    ],
+    "offers": [
+      {
+        "type": "discount",
+        "percentage": 50
+      }
+    ]
+  },
+  {
+    "id": "Book_PRD_63",
+    "name": "She Swiped Right into My Heart",
+    "price": 61,
+    "type": "books",
+    "rating": 4.2,
+    "subType": "fiction",
+    "Author": "Sudeep Nagarkar",
+    "Features": {
+      "Language": "English",
+      "ISBN": " 9788184007459",
+      "Pages" : "256",
+      "Publisher" : " Random House India",
+      "Edition" : "2016"
+    },
+    "comments": [
+      {
+        "text": "The best book of Sudeep Nagarkar till date!",
+        "rating": "4",
+        "commentedOn": "16/05/2016",
+        "username": "Ajitabha Bose"
+      },
+      {
+        "text": "Worth every penny!",
+        "rating": "4",
+        "commentedOn": "03/01/2017",
+        "username": "Laizu Akhtar"
+      },
+      {
+        "text": "Fair",
+        "rating": "4",
+        "commentedOn": "13/07/2016",
+        "username": "Aman"
+      }
+    ],
+    "offers": [
+      {
+        "type": "discount",
+        "percentage": 50
+      }
+    ]
+  },
+  {
+    "id": "Book_PRD_64",
+    "name": "Our Trees Still Grow In Dehra",
+    "price": 146,
+    "type": "books",
+    "rating": 4.4,
+    "subType": "fiction",
+    "Author": "Ruskin Bond",
+    "Features": {
+      "Language": "English",
+      "ISBN": " 9780140169027",
+      "Pages" : "116",
+      "Publisher" : "Penguin",
+      "Edition" : "1st, 1991"
+    },
+    "comments": [
+      {
+        "text": "Wonderful",
+        "rating": "4",
+        "commentedOn": "14/06/2016",
+        "username": "Sebastian "
+      },
+      {
+        "text": "Great product",
+        "rating": "5",
+        "commentedOn": "28/11/2016",
+        "username": "SIDDHESH SHIRKAR"
+      },
+      {
+        "text": "Favorite author",
+        "rating": "4",
+        "commentedOn": "29/09/2016",
+        "username": "Vertika Singh"
+      }
+    ],
+    "offers": [
+      {
+        "type": "discount",
+        "percentage": 5
+      }
+    ]
+  },
+  {
+    "id": "Book_PRD_65",
+    "name": "Marry Me, Stranger",
+    "price": 103,
+    "type": "books",
+    "rating": 4.4,
+    "subType": "fiction",
+    "Author": "Novoneel Chakraborty",
+    "Features": {
+      "Language": "English",
+      "ISBN": " 9788184005967",
+      "Pages" : "288",
+      "Publisher" : "Random House India",
+      "Edition" : "1st Edition, 2014"
+    },
+    "comments": [
+      {
+        "text": "Gives you goosebumps and some spine chills..",
+        "rating": "4",
+        "commentedOn": "24/12/2016",
+        "username": "Soham"
+      },
+      {
+        "text": "TOO GOOD TO HANDLE",
+        "rating": "5",
+        "commentedOn": "15/01/2017",
+        "username": "SUDHANSHU Singh"
+      },
+      {
+        "text": "Good choice",
+        "rating": "4",
+        "commentedOn": "18/01/2017",
+        "username": "maithili karanjkar"
+      }
+    ],
+    "offers": [
+      {
+        "type": "discount",
+        "percentage": 5
+      }
+    ]
+  },
+  {
+    "id": "Book_PRD_66",
+    "name": "I Too Had A Love Story",
+    "price": 112,
+    "type": "books",
+    "rating": 4.4,
+    "subType": "fiction",
+    "Author": "Ravinder Singh",
+    "Features": {
+      "Language": "English",
+      "ISBN": " 9780143418764",
+      "Pages" : "216",
+      "Publisher" : "Penguin Random House India",
+      "Edition" : "1, 2016"
+    },
+    "comments": [
+      {
+        "text": "Touching Story!!",
+        "rating": "4",
+        "commentedOn": "23/01/2017",
+        "username": "Anitha Shanmuganathan"
+      },
+      {
+        "text": "Best indian-romance available in the market of books.",
+        "rating": "5",
+        "commentedOn": "07/05/2016",
+        "username": "Swarnava Chowdhury"
+      },
+      {
+        "text": "A Truly Heart breaking Story",
+        "rating": "4",
+        "commentedOn": "02/03/2016",
+        "username": "bhaskar rao"
+      }
+    ],
+    "offers": [
+      {
+        "type": "discount",
+        "percentage": 15
+      }
+    ]
+  },
+  {
+    "id": "Book_PRD_67",
+    "name": "To Kill A Mockingbird",
+    "price": 160,
+    "type": "books",
+    "rating": 4.4,
+    "subType": "fiction",
+    "Author": "Harper Lee",
+    "Features": {
+      "Language": "English",
+      "ISBN": " 9780099549482",
+      "Pages" : "281",
+      "Publisher" : "Random House",
+      "Edition" : "2010"
+    },
+    "comments": [
+      {
+        "text": "If only I could give A BILLION STARS to this book",
+        "rating": "5",
+        "commentedOn": "01/01/2017",
+        "username": "Jayesh Singh"
+      },
+      {
+        "text": "A MUST READ",
+        "rating": "4",
+        "commentedOn": "02/05/2016",
+        "username": "Varsha Tomar"
+      },
+      {
+        "text": "Very good!",
+        "rating": "4",
+        "commentedOn": "15/01/2017",
+        "username": "Preyanka P"
+      }
+    ],
+    "offers": [
+      {
+        "type": "discount",
+        "percentage": 5
+      }
+    ]
+  },
+  {
+    "id": "Book_PRD_68",
+    "name": "It's Not Right But It's Okay",
+    "price": 71,
+    "type": "books",
+    "rating": 4.3,
+    "subType": "fiction",
+    "Author": "Anuj Tiwari",
+    "Features": {
+      "Language": "English",
+      "ISBN": " 9788129137326",
+      "Pages" : "226",
+      "Publisher" : "Rupa Publications India",
+      "Edition" : "2016"
+    },
+    "comments": [
+      {
+        "text": "Worth the money",
+        "rating": "4",
+        "commentedOn": "15/01/2017",
+        "username": "Himani Semwal"
+      },
+      {
+        "text": "great",
+        "rating": "4",
+        "commentedOn": "02/07/2016",
+        "username": "Sitesh"
+      },
+      {
+        "text": "An out and out YA romance",
+        "rating": "5",
+        "commentedOn": "15/03/2016",
+        "username": "Rakhi Jayashankar"
+      }
+    ],
+    "offers": [
+      {
+        "type": "discount",
+        "percentage": 5
+      }
+    ]
+  },
+  {
+    "id": "Book_PRD_69",
+    "name": "Our Impossible Love",
+    "price": 61,
+    "type": "books",
+    "rating": 4.2,
+    "subType": "fiction",
+    "Author": "Durjoy Dutta",
+    "Features": {
+      "Language": "English",
+      "ISBN": " 9780143424611",
+      "Pages" : "288",
+      "Publisher" : "Penguin Books Ltd",
+      "Edition" : "1, 2016"
+    },
+    "comments": [
+      {
+        "text": "Good choice",
+        "rating": "4",
+        "commentedOn": "23/01/2017",
+        "username": "Ashutosh Kumar"
+      },
+      {
+        "text": "Very Good",
+        "rating": "4",
+        "commentedOn": "02/07/2016",
+        "username": "Sitesh"
+      },
+      {
+        "text": "A brave story yet",
+        "rating": "3",
+        "commentedOn": "15/05/2016",
+        "username": "Aarushi Soral"
+      }
+    ],
+    "offers": [
+      {
+        "type": "discount",
+        "percentage": 5
+      }
+    ]
+  },
+  {
+    "id": "Book_PRD_70",
+    "name": "The Sialkot Saga",
+    "price": 123,
+    "type": "books",
+    "rating": 4.1,
+    "subType": "fiction",
+    "Author": "Ashwin Sanghi",
+    "Features": {
+      "Language": "English",
+      "ISBN": " 9789385724060",
+      "Pages" : "588",
+      "Publisher" : "Westland",
+      "Edition" : "2016"
+    },
+    "comments": [
+      {
+        "text": "A novel of Fantasy with Reality",
+        "rating": "4",
+        "commentedOn": "09/11/2016",
+        "username": "Sarath Babu S"
+      },
+      {
+        "text": "Decent",
+        "rating": "3",
+        "commentedOn": "11/05/2016",
+        "username": "swaroop"
+      },
+      {
+        "text": "Good quality product",
+        "rating": "4",
+        "commentedOn": "05/09/2016",
+        "username": "Amlan Chakraborty"
+      }
+    ],
+    "offers": [
+      {
+        "type": "discount",
+        "percentage": 20
+      }
+    ]
   }
 ]
+

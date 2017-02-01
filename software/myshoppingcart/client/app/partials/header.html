@@ -11,6 +11,7 @@
     </h1>
 </div>
 <nav class="navbar navbar-default">
+
     <div class="container-fluid">
         <ul class="nav navbar-nav">
             <li class="active"><a ui-sref="home">Home</a></li>
@@ -36,21 +37,25 @@
                 </ul>
             </li>
         </ul>
-        <div class="search" >
-            {{headc.message}}//
-            <ui-select ng-model="headc.selected" theme='bootstrap' reset-search-input='true' on-select="headc.viewProduct(headc.selected.id)">
-                <ui-select-match placeholder="Select or search a product ..." > {{ $select.selected.name}}</ui-select-match>
-                <!--minimum-input-length=3 check in future-->
-                <ui-select-choices  refresh="headc.refreshProds($select.search)"
-                                   refresh-delay="0"
-                                   repeat="prod in headc.refreshed track by prod.id" >
-                    <a ui-sref="product({ id : prod.id })" >{{prod.name}}</a><br>
-                    Cost:{{prod.price | currency:'&#8377;'}}
-                    Rating:<jk-rating-stars class="rating" rating=prod.rating  read-only="true" ></jk-rating-stars>
-                </ui-select-choices>
-            </ui-select>
-        <span>{{ headc.selected.name}}</span>
-        </div>
+        <!--{{headc.refreshed}}-->
+        <search-product product-list="headc.refreshed" view-product="headc.viewProduct(prodId)" refresh-prods="headc.refreshProds(selected)">
+
+        </search-product>
+        <!--<div class="search" >-->
+            <!--{{headc.message}}//-->
+            <!--<ui-select ng-model="headc.selected" theme='bootstrap' reset-search-input='true' on-select="headc.viewProduct(headc.selected.id)">-->
+                <!--<ui-select-match placeholder="Select or search a product ..." > {{ $select.selected.name}}</ui-select-match>-->
+                <!--&lt;!&ndash;minimum-input-length=3 check in future&ndash;&gt;-->
+                <!--<ui-select-choices  refresh="headc.refreshProds($select.search)"-->
+                                   <!--refresh-delay="0"-->
+                                   <!--repeat="prod in headc.refreshed track by prod.id" >-->
+                    <!--<a ui-sref="product({ id : prod.id })" >{{prod.name}}</a><br>-->
+                    <!--Cost:{{prod.price | currency:'&#8377;'}}-->
+                    <!--Rating:<jk-rating-stars class="rating" rating=prod.rating  read-only="true" ></jk-rating-stars>-->
+                <!--</ui-select-choices>-->
+            <!--</ui-select>-->
+        <!--<span>{{ headc.selected.name}}</span>-->
+        <!--</div>-->
     </div>
 
 </nav>

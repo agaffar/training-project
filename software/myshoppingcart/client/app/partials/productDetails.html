@@ -1,0 +1,13 @@
+<h1 > {{pdc.product.name}} </h1><br>
+<!--<span >Rating : {{pdc.product.rating}}</span><br>-->
+<span><h4>General Specifications</h4></span>
+<label>Brand : </label><span> {{pdc.product.brand}}</span><br>
+<label>Ram : </label><span> {{pdc.product.RAM}}</span><br>
+<label>Color : </label><span> {{pdc.product.color}}</span><br>
+<label>Battery : </label><span> {{pdc.product.battery}}</span><br>
+<label>Offers : </label>
+<div ng-repeat="offers in pdc.product.offers">
+    <label>{{offers.type}} : </label><span> {{offers.amount |currency:'&#8377;' }}</span><br>
+</div>
+<br>
+

@@ -8,64 +8,72 @@
 <!--{{vpc.message}}-->
 <div class="row viewProd" align="center">
     <div id="prodimage">
-
+<!--
         <img class="proim" src="images/{{vpc.product.subType}}/{{vpc.product.id}}.jpg"><br>
 
         <span >price : {{vpc.product.price | currency:'&#8377;'}}</span><br>
         <label>Rating</label><jk-rating-stars rating="vpc.product.rating" read-only="true" on-rating="vpc.onRating(rating)" >
-        </jk-rating-stars>
+    </jk-rating-stars>-->
+        <product-image-price product="vpc.product">
+
+        </product-image-price>
     </div>
+    <!--<div class="vertical_line"></div>-->
     <div id="details">
-        <h1 > {{vpc.product.name}} </h1><br>
+        <!--  <h1 > {{vpc.product.name}} </h1><br>
+          &lt;!&ndash;<span >Rating : {{vpc.product.rating}}</span><br>&ndash;&gt;
+          <span><h4>General Specifications</h4></span>
+          <label>Brand : </label><span> {{vpc.product.brand}}</span><br>
+          <label>Ram : </label><span> {{vpc.product.RAM}}</span><br>
+          <label>Color : </label><span> {{vpc.product.color}}</span><br>
+          <label>Battery : </label><span> {{vpc.product.battery}}</span><br>
+          <label>Offers : </label>
+              <div ng-repeat="offers in vpc.product.offers">
+                  <label>{{offers.type}} : </label><span> {{offers.amount |currency:'&#8377;' }}</span><br>
+              </div>
+              <br>
+       &lt;!&ndash;   <label>Comments :</label><br>
+          <hr>
+          <ul id="commentProd">
+              <li ng-repeat="comment in vpc.product.comments">
+                  <label>{{ comment.username }}:</label>&nbsp&nbsp<span>{{ comment.text }}</span><br>
+                  <label>Rating: </label>{{ comment.rating }}<jk-rating-stars class="rating" rating="comment.rating" read-only="true" on-rating="vpc.onRating(rating)" >
+                  </jk-rating-stars><br>
+                  <span>on {{ comment.commentedOn }}</span><br>
+                  <hr>
+                  <br>
+              </li>
 
+          </ul>&ndash;&gt;
+          <ul class="prodDetails">
 
-        <!--<span >Rating : {{vpc.product.rating}}</span><br>-->
+              <li ng-repeat="productDetail in vpc.product"> {{ productDetail }}</li>
+              <label>Brand</label><span>vpc.product.brand</span>
+          </ul>-->
+        <product-details product="vpc.product">
 
-        <span><h4>General Specifications</h4></span>
-        <label>Brand : </label><span> {{vpc.product.brand}}</span><br>
-        <label>Ram : </label><span> {{vpc.product.RAM}}</span><br>
-        <label>Color : </label><span> {{vpc.product.color}}</span><br>
-        <label>Battery : </label><span> {{vpc.product.battery}}</span><br>
-        <label>Offers : </label>
-            <div ng-repeat="offers in vpc.product.offers">
-                <label>{{offers.type}} : </label><span> {{offers.amount |currency:'&#8377;' }}</span><br>
-            </div>
-            <br>
-        <label>Comments :</label><br>
-        <hr>
-        <ul id="commentProd">
-            <li ng-repeat="comment in vpc.product.comments">
-                <label>{{ comment.username }}:</label>&nbsp&nbsp<span>{{ comment.text }}</span><br>
-                <label>Rating: </label>{{ comment.rating }}<jk-rating-stars class="rating" rating="comment.rating" read-only="true" on-rating="vpc.onRating(rating)" >
-                </jk-rating-stars><br>
-                <span>on {{ comment.commentedOn }}</span><br>
-                <hr>
-                <br>
-            </li>
-
-        </ul>
-      <!--  <ul class="prodDetails">
-
-            <li ng-repeat="productDetail in vpc.product"> {{ productDetail }}</li>
-            <label>Brand</label><span>vpc.product.brand</span>
-        </ul>-->
+        </product-details>
     </div>
 
 </div>
+<!--{{vpc.product.comments.length}}-->
+<product-comments all-comments="vpc.product.comments">
+
+</product-comments>
 <hr>
 <h3>Similar Products</h3>
 <button ng-click="vpc.prevList()"><i class="fa fa-caret-square-o-left" aria-hidden="true"></i>&nbsp;&nbsp;previous</button>
 <!--{{vpc.currentList}}-->
-      <similar-products similar-product-list="vpc.currentList" product-type="{{vpc.product.subType}}" product-id="{{vpc.product.id}}">
+<similar-products similar-product-list="vpc.currentList" product-type="{{vpc.product.subType}}" product-id="{{vpc.product.id}}">
 
-      </similar-products>
+</similar-products>
 
 <button class="next" ng-click="vpc.nextList()" >next</button>
 
 
-        <!--<div class="col-md-6" style="background-color:pink;">-->
-        <!--<p>Sed ut perspiciatis...</p>-->
-        <!--</div>-->
+<!--<div class="col-md-6" style="background-color:pink;">-->
+<!--<p>Sed ut perspiciatis...</p>-->
+<!--</div>-->
 
 
 

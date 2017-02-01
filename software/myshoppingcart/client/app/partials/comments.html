@@ -1,0 +1,12 @@
+<label>Comments :</label><br>
+<ul id="commentProd" class="scroll" ng-init="limit=1">
+    <li ng-repeat="comment in comm.allComments | limitTo:limit" >
+        <label>{{ comment.username }}:</label>&nbsp&nbsp<span>{{ comment.text }}</span><br>
+         <span><label>Rating: </label>{{ comment.rating }}<ng-rate-it min = 0 max = 5 read-only = "true" ng-model=comment.rating >
+         </ng-rate-it><!--<jk-rating-stars class="rating" rating="comment.rating" read-only="true"  >
+         </jk-rating-stars>--></span> <span>on {{ comment.commentedOn }}</span><br>
+        <hr>
+        <br>
+    </li>
+<button ng-click="limit=comm.allComments.length" >view all comments</button>
+</ul>

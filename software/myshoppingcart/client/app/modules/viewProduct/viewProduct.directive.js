@@ -15,7 +15,7 @@
             },
             templateUrl : 'app/partials/similarProducts.html',
             link : similarProductsFunction,
-            controller : similarProductsDirectContoller,
+            controller : similarProductsDirectController,
             controllerAs:"sim"
         }
         function  similarProductsFunction(scope,elements,attr)
@@ -26,9 +26,9 @@
 
         return directive;
     }
-    similarProductsDirectContoller.$inject = ['$scope', 'CartData','$rootScope', '$timeout','$stateParams'];
+    similarProductsDirectController.$inject = ['$scope', 'CartData','$rootScope', '$timeout','$stateParams'];
 
-    function similarProductsDirectContoller($scope,cartData,$rootScope,$timeout,$stateParams) {
+    function similarProductsDirectController($scope,cartData,$rootScope,$timeout,$stateParams) {
 
     }
 })();
