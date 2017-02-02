@@ -6,10 +6,10 @@
 </head>
 <body>
 <h1>Your are in electronics page </h1>
-<!--<p>{{ hc.message }}</p>-->
-<p>Our Electronics</p>
-<ui>
-    <li ng-repeat="x in ec.eachElect"> {{x.id}}&nbsp&nbsp&nbsp<span>{{x.name}}</span></li>
-</ui>
+<h2>{{ ec.type }}</h2>
+<!-- -&#45;&#45;&#45;&#45;{{ec.type}}-->
+<display-all-products product-list="products" product-type="{{ec.type}}">
+
+</display-all-products>
 </body>
 </html>

@@ -16,7 +16,7 @@
 
         });
         $stateProvider.state('electronics', {
-            url:"/electronics",
+            url:"/electronics/:type",
             controller: 'electronicHomeController',
             controllerAs: 'ec',
             templateUrl: '/app/partials/electronicGoods.html'

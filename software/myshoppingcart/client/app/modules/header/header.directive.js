@@ -46,7 +46,7 @@
                     var product = $rootScope.products[i];
                     //console.log(valueEntered+"  regex= "+regex);
 
-                    if(product.name.toString().match(regex))
+                    if(product. name.toString().match(regex))
                     {
                         //console.log("for entered"+valueEntered+" ,"+product.name+" has "+regex+" = "+product.name.toString().match(regex));
                         refreshed.push(product);
