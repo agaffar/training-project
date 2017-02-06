@@ -12,9 +12,16 @@
         controller: displayAllProdsController,
         controllerAs:"allProds"
     })
-    displayAllProdsController.$inject=['$scope'];
-    function displayAllProdsController($scope)
+    displayAllProdsController.$inject=['$scope','$timeout'];
+    function displayAllProdsController($scope,$timeout)
     {
+        $timeout(function () {
+            $scope.$watch("productList",
+                function(newValue, oldValue) {
+                    console.log(oldValue+" oldvalue   new value = "+newValue)
+                },true);
+        }, 2000);
+
         console.log("in search controller component"+$scope.productType);
     }
 

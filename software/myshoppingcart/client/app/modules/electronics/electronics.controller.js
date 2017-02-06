@@ -3,12 +3,15 @@
  */
 (function(){
     angular.module('electronics').controller('electronicHomeController',electronic);
-    electronic.$inject = ['$http','$rootScope','$stateParams'];
-    function electronic($http,$rootScope,$stateParams)
+    electronic.$inject = ['$http','$rootScope','$stateParams','productsDisplayFactory'];
+    function electronic($http,$rootScope,$stateParams,productsDisplayFactory)
     {
-        console.log($rootScope.products);
+        //console.log($rootScope.products);
         var vm = this;
         vm.type = $stateParams.type;
         console.log(vm.type+" type");
+        vm.productList = [];
+        vm.productList = productsDisplayFactory.getProducts($rootScope.min,$rootScope.max);
+        console.log(vm.productList)
     }
 })();

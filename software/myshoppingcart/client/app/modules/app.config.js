@@ -11,7 +11,7 @@
         $stateProvider.state('home', {
             url:"/home",
             controller: 'homeController',
-             controllerAs: 'hc',
+            controllerAs: 'hc',
             templateUrl: '/app/partials/home.html'
 
         });
@@ -24,15 +24,15 @@
         });
         $stateProvider.state('books', {
             url:"/books",
-            /*            controller: 'electronicHomeController',
-             controllerAs: 'hc',*/
+            controller: 'booksController',
+            controllerAs: 'bc',
             templateUrl: '/app/partials/books.html'
 
         });
         $stateProvider.state('product', {
             url:"/id?id",
             controller: 'viewProductController',
-             controllerAs: 'vpc',
+            controllerAs: 'vpc',
             templateUrl: '/app/partials/viewProduct.html'
 
         });

@@ -18,7 +18,8 @@
     "angular-sanitize": "^1.6.1",
     "angular-jk-rating-stars": "^1.0.3",
     "angular-awesome-slider": "ng-slider#^2.4.4",
-    "angular-rateit": "^3.0.2"
+    "angular-rateit": "^3.0.2",
+    "angularjs-slider": "^6.0.0"
   },
   "resolutions": {
     "angular": "~1.5.0"

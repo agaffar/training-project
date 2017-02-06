@@ -8,13 +8,16 @@
         'ngSanitize',
         'ui.router',
         'ngRateIt',
+        'rzModule',
+        'angularAwesomeSlider',
         'jkAngularRatingStars',
         'myApp.version',
         'ui.bootstrap',
         'myApp.header',
         'home',
         'electronics',
-        "viewProduct"
+        "viewProduct",
+        "books"
 
 
     ]);

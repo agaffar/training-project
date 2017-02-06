@@ -7,6 +7,8 @@
     function myAppRun(appFactory,$rootScope)
     {
         console.log("in my app run");
+        $rootScope.min  = 3000;
+        $rootScope.max = 30000;
         appFactory.getJData().then(function(response)
         {
             console.log("in app run");

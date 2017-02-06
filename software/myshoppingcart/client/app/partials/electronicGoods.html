@@ -8,8 +8,20 @@
 <h1>Your are in electronics page </h1>
 <h2>{{ ec.type }}</h2>
 <!-- -&#45;&#45;&#45;&#45;{{ec.type}}-->
-<display-all-products product-list="products" product-type="{{ec.type}}">
+<div class="row">
+    <div id="left">
+        <filter value=10 product-list="ec.productList">
 
-</display-all-products>
+        </filter>
+    </div>
+
+    <div id="right">
+
+        <display-all-products product-list="ec.productList" product-type="{{ec.type}}">
+
+        </display-all-products>
+    </div>
+</div>
+
 </body>
 </html>

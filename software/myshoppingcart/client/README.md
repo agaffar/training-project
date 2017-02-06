@@ -87,7 +87,7 @@ app/                    --> all of the source files for the application
       version_test.js            --> "version" value service tests
       version-directive.js       --> custom directive that returns the current app version
       version-directive_test.js  --> version directive tests
-      interpolate-filter.js      --> custom interpolation filter
+      interpolate-filter.component.js      --> custom interpolation filter
       interpolate-filter_test.js --> interpolate filter tests
   view1/                --> the view1 view template and logic
     view1.html            --> the partial template
