@@ -9,6 +9,7 @@
         'ui.router',
         'ngRateIt',
         'rzModule',
+        'multipleSelect',
         'angularAwesomeSlider',
         'jkAngularRatingStars',
         'myApp.version',

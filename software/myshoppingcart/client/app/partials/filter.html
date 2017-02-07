@@ -5,12 +5,16 @@ Price:{{fltr.value}}
         rz-slider-options="fltr.slider.options"></rzslider>
 <div>
     <!--{{ fltr.brandList}} -&#45;&#45;&#45;&#45;-->
+    <br>
     <div class="brands">
-        <input type="text" placeholder="search for your brand" onkeyup="searchingBrand(this.value)">
+        <input type="text" ng-model="search" placeholder="search for your brand" onkeyup="searchingBrand(this.value)">
         <ul>
-            <li ng-repeat="brand in fltr.brandList"><input type="checkbox"  value="{{brand}}">{{ brand }}</li>
+            <li ng-repeat="brand in fltr.brandList | filter : search"><input type="checkbox"  value="{{brand}}">{{ brand }}</li>
 
         </ul>
+        <multiselect class="input-xlarge multiselect" ng-model="fltr.brandsSelected" options="brand in fltr.brandList" select-limit="5"
+        header="Select or Search for a Brand" selected-header="options selected" multiple="true" required
+        enable-filter="true" filter-placeholder="Filter stuff.."></multiselect>
     </div>
 
 </div>
