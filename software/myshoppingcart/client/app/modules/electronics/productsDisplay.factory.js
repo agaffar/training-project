@@ -9,7 +9,9 @@
         console.log("------ in product display controller ------ ");
 
         var productServices = {
-            getProducts : getProductsFiltered
+            getProducts : getProductsFiltered,
+            getBrands   : getAllBrandsFromProducts
+
         };
 
         return productServices;
@@ -31,6 +33,20 @@
             }
             return productFiltered;
         }
-
+        function getAllBrandsFromProducts(type)
+        {
+            var allBrands = [];
+            var allProducts = $rootScope.products;
+            for(var i=0;i<allProducts.length;i++)
+            {
+                var eachProduct = allProducts[i];
+                if((eachProduct.subType == type) && (allBrands.indexOf(eachProduct.brand) == -1))
+                {
+                    console.log("brandsssss "+eachProduct.brand);
+                    allBrands.push(eachProduct.brand);
+                }
+            }
+            return allBrands;
+        }
     }
 })();

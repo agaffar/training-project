@@ -3,3 +3,14 @@ Price:{{fltr.value}}
         rz-slider-model="fltr.slider.min"
         rz-slider-high="fltr.slider.max"
         rz-slider-options="fltr.slider.options"></rzslider>
+<div>
+    <!--{{ fltr.brandList}} -&#45;&#45;&#45;&#45;-->
+    <div class="brands">
+        <input type="text" placeholder="search for your brand" onkeyup="searchingBrand(this.value)">
+        <ul>
+            <li ng-repeat="brand in fltr.brandList"><input type="checkbox"  value="{{brand}}">{{ brand }}</li>
+
+        </ul>
+    </div>
+
+</div>

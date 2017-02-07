@@ -2,7 +2,8 @@
 <div class="row">
     <div  ui-sref="product({ id : product.id })" class="products col-md-2" ng-repeat="product in allProds.productList | orderBy:'-rating' | filter: { subType: allProds.productType}">
         <!--<div class="container">-->
-        <img  src="images/{{allProds.productType}}/{{ product.id }}.jpg"><span>{{product.name}}</span>
+       <div  ng-if="product.type == 'electronics'"><img  src="images/{{allProds.productType}}/{{ product.id }}.jpg"><span>{{product.name}}</span></div>
+       <div ng-if="product.type == 'books'"><img  src="images/books/{{ product.id }}.jpg"><span>{{product.name}}</span></div>
         <label>Cost:</label><span>{{product.price | currency:'&#8377;'}}</span>
         <label>Rating:</label> <ng-rate-it min = 0 max = 5 read-only = "true" ng-model=product.rating >
     </ng-rate-it><!--<jk-rating-stars class="rating" rating="product.rating" read-only="true"></jk-rating-stars>-->

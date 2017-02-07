@@ -23,7 +23,7 @@
 
         });
         $stateProvider.state('books', {
-            url:"/books",
+            url:"/books/:type",
             controller: 'booksController',
             controllerAs: 'bc',
             templateUrl: '/app/partials/books.html'

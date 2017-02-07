@@ -5,7 +5,9 @@
     angular.module('electronics').component('filter',{
         bindings : {
             value:'@',
-            productList : '='
+            productList : '=',
+            brandList : '=',
+            onKeyUp : '&'
         },
         templateUrl : 'app/partials/filter.html',
         controller : filterController,
@@ -15,7 +17,9 @@
     function filterController($scope,$rootScope,productsDisplayFactory)
     {
         var setPriceSlider = setPriceSlider;
+
         var vm = this;
+        vm.searchingBrand = searchingForBrand;
         function setPriceSlider()
         {
             vm.slider = {
@@ -37,5 +41,9 @@
         }
 
         setPriceSlider();
+        function searchingForBrand(input)
+        {
+
+        }
     }
 })();
