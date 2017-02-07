@@ -13,5 +13,8 @@
         vm.productList = [];
         vm.productList = productsDisplayFactory.getProducts($rootScope.min,$rootScope.max);
         console.log(vm.productList)
+        vm.brandList = [];
+        vm.brandList = productsDisplayFactory.getBrands(vm.type);
+        console.log(vm.brandList);
     }
 })();

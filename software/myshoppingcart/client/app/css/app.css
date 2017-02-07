@@ -229,3 +229,8 @@ div.topmages {
   width:20%;
   overflow:hidden;
 }
+div.brands li
+{
+  display:list-item;
+  float: none;
+}
