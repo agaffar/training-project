@@ -3,6 +3,7 @@
  */
 
 (function(){
+    //Both names should be same controller('booksController',bookController)
     angular.module('books').controller('booksController',bookController);
     bookController.$inject = ['$http','$rootScope','$stateParams','productsDisplayFactory'];
     function bookController($http,$rootScope,$stateParams,productsDisplayFactory)

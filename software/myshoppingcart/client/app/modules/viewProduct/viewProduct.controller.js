@@ -26,7 +26,7 @@
         var allProducts = $rootScope.products;
         var currentLastIndex = 0;
         var currentStartIndex = 0;
-
+//Change this controller as we discussed.
         var currentSimilarList = function()
         {
             if(allProducts.length >= 5)
@@ -36,6 +36,10 @@
                 {
                     var product = allProducts[i];
                     //console.log(product.name+" subType "+product.subType+" required subtype"+subType);
+                    /*Use the following code instead of code from line 43 to 53.
+                    if(product.id !== prodId && product.subType.toString() == subType.toString()) {
+                        vm.currentList.push(product);
+                    }*/
                     if(product.id == prodId )
                     {
                         continue;
@@ -63,6 +67,7 @@
             {
                 vm.currentList = [];
                 var i=0;
+                //I think you are not using the code from line 71 to 75.
                 var lastIndex = 0;
                 if(currentLastIndex == allProducts.length)
                     lastIndex = currentLastIndex - 1;
@@ -76,6 +81,7 @@
                         var product = allProducts[i];
                         console.log(product);
                         //console.log(product.name+" subType "+product.subType+" required subtype"+subType);
+                        //Same as above
                         if(product.id == prodId )
                         {
                             continue;
