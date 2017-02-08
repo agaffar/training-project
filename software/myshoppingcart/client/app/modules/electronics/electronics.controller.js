@@ -13,11 +13,13 @@
         vm.brandList = [];
         vm.brandList = productsDisplayFactory.getBrands(vm.type);
         console.log(vm.brandList);
-        var defaultBrands = [];
-        defaultBrands.push(vm.brandList[0]);
-        defaultBrands.push(vm.brandList[1]);
+        vm.selectedBrands = [];
+        //console.log(vm.brandList[0].name+" vm.brandList[0].name")
+        vm.selectedBrands.push({"name":vm.brandList[0].name, "ticked" : true});
+        vm.selectedBrands.push({"name":vm.brandList[1].name, "ticked" : true});
         vm.productList = [];
-        vm.productList = productsDisplayFactory.getProducts(defaultBrands,$rootScope.min,$rootScope.max);
+        console.log("calling products "+vm.selectedBrands)
+        vm.productList = productsDisplayFactory.getProducts(vm.selectedBrands,$rootScope.min,$rootScope.max);
         //console.log(vm.productList)
 
     }

@@ -1,4 +1,4 @@
-/* app css stylesheet */
+  /* app css stylesheet */
 
 .menu {
   list-style: none;
@@ -233,4 +233,10 @@ div.brands li
 {
   display:list-item;
   float: none;
+}
+div#listBrands
+{
+  height: 150px;
+  width: 170px;
+  overflow: scroll;
 }

@@ -22,10 +22,10 @@
             $rootScope.max = max;
             var productFiltered = [];
             var allProducts = $rootScope.products;
-            console.log("brands selected are none"+brandsSelected.length)
+            console.log("brands selected are none"+brandsSelected)
             if(brandsSelected.length == 0 || brandsSelected == undefined)
             {
-                console.log("brands selected are none")
+                //console.log("brands selected are none")
                 productFiltered = $rootScope.products
             }
             else
@@ -39,7 +39,7 @@
                     var isProdBrandSelected = CheckExist(brandNames,eachProduct.brand);
                     if((eachProduct.price >= min && eachProduct.price <= max) && (isProdBrandSelected == true))
                     {
-                        console.log(eachProduct.brand+"in products filtering ---- "+$rootScope.min+"  "+$rootScope.max);
+                        //console.log(eachProduct.brand+"in products filtering ---- "+$rootScope.min+"  "+$rootScope.max);
                         productFiltered.push(eachProduct);
                     }
                 }
@@ -76,13 +76,15 @@
         function getNamesBrands(brandsSelected)
         {
             var brandNames = [];
+            //console.log(brandsSelected)
             for(var i=0;i<brandsSelected.length;i++)
             {
+                //console.log(brandsSelected[i])
                 brandNames.push(brandsSelected[i].name);
             }
             //console.log(brandNames);
             //console.log("selected brands");
-            //
+
             //console.log(brandsSelected);
 
             return brandNames;
@@ -90,11 +92,12 @@
         function CheckExist(arrayBrandNames,brand)
         {
             var reg = new RegExp(brand,"ig");
+            //console.log(brand+"hhhh "+arrayBrandNames)
             for(var i = 0; i< arrayBrandNames.length;i++)
             {
                 if(arrayBrandNames[i].match(reg))
                 {
-                    console.log(brand+"    reg "+reg)
+                    //console.log(brand+"    reg "+reg)
                     return true;
                 }
                 else {
