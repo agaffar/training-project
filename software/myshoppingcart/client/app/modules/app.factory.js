@@ -22,7 +22,7 @@
             {
                 //defered = response.data;
                 defered.resolve(response);
-                console.log(defered.promise);
+                //console.log(defered.promise);
             }).error(function (response){
                 defered.reject("failed to load json");
             })

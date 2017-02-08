@@ -7,7 +7,7 @@
     function navConfig($stateProvider, $urlRouterProvider, $locationProvider)
     {
 
-        console.log("uuuuuuuuuuu");
+        //console.log("uuuuuuuuuuu");
         $stateProvider.state('home', {
             url:"/home",
             controller: 'homeController',

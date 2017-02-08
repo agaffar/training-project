@@ -15,7 +15,7 @@
         }
         function  linkFunction(scope,elements,attr)
         {
-            console.log("hhhhhhhhhhhhhhhhhhhhhhhhhhhh ");
+            //console.log("hhhhhhhhhhhhhhhhhhhhhhhhhhhh ");
 
         }
 
@@ -24,18 +24,18 @@
     headDirectiveController.$inject = ['$scope', 'CartData','$rootScope', '$timeout','$state'];
     function headDirectiveController($scope, CartData,$rootScope, $timeout,$state)
     {
-        console.log("conteoller directive"+$rootScope.products);
+        //console.log("conteoller directive"+$rootScope.products);
         var vm = this;
         vm.viewProduct = viewSelectedProduct;
         vm.message = "hello directive";
-        console.log(vm.message);
+        //console.log(vm.message);
         vm.refreshed = [];
         vm.refreshProds = refreshProductList;
-        console.log("dddd");
+        //console.log("dddd");
         function refreshProductList(valueEntered)
         {
             var refreshed = [];
-            console.log("entered fun");
+            //console.log("entered fun");
             //$scope.$apply(function() {
             //console.log($rootScope.products);
             if(valueEntered.length>2)
@@ -55,7 +55,7 @@
                 if(refreshed.length ) {
 
                     vm.refreshed = refreshed;
-                    console.log(vm.refreshed.length + "  length");
+                    //console.log(vm.refreshed.length + "  length");
                 }
             } else {
                 vm.refreshed = [];

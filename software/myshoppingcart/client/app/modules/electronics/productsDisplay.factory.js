@@ -16,37 +16,92 @@
 
         return productServices;
 
-        function getProductsFiltered(min,max)
+        function getProductsFiltered(brandsSelected,min,max)
         {
             $rootScope.min = min;
             $rootScope.max = max;
             var productFiltered = [];
             var allProducts = $rootScope.products;
-            for(var i=0;i<allProducts.length;i++)
+            console.log("brands selected are none"+brandsSelected.length)
+            if(brandsSelected.length == 0 || brandsSelected == undefined)
             {
-                var eachProduct = allProducts[i];
-                if(eachProduct.price >= min && eachProduct.price <= max)
+                console.log("brands selected are none")
+                productFiltered = $rootScope.products
+            }
+            else
+            {
+                for(var i=0;i<allProducts.length;i++)
                 {
-                    console.log("in products filtering ---- "+$rootScope.min+"  "+$rootScope.max);
-                    productFiltered.push(eachProduct);
+                    var eachProduct = allProducts[i];
+                    var brandNames = [];
+                    brandNames = getNamesBrands(brandsSelected);
+                    console.log("selected brands "+brandNames)
+                    var isProdBrandSelected = CheckExist(brandNames,eachProduct.brand);
+                    if((eachProduct.price >= min && eachProduct.price <= max) && (isProdBrandSelected == true))
+                    {
+                        console.log(eachProduct.brand+"in products filtering ---- "+$rootScope.min+"  "+$rootScope.max);
+                        productFiltered.push(eachProduct);
+                    }
                 }
             }
+            console.log(productFiltered)
             return productFiltered;
         }
         function getAllBrandsFromProducts(type)
         {
             var allBrands = [];
             var allProducts = $rootScope.products;
+            var array = [];
+            var brandObject;
             for(var i=0;i<allProducts.length;i++)
             {
                 var eachProduct = allProducts[i];
-                if((eachProduct.subType == type) && (allBrands.indexOf(eachProduct.brand) == -1))
+                var reg = new RegExp(eachProduct.brand,"ig");
+                var brandExistList = CheckExist(array,eachProduct.brand);
+                if((eachProduct.subType == type) && (brandExistList == false))
                 {
-                    console.log("brandsssss "+eachProduct.brand);
-                    allBrands.push(eachProduct.brand);
+                    //console.log("brandsssss "+eachProduct.brand);
+                    brandObject = {};
+                    brandObject.name = eachProduct.brand;
+                    allBrands.push(brandObject);
+                    array.push(brandObject.name);
+                    //console.log(brandObject+"    "+i+")"+allBrands[i]+"  values   "+Object.values(allBrands[0])+"  length of brands list "+allBrands.length);
+                }
+
+
+            }
+            //console.log(allBrands);
+            return allBrands;
+        }
+        function getNamesBrands(brandsSelected)
+        {
+            var brandNames = [];
+            for(var i=0;i<brandsSelected.length;i++)
+            {
+                brandNames.push(brandsSelected[i].name);
+            }
+            //console.log(brandNames);
+            //console.log("selected brands");
+            //
+            //console.log(brandsSelected);
+
+            return brandNames;
+        }
+        function CheckExist(arrayBrandNames,brand)
+        {
+            var reg = new RegExp(brand,"ig");
+            for(var i = 0; i< arrayBrandNames.length;i++)
+            {
+                if(arrayBrandNames[i].match(reg))
+                {
+                    console.log(brand+"    reg "+reg)
+                    return true;
+                }
+                else {
+                    //console.log("brand "+brand+" is not existing in list");
                 }
             }
-            return allBrands;
+            return false;
         }
     }
 })();

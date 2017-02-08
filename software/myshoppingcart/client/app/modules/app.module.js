@@ -10,6 +10,7 @@
         'ngRateIt',
         'rzModule',
         'multipleSelect',
+        'isteven-multi-select',
         'angularAwesomeSlider',
         'jkAngularRatingStars',
         'myApp.version',
