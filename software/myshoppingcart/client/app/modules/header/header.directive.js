@@ -2,6 +2,7 @@
  * Created by Lenovo on 1/25/2017.
  */
 (function(){
+    //Use component instead of directive.
     angular.module('myApp.header').directive('myHeader',headerDirective);
     function headerDirective()
     {

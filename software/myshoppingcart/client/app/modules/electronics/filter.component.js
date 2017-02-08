@@ -1,6 +1,8 @@
 /**
  * Created by Lenovo on 2/2/2017.
  */
+//Don't use the filter, directive, component etc.. as component names in angular js.
+// Because angularjs already using them. It may create the conflict.
 (function(){
     angular.module('electronics').component('filter',{
         bindings : {
@@ -20,6 +22,7 @@
 
         var vm = this;
         vm.searchByBrand = searchByBrand;
+        //You can use single method instead of two methods below.
         vm.selectedAll = checkAllSelected
         vm.selectedNone = checkNoneSelected
         vm.selectedBrands = [];
@@ -39,6 +42,7 @@
                     },
                     onChange: function() {
                         console.log('on change ' + vm.selectedBrands); // logs 'on change slider-id'
+                        //You can remove line 44.
                         vm.productList = [];
                         vm.productList = productsDisplayFactory.getProducts(vm.selectedBrands, vm.slider.min, vm.slider.max);
                         console.log( vm.productList); // logs 'on change slider-id'
