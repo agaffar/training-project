@@ -7,10 +7,11 @@ Price:{{fltr.value}}
     <!--{{ fltr.brandList}} -&#45;&#45;&#45;&#45;-->
     <br>
     <div class="brands">
-        <input type="text" ng-model="search" placeholder="search for your brand" onkeyup="searchingBrand(this.value)">
+        <input type="text"  ng-model="search" placeholder="search for your brand" onkeyup="searchingBrand(this.value)">
         <div id="listBrands">
+            <!--{{fltr.selectBrand}}-->
             <ul>
-                <li ng-repeat="brand in fltr.brandList | filter : search"><input type="checkbox"  value="{{brand.name}}">{{ brand.name }}</li>
+                <li ng-repeat="brand in fltr.brandList | filter : search"><input type="checkbox" ng-model="brand.ticked" ng-checked="brand.ticked" ng-click="fltr.checkBrands()" value="{{brand.name}}">{{ brand.name }}</li>
 
             </ul>
         </div>
@@ -19,8 +20,8 @@ Price:{{fltr.value}}
         <!--header="Select or Search for a Brand" selected-header="options selected" multiple="true" required-->
         <!--enable-filter="true" filter-placeholder="Filter stuff.."></multiselect>-->
     <!--</div>&ndash;&gt;-->
-    --{{fltr.selectedBrandList}}
-    <isteven-multi-select
+    <!--&#45;&#45;{{fltr.selectedBrandList}}-->
+    <!--<isteven-multi-select
             input-model="fltr.brandList"
             output-model="fltr.selectedBrandList"
             button-label="icon name"
@@ -30,6 +31,15 @@ Price:{{fltr.value}}
             on-select-all="fltr.selectedAll()"
             on-select-none="fltr.selectedNone()"
     >
-    </isteven-multi-select>
+    </isteven-multi-select>-->
 </div>
+    <br>
+    <label>Offers</label>
+    <div class="offers">
+        <ul id="offers-list">
+        <li ng-repeat="offer in fltr.offersList">
+        <input type="checkbox" ng-model="offer.selected" ng-click="fltr.checkOfferSelected()" value="offer.type"><span ng-bind="offer.type"></span>
+        </li>
+        </ul>
+    </div>
 </div>

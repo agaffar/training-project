@@ -8,12 +8,12 @@
 <h1>Your are in electronics page </h1>
 <h2>{{ ec.type }}</h2>
 <!-- -&#45;&#45;&#45;&#45;{{ec.type}}-->
-ec {{ec.selectedBrands}}
+<!--ec {{ec.selectedBrands}}-->
 <!--ec p l {{ec.productList[8].name}}-->
 <!--bl {{ec.brandList}}-->
 <div class="row">
     <div id="left">
-        <filter value=10 product-list="ec.productList" brand-list="ec.brandList" selected-brand-list="ec.selectedBrands" on-key-up="searchingBrand(this.value)">
+        <filter value=10 product-list="ec.productList" brand-list="ec.brandList" selected-brand-list="ec.selectedBrands" offers-list="ec.allOffers">
 
         </filter>
     </div>

@@ -233,10 +233,19 @@ div.brands li
 {
   display:list-item;
   float: none;
+  cursor: default;
 }
 div#listBrands
 {
   height: 150px;
   width: 170px;
   overflow: scroll;
+  overflow-x:hidden;
+
 }
+  div.offers li
+  {
+    display:list-item;
+    float: none;
+    cursor: default;
+  }
