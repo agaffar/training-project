@@ -1,11 +1,11 @@
 <!--prodtype {{allProds.productType}}-->
 <div class="row">
-    <div  ui-sref="product({ id : product.id })" class="products col-md-2" ng-repeat="product in allProds.productList | orderBy:'-rating' | filter: { subType: allProds.productType}">
+    <div  ui-sref="product({ id : product.id })" class="all-products col-md-6" ng-repeat="product in allProds.productList | orderBy:'-rating' | filter: { subType: allProds.productType}">
         <!--<div class="container">-->
        <div  ng-if="product.type == 'electronics'"><img  src="images/{{allProds.productType}}/{{ product.id }}.jpg"><span>{{product.name}}</span></div>
        <div ng-if="product.type == 'books'"><img  src="images/books/{{ product.id }}.jpg">
            <!-- Use <span bg-bind="product.name"></span> instead of  <span>{{product.name}}</span>. Try to avoid {{}}. Do this in all places-->
-           <span>{{product.name}}</span>
+           <span ng-bind="product.name"></span>
        </div>
         <label>Cost:</label><span>{{product.price | currency:'&#8377;'}}</span>
         <label>Rating:</label> <ng-rate-it min = 0 max = 5 read-only = "true" ng-model=product.rating >

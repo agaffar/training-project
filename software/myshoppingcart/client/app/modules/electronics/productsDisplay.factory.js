@@ -29,7 +29,7 @@
             if(brandsSelected == undefined || brandsSelected.length == 0)
             {
                 //console.log("brands selected are none")
-                productFiltered = $rootScope.products
+                productFiltered = getAllProdsOfRange($rootScope.products,min,max);
             }
             else
             {
@@ -56,7 +56,6 @@
             if(offersSelected != undefined && offersSelected.length != 0)
             {
                 console.log("offers selected")
-
                 productFiltered = filterByOffers(productFiltered,offersSelected);
             }
             else {
@@ -65,6 +64,17 @@
             }
             console.log(productFiltered)
             return productFiltered;
+        }
+        function getAllProdsOfRange(allProducts,min,max)
+        {
+            var prodFilt = [];
+            for (var i=0; i<allProducts.length;i++){
+                var eachProd = allProducts[i];
+                if(eachProd.price >= min && eachProd.price <= max){
+                    prodFilt.push(eachProd);
+                }
+            }
+        return prodFilt;
         }
         function filterByOffers(productFiltered,offersSelected)
         {

@@ -1,8 +1,9 @@
 <div class="row">
 <!--prodtype ; {{similarProductList}}-->
 
-<div ui-sref="product({ id : prod.id })" class="products col-md-3"  ng-repeat="prod in similarProductList | orderBy:'-rating' | filter: { subType: productType}" ng-if="prod.id!=productId">
-    <img src="images/{{prod.subType}}/{{ prod.id }}.jpg">
+<div ui-sref="product({ id : prod.id })" class="simproducts col-md-3"  ng-repeat="prod in similarProductList | orderBy:'-rating' | filter: { subType: productType}" ng-if="prod.id!=productId">
+    <img ng-if="prod.type == 'electronics'" src="images/{{prod.subType}}/{{ prod.id }}.jpg">
+    <img ng-if="prod.type == 'books'" src="images/books/{{ prod.id }}.jpg">
     <span>{{prod.name}}</span></li>
     Cost : {{prod.price}}
     {{ prod.rating }}

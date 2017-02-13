@@ -148,6 +148,8 @@ div.hContainer h1
   height: 60px;
   margin-top: 0%;
   color: white;
+  padding-top: 15px;
+
 
 }
 /*div.prodimage img:hover*/
@@ -249,3 +251,59 @@ div#listBrands
     float: none;
     cursor: default;
   }
+div.simproducts
+{
+  width: 20%;
+  display: inline;
+  clear: right;
+}
+  .simproducts span {
+    font-size: 15px;
+    /*font-family: "Book Antiqua", "Palatino Linotype", Georgia, serif;*/
+    /*letter-spacing: 0.1em;*/
+  }
+  .simproducts span, .simproducts img{
+    display: block;
+  }
+  div.simproducts img{
+    display: inline-block;
+    height: 100px;
+    width: 100px;
+    background-position: center;
+    background-size: cover;
+  }
+  div.lab-lef
+  {
+    width: 300px;
+    padding-right: 20px;
+  }
+  div.all-products
+  {
+    width: 25%;
+    display: inline;
+    clear: right;
+  }
+  .all-products span {
+    font-size: 15px;
+    /*font-family: "Book Antiqua", "Palatino Linotype", Georgia, serif;*/
+    /*letter-spacing: 0.1em;*/
+  }
+  .all-products span, .all-products img{
+    display: block;
+  }
+  div.all-products img{
+    display: inline-block;
+    height: 100px;
+    width: 100px;
+    background-position: center;
+    background-size: cover;
+  }
+div.search-bar
+{
+  vertical-align: middle;
+  color: white;
+  height: 50px;
+  width: 69%;
+  /* padding-right: 11%; */
+  padding-top: 1%;
+}

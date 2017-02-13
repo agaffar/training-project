@@ -5,15 +5,29 @@
     <title>header</title>
 </head>
 <body class="container">
-<div class="header">
-    <h1 class="">
-        MyShopping Cart
-    </h1>
+<div class="row">
+    <div class="header col-sm-3">
+        <h1 class="">
+            MyShopping Cart
+        </h1>
+    </div>
+    <center>
+        <div class="search-bar col-sm-3" align="center">
+            <search-product product-list="headc.refreshed" view-product="headc.viewProduct(prodId)" refresh-prods="headc.refreshProds(selected)">
+
+            </search-product>
+        </div>
+    </center>
 </div>
+
+
+
 <nav class="navbar navbar-default">
 
     <div class="container-fluid">
+
         <ul class="nav navbar-nav">
+
             <li class="active"><a ui-sref="home">Home</a></li>
             <li ><a ui-sref="electronics">Electronics</a>
             <ul class="subMenu">
@@ -38,9 +52,7 @@
             </li>
         </ul>
         <!--{{headc.refreshed}}-->
-        <search-product product-list="headc.refreshed" view-product="headc.viewProduct(prodId)" refresh-prods="headc.refreshProds(selected)">
 
-        </search-product>
         <!--<div class="search" >-->
             <!--{{headc.message}}//-->
             <!--<ui-select ng-model="headc.selected" theme='bootstrap' reset-search-input='true' on-select="headc.viewProduct(headc.selected.id)">-->
