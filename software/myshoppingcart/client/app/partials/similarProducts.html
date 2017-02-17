@@ -1,14 +1,13 @@
 <div class="row">
 <!--prodtype ; {{similarProductList}}-->
 
-<div ui-sref="product({ id : prod.id })" class="simproducts col-md-3"  ng-repeat="prod in similarProductList | orderBy:'-rating' | filter: { subType: productType}" ng-if="prod.id!=productId">
-    <img ng-if="prod.type == 'electronics'" src="images/{{prod.subType}}/{{ prod.id }}.jpg">
-    <img ng-if="prod.type == 'books'" src="images/books/{{ prod.id }}.jpg">
-    <span>{{prod.name}}</span></li>
-    Cost : {{prod.price}}
-    {{ prod.rating }}
-    <ng-rate-it min = 0 max = 5 read-only = "true" ng-model=prod.rating >
-    </ng-rate-it>
+<div ui-sref="product({ id : prod.id })" class="simproducts col-xs-6 col-sm-5  col-md-3"  ng-repeat="prod in similarProductList" ng-if="prod.id!=productId">
+    <div class="row"><img  ng-if="prod.type == 'electronics'" src="images/{{prod.subType}}/{{ prod.id }}.jpg"></div>
+    <div class="row"><img  ng-if="prod.type == 'books'" src="images/books/{{ prod.id }}.jpg"></div>
+    <div class="row"><center><span class="prod-name .hidden-xs-down col-sm-5 col-md-3" align="middle" ng-bind="prod.name" tooltip-placement="top" uib-tooltip="{{prod.name}}" tooltip-append-to-body="true"></span></center></div>
+    <div class="row"><span class="col-xs-12 col-sm-5 col-md-12"ng-bind="prod.price | currency:'&#8377;'"></span></div>
+    <div class="row"><ng-rate-it class="col-xs-12 col-sm-12 col-md-12 col-lg-12" min = 0 max = 5 read-only = "true" ng-model=prod.rating >
+    </ng-rate-it></div>
     <!--<jk-rating-stars class="rating" rating="prod.rating" read-only="true" on-rating="vpc.onRating(rating)" >
     </jk-rating-stars>-->
 </div>

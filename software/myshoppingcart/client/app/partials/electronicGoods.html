@@ -12,13 +12,13 @@
 <!--ec p l {{ec.productList[8].name}}-->
 <!--bl {{ec.brandList}}-->
 <div class="row">
-    <div id="left">
-        <filter value=10 product-list="ec.productList" brand-list="ec.brandList" selected-brand-list="ec.selectedBrands" offers-list="ec.allOffers">
+    <div class="col-xs-6 col-xs-4 col-sm-4 col-md-3">
+        <product-filter value=10 product-list="ec.productList" brand-list="ec.brandList" selected-brand-list="ec.selectedBrands" offers-list="ec.allOffers">
 
-        </filter>
+        </product-filter>
     </div>
 
-    <div id="right">
+    <div class="col-xs-6 col-xs-8 col-sm-8 col-md-9">
 
         <display-all-products product-list="ec.productList" product-type="{{ec.type}}">
 

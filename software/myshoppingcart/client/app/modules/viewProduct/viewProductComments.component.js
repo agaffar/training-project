@@ -13,6 +13,15 @@
     commentsControl.$inject = ['$scope'];
     function commentsControl($scope)
     {
-
+        var vm = this;
+        vm.limit = 1;
+        vm.changeLimit = changeLimit;
+        function changeLimit(){
+            //console.log(vm.limit)
+            if(vm.limit == 1 )
+            vm.limit = vm.allComments.length;
+            else
+            vm.limit = 1;
+        }
     }
 })();

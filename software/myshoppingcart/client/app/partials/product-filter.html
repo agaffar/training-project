@@ -1,0 +1,62 @@
+Price:{{fltr.value}}
+<rzslider
+        rz-slider-model="fltr.slider.min"
+        rz-slider-high="fltr.slider.max"
+        rz-slider-options="fltr.slider.options" noSwitching ="false"></rzslider>
+<div>
+    <!--{{ fltr.brandList}} -&#45;&#45;&#45;&#45;-->
+    <br>
+    <div class="brands">
+        <input type="text"  ng-model="search" placeholder="search for your brand">
+        <div class="filter-list">
+            <!--{{fltr.selectBrand}}-->
+            <ul>
+                <li ng-repeat="brand in fltr.brandList | filter : search"><input type="checkbox" ng-model="brand.ticked" ng-checked="brand.ticked" ng-click="fltr.checkBrands()" value="{{brand.name}}">{{ brand.name }}</li>
+
+            </ul>
+        </div>
+
+        <!-- <multiselect class="input-xlarge multiselect" ng-model="fltr.brandsSelected" options="brand in fltr.brandList" select-limit="5"
+         header="Select or Search for a Brand" selected-header="options selected" multiple="true" required
+         enable-filter="true" filter-placeholder="Filter stuff.."></multiselect>-->
+        <!--</div>&ndash;&gt;
+        &#45;&#45;{{fltr.selectedBrandList}}
+        <isteven-multi-select
+                input-model="fltr.brandList"
+                output-model="fltr.selectedBrandList"
+                button-label="icon name"
+                item-label="icon name maker"
+                tick-property="ticked"
+                on-item-click="fltr.searchByBrand(data)"
+                on-select-all="fltr.selectedAll()"
+                on-select-none="fltr.selectedNone()"
+        >
+        </isteven-multi-select>-->
+    </div>
+    <br>
+    <label>Offers</label><br>
+    <input type="text"  ng-model="searchOffer" placeholder="search for your brand" >
+
+
+    <div class="filter-list">
+        <!--<dl class="filter-list-b" >
+            <div ng-repeat="offer in fltr.offersList | filter : searchOffer">
+                <dt><input type="checkbox" ng-model="offer.selected" ng-click="fltr.checkOfferSelected()" value="offer.type"></dt>
+                <dd><span ng-bind="offer.type"></span></dd>
+            </div>
+
+        </dl>-->
+        <ul>
+            <li ng-repeat="offer in fltr.offersList | filter : searchOffer">
+                <div class="form-check">
+
+                    <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" ng-model="offer.selected" ng-click="fltr.checkOfferSelected()" value="offer.type"><span ng-bind="offer.type"></span>
+                    </label>
+                </div>
+            </li>
+
+        </ul>
+    </div>
+
+</div>

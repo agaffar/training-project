@@ -49,7 +49,7 @@ li{
 }
 div.products
 {
-  width: 20%;
+  /*width: 20%;*/
   display: inline;
   clear: right;
 
@@ -109,12 +109,8 @@ div.viewProd
 #sides{
   margin:0;
 }
-#prodimage{
-  float:left;
-  width:60%;
-  overflow:hidden;
-}
-#prodimage img{
+
+.prodimage img{
  width: 60%;
   height: 60%;
 }
@@ -159,14 +155,14 @@ div.hContainer h1
   /*-o-transform:scale(1.25);*/
 
 /*}*/
-div#prodimage img {
+div.prodimage img {
   -webkit-transition: all .3s ease; /* Safari and Chrome */
   -moz-transition: all .3s ease; /* Firefox */
   -o-transition: all .3s ease; /* IE 9 */
   -ms-transition: all .3s ease; /* Opera */
   transition: all .3s ease;
 }
-div#prodimage img:hover {
+div.prodimage img:hover {
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   -webkit-transform:translateZ(0) scale(1.20); /* Safari and Chrome */
@@ -237,14 +233,7 @@ div.brands li
   float: none;
   cursor: default;
 }
-div#listBrands
-{
-  height: 150px;
-  width: 170px;
-  overflow: scroll;
-  overflow-x:hidden;
 
-}
   div.offers li
   {
     display:list-item;
@@ -253,7 +242,8 @@ div#listBrands
   }
 div.simproducts
 {
-  width: 20%;
+  /*width: 20%;*/
+  text-align: center;
   display: inline;
   clear: right;
 }
@@ -279,17 +269,21 @@ div.simproducts
   }
   div.all-products
   {
-    width: 25%;
+
     display: inline;
     clear: right;
   }
   .all-products span {
     font-size: 15px;
+    text-align: center;
+
     /*font-family: "Book Antiqua", "Palatino Linotype", Georgia, serif;*/
     /*letter-spacing: 0.1em;*/
   }
   .all-products span, .all-products img{
     display: block;
+    text-align: center;
+
   }
   div.all-products img{
     display: inline-block;
@@ -307,3 +301,104 @@ div.search-bar
   /* padding-right: 11%; */
   padding-top: 1%;
 }
+span#prod-names
+{
+  width: 100px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+  span.prod-name
+  {
+    width: 100px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .all-products:hover #prod-name
+  {
+    cursor: pointer;
+    display: block;
+    margin: 0;
+  }
+  .tooltip .tooltip-inner {
+    color: whitesmoke;
+    background-color: #2aabd2;
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+  }
+  /* Hide arrow */
+  .tooltip .tooltip-arrow {
+    display: none;
+  }
+  div.filter-list
+  {
+    height: 150px;
+    width: 170px;
+    overflow: scroll;
+    overflow-x:hidden;
+
+
+  }
+  dl.filter-list-b {
+    float: left;
+    width: 150px;
+
+  }
+
+  .filter-list-b dt {
+    clear: left;
+    float: left;
+    width: 14px;
+    font-weight: bold;
+  }
+
+  .filter-list-b dd {
+    float: left;
+    width: 100px;
+  }
+  .specification
+  {
+    /*clear: left;*/
+    width: 50px;
+    padding-left: 0;
+    text-align: left;
+  }
+  .pag-button
+  {
+    background-color: #99cfe7;
+    width: 150px;
+    text-align: center;
+    border:0;
+    margin-bottom: 10px;
+  }
+  .pag-button.col-md-2
+  {
+    background-color: #99cfe7;
+    width: 80px;
+    text-align: center;
+    border:0;
+
+  }
+  .simil
+  {
+    text-align: center;
+  }
+  span.prod-name.col-xs-12
+  {
+    margin-left: 40%;
+  }
+  span.prod-name.col-lg-12
+  {
+    margin-left: 0;
+
+  }
+  span.prod-name.col-sm-12
+  {
+    margin-left: 0;
+
+  }
+  span.prod-name.col-md-12
+  {
+    margin-left: 0;
+
+  }

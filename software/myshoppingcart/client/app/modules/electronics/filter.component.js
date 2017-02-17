@@ -2,7 +2,7 @@
  * Created by Lenovo on 2/2/2017.
  */
 (function(){
-    angular.module('electronics').component('filter',{
+    angular.module('electronics').component('productFilter',{
         bindings : {
             value:'@',
             productList : '=',
@@ -12,7 +12,7 @@
 
             onKeyUp : '&'
         },
-        templateUrl : 'app/partials/filter.html',
+        templateUrl : 'app/partials/product-filter.html',
         controller : filterController,
         controllerAs : 'fltr'
     });

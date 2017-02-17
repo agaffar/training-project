@@ -16,14 +16,14 @@
     displayAllProdsController.$inject=['$scope','$timeout'];
     function displayAllProdsController($scope,$timeout)
     {
-        //Why we need $timeout here. Try to avoid using &timeout. It's very dangerous
+       /* //Why we need $timeout here. Try to avoid using &timeout. It's very dangerous
         $timeout(function () {
             //Is this watch working? Use "allProds.productList" inside watch.
             $scope.$watch("productList",
                 function(newValue, oldValue) {
                     console.log(oldValue+" oldvalue   new value = "+newValue)
                 },true);
-        }, 2000);
+        }, 2000);*/
 
         console.log("in search controller component"+$scope.productType);
     }

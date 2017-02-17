@@ -1,17 +1,21 @@
-
+<div class="row">
     <h1 > {{pdc.product.name}} </h1><br>
     <!--<span >Rating : {{pdc.product.rating}}</span><br>-->
-    <span><h4>General Specifications</h4></span>
-    <div class="lab-lef">
-    <label >Brand : </label><span ng-bind="pdc.product.brand"></span><br>
-    <label>Ram : </label><span ng-bind="pdc.product.RAM"></span><br>
-    <label >Color : </label><span ng-bind="pdc.product.color"></span><br>
-    <label>Battery : </label><span ng-bind="pdc.product.battery"></span><br>
-    <label >Offers : </label>
-    <div ng-repeat="offers in pdc.product.offers">
-        <label >{{offers.type}} : </label><span> {{offers.amount |currency:'&#8377;' }}</span><br>
+    <h4>General Specifications</h4>
+    <div class="lab-lef row">
+        <div class="row"><label class="col-lg-4 col-xs-4 col-sm-4 col-md-4">Brand : </label><span class="col-lg-8 col-xs-8 col-sm-8 col-md-8 specification" ng-bind="pdc.product.brand"></span></div>
+        <div class="row"> <label class="col-lg-4 col-xs-4 col-sm-4 col-md-4">Ram : </label><span class="col-lg-8 col-xs-8 col-sm-8 col-md-8 specification" ng-bind="pdc.product.RAM"></span></div>
+        <div class="row"> <label class="col-lg-4 col-xs-4 col-sm-4 col-md-4">Color : </label><span class="col-lg-8 col-xs-8 col-sm-8 col-md-8 specification" ng-bind="pdc.product.color"></span></div>
+        <div class="row"> <label class="col-lg-4 col-xs-4 col-sm-4 col-md-4">Battery : </label><span class="col-lg-8 col-xs-8 col-sm-8 col-md-8 specification" ng-bind="pdc.product.battery"></span></div>
+        <div class="row"> <label class="col-lg-12 col-xs-12 col-sm-12 col-md-12">Offers  </label></div>
+        <div ng-repeat="offers in pdc.product.offers">
+        <div ng-repeat="(key, value) in offers">
+            <div class="row"><label class="col-lg-4 col-xs-4 col-sm-4 col-md-4" >{{key}}:</label><span class="col-lg-8 col-xs-8 col-sm-8 col-md-8 specification" ng-if="key == 'amount'"> {{value |currency:'&#8377;' }}</span><span class="col-lg-8 col-xs-8 col-sm-8 col-md-8 specification" ng-if="key != 'amount'"> {{value}}</span></div>
+        </div>
+        <br>
     </div>
-    <br>
+
+</div>
 
 </div>
 

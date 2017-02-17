@@ -6,40 +6,48 @@
     viewCtrl.$inject = ['$stateParams','$rootScope'];
     function viewCtrl($stateParams,$rootScope)
     {
+
             var vm = this;
             var subType = "";
             var prodId = $stateParams.id;
+            var getProduct = getProduct;
+            var getSimilarProducts = getSimilarProducts;
+            vm.product = getProduct(prodId);
+            subType = vm.product.subType;
+            //console.log(vm.product);
             vm.currentList = [];
-        //var ter = vm.message;
-        //console.log("stateparam = "+ $stateParams.id);
-            for(var i=0;i<$rootScope.products.length;i++)
-            {
-                var prod = $rootScope.products[i];
-                if(prod.id == prodId)
-                {
-                    vm.product = prod;
-                    subType = prod.subType;
-                    console.log(vm.product.offers);
+            var similarList = [];
+            similarList = getSimilarProducts(subType,prodId);
+            //console.log(similarList);
+        var allProducts = $rootScope.products;
+        vm.currentLastIndex = 0;
+        vm.currentStartIndex = 0;
+        vm.imagePath = "";
+//Change this controller as we discussed.
+        function  getSimilarProducts(subType,prodId){
+            var simList = [];
+            for(var i=0;i<$rootScope.products.length;i++){
+                var eachProd = $rootScope.products[i];
+                if(eachProd.id != prodId && eachProd.subType.toString() == subType.toString()){
+                    simList.push(eachProd);
                 }
             }
-        //vm.prodName = vm.product.name;
-        var allProducts = $rootScope.products;
-        var currentLastIndex = 0;
-        var currentStartIndex = 0;
-//Change this controller as we discussed.
+            return simList;
+        }
         var currentSimilarList = function()
         {
-            if(allProducts.length >= 5)
+            if(similarList.length >= 4)
             {
                 var i=0;
-                for(i=0;vm.currentList.length<5;i++)
+
+                for(i=0;vm.currentList.length<4 && i<similarList.length;i++)
                 {
-                    var product = allProducts[i];
+                    /*var product = allProducts[i];
                     //console.log(product.name+" subType "+product.subType+" required subtype"+subType);
-                    /*Use the following code instead of code from line 43 to 53.
+                    /!*Use the following code instead of code from line 43 to 53.
                     if(product.id !== prodId && product.subType.toString() == subType.toString()) {
                         vm.currentList.push(product);
-                    }*/
+                    }*!/
                     if(product.id == prodId )
                     {
                         continue;
@@ -50,20 +58,50 @@
 
                             vm.currentList.push(product);
                         }
-                    }
-
+                    }*/
+                    var eachProd = similarList[i];
+                    vm.currentList.push(eachProd);
                 }
-                currentLastIndex = i;
+                vm.currentStartIndex = similarList.indexOf(vm.currentList[0]);
+                vm.currentLastIndex = similarList.indexOf(vm.currentList[vm.currentList.length-1]);
+                //console.log(vm.currentList[vm.currentList.length-1])
+                //console.log("in previous appending currentStartIndex = "+vm.currentStartIndex+" currentLastIndex = "+vm.currentLastIndex);
+                if(vm.currentStartIndex == 0){
+                    vm.noPrev = true;
+                }
+                else if(vm.currentStartIndex != 0){
+                    vm.noPrev = false;
+                }
+                if(vm.currentLastIndex == (similarList.length-1)){
+                    vm.noNext = true;
+                }
+                else if(vm.currentLastIndex != (similarList.length-1)) {
+                    vm.noNext = false;
+                }
             }
         }
         currentSimilarList();
-        console.log(" currentlist length "+vm.currentList.length);
+        //console.log(" currentlist length "+vm.currentList.length);
         vm.prevList = previousListofProdducts;
         vm.nextList = nextListofProducts;
+        function getProduct(prodId){
+            for(var i=0;i<$rootScope.products.length;i++)
+            {
+                var prod = $rootScope.products[i];
+                if(prod.id == prodId)
+                {
+                    //vm.product = prod;
+                    //subType = prod.subType;
+                    vm.imagePath = "images/"+prod.subType+"/"+prod.id+".jpg";
+                    return prod;
+                    //console.log(vm.product.offers);
+                }
+            }
+        }
         function previousListofProdducts()
         {
 
-            if(currentStartIndex>0)
+            /*if(currentStartIndex>0)
             {
                 vm.currentList = [];
                 var i=0;
@@ -72,7 +110,7 @@
                 if(currentLastIndex == allProducts.length)
                     lastIndex = currentLastIndex - 1;
                 else
-                    lastIndex = currentLastIndex
+                    lastIndex = currentLastIndex;
 
                 //console.log(allProducts);
 
@@ -97,18 +135,44 @@
                     }
                     currentLastIndex = allProducts.indexOf(vm.currentList[0]);
                     currentStartIndex  = allProducts.indexOf(vm.currentList[vm.currentList.length-1]);
+                }*/
+            //console.log(similarList)
+            vm.currentList = [];
+            if(vm.currentStartIndex != 0){
+                for(var i = vm.currentStartIndex ; vm.currentList.length < 4 && i>=0; i--){
+                    //console.log("in prev "+i)
+                    var eachProd = similarList[i];
+                    vm.currentList.push(eachProd);
+                    //console.log(vm.currentList)
+
                 }
-            if(currentStartIndex <  5 && vm.currentList.length <5)
+                vm.currentStartIndex = similarList.indexOf(vm.currentList[vm.currentList.length-1]);
+                vm.currentLastIndex = similarList.indexOf(vm.currentList[0]);
+                //console.log(vm.currentList[vm.currentList.length-1])
+                if(vm.currentStartIndex < 4){
+                    vm.noPrev = true;
+                }
+                else if(vm.currentStartIndex >= 4){
+                    vm.noPrev = false;
+                }
+                if(vm.currentLastIndex == (similarList.length-1)){
+                    vm.noNext = true;
+                }
+                else if(vm.currentLastIndex != (similarList.length-1)) {
+                    vm.noNext = false;
+                }
+                //console.log("in previous appending currentStartIndex = "+vm.currentStartIndex+" currentLastIndex = "+vm.currentLastIndex);
+
+            }
+
+         /*   if(vm.currentStartIndex <  5 && vm.currentList.length <5)
             {
                 //currentStartIndex = 0;
                 nextListofProducts();
             }
             else {
+            }*/
 
-
-            }
-
-                console.log("in previous appending currentStartIndex = "+currentStartIndex+" currentLastIndex = "+currentLastIndex);
 
 
         }
@@ -117,20 +181,20 @@
         {
             console.log("in nextlist appending");
 
-            if(currentLastIndex < allProducts.length)
+          /*  if(vm.currentLastIndex < allProducts.length)
             {
 
-                var i=currentLastIndex;
-                if(currentStartIndex <5 && vm.currentList.length <5)
+                var i=vm.currentLastIndex;
+                if(vm.currentStartIndex <5 && vm.currentList.length <5)
                 {
-                    currentStartIndex = 0;
+                    vm.currentStartIndex = 0;
                 }
                 else {
-                    currentStartIndex = currentLastIndex;
+                    vm.currentStartIndex = vm.currentLastIndex;
                 }
                 vm.currentList = [];
-                console.log("currentStartIndex = "+currentStartIndex);
-                for(i=currentStartIndex;vm.currentList.length<5 && i<allProducts.length;i++)
+                console.log("currentStartIndex = "+vm.currentStartIndex);
+                for(i=vm.currentStartIndex;vm.currentList.length<5 && i<allProducts.length;i++)
                 {
                     var product = allProducts[i];
                     if(product.id == prodId )
@@ -146,10 +210,30 @@
                     }
 
                 }
-                currentStartIndex = allProducts.indexOf(vm.currentList[0]);
-                currentLastIndex = i;
+                vm.currentStartIndex = allProducts.indexOf(vm.currentList[0]);
+                vm.currentLastIndex = i;
+            }*/
+            vm.currentList = [];
+            for(var i = vm.currentLastIndex; vm.currentList.length<4 && i<similarList.length ; i++){
+                var eachProd = similarList[i];
+                vm.currentList.push(eachProd);
             }
-            console.log("in next appending currentStartIndex = "+currentStartIndex+" currentLastIndex = "+currentLastIndex);
+            vm.currentStartIndex = similarList.indexOf(vm.currentList[0]);
+            vm.currentLastIndex = similarList.indexOf(vm.currentList[vm.currentList.length-1]);
+            //console.log(vm.currentList[vm.currentList.length-1])
+            if(vm.currentStartIndex == 0){
+                vm.noPrev = true;
+            }
+            else if(vm.currentStartIndex != 0){
+                vm.noPrev = false;
+            }
+            if(vm.currentLastIndex == (similarList.length-1)){
+                vm.noNext = true;
+            }
+            else if(vm.currentLastIndex != (similarList.length-1)) {
+                vm.noNext = false;
+            }
+            //console.log("in next appending currentStartIndex = "+vm.currentStartIndex+" currentLastIndex = "+vm.currentLastIndex);
 
         }
     }

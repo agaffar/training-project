@@ -4,6 +4,8 @@
 
 (function(){
     angular.module('myApp', [
+        'ui.bootstrap',
+        'ezplus',
         'ui.select',
         'ngSanitize',
         'ui.router',

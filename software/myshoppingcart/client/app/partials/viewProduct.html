@@ -7,7 +7,7 @@
 <body id="container">
 <!--{{vpc.message}}-->
 <div class="row viewProd" align="center">
-    <div id="prodimage">
+    <div class="col-xs-6 col-sm-6 col-md-6">
 <!--
         <img class="proim" src="images/{{vpc.product.subType}}/{{vpc.product.id}}.jpg"><br>
 
@@ -19,7 +19,7 @@
         </product-image-price>
     </div>
     <!--<div class="vertical_line"></div>-->
-    <div id="details">
+    <div class="col-xs-6 col-sm-6 col-md-6">
         <!--  <h1 > {{vpc.product.name}} </h1><br>
           &lt;!&ndash;<span >Rating : {{vpc.product.rating}}</span><br>&ndash;&gt;
           <span><h4>General Specifications</h4></span>
@@ -62,20 +62,16 @@
 </product-comments>
 <hr>
 <h3>Similar Products</h3>
-<button ng-click="vpc.prevList()"><i class="fa fa-caret-square-o-left" aria-hidden="true"></i>&nbsp;&nbsp;previous</button>
-<!--{{vpc.currentList}}-->
-<similar-products similar-product-list="vpc.currentList" product-type="{{vpc.product.subType}}" product-id="{{vpc.product.id}}">
-
-</similar-products>
-
-<button class="next" ng-click="vpc.nextList()" >next</button>
-
-
-<!--<div class="col-md-6" style="background-color:pink;">-->
-<!--<p>Sed ut perspiciatis...</p>-->
-<!--</div>-->
-
-
+<center>
+    <div class="row simil">
+        <button class="pag-button col-md-2" ng-disabled="vpc.noPrev" ng-click="vpc.prevList()"><!--<i class="fa fa-caret-square-o-left" aria-hidden="true"></i>&nbsp;&nbsp;-->previous</button>
+        <div class="col-md-6">
+            <similar-products similar-product-list="vpc.currentList" product-type="{{vpc.product.subType}}" product-id="{{vpc.product.id}}">
+            </similar-products>
+        </div>
+        <button class="pag-button col-md-2" ng-disabled="vpc.noNext" ng-click="vpc.nextList()" >next</button>
+    </div>
+</center>
 
 </body>
 </html>

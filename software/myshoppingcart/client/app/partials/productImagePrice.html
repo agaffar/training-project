@@ -1,6 +1,10 @@
 <div>
-    <img class="proim" ng-if="pip.product.type == 'electronics'" src="images/{{pip.product.subType}}/{{pip.product.id}}.jpg"><br>
-    <img class="proim" ng-if="pip.product.type == 'books'" src="images/books/{{pip.product.id}}.jpg"><br>
+    <img class="proim"  ez-plus
+         ezp-model="{thumb:pip.imagePath, small:pip.imagePath, large:pip.imagePath}"
+         ezp-options="{scrollZoom: true, easing: true}" id="zoom_01" ng-if="pip.product.type == 'electronics'" src="images/{{pip.product.subType}}/{{pip.product.id}}.jpg"><br>
+    <img class="proim"  ez-plus
+         ezp-model="{thumb:pip.imagePath, small:pip.imagePath, large:pip.imagePath}"
+         ezp-options="{scrollZoom: true, easing: true}" ng-if="pip.product.type == 'books'" src="images/books/{{pip.product.id}}.jpg"><br>
 
     <span >price : {{pip.product.price | currency:'&#8377;'}}</span><br>
     <label>Rating</label>{{pip.product.rating}}

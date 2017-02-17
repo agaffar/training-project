@@ -1,15 +1,15 @@
 <!--prodtype {{allProds.productType}}-->
 <div class="row">
-    <div  ui-sref="product({ id : product.id })" class="all-products col-md-6" ng-repeat="product in allProds.productList | orderBy:'-rating' | filter: { subType: allProds.productType}">
+    <div  ui-sref="product({ id : product.id })" class="all-products col-xs-12 col-xs-4 col-sm-4 col-md-3" ng-repeat="product in allProds.productList | orderBy:'-rating' | filter: { subType: allProds.productType}">
         <!--<div class="container">-->
-       <div  ng-if="product.type == 'electronics'"><img  src="images/{{allProds.productType}}/{{ product.id }}.jpg"><span>{{product.name}}</span></div>
-       <div ng-if="product.type == 'books'"><img  src="images/books/{{ product.id }}.jpg">
+       <div  ng-if="product.type == 'electronics'"><img  src="images/{{allProds.productType}}/{{ product.id }}.jpg"></div>
+       <div ng-if="product.type == 'books'"><img  src="images/books/{{ product.id }}.jpg"></div>
            <!-- Use <span bg-bind="product.name"></span> instead of  <span>{{product.name}}</span>. Try to avoid {{}}. Do this in all places-->
-           <span ng-bind="product.name"></span>
-       </div>
-        <label>Cost:</label><span>{{product.price | currency:'&#8377;'}}</span>
-        <label>Rating:</label> <ng-rate-it min = 0 max = 5 read-only = "true" ng-model=product.rating >
-    </ng-rate-it><!--<jk-rating-stars class="rating" rating="product.rating" read-only="true"></jk-rating-stars>-->
+           <span id="prod-names" ng-bind="product.name" tooltip-placement="top" uib-tooltip="{{product.name}}" tooltip-append-to-body="true"></span>
+           <!---->
+        <div class="row"><label class="col-xs-2 col-sm-2 col-md-2">Cost:</label><span class="col-xs-2 col-sm-2 col-md-2" ng-bind="product.price | currency:'&#8377;'"></span></div>
+        <div class="row"><label class="col-xs-12 col-sm-12 col-md-3">Rating:</label><div class="col-xs-12 col-sm-12 col-md-8"><ng-rate-it min = 0 max = 5 read-only = "true" ng-model=product.rating >
+        </ng-rate-it></div> </div><!--<jk-rating-stars class="rating" rating="product.rating" read-only="true"></jk-rating-stars>-->
         <!--</div>-->
     </div>
 
