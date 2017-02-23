@@ -402,3 +402,30 @@ span#prod-names
     margin-left: 0;
 
   }
+  img.proim
+  {
+    margin-left: 19%;
+    width:60%;
+    height: 60%;
+  }
+  /*img.proim.col-xs-12
+  {
+    width: 92%;
+    height: 76%;
+  }
+  img.proim.col-sm-12
+  {
+    width: 34%;
+    height: 80%;
+  }
+  img.proim.col-md-12
+  {
+    width: 34%;
+    height: 80%;
+  }
+  img.proim.col-lg-12
+  {
+    width: 34%;
+    height: 80%;
+  }
+  */
