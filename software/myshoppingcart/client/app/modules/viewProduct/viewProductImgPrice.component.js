@@ -4,7 +4,8 @@
 (function(){
     angular.module('viewProduct').component('productImagePrice',{
         bindings :{
-            product : '='
+            product : '=',
+            picPath :'@'
         },
         templateUrl :'app/partials/productImagePrice.html',
         controller : viewProdImpController,

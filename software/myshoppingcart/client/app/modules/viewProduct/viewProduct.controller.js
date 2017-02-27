@@ -14,7 +14,8 @@
             var getSimilarProducts = getSimilarProducts;
             vm.product = getProduct(prodId);
             subType = vm.product.subType;
-            //console.log(vm.product);
+            vm.picPath = "images/"+subType+"/"+prodId+".jpg";
+            console.log("vm.imagePath in viewctrl"+vm.picPath);
             vm.currentList = [];
             var similarList = [];
             similarList = getSimilarProducts(subType,prodId);
@@ -93,6 +94,7 @@
                     //vm.product = prod;
                     //subType = prod.subType;
                     vm.imagePath = "images/"+prod.subType+"/"+prod.id+".jpg";
+                    console.log("vm.imagePath === "+vm.imagePath)
                     return prod;
                     //console.log(vm.product.offers);
                 }

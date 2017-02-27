@@ -6,7 +6,9 @@
 </head>
 <body id="container">
 <!--{{vpc.message}}-->
+
 <div class="row viewProd" align="center">
+
     <div class="col-xs-6 col-sm-6 col-md-6">
 <!--
         <img class="proim" src="images/{{vpc.product.subType}}/{{vpc.product.id}}.jpg"><br>
@@ -14,7 +16,8 @@
         <span >price : {{vpc.product.price | currency:'&#8377;'}}</span><br>
         <label>Rating</label><jk-rating-stars rating="vpc.product.rating" read-only="true" on-rating="vpc.onRating(rating)" >
     </jk-rating-stars>-->
-        <product-image-price product="vpc.product">
+      <!-- -&#45;&#45;&#45;&#45;{{vpc.picPath}}pppp-->
+        <product-image-price product="vpc.product" pic-path="{{vpc.picPath}}">
 
         </product-image-price>
     </div>
