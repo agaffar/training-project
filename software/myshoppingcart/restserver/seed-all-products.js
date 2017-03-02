@@ -80,6 +80,11 @@ function insertProductToModel(eachProduct){
     newProduct.subType = eachProduct.subType;
     newProduct.Author = eachProduct.Author;
     newProduct.rating = eachProduct.rating;
+    newProduct.RAM = eachProduct.RAM;
+    newProduct.productModelName = eachProduct.productModelName;
+    newProduct.color = eachProduct.color;
+    newProduct.battery = eachProduct.battery;
+    newProduct.camera= eachProduct.camera;
     newProduct.offers = [];
     newProduct.comments = [];
     //product.push(eachProduct);

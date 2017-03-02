@@ -8,7 +8,8 @@ var productList
 productList ={
     topRatedProducts : topRatedProducts,
     searchProducts  : searchProducts,
-    productsByCategory : productsByCategory
+    productsByCategory : productsByCategory,
+    getAllBrandsByType : getAllBrandsByType
 }
 function topRatedProducts(req,res){
     console.log("in product toppppppp "+req.query.q)
@@ -74,6 +75,28 @@ function productsByCategory(req,res){
         else
         {
             console.log("categorywiseProducts response received"+response);
+            res.send(response);
+        }
+
+    });
+}
+function getAllBrandsByType(req,res){
+    console.log("in categorywiseProducts "+req.query.q)
+    console.log(typeof req.query.q);
+    var query = JSON.parse(req.query.q);
+    console.log(typeof type);
+    console.log("in product type "+query.type)
+
+    console.log(req.query);
+    console.log(req.body);
+
+    ProductModel.distinct("brand",{subType : query.type}).exec(function(err, response){
+        console.log("in brands list")
+        if(err)
+            console.log(err);
+        else
+        {
+            console.log("brands response received"+response);
             res.send(response);
         }
 

@@ -4,7 +4,7 @@
 (function () {
     'use strict'
     angular.module('electronics').factory('productsDisplayFactory',productsDisplay);
-    function productsDisplay($rootScope)
+    function productsDisplay($http,$q,$rootScope)
     {
         console.log("------ in product display controller ------ ");
         var ProdType;
@@ -149,7 +149,13 @@
 
             }*/
             //console.log(allBrands);
-            $http.get('/api/products/search?q='+JSON.stringify(query)).success(function (response)
+            var defered = $q.defer();
+            console.log("type home factory = "+type);
+            var query = {};
+            query.type = type;
+            console.log("sending requesting to server");
+            console.log(typeof query);
+            $http.get('/api/products/brands?q='+JSON.stringify(query)).success(function (response)
             {
                 //defered = response.data;
                 defered.resolve(response);

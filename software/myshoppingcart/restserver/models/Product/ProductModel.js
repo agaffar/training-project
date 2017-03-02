@@ -35,6 +35,21 @@ var productSchema = new Schema({
         subType:{
             type:String
         },
+        RAM: {
+            type : String
+        },
+        productModelName :{
+            type : String
+        } ,
+        color :{
+            type : String
+        } ,
+        battery: {
+            type : String
+        },
+        camera: {
+           type : Object
+        },
         Author:{
             type:String
         },

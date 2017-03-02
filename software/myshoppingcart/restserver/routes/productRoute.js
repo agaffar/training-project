@@ -6,5 +6,6 @@ var productsList = require('../utils/products/productsList');
 router.get('/api/products', productsList.topRatedProducts);
 router.get('/api/products/search', productsList.searchProducts);
 router.get('/api/products/category', productsList.productsByCategory);
+router.get('/api/products/brands', productsList.getAllBrandsByType);
 
 module.exports = router;

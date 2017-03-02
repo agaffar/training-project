@@ -8,7 +8,7 @@
     "subType": "mobile",
     "brand": "Samsung",
     "RAM": "1GB",
-    "modelName": "Galaxy 1",
+    "productModelName": "Galaxy 1",
     "color": "Gold",
     "battery": "2600 mAh Li-Ion Battery",
     "camera": {
@@ -52,7 +52,7 @@
     "subType": "mobile",
     "brand": "Samsung",
     "RAM": "1GB",
-    "modelName": "Galaxy 2",
+    "productModelName": "Galaxy 2",
     "color": "Gold",
     "battery": "2600 mAh Li-Ion Battery",
     "camera": {
@@ -96,7 +96,7 @@
     "subType": "mobile",
     "brand": "Samsung",
     "RAM": "1GB",
-    "modelName": "Galaxy On3",
+    "productModelName": "Galaxy On3",
     "color": "Gold",
     "battery": "2600 mAh Li-Ion Battery",
     "camera": {
@@ -140,7 +140,7 @@
     "subType": "laptop",
     "brand": "Samsung",
     "RAM": "1GB",
-    "modelName": "Galaxy Note 3",
+    "productModelName": "Galaxy Note 3",
     "color": "Gold",
     "battery": "12600 mAh Li-Ion Battery",
     "rating" : 5,
@@ -180,7 +180,7 @@
     "subType": "laptop",
     "brand": "Dell",
     "RAM": "4GB DDR3L",
-    "modelName": "Inspiron 3558 Notebook",
+    "productModelName": "Inspiron 3558 Notebook",
     "color": "Black",
     "battery": "40 Watt Hours",
     "rating" : 1,
@@ -220,7 +220,7 @@
     "subType": "laptop",
     "brand": "Hp",
     "RAM": "4GB DDR3L",
-    "modelName": "Hp envy",
+    "productModelName": "Hp envy",
     "color": "Black",
     "battery": "40 Watt Hours",
     "rating" : 3,
@@ -260,7 +260,7 @@
     "subType": "mobile",
     "brand": "Samsung",
     "RAM": "1GB",
-    "modelName": "Galaxy 2",
+    "productModelName": "Galaxy 2",
     "color": "Gold",
     "battery": "2600 mAh Li-Ion Battery",
     "camera": {
@@ -304,7 +304,7 @@
     "subType": "mobile",
     "brand": "Samsung",
     "RAM": "1GB",
-    "modelName": "Galaxy 2",
+    "productModelName": "Galaxy 2",
     "color": "Gold",
     "battery": "2600 mAh Li-Ion Battery",
     "camera": {
@@ -348,7 +348,7 @@
     "subType": "mobile",
     "brand": "Samsung",
     "RAM": "1GB",
-    "modelName": "Galaxy Grand Nitro",
+    "productModelName": "Galaxy Grand Nitro",
     "color": "Gold",
     "battery": "2600 mAh Li-Ion Battery",
     "rating" : 2,
@@ -392,7 +392,7 @@
     "subType": "mobile",
     "brand": "Xiaomi",
     "RAM": "1GB",
-    "modelName": "Xiaomi Mi Note3",
+    "productModelName": "Xiaomi Mi Note3",
     "color": "Gold",
     "battery": "2600 mAh Li-Ion Battery",
     "camera": {
@@ -436,7 +436,7 @@
     "subType": "laptop",
     "brand": "Samsung",
     "RAM": "1GB",
-    "modelName": "Galaxy Note 3",
+    "productModelName": "Galaxy Note 3",
     "color": "Gold",
     "battery": "12600 mAh Li-Ion Battery",
     "rating" : 5,
@@ -476,7 +476,7 @@
     "subType": "laptop",
     "brand": "HP",
     "RAM": "4GB DDR4",
-    "modelName": "14-AM081TU",
+    "productModelName": "14-AM081TU",
     "color": "Turbo Silver",
     "battery": "4 cell Lithium ion ",
     "comments": [
@@ -516,7 +516,7 @@
     "subType": "laptop",
     "brand": "Apple",
     "RAM": "8GB DDR3",
-    "modelName": "MMGF2HN/A",
+    "productModelName": "MMGF2HN/A",
     "color": "white",
     "battery": "12 Hours",
     "comments": [
@@ -556,7 +556,7 @@
     "subType": "laptop",
     "brand": "Asus",
     "RAM": "4GB DDR3 SDRAM",
-    "modelName": "X540LA-XX596D",
+    "productModelName": "X540LA-XX596D",
     "color": "Silver",
     "battery": "12 Hours",
     "comments": [
@@ -596,7 +596,7 @@
     "subType": "laptop",
     "brand": "Acer",
     "RAM": "4GB DDR3 SDRAM",
-    "modelName": "ES1-521 (NX.G2KSI.024)",
+    "productModelName": "ES1-521 (NX.G2KSI.024)",
     "color": "Diamond Black",
     "battery": "12 Hours",
     "comments": [
@@ -636,7 +636,7 @@
     "subType": "laptop",
     "brand": "Micromax",
     "RAM": "2G DDR3",
-    "modelName": "L1160",
+    "productModelName": "L1160",
     "color": "Black",
     "battery": "7.4V/4100mAh",
     "comments": [
@@ -676,7 +676,7 @@
     "subType": "laptop",
     "brand": "Lenovo",
     "RAM": "4GB DDR3"    ,
-    "modelName": "Yoga",
+    "productModelName": "Yoga",
     "color": "Black",
     "battery": "3 cell",
     "comments": [
@@ -716,7 +716,7 @@
     "subType": "laptop",
     "brand": "HP",
     "RAM": "2GB DDR3"    ,
-    "modelName": "Pavilion",
+    "productModelName": "Pavilion",
     "color": "Black",
     "battery": "2 cell",
     "comments": [
@@ -756,7 +756,7 @@
     "subType": "laptop",
     "brand": "HP",
     "RAM": "4GB DDR3"    ,
-    "modelName": "15-af114AU",
+    "productModelName": "15-af114AU",
     "color": "Turbo SIlver Color With Diamond & Cross Brush Pattern",
     "battery": "41 Wh Li-Ion Battery",
     "comments": [
@@ -796,7 +796,7 @@
     "subType": "laptop",
     "brand": "Asus",
     "RAM": "4GB"    ,
-    "modelName": "APU Quad",
+    "productModelName": "APU Quad",
     "color": "Black",
     "battery": "3 cell",
     "comments": [
@@ -836,7 +836,7 @@
     "subType": "laptop",
     "brand": "HP",
     "RAM": "4GB DDR3"    ,
-    "modelName": "Detachable PC",
+    "productModelName": "Detachable PC",
     "color": "SIlver",
     "battery": "Upto 10 hours",
     "comments": [
@@ -876,7 +876,7 @@
     "subType": "laptop",
     "brand": "Lenovo",
     "RAM": "8GB"    ,
-    "modelName": "Ideapad",
+    "productModelName": "Ideapad",
     "color": "Black Texture",
     "battery": "Upto 4 hours",
     "comments": [
@@ -916,7 +916,7 @@
     "subType": "laptop",
     "brand": "HP",
     "RAM": "4GB DDR3"    ,
-    "modelName": "Pavilion",
+    "productModelName": "Pavilion",
     "color": "Natural SIlver Colour",
     "battery": "3 Cell",
     "comments": [
@@ -956,7 +956,7 @@
     "subType": "laptop",
     "brand": "Asus ",
     "RAM": "2GB DDR3"    ,
-    "modelName": "EeeBook",
+    "productModelName": "EeeBook",
     "color": "Dark Blue",
     "battery": "2Cells 38 Whrs Polymer Battery",
     "comments": [
@@ -996,7 +996,7 @@
     "subType": "laptop",
     "brand": "Micromax",
     "RAM": "4GB DDR3"    ,
-    "modelName": "Ignite",
+    "productModelName": "Ignite",
     "color": "Black",
     "battery": "2Cells",
     "comments": [
@@ -1036,7 +1036,7 @@
     "subType": "laptop",
     "brand": "Apple",
     "RAM": "4GB DDR3"    ,
-    "modelName": "Macbook Pro",
+    "productModelName": "Macbook Pro",
     "color": "SIlver",
     "battery": "Up to 7 hours",
     "comments": [
@@ -1076,7 +1076,7 @@
     "subType": "laptop",
     "brand": "Acer",
     "RAM": "2GB DDR3"    ,
-    "modelName": "Aspire",
+    "productModelName": "Aspire",
     "color": "Diamond Black",
     "battery": "3 cell",
     "comments": [
@@ -1116,7 +1116,7 @@
     "subType": "laptop",
     "brand": "Dell",
     "RAM": "4GB DDR3",
-    "modelName": "Inspiron 15",
+    "productModelName": "Inspiron 15",
     "color": "Black",
     "battery": "4ells",
     "comments": [
@@ -1156,7 +1156,7 @@
     "subType": "laptop",
     "brand": "Samsung",
     "RAM": "2GB DDR3"    ,
-    "modelName": "NP300E5E-A04IN",
+    "productModelName": "NP300E5E-A04IN",
     "color": "Sleek Silver",
     "battery": "6 cell",
     "comments": [
@@ -1196,7 +1196,7 @@
     "subType": "mobile",
     "brand": "Lenovo",
     "RAM": "3GB",
-    "modelName": "Z2 Plus",
+    "productModelName": "Z2 Plus",
     "color": "Black",
     "battery": "3500 mAh",
     "camera": {
@@ -1240,7 +1240,7 @@
     "subType": "mobile",
     "brand": "Apple",
     "RAM": "1GB",
-    "modelName": "iPhone 6",
+    "productModelName": "iPhone 6",
     "color": "Silver",
     "battery": "Li-Ion",
     "camera": {
@@ -1284,7 +1284,7 @@
     "subType": "mobile",
     "brand": "OPPO",
     "RAM": "4GB",
-    "modelName": "F1s",
+    "productModelName": "F1s",
     "color": "Gold",
     "battery": "3075 mAh",
     "camera": {
@@ -1328,7 +1328,7 @@
     "subType": "mobile",
     "brand": "Lenovo",
     "RAM": "4GB",
-    "modelName": "P2",
+    "productModelName": "P2",
     "color": "Grey",
     "battery": "5100 mAh",
     "camera": {
@@ -1372,7 +1372,7 @@
     "subType": "mobile",
     "brand": "Micromax",
     "RAM": "3GB",
-    "modelName": "Canvas Mega 4G",
+    "productModelName": "Canvas Mega 4G",
     "color": "Blue",
     "battery": "2500 mAh",
     "camera": {
@@ -1416,7 +1416,7 @@
     "subType": "mobile",
     "brand": "LeEco",
     "RAM": "3GB",
-    "modelName": "Le 1s Eco",
+    "productModelName": "Le 1s Eco",
     "color": "Gold",
     "battery": "3000 mAh",
     "camera": {
@@ -1460,7 +1460,7 @@
     "subType": "mobile",
     "brand": "XOLO",
     "RAM": "2GB",
-    "modelName": "Era 2X",
+    "productModelName": "Era 2X",
     "color": "Black and Gun",
     "battery": "2500 mAh",
     "camera": {
@@ -1504,7 +1504,7 @@
     "subType": "mobile",
     "brand": "Lenovo",
     "RAM": "4GB",
-    "modelName": "Vibe K5 Note",
+    "productModelName": "Vibe K5 Note",
     "color": "Gold",
     "battery": "3500 mAh",
     "camera": {
@@ -1548,7 +1548,7 @@
     "subType": "mobile",
     "brand": "Asus",
     "RAM": "2GB",
-    "modelName": "Zenfone 2 Laser ZE550KL",
+    "productModelName": "Zenfone 2 Laser ZE550KL",
     "color": "Black",
     "battery": "3000 mAh",
     "camera": {
@@ -1592,7 +1592,7 @@
     "subType": "mobile",
     "brand": "SAMSUNG",
     "RAM": "3GB",
-    "modelName": "Galaxy On Nxt",
+    "productModelName": "Galaxy On Nxt",
     "color": "Black",
     "battery": "3300 mAh",
     "camera": {
@@ -1636,7 +1636,7 @@
     "subType": "mobile",
     "brand": "Panasonic",
     "RAM": "1GB",
-    "modelName": "P77",
+    "productModelName": "P77",
     "color": "Grey",
     "battery": "2000 mAh",
     "camera": {
@@ -1680,7 +1680,7 @@
     "subType": "mobile",
     "brand": "Asus",
     "RAM": "6GB",
-    "modelName": "Zenfone 3 Deluxe",
+    "productModelName": "Zenfone 3 Deluxe",
     "color": "Silver",
     "battery": "3000 mAh",
     "camera": {
@@ -1724,7 +1724,7 @@
     "subType": "mobile",
     "brand": "Micromax",
     "RAM": "1GB",
-    "modelName": "Bolt Q381",
+    "productModelName": "Bolt Q381",
     "color": "Black",
     "battery": "2000 mAh",
     "camera": {
@@ -1768,7 +1768,7 @@
     "subType": "mobile",
     "brand": "Nexus",
     "RAM": "3GB",
-    "modelName": "Nexus 6P Special Edition",
+    "productModelName": "Nexus 6P Special Edition",
     "color": "Gold",
     "battery": "3450 mAh",
     "camera": {
@@ -1812,7 +1812,7 @@
     "subType": "mobile",
     "brand": "Swipe",
     "RAM": "2GB",
-    "modelName": "Konnect Plus",
+    "productModelName": "Konnect Plus",
     "color": "Black",
     "battery": "3000 mAh",
     "camera": {
@@ -1856,7 +1856,7 @@
     "subType": "mobile",
     "brand": "Yureka",
     "RAM": "2GB",
-    "modelName": "Yureka Plus",
+    "productModelName": "Yureka Plus",
     "color": "Moon Dust Grey",
     "battery": "2500 mAh",
     "camera": {
@@ -1900,7 +1900,7 @@
     "subType": "mobile",
     "brand": "Karbonn",
     "RAM": "2GB",
-    "modelName": "Titanium Machfive",
+    "productModelName": "Titanium Machfive",
     "color": "Silver",
     "battery": "2200 mAh",
     "camera": {
@@ -1944,7 +1944,7 @@
     "subType": "mobile",
     "brand": "Honor Holly",
     "RAM": "2GB",
-    "modelName": "Holly 2 Plus",
+    "productModelName": "Holly 2 Plus",
     "color": "Grey",
     "battery": "4000 mAh",
     "camera": {
@@ -1988,7 +1988,7 @@
     "subType": "mobile",
     "brand": "HTC",
     "RAM": "1GB",
-    "modelName": "Desire 620G Dual Sim",
+    "productModelName": "Desire 620G Dual Sim",
     "color": "Milky-way Grey",
     "battery": "2100 mAh",
     "camera": {
@@ -2032,7 +2032,7 @@
     "subType": "mobile",
     "brand": "Google",
     "RAM": "4GB",
-    "modelName": "Pixel",
+    "productModelName": "Pixel",
     "color": "Quite Black",
     "battery": "2770 mAh",
     "camera": {
@@ -2076,7 +2076,7 @@
     "subType": "mobile",
     "brand": "Redmi",
     "RAM": "4GB",
-    "modelName": "Redmi Note 4",
+    "productModelName": "Redmi Note 4",
     "color": "Dark Grey",
     "battery": "4100 mAh",
     "camera": {

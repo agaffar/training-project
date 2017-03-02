@@ -14,10 +14,12 @@ var appRoute = function(router) {
     console.log("rendered")
 
   });
+
   router.get('/users', users);
   router.get('/api/products', products);
   router.get('/api/products/search', products);
   router.get('/api/products/category', products);
+  router.get('/api/products/brands', products);
 
 
 };
