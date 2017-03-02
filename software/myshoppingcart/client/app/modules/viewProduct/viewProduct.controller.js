@@ -3,8 +3,8 @@
  */
 (function () {
     angular.module('viewProduct').controller('viewProductController',viewCtrl);
-    viewCtrl.$inject = ['$stateParams','$rootScope'];
-    function viewCtrl($stateParams,$rootScope)
+    viewCtrl.$inject = ['$stateParams','$rootScope','viewProductFactory'];
+    function viewCtrl($stateParams,$rootScope,viewProductFactory)
     {
 
             var vm = this;
@@ -13,6 +13,7 @@
             var getProduct = getProduct;
             var getSimilarProducts = getSimilarProducts;
             vm.product = getProduct(prodId);
+            console.log(vm.product)
             subType = vm.product.subType;
             vm.picPath = "images/"+subType+"/"+prodId+".jpg";
             console.log("vm.imagePath in viewctrl"+vm.picPath);
@@ -86,7 +87,7 @@
         vm.prevList = previousListofProdducts;
         vm.nextList = nextListofProducts;
         function getProduct(prodId){
-            for(var i=0;i<$rootScope.products.length;i++)
+            /*for(var i=0;i<$rootScope.products.length;i++)
             {
                 var prod = $rootScope.products[i];
                 if(prod.id == prodId)
@@ -98,7 +99,23 @@
                     return prod;
                     //console.log(vm.product.offers);
                 }
-            }
+            }*/
+            viewProductFactory.getProduct(prodId).then(function(response)
+            {
+                console.log("in get productview");
+                //console.log(response);
+                var product = {};
+                    product = response;
+                console.log( product);
+                return product
+            },function(data)
+            {
+                //console.log(response);
+
+                //console.log(vm.products);
+                return null;
+            });
+
         }
         function previousListofProdducts()
         {

@@ -3,14 +3,14 @@
     <div class="row">
         <img class="proim col-lg-12 col-xs-12 col-sm-12 col-md-12"  ez-plus
              ezp-model="{thumb:pip.picPath, small:pip.picPath, large:pip.picPath}"
-             ezp-options="{scrollZoom: true, easing: true}" id="zoom_01" ng-if="pip.product.type == 'electronics'" src="images/{{pip.product.subType}}/{{pip.product.id}}.jpg"><br>
+             ezp-options="{scrollZoom: true, easing: true}" id="zoom_01" ng-if="pip.product.type == 'electronics'" src="images/{{pip.product.subType}}/{{pip.product.productId}}.jpg"><br>
         <img class="proim col-lg-12 col-xs-12 col-sm-12 col-md-12"  ez-plus
              ezp-model="{thumb:pip.picPath, small:pip.picPath, large:pip.picPath}"
-             ezp-options="{scrollZoom: true, easing: true}" id="zoom_02" ng-if="pip.product.type == 'books'" src="images/books/{{pip.product.id}}.jpg"><br>
+             ezp-options="{scrollZoom: true, easing: true}" id="zoom_02" ng-if="pip.product.type == 'books'" src="images/books/{{pip.product.productId}}.jpg"><br>
 
     </div>
 
-    <div class="row"> <span  class="col-lg-12 col-xs-12 col-sm-12 col-md-12">price : {{pip.product.price | currency:'&#8377;'}}</span></div>
+    <div class="row"> <span  class="col-lg-12 col-xs-12 col-sm-12 col-md-12">price : {{pip.product.productPrice | currency:'&#8377;'}}</span></div>
     <div class="row"><label  class="col-lg-12 col-xs-12 col-sm-12 col-md-12">Rating</label>{{pip.product.rating}}
     <!--<jk-rating-stars rating="vpc.product.rating" read-only="true" on-rating="vpc.onRating(rating)" >
 </jk-rating-stars>-->

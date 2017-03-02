@@ -3,13 +3,16 @@
  */
 var express = require('express');
 var ProductModel=require('../../models/Product/ProductModel');
+var OfferModel=require('../../models/Offer/Offer');
 
 var productList
 productList ={
     topRatedProducts : topRatedProducts,
     searchProducts  : searchProducts,
     productsByCategory : productsByCategory,
-    getAllBrandsByType : getAllBrandsByType
+    getAllBrandsByType : getAllBrandsByType,
+    getAllOffersType : getAllOffersType,
+    getProduct : getProduct
 }
 function topRatedProducts(req,res){
     console.log("in product toppppppp "+req.query.q)
@@ -97,6 +100,47 @@ function getAllBrandsByType(req,res){
         else
         {
             console.log("brands response received"+response);
+            res.send(response);
+        }
+
+    });
+}
+function getAllOffersType(req,res) {
+   /* var query = JSON.parse(req.query.q);
+    console.log(typeof type);
+    console.log("in product type "+query.type)
+
+    /!*console.log(req.query);
+    console.log(req.body);*!/
+*/
+    OfferModel.distinct("type").exec(function(err, response){
+        console.log("in offers list")
+        if(err)
+            console.log(err);
+        else
+        {
+            console.log("offers response received"+response);
+            res.send(response);
+        }
+
+    });
+}
+function getProduct(req,res) {
+    console.log("in product toppppppp "+req.query.q)
+    console.log(typeof req.query.q);
+    var query = JSON.parse(req.query.q);
+    console.log("in product type "+query.productId)
+
+    console.log(req.query);
+    console.log(req.body);
+
+    ProductModel.find({productId : query.productId}).exec(function(err, response){
+        console.log("in productlist")
+        if(err)
+            console.log(err);
+        else
+        {
+            console.log("response received"+response);
             res.send(response);
         }
 

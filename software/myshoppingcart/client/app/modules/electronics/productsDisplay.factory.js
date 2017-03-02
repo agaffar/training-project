@@ -209,16 +209,30 @@
         function getAllOffers(type){
             var allProducts = $rootScope.products;
             var allOffers = [];
-            for(var i = 0;i<allProducts.length;i++)
+          /*  for(var i = 0;i<allProducts.length;i++)
             {
                 var eachProd = allProducts[i];
                 if(eachProd.subType == type){
                     allOffers = insertOfferTypes(allOffers,eachProd.offers);
                     //allOffers.push(eachProd.offers);
                 }
-            }
-            console.log(allOffers);
-            return allOffers;
+            }*/
+            var defered = $q.defer();
+            console.log("type home factory = "+type);
+           /* var query = {};
+            query.type = type;
+            console.log("sending requesting to server");
+            console.log(typeof query);*/
+            $http.get('/api/products/offers').success(function (response)
+            {
+                //defered = response.data;
+                defered.resolve(response);
+                console.log("in header factory response");
+                console.log(response);
+            }).error(function (response){
+                defered.reject("failed to load json");
+            })
+            return defered.promise;
         }
         function insertOfferTypes(allOffers,prodOffers){
             for(var i=0;i<prodOffers.length;i++)
