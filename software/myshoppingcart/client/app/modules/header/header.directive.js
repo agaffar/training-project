@@ -17,13 +17,12 @@
         function  linkFunction(scope,elements,attr)
         {
             //console.log("hhhhhhhhhhhhhhhhhhhhhhhhhhhh ");
-
         }
 
         return directive;
     }
-    headDirectiveController.$inject = ['$scope', 'CartData','$rootScope', '$timeout','$state'];
-    function headDirectiveController($scope, CartData,$rootScope, $timeout,$state)
+    headDirectiveController.$inject = ['$scope','headerFactory','$state'];
+    function headDirectiveController($scope,headerFactory, $state)
     {
         //console.log("conteoller directive"+$rootScope.products);
         var vm = this;
@@ -35,32 +34,51 @@
         //console.log("dddd");
         function refreshProductList(valueEntered)
         {
-            var refreshed = [];
+            vm.refreshed = [];
             //console.log("entered fun");
             //$scope.$apply(function() {
             //console.log($rootScope.products);
             if(valueEntered.length>2)
             {
                 var regex = new RegExp(valueEntered,"ig");
-                for(var i=0;i<$rootScope.products.length;i++)
+                headerFactory.getSearched(valueEntered).then(function(response)
+                {
+                    console.log("in header");
+                    //console.log(response);
+                    vm.refreshed = [];
+                    vm.refreshed = response;
+                    console.log( vm.refreshed);
+                   /* if(refreshed.length ) {
+                        vm.refreshed = refreshed;
+                        console.log(vm.refreshed.length + "  length");
+                        console.log(vm.refreshed);
+                    }*/
+                },function(data)
+                {
+                    //console.log(response);
+
+                    //console.log(vm.products);
+                    //return null;
+                });
+              /*  for(var i=0;i<$rootScope.products.length;i++)
                 {
                     var product = $rootScope.products[i];
                     //console.log(valueEntered+"  regex= "+regex);
 
-                    if(product. name.toString().match(regex))
+                    if(product.productName.toString().match(regex))
                     {
                         //console.log("for entered"+valueEntered+" ,"+product.name+" has "+regex+" = "+product.name.toString().match(regex));
                         refreshed.push(product);
                     }
-                }
-                if(refreshed.length ) {
+                }*/
+                console.log( vm.refreshed.length);
 
-                    vm.refreshed = refreshed;
-                    //console.log(vm.refreshed.length + "  length");
-                }
+
             } else {
                 vm.refreshed = [];
             }
+
+
             //});
         }
         function viewSelectedProduct(productid)

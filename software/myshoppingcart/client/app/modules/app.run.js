@@ -16,7 +16,8 @@
             $rootScope.products = [];
             $rootScope.products = response;
             //vm.products =
-            //console.log(vm.products);
+            console.log("products");
+            console.log( $rootScope.products);
         },function(data)
         {
             //console.log(response);

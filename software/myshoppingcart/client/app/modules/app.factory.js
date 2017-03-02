@@ -18,11 +18,12 @@
 
             // simulated async function
             var defered = $q.defer();
-            $http.get('dataset.json').success(function (response)
+            $http.get('/api/products').success(function (response)
             {
                 //defered = response.data;
                 defered.resolve(response);
-                //console.log(defered.promise);
+                console.log("response");
+                console.log(response);
             }).error(function (response){
                 defered.reject("failed to load json");
             })

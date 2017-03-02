@@ -1,16 +1,16 @@
 <div class="search" >
-    <!--{{productList}}-->
-    <ui-select ng-model="search.selected" theme='bootstrap' reset-search-input='true' on-select="search.viewProduct({prodId : search.selected.id})">
-        <ui-select-match placeholder="Select or search a product ..." > {{ $select.selected.name}}</ui-select-match>
+    <!--{{search.productList}}-->
+    <ui-select ng-model="search.selected" theme='bootstrap' reset-search-input='true' on-select="search.viewProduct({prodId : search.selected.productId})">
+        <ui-select-match placeholder="Select or search a product ..." > {{ $select.selected.productName}}</ui-select-match>
         <!--minimum-input-length=3 check in future-->
         <ui-select-choices  refresh="search.refreshProds({selected : $select.search})"
                             refresh-delay="0"
-                            repeat="prod in search.productList track by prod.id" >
-            <a ui-sref="product({ id : prod.id })" >{{prod.name}}</a><br>
-            Cost:{{prod.price | currency:'&#8377;'}}
+                            repeat="prod in search.productList track by prod.productId" >
+            <a ui-sref="product({ id : prod.productName })" >{{prod.productName}}</a><br>
+            Cost:{{prod.productPrice | currency:'&#8377;'}}
             Rating: <ng-rate-it min = 0 max = 5 read-only = "true" ng-model=prod.rating >
         </ng-rate-it><!--<jk-rating-stars class="rating" rating=prod.rating  read-only="true" ></jk-rating-stars>-->
         </ui-select-choices>
     </ui-select>
-    <span>{{ headc.selected.name}}</span>
+    <span>{{ headc.selected.productName}}</span>
 </div>

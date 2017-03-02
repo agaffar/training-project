@@ -45,7 +45,7 @@
                         isProdBrandSelected = CheckExist(brandNames,eachProduct.Features.Publisher);
                     else
                     isProdBrandSelected = CheckExist(brandNames,eachProduct.brand);
-                    if((eachProduct.price >= min && eachProduct.price <= max) && (isProdBrandSelected == true))
+                    if((eachProduct.productPrice >= min && eachProduct.productPrice <= max) && (isProdBrandSelected == true))
                     {
                         //console.log(eachProduct.brand+"in products filtering ---- "+$rootScope.min+"  "+$rootScope.max);
                         productFiltered.push(eachProduct);
@@ -70,7 +70,7 @@
             var prodFilt = [];
             for (var i=0; i<allProducts.length;i++){
                 var eachProd = allProducts[i];
-                if(eachProd.price >= min && eachProd.price <= max){
+                if(eachProd.productPrice >= min && eachProd.productPrice <= max){
                     prodFilt.push(eachProd);
                 }
             }
@@ -111,7 +111,7 @@
             var array = [];
             var brandObject;
             var brandExistList;
-            for(var i=0;i<allProducts.length;i++)
+         /*   for(var i=0;i<allProducts.length;i++)
             {
                 var eachProduct = allProducts[i];
                 var reg;
@@ -147,9 +147,19 @@
                 }
 
 
-            }
+            }*/
             //console.log(allBrands);
-            return allBrands;
+            $http.get('/api/products/search?q='+JSON.stringify(query)).success(function (response)
+            {
+                //defered = response.data;
+                defered.resolve(response);
+                console.log("in header factory response");
+                console.log(response);
+            }).error(function (response){
+                defered.reject("failed to load json");
+            })
+            return defered.promise;
+            //return allBrands;
         }
         function getNamesBrands(brandsSelected)
         {
@@ -205,7 +215,6 @@
             return allOffers;
         }
         function insertOfferTypes(allOffers,prodOffers){
-
             for(var i=0;i<prodOffers.length;i++)
             {
                 console.log(prodOffers[i].type);

@@ -1,8 +1,11 @@
-<div ui-sref="product({ id : product.id })" class="products col-xs-6 col-sm-3 col-md-2" ng-repeat="product in productList | orderBy:'-rating' | filter: { subType: productType} | limitTo:5">
+ <!-- -&#45;&#45;{{top5.productList}}-->
+<!--dddddddddddd{{top5.productType}}-->
+<div ui-sref="product({ id : product.productId })" class="products col-xs-6 col-sm-3 col-md-2" ng-repeat="product in top5.productList">
         <!--<div class="container">-->
-        <img  src="images/{{productType}}/{{ product.id }}.jpg"><span ng-bind="product.name"></span>
-        <label>Cost:</label><span>{{product.price | currency:'&#8377;'}}</span>
+        <img  src="images/{{top5.productType}}/{{ product.productId }}.jpg"><span ng-bind="product.productName"></span>
+        <label>Cost:</label><span>{{product.productPrice | currency:'&#8377;'}}</span>
         <label>Rating:</label> <ng-rate-it col-xs-12 col-sm-6 col-md-3 min = 0 max = 5 read-only = "true" ng-model=product.rating >
 </ng-rate-it><!--<jk-rating-stars class="rating" rating="product.rating" read-only="true"></jk-rating-stars>-->
         <!--</div>-->
 </div>
+<!-- -&#45;&#45;{{top5.productList}}-->

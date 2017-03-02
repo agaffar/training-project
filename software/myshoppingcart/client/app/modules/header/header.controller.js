@@ -3,8 +3,8 @@
  */
 (function(){
     angular.module('myApp.header').controller('headController',headCont);
-    headCont.$inject = ['$scope', 'CartData','$rootScope', '$timeout','$state'];
-    function headCont ( $scope, CartData,$rootScope, $timeout,$state)
+    headCont.$inject = ['$scope','headerFactory', 'CartData','$rootScope', '$timeout','$state'];
+    function headCont ( $scope,headerFactory, CartData,$rootScope, $timeout,$state)
     {
         var vm = this;
         vm.refreshed = [];
