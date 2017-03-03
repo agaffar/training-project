@@ -11,23 +11,59 @@
         vm.type = $stateParams.type;
         console.log(vm.type+" type");
         vm.brandList = [];
-        vm.brandList = productsDisplayFactory.getBrands(vm.type);
-        console.log(vm.brandList);
+        //vm.brandList = productsDisplayFactory.getBrands(vm.type);
+        productsDisplayFactory.getBrands(vm.type).then(function(response)
+        {
+            console.log("in get brands");
+            //console.log(response);
+
+            vm.brandList = response;
+            console.log(vm.brandList);
+            vm.brandList = productsDisplayFactory.removeDuplicates(vm.brandList);
+        },function(data)
+        {
+            return null;
+        });
+    /*    console.log(vm.brandList);*/
         console.log('selectedBrands init');
         vm.selectedBrands = [];
-
-        //console.log(vm.brandList[0].name+" vm.brandList[0].name")
-       /* vm.brandList[0].ticked = true;
-        vm.brandList[1].ticked = true;
-        vm.selectedBrands = (vm.brandList.slice(0,2));*/
         vm.allOffers = productsDisplayFactory.getOffers(vm.type);
+
+     /*   //console.log(vm.brandList[0].name+" vm.brandList[0].name")
+       /!* vm.brandList[0].ticked = true;
+        vm.brandList[1].ticked = true;
+        vm.selectedBrands = (vm.brandList.slice(0,2));*!/
+        //vm.allOffers = productsDisplayFactory.getOffers(vm.type);
+        productsDisplayFactory.getOffers(vm.type).then(function(response)
+        {
+            console.log("in get offers");
+            //console.log(response);
+
+            vm.allOffers  = response;
+            console.log( vm.allOffers);
+        },function(data)
+        {
+            console.log("errr")
+            return null;
+        });*/
         console.log("offers are ");
         console.log(vm.allOffers);
         vm.productList = [];
         //console.log("calling products "+vm.selectedBrands[0].name)
         console.log(vm.selectedBrands)
         var offersSelected = [];
-        vm.productList = productsDisplayFactory.getProducts(offersSelected,vm.selectedBrands,$rootScope.min,$rootScope.max);
+        productsDisplayFactory.getProducts(vm.type,offersSelected,vm.selectedBrands,$rootScope.min,$rootScope.max).then(function(response)
+        {
+            vm.productList = response;
+            console.log( vm.productList);
+        /*    vm.brandList  = productsDisplayFactory.getBrands(vm.productList);
+            vm.allOffers = productsDisplayFactory.getOffers(vm.productList);*/
+
+        },function(data)
+        {
+            return null;
+        });
+
 
 
     }

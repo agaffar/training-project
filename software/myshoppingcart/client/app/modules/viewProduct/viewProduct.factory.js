@@ -2,9 +2,6 @@
 /**
  * Created by zia on 3/3/2017.
  */
-/**
- * Created by Lenovo on 1/18/2017.
- */
 (function(){
     'use strict'
     angular.module('viewProduct').factory('viewProductFactory',['$http','$q',function($http,$q)
@@ -45,10 +42,10 @@
             var query = {};
             query.prodId = prodId;
             query.subType = subType;
-
             console.log("sending requesting to server");
             console.log(query);
-            console.log(JSON.stringify(query));
+            console.log(JSON.stringify(query)
+            );
             $http.get('/api/products/viewproduct/similarProducts/?q='+JSON.stringify(query)).success(function (response)
             {
                 //defered = response.data;

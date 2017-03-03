@@ -66,26 +66,60 @@ function productsByCategory(req,res){
     console.log("in categorywiseProducts "+req.query.q)
     console.log(typeof req.query.q);
     var query = JSON.parse(req.query.q);
-    console.log(typeof type);
-    console.log("in product type "+query.type)
-
+    //console.log(typeof type);
+    console.log("in product type "+query)
+    var offersSelectedArray = query.offersSelected;
+    var brandsSelectedArray = query.brandsSelected;
     console.log(req.query);
     console.log(req.body);
 
-    ProductModel.find({subType : query.type}).sort('-rating').exec(function(err, response){
+    var queryTo =[];
+    queryTo.push({ "$unwind": "$offers" });
+    queryTo.push({$lookup : { from : "offers",localField : "offers",foreignField : "_id", as : "prodObject"}});
+    queryTo.push({ "$unwind": "$prodObject" });
+    queryTo.push({"$match" : {"subType" : query.type, "productPrice" : {$gt : query.min,$lt : query.max}}});
+   /*/!* queryTo.$unwind = "$prodObject";
+    queryTo.subType = query.type;
+    queryTo.productPrice = {$gt : query.min, $lt :query.max};*!/
+    queryTo.offers = {};*/
+   /* {"$match" : {"prodObject.type" : { $in : ["discount","exchange"]},
+        "subType" : "mobile","brand" : {$in : ["Samsung","Lenovo"]}, "productPrice" : {$gt : 1000,$lt : 20000}}}*/
+    if(offersSelectedArray != undefined){
+        if(offersSelectedArray.length !=0){
+            //queryTo.offers.type = {$in : offersSelectedArray};
+            queryTo.push({"$match" : {"prodObject.type" : {$in : offersSelectedArray}}});
+            console.log("quertoooo + "+queryTo)
+            console.log(queryTo)
+        }
+    }
+    if(brandsSelectedArray != undefined){
+        if(brandsSelectedArray.length !=0){
+            var regexBrandArray = getRegexsBrands(brandsSelectedArray);
+            queryTo.push({"$match" : {"brand" : {$in : regexBrandArray}}});
+        console.log("quertoooo + "+queryTo)
+        console.log(queryTo)
+        }
+    }
+    console.log("quertoooo formed + "+queryTo)
+
+    console.log(queryTo)
+   /* aggregate([{ "$unwind": "$offers" },
+        {$lookup : { from : "offers",localField : "offers",foreignField : "_id", as : "prodObject"}},
+        { "$unwind": "$prodObject" },{"$match" : {"prodObject.type" : { $in : ["discount","exchange"]}}} ])*/
+    ProductModel.aggregate(queryTo).exec(function(err, response){
         console.log("in productlist categorywiseProducts")
         if(err)
             console.log(err);
         else
         {
-            console.log("categorywiseProducts response received"+response);
+            console.log("categorywiseProducts response received"+response.length);
             res.send(response);
         }
 
     });
 }
 function getAllBrandsByType(req,res){
-    console.log("in categorywiseProducts "+req.query.q)
+    console.log("in all brands "+req.query.q)
     console.log(typeof req.query.q);
     var query = JSON.parse(req.query.q);
     console.log(typeof type);
@@ -93,8 +127,15 @@ function getAllBrandsByType(req,res){
 
     console.log(req.query);
     console.log(req.body);
-
-    ProductModel.distinct("brand",{subType : query.type}).exec(function(err, response){
+    var queryTo ={};
+    queryTo.subType = type;
+    var reqBrand = "";
+    if(type == "fiction" || type == 'comics' || type == 'Biography')
+        reqBrand = "Features.Publisher";
+    else
+        reqBrand = "brand";
+    var regex = new RegExp(query.type,"i");
+    ProductModel.distinct(reqBrand,{subType : regex }).exec(function(err, response){
         console.log("in brands list")
         if(err)
             console.log(err);
@@ -107,14 +148,13 @@ function getAllBrandsByType(req,res){
     });
 }
 function getAllOffersType(req,res) {
-   /* var query = JSON.parse(req.query.q);
-    console.log(typeof type);
-    console.log("in product type "+query.type)
+    var query = JSON.parse(req.query.q);
 
-    /!*console.log(req.query);
-    console.log(req.body);*!/
-*/
-    OfferModel.distinct("type").exec(function(err, response){
+    console.log("in product get offer type "+query.type)
+
+    console.log(req.query);
+    console.log(req.body);
+    ProductModel.populate('offers').distinct("offers",{subType : query.type}).exec(function(err, response){
         console.log("in offers list")
         if(err)
             console.log(err);
@@ -163,11 +203,18 @@ function getSimilarProducts(req,res){
             console.log(err);
         else
         {
-
             console.log("response received"+response);
             res.send(response);
         }
 
     });
+}
+function getRegexsBrands(brandsSelectedArray){
+    var regexArray = [];
+    for(var i = 0; i<brandsSelectedArray.length; i++){
+        var regex = new RegExp(brandsSelectedArray[i],"i");
+        regexArray.push(regex);
+    }
+    return regexArray;
 }
 module.exports = productList;

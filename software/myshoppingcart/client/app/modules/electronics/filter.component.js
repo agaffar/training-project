@@ -9,8 +9,7 @@
             brandList : '=',
             selectedBrandList : '=',
             offersList : '=',
-
-            onKeyUp : '&'
+            productType : '@'
         },
         templateUrl : 'app/partials/product-filter.html',
         controller : filterController,
@@ -29,6 +28,10 @@
         var getSelectedBrands = getSelectedBrands;
         vm.checkOfferSelected = checkOfferSelected;
         var getSelectedOffers = getSelectedOffers;
+        console.log(vm.productType)
+        console.log("in filter component")
+        console.log(vm.offersList)
+
         function setPriceSlider()
         {
             vm.slider = {
@@ -45,7 +48,14 @@
                         console.log(selectedOffers)
                         console.log('on change ' + vm.selectedBrandList); // logs 'on change slider-id'
                         vm.productList = [];
-                        vm.productList = productsDisplayFactory.getProducts(selectedOffers,vm.selectedBrandList, vm.slider.min, vm.slider.max);
+                        productsDisplayFactory.getProducts(vm.productType,selectedOffers,vm.selectedBrandList,vm.slider.min,vm.slider.max).then(function(response)
+                        {
+                            vm.productList = response;
+                            console.log( vm.productList);
+                        },function(data)
+                        {
+                            return null;
+                        });
                         //console.log( vm.productList); // logs 'on change slider-id'
                     },
                 }
@@ -69,11 +79,17 @@
             return offerSel;
         }
         function checkOfferSelected()
-        {
+            {
             var selectedOffers = getSelectedOffers();
             console.log(selectedOffers)
-            vm.productList = productsDisplayFactory.getProducts(selectedOffers,vm.selectedBrandList, vm.slider.min, vm.slider.max);
-
+            productsDisplayFactory.getProducts(vm.productType,selectedOffers,vm.selectedBrandList,vm.slider.min,vm.slider.max).then(function(response)
+            {
+                vm.productList = response;
+                console.log( vm.productList);
+            },function(data)
+            {
+                return null;
+            });
         }
         function checkBrandsSelected()
         {
@@ -82,16 +98,28 @@
             vm.selectedBrandList = [];
             vm.selectedBrandList = getSelectedBrands(vm.brandList);
             vm.productList = [];
-            vm.productList = productsDisplayFactory.getProducts(selectedOffers,vm.selectedBrandList, vm.slider.min, vm.slider.max);
-
+            productsDisplayFactory.getProducts(vm.productType,selectedOffers,vm.selectedBrandList,vm.slider.min,vm.slider.max).then(function(response)
+            {
+                vm.productList = response;
+                console.log( vm.productList);
+            },function(data)
+            {
+                return null;
+            });
         }
         function searchByBrand(input)
         {
             var selectedOffers = getSelectedOffers();
             console.log('in searchby brand vm.selectedBrandList');
             console.log(vm.selectedBrandList);
-            vm.productList = productsDisplayFactory.getProducts(selectedOffers,vm.selectedBrandList, vm.slider.min, vm.slider.max);
-
+            productsDisplayFactory.getProducts(vm.productType,selectedOffers,vm.selectedBrandList,vm.slider.min,vm.slider.max).then(function(response)
+            {
+                vm.productList = response;
+                console.log( vm.productList);
+            },function(data)
+            {
+                return null;
+            });
         }
         function getSelectedBrands(brandsList)
         {

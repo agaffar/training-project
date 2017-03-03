@@ -12,21 +12,44 @@
 
             getProducts : getProductsFiltered,
             getBrands   : getAllBrandsFromProducts,
-            getOffers   : getAllOffers
+            getOffers   : getAllOffers,
+            removeDuplicates : removeDuplicates
         };
 
         return productServices;
 
-        function getProductsFiltered(offersSelected,brandsSelected,min,max)
+        function getProductsFiltered(type,offersSelected,brandsSelected,min,max)
         {
-
-            $rootScope.min = min;
-            $rootScope.max = max;
             var productFiltered = [];
-            var allProducts = $rootScope.products;
+            var defered = $q.defer();
+            console.log("type home factory = "+type);
+            var query = {};
+            query.type = type;
+            var offersNamesArray = getNamesOfferSelected(offersSelected);
+            var brandsNamesArray = getNamesBrands(brandsSelected);
+
+            query.offersSelected = offersNamesArray;
+            query.brandsSelected = brandsNamesArray;
+            query.min = min;
+            query.max = max;
+            console.log("sending requesting to server");
+            console.log(query);
+
+            $http.get('/api/products/category?q='+JSON.stringify(query)).success(function (response)
+            {
+                //defered = response.data;
+
+                defered.resolve(response);
+                console.log("in header factory response");
+                console.log(response);
+            }).error(function (response){
+                defered.reject("failed to load json");
+            })
+            return defered.promise;
+            //var allProducts = $rootScope.products;
 
             //console.log("brands selected are none"+brandsSelected)
-            if(brandsSelected == undefined || brandsSelected.length == 0)
+            /*if(brandsSelected == undefined || brandsSelected.length == 0)
             {
                 //console.log("brands selected are none")
                 productFiltered = getAllProdsOfRange($rootScope.products,min,max);
@@ -63,9 +86,26 @@
 
             }
             console.log(productFiltered)
-            return productFiltered;
+            return productFiltered;*/
+
         }
-        function getAllProdsOfRange(allProducts,min,max)
+        function getNamesOfferSelected(offersSelected){
+            var offerTypes = [];
+            console.log("offerTypes")
+            console.log(offersSelected)
+            for(var i=0;i<offersSelected.length;i++)
+            {
+                console.log(offersSelected[i].type)
+                offerTypes.push(offersSelected[i].type);
+            }
+            console.log(offerTypes);
+            //console.log("selected brands");
+
+            //console.log(brandsSelected);
+
+            return offerTypes;
+        }
+        /*function getAllProdsOfRange(allProducts,min,max)
         {
             var prodFilt = [];
             for (var i=0; i<allProducts.length;i++){
@@ -101,58 +141,20 @@
 
             }
             return false;
-        }
+        }*/
         function getAllBrandsFromProducts(type)
         {
             ProdType = type;
             console.log("type "+type)
             var allBrands = [];
-            var allProducts = $rootScope.products;
+            //var allProducts = typeProducts;
             var array = [];
             var brandObject;
             var brandExistList;
-         /*   for(var i=0;i<allProducts.length;i++)
-            {
-                var eachProduct = allProducts[i];
-                var reg;
-                if((type == "fiction" || type == "comics" || type == "biography") && eachProduct.subType == type)
-                {
-                    reg = new RegExp(eachProduct.Features.Publisher,"ig");
-                    brandExistList = CheckExist(array,eachProduct.Features.Publisher);
-                    console.log(brandExistList)
-                }
-                else
-                {
-                    brandExistList = CheckExist(array,eachProduct.brand);
-                    reg = new RegExp(eachProduct.brand,"ig");
-                }
-                console.log("brandsssss "+eachProduct.Publisher);
-
-                if((eachProduct.subType == type) && (brandExistList == false))
-                {
-                    //console.log("brandsssss "+eachProduct.Features.Publisher);
-                    brandObject = {};
-                    if(type == "fiction" || type == "comics" || type == "biography")
-                    {
-                        brandObject.name = eachProduct.Features.Publisher;
-                        console.log("brandObject.name  "+brandObject.name)
-                    }
-                    else {
-                        brandObject.name = eachProduct.brand;
-                    }
-
-                    allBrands.push(brandObject);
-                    array.push(brandObject.name);
-                    //console.log(brandObject+"    "+i+")"+allBrands[i]+"  values   "+Object.values(allBrands[0])+"  length of brands list "+allBrands.length);
-                }
-
-
-            }*/
-            //console.log(allBrands);
             var defered = $q.defer();
-            console.log("type home factory = "+type);
+            console.log("type home factory = "+ProdType);
             var query = {};
-            query.type = type;
+            query.type = ProdType;
             console.log("sending requesting to server");
             console.log(typeof query);
             $http.get('/api/products/brands?q='+JSON.stringify(query)).success(function (response)
@@ -165,7 +167,32 @@
                 defered.reject("failed to load json");
             })
             return defered.promise;
+
+            //console.log(allBrands);
+
             //return allBrands;
+        }
+        function removeDuplicates(allBrandsRetrieved){
+            var brandExistList;
+            var brandObject;
+            var allBrands = [];
+            var array = [];
+            for(var i=0;i<allBrandsRetrieved.length;i++)
+            {
+                var eachBrand = allBrandsRetrieved[i];
+                var reg;
+                brandExistList = CheckExist(array,eachBrand);
+                reg = new RegExp(eachBrand,"ig");
+                if((brandExistList == false))
+                {
+                    brandObject = {};
+                    brandObject.name = eachBrand;
+                    allBrands.push(brandObject);
+                    array.push(brandObject.name);
+                    //console.log(brandObject+"    "+i+")"+allBrands[i]+"  values   "+Object.values(allBrands[0])+"  length of brands list "+allBrands.length);
+                }
+            }
+            return allBrands;
         }
         function getNamesBrands(brandsSelected)
         {
@@ -206,24 +233,50 @@
             return false;
         }
 
-        function getAllOffers(type){
-            var allProducts = $rootScope.products;
+        function getAllOffers(productType){
+            //var allProducts = typeProducts;
             var allOffers = [];
-          /*  for(var i = 0;i<allProducts.length;i++)
+            /*for(var i = 0;i<allProducts.length;i++)
             {
                 var eachProd = allProducts[i];
-                if(eachProd.subType == type){
-                    allOffers = insertOfferTypes(allOffers,eachProd.offers);
-                    //allOffers.push(eachProd.offers);
-                }
+                //allOffers = insertOfferTypes(allOffers,eachProd.offers);
+                console.log(allOffers);
             }*/
-            var defered = $q.defer();
-            console.log("type home factory = "+type);
-           /* var query = {};
+           /* "exchange",
+                "discount",
+                "No offer",
+                "Bank offer",
+                "Bank Offer",
+                "AmazonBasics 14-Inch Laptop Sleeves (Black)",
+                "Special Offer Flat",
+                "Acer Laptop Backpack",
+                "OnsiteGo 2 Year Extended Warranty for Laptops from Rs. 50001 to Rs. 70000",
+                "Saco Soft Durable Pouch for HCL ME G1 10 inch Tablet"*/
+            if(productType == "laptop"){
+                allOffers.push({"type" : "exchange"});
+                allOffers.push({"type" : "discount"});
+                allOffers.push({"type" : "No offer"});
+                allOffers.push({"type" : "Bank offer"});
+                allOffers.push({"type" : "AmazonBasics 14-Inch Laptop Sleeves (Black)"});
+                allOffers.push({"type" : "Special Offer Flat"});
+                allOffers.push({"type" : "Acer Laptop Backpack"});
+                allOffers.push({"type" : "OnsiteGo 2 Year Extended Warranty for Laptops from Rs. 50001 to Rs. 70000"});
+                allOffers.push({"type" : "Saco Soft Durable Pouch for HCL ME G1 10 inch Tablet"});
+            }
+            else {
+                allOffers.push({"type" : "exchange"});
+                allOffers.push({"type" : "discount"});
+                allOffers.push({"type" : "No offer"});
+                allOffers.push({"type" : "Bank offer"});
+                allOffers.push({"type" : "Special Offer Flat"});
+            }
+            /*var defered = $q.defer();
+            console.log("offer eddd factory = "+type);
+            var query = {};
             query.type = type;
             console.log("sending requesting to server");
-            console.log(typeof query);*/
-            $http.get('/api/products/offers').success(function (response)
+            console.log(typeof query);
+            $http.get('/api/products/offers?q='+JSON.stringify(query)).success(function (response)
             {
                 //defered = response.data;
                 defered.resolve(response);
@@ -232,7 +285,8 @@
             }).error(function (response){
                 defered.reject("failed to load json");
             })
-            return defered.promise;
+            return defered.promise;*/
+            return allOffers;
         }
         function insertOfferTypes(allOffers,prodOffers){
             for(var i=0;i<prodOffers.length;i++)
