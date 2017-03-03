@@ -12,7 +12,8 @@ productList ={
     productsByCategory : productsByCategory,
     getAllBrandsByType : getAllBrandsByType,
     getAllOffersType : getAllOffersType,
-    getProduct : getProduct
+    getProduct : getProduct,
+    getSimilarProducts : getSimilarProducts
 }
 function topRatedProducts(req,res){
     console.log("in product toppppppp "+req.query.q)
@@ -134,12 +135,35 @@ function getProduct(req,res) {
     console.log(req.query);
     console.log(req.body);
 
-    ProductModel.find({productId : query.productId}).exec(function(err, response){
+    ProductModel.findOne({productId : query.productId}).populate('offers').populate('comments').exec(function(err, response){
         console.log("in productlist")
         if(err)
             console.log(err);
         else
         {
+            console.log("response received"+response);
+            res.send(response);
+        }
+
+    });
+}
+function getSimilarProducts(req,res){
+    console.log("in similar toppppppp "+req.query.q)
+    console.log(typeof req.query.q);
+    var query = JSON.parse(req.query.q);
+    console.log(typeof query);
+    console.log("in similar product type "+query.subType)
+
+    console.log(req.query);
+    //console.log(req.body);
+    var regex = new RegExp(query.prodId,"i");
+    ProductModel.find({subType : query.subType,productId :{$not: regex}}).exec(function(err, response){
+        console.log("in smilar list")
+        if(err)
+            console.log(err);
+        else
+        {
+
             console.log("response received"+response);
             res.send(response);
         }

@@ -22,6 +22,7 @@ var appRoute = function(router) {
   router.get('/api/products/brands', products);
   router.get('/api/products/offers', products);
   router.get('/api/products/viewproduct', products);
+  router.get('/api/products/viewproduct/similarProducts', products);
 
 
 };

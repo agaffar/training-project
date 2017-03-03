@@ -58,7 +58,7 @@ var productSchema = new Schema({
         },
         comments:[{
             type: Schema.Types.ObjectId,
-            ref: 'Comments'
+            ref: 'Comment'
         }],
         offers:[{
          type: Schema.Types.ObjectId,

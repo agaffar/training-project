@@ -11,9 +11,8 @@
         controller : viewProdImpController,
         controllerAs : 'pip'
     });
-    viewProdImpController.$inject = ['$scope'];
-    function viewProdImpController($scope)
-    {
-
+    viewProdImpController.$inject = [];
+    function viewProdImpController(){
+        var vm = this;
     }
 })();

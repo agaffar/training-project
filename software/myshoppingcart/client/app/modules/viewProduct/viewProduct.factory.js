@@ -1,3 +1,4 @@
+
 /**
  * Created by zia on 3/3/2017.
  */
@@ -10,6 +11,7 @@
     {
         var homefactoryServices = { };
         homefactoryServices.getProduct = getProductDetails;
+        homefactoryServices.getSimilarProducts = getSimilarProducts;
         return homefactoryServices;
 
         function getProductDetails(productId)
@@ -35,6 +37,32 @@
             })
 
 
+            return defered.promise;
+        }
+        function getSimilarProducts(prodId,subType){
+            var defered = $q.defer();
+            console.log(subType+ "id product view factory = "+prodId);
+            var query = {};
+            query.prodId = prodId;
+            query.subType = subType;
+
+            console.log("sending requesting to server");
+            console.log(query);
+            console.log(JSON.stringify(query));
+            $http.get('/api/products/viewproduct/similarProducts/?q='+JSON.stringify(query)).success(function (response)
+            {
+                //defered = response.data;
+                console.log("response in similar");
+
+                defered.resolve(response);
+                console.log("response in similar");
+                console.log(response);
+            }).error(function (response){
+                console.log("response in err");
+
+                console.log(response)
+                defered.reject("failed to load json");
+            })
             return defered.promise;
         }
 

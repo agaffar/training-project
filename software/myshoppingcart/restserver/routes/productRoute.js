@@ -9,4 +9,6 @@ router.get('/api/products/category', productsList.productsByCategory);
 router.get('/api/products/brands', productsList.getAllBrandsByType);
 router.get('/api/products/offers', productsList.getAllOffersType);
 router.get('/api/products/viewproduct', productsList.getProduct);
+router.get('/api/products/viewproduct/similarProducts', productsList.getSimilarProducts);
+
 module.exports = router;

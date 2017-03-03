@@ -45,13 +45,13 @@ for(var i = 0; i<jsonContent.length; i++){
 console.log(allProducts.length);
 console.log("comments length = "+allComments.length);
 
-for(var j in allProducts)
+/*for(var j in allProducts)
 {
     var eachProduct = allProducts[j];
     //console.log(allProducts[j]);
     insertProductToModel(eachProduct);
 
-}
+}*/
 
 
 function insertComments(prodId,prodComments,allComments){
