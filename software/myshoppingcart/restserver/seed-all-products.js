@@ -85,6 +85,8 @@ function insertProductToModel(eachProduct){
     newProduct.color = eachProduct.color;
     newProduct.battery = eachProduct.battery;
     newProduct.camera= eachProduct.camera;
+    newProduct.Features= eachProduct.Features;
+
     newProduct.offers = [];
     newProduct.comments = [];
     //product.push(eachProduct);

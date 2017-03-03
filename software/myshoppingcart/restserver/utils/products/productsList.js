@@ -67,7 +67,7 @@ function productsByCategory(req,res){
     console.log(typeof req.query.q);
     var query = JSON.parse(req.query.q);
     //console.log(typeof type);
-    console.log("in product type "+query)
+    console.log("in product type "+query.type)
     var offersSelectedArray = query.offersSelected;
     var brandsSelectedArray = query.brandsSelected;
     console.log(req.query);
@@ -95,7 +95,10 @@ function productsByCategory(req,res){
     if(brandsSelectedArray != undefined){
         if(brandsSelectedArray.length !=0){
             var regexBrandArray = getRegexsBrands(brandsSelectedArray);
-            queryTo.push({"$match" : {"brand" : {$in : regexBrandArray}}});
+            if(query.type == "fiction" || query.type == "comics" || query.type == "Biography")
+                queryTo.push({"$match" : {"Features.Publisher" : {$in : regexBrandArray}}});
+            else
+                queryTo.push({"$match" : {"brand" : {$in : regexBrandArray}}});
         console.log("quertoooo + "+queryTo)
         console.log(queryTo)
         }
@@ -130,11 +133,12 @@ function getAllBrandsByType(req,res){
     var queryTo ={};
     queryTo.subType = type;
     var reqBrand = "";
-    if(type == "fiction" || type == 'comics' || type == 'Biography')
+    if(query.type == "fiction" || query.type == 'comics' || query.type == 'Biography')
         reqBrand = "Features.Publisher";
     else
         reqBrand = "brand";
     var regex = new RegExp(query.type,"i");
+    console.log(reqBrand+"  reqBrand")
     ProductModel.distinct(reqBrand,{subType : regex }).exec(function(err, response){
         console.log("in brands list")
         if(err)

@@ -63,7 +63,10 @@ var productSchema = new Schema({
         offers:[{
          type: Schema.Types.ObjectId,
          ref: 'Offer'
-         }]
+         }],
+        Features :{
+            type : Object
+        }
     },
     {collection:'products'}
 );

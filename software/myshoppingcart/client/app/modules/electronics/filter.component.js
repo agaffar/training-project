@@ -40,6 +40,7 @@
                 options: {
                     floor: 0,
                     ceil: 100000,
+                    step: 10,
                     translate: function(value) {
                         return '&#8377;' + value;
                     },
@@ -48,6 +49,7 @@
                         console.log(selectedOffers)
                         console.log('on change ' + vm.selectedBrandList); // logs 'on change slider-id'
                         vm.productList = [];
+                        console.log(vm.productType+"    in slide");
                         productsDisplayFactory.getProducts(vm.productType,selectedOffers,vm.selectedBrandList,vm.slider.min,vm.slider.max).then(function(response)
                         {
                             vm.productList = response;
