@@ -11,32 +11,47 @@
             MyShopping Cart
         </h1>
     </div>
-    <center>
         <div class="search-bar col-sm-3" align="center">
             <!--&#45;&#45;&#45;&#45;{{headc.refreshed}}&#45;&#45;&#45;&#45;-->
             <search-product product-list="headc.refreshed" view-product="headc.viewProduct(prodId)" refresh-prods="headc.refreshProds(selected)">
 
             </search-product>
         </div>
-    </center>
-    <div class="register col-sm-3">
-        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Register</button>
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Modal Header</h4>
+    <div class="reg-form">
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Registration Form---</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form name="regForm" ng-submit="headc.checkAllAdd()">
+                            First Name : <input type="text" id="fname" ng-model="headc.fname" required>
+                            Last Name : <input type="text" id="lname" ng-model="headc.lname" required>
+                            Email Id : <input type="email" id="mailId" ng-model="headc.mailId" ng-keyup="headc.checkEmailAvailability()" required>
+                            <span ng-bind="headc.mailId+' already exists'" style="color:red" ng-if="headc.mailExitst == true"></span><br>
+                            Password : <input type="password" id="paswd" ng-model="headc.paswd" required>
+                            Phone Number : <input type="number" id="phno" ng-model="headc.phno" required>
+                            <input type="submit" value="SignUp">
+                            <span style="color:red" ng-if="headc.validated == false">enter the details preperly</span>
+                        </form>
+                    </div>
+                  <!--  <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>-->
+                </div>
+
             </div>
-            <div class="modal-body">
-                <p>Some text in the modal.</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
+        </div>
     </div>
+    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+
+
+
 </div>
-
-
-
+<div class="row">
 <nav class="navbar navbar-default">
 
     <div class="container-fluid">

@@ -5,6 +5,7 @@ var async = require('async');
 var mongoose = require('mongoose')
 require('mongoose-double')(mongoose);
 var fs = require("fs");
+var UserModel=require('./models/User/UserModel');
 var ProductModel=require('./models/Product/ProductModel');
 var CommentModel=require('./models/Comment/CommentModel');
 var OfferModel=require('./models/Offer/Offer');
@@ -26,6 +27,82 @@ var jsonContent = JSON.parse(contents);
 console.log("length = "+jsonContent.length);
 var allProducts = [];
 var allComments = [];
+
+   /* firstName:{
+        type:String
+    },
+    lastName:{
+        type:String
+    },
+    email:{
+        type:String,
+        trim:true,
+        required: true
+    },
+    password:{
+        type:String,
+        trim:true,
+        required: true
+    },
+    phoneNumber:{
+        type:Number ,
+        trim:true,
+        required: true
+    },
+
+    startDate:{
+        type:Date
+    },
+    updatedDate:{
+        type:Date
+    },
+    isActive: {
+        type : Boolean
+    },
+
+},*/
+var user1 = UserModel();
+user1.firstName = "Abdul";
+user1.lastName = "Gaffar";
+user1.email = "abdulgaffar09@gmail.com";
+user1.password = "Abdul";
+user1.phoneNumber = 9885553785;
+user1.startDate = "03/06/2017";
+user1.updatedDate = "03/06/2017";
+user1.isActive = "false";
+user1.save(function (err) {
+    //console.log("dateform = "+dateform);
+    if (err) {
+        //console.log(eachComment.productId+" comment.commentedOn = "+comment.commentedOn+" by "+eachComment.username);
+        console.log(err);
+        console.log("errorrr");
+    }
+    else {
+
+       console.log("user "+user1.email+"saved");
+    }
+})
+var user2 = UserModel();
+user2.firstName = "Gaffar";
+user2.lastName = "Abdul";
+user2.email = "gaffarabdul@gmail.com";
+user2.password = "Abdul";
+user2.phoneNumber = 91542131388;
+user2.startDate = "03/06/2017";
+user2.updatedDate = "03/06/2017";
+user2.isActive = "false";
+user2.save(function (err) {
+    //console.log("dateform = "+dateform);
+    if (err) {
+        //console.log(eachComment.productId+" comment.commentedOn = "+comment.commentedOn+" by "+eachComment.username);
+        console.log(err);
+        console.log("errorrr");
+    }
+    else {
+
+        console.log("user "+user2.email+"saved");
+    }
+})
 
 for(var i = 0; i<jsonContent.length; i++){
     var eachProd = jsonContent[i];

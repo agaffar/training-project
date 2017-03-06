@@ -36,6 +36,13 @@
             templateUrl: '/app/partials/viewProduct.html'
 
         });
+        $stateProvider.state('confirmRegistration', {
+            url:"/confirmregistration/:token",
+            controller: 'registerController',
+            controllerAs: 'rgc',
+            templateUrl: '/app/partials/confirm-registration.html'
+
+        });
         $urlRouterProvider.otherwise('home');
         //$locationProvider.html5Mode(true);
     }

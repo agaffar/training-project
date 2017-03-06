@@ -10,6 +10,7 @@
         vm.refreshed = [];
         vm.refreshProds = refreshProductList;
         vm.viewProduct = viewSelectedProduct;
+        //vm.checkEmailAvailability = checkAvailability;
 
       /*  $scope.$watch("headc.refreshed", function(oldV, newV){
             console.log("coming in list change");
@@ -52,5 +53,8 @@
             console.log("state go = "+productid);
             $state.go("product",{id:productid});
         }*/
+        function checkAvailability(emailId){
+            console.log("checkEmail id = "+emailId);
+        }
     }
 })();

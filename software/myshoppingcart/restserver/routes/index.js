@@ -16,6 +16,9 @@ var appRoute = function(router) {
   });
 
   router.get('/users', users);
+  router.get('/users/register/checkemail', users);
+  router.post('/users/register/createUser', users);
+  router.post('/users/register/confirmregistration', users);
   router.get('/api/products', products);
   router.get('/api/products/search', products);
   router.get('/api/products/category', products);
