@@ -32,6 +32,7 @@ div.top5products{
 }
 div.statecontent
 {
+  margin-top: 30px;
   min-height: 400px;
 }
 .subMenu {
@@ -442,6 +443,33 @@ span#prod-names
   }
 
   div.reg-form input[type=submit] {
+
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  div.reset-form
+  {
+
+    width:50%;
+    border: 2px solid #1edda2;
+    border-radius: 12px;
+  }
+  div.reset-form input[type=email],div.reset-form input[type=password] {
+    width: 25%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  div.reset-form input[type=submit] {
 
     background-color: #4CAF50;
     color: white;

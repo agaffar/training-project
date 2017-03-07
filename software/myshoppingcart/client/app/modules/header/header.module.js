@@ -3,5 +3,5 @@
  */
 (function(){
     'use strict'
-    angular.module('myApp.header',['ui.select','home']);
+    angular.module('myApp.header',['ui.select','ngStorage','ui.bootstrap.modal','home']);
 })();

@@ -21,7 +21,8 @@
     "angular-rateit": "^3.0.2",
     "angularjs-slider": "^6.0.0",
     "angularMultipleSelect": "angular-multiple-select#^1.1.2",
-    "isteven-angular-multiselect": "^4.0.0"
+    "isteven-angular-multiselect": "^4.0.0",
+    "ngstorage": "ng-storage#^0.4.2"
   },
   "resolutions": {
     "angular": "1.5.11"

@@ -43,6 +43,13 @@
             templateUrl: '/app/partials/confirm-registration.html'
 
         });
+        $stateProvider.state('resetPassword', {
+            url:"/resetPassword/:token",
+            controller: 'resetPasswordController',
+            controllerAs: 'repc',
+            templateUrl: '/app/partials/reset-password.html'
+
+        });
         $urlRouterProvider.otherwise('home');
         //$locationProvider.html5Mode(true);
     }
