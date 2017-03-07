@@ -6,37 +6,178 @@
 </head>
 <body class="container">
 <div class="row">
-    <div class="header col-sm-3">
+    <div class="header col-sm-3 col-md-3 col-xs-3">
         <h1 class="">
             MyShopping Cart
         </h1>
     </div>
-    <center>
-        <div class="search-bar col-sm-3" align="center">
+        <div class="search-bar col-sm-3 col-md-3 col-xs-3" align="center">
             <!--&#45;&#45;&#45;&#45;{{headc.refreshed}}&#45;&#45;&#45;&#45;-->
             <search-product product-list="headc.refreshed" view-product="headc.viewProduct(prodId)" refresh-prods="headc.refreshProds(selected)">
 
             </search-product>
         </div>
-    </center>
-    <div class="register col-sm-3">
-        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Register</button>
+    <div>
+
+    </div>
+    <div class="regist col-md-3" ng-if="headc.userIsLogged == false">
+        <div class="reg-form">
+            <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Registration Form---</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form name="regForm" ng-submit="headc.checkAllAdd()">
+                                First Name : <input type="text" id="fname" ng-model="headc.fname" required>
+                                Last Name : <input type="text" id="lname" ng-model="headc.lname" required>
+                                Email Id : <input type="email" id="mailId" ng-model="headc.mailId" ng-keyup="headc.checkEmailAvailability()" required>
+                                <span ng-bind="headc.mailId+' already exists'" style="color:red" ng-if="headc.mailExitst == true"></span><br>
+                                Password : <input type="password" id="paswd" ng-model="headc.paswd" required>
+                                Phone Number : <input type="number" id="phno" ng-model="headc.phno" required>
+                                <input type="submit" value="SignUp">
+                                <span style="color:red" ng-if="headc.validated == false">enter the details preperly</span>
+                            </form>
+                        </div>
+                        <!--  <div class="modal-footer">
+                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                          </div>-->
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <button type="button" class="btn btn-info btn-lg" data-toggle="modal"  ng-click="headc.RegisterForm()">Register</button>
+    </div>
+    <div class="login col-md-3" ng-if="headc.userIsLogged == false">
+        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" ng-click="headc.loginForm()">Login</button>       <!-- <login-form>
+
+        </login-form>-->
+        <!--<div class="reg-form">
+            <div class="modal fade" id="loginModal" role="dialog">
+                <div class="modal-dialog">
+                    &lt;!&ndash; Modal content&ndash;&gt;
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Registration Form-&#45;&#45;</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form name="regForm" ng-submit="headc.checkAllAdd()">
+
+                                Email Id : <input type="email" id="emailId" ng-model="headc.mailId" ng-keyup="headc.checkEmailAvailability()" required>
+                                <span ng-bind="headc.mailId+' already exists'" style="color:red" ng-if="headc.mailExitst == true"></span><br>
+                                Password : <input type="password" id="paswd" ng-model="headc.paswd" required>
+                                Phone Number : <input type="number" id="phno" ng-model="headc.phno" required>
+                                <input type="submit" value="SignUp">
+                                <span style="color:red" ng-if="headc.validated == false">enter the details preperly</span>
+                            </form>
+                        </div>
+                        &lt;!&ndash;  <div class="modal-footer">
+                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                          </div>&ndash;&gt;
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#loginModal">Login</button>-->
+    </div>
+   <!-- <button ng-init="showModal = false" class="btn" ng-click="showModal = true">Open Modal</button>
+&lt;!&ndash;{{showModal}}&ndash;&gt;
+    <div modal="false" close="">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Modal Header</h4>
+                <h4>Modal Dialog</h4>
             </div>
             <div class="modal-body">
-                <p>Some text in the modal.</p>
+                <p>Example paragraph with some text.</p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button class="btn btn-success" ng-click="ok()">Okay</button>
+                <button class="btn" ng-click="'showModal=false'">Cancel</button>
             </div>
+        </div>
+
+    </div>-->
+    <div  ng-if="headc.userIsLogged == true">
+        <i class="glyphicon glyphicon-user">Hi, {{headc.UserName}}</i>
+        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" ng-click="headc.logout()">logout</button>
+    </div>
     </div>
 </div>
+<div class="row">
+   <!-- <div class="regist col-md-3">
+        <div class="reg-form">
+            <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal-dialog">
+                    &lt;!&ndash; Modal content&ndash;&gt;
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Registration Form-&#45;&#45;</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form name="regForm" ng-submit="headc.checkAllAdd()">
+                                First Name : <input type="text" id="fname" ng-model="headc.fname" required>
+                                Last Name : <input type="text" id="lname" ng-model="headc.lname" required>
+                                Email Id : <input type="email" id="mailId" ng-model="headc.mailId" ng-keyup="headc.checkEmailAvailability()" required>
+                                <span ng-bind="headc.mailId+' already exists'" style="color:red" ng-if="headc.mailExitst == true"></span><br>
+                                Password : <input type="password" id="paswd" ng-model="headc.paswd" required>
+                                Phone Number : <input type="number" id="phno" ng-model="headc.phno" required>
+                                <input type="submit" value="SignUp">
+                                <span style="color:red" ng-if="headc.validated == false">enter the details preperly</span>
+                            </form>
+                        </div>
+                        &lt;!&ndash;  <div class="modal-footer">
+                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                          </div>&ndash;&gt;
+                    </div>
 
+                </div>
+            </div>
+        </div>
+        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Register</button>
+    </div>
+    <div class="login col-md-3">
+        <login-form>
 
+        </login-form>
+        &lt;!&ndash;<div class="reg-form">
+            <div class="modal fade" id="loginModal" role="dialog">
+                <div class="modal-dialog">
+                    &lt;!&ndash; Modal content&ndash;&gt;
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Registration Form-&#45;&#45;</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form name="regForm" ng-submit="headc.checkAllAdd()">
 
+                                Email Id : <input type="email" id="emailId" ng-model="headc.mailId" ng-keyup="headc.checkEmailAvailability()" required>
+                                <span ng-bind="headc.mailId+' already exists'" style="color:red" ng-if="headc.mailExitst == true"></span><br>
+                                Password : <input type="password" id="paswd" ng-model="headc.paswd" required>
+                                Phone Number : <input type="number" id="phno" ng-model="headc.phno" required>
+                                <input type="submit" value="SignUp">
+                                <span style="color:red" ng-if="headc.validated == false">enter the details preperly</span>
+                            </form>
+                        </div>
+                        &lt;!&ndash;  <div class="modal-footer">
+                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                          </div>&ndash;&gt;
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#loginModal">Login</button>&ndash;&gt;
+    </div>-->
+</div>
+<div class="row">
 <nav class="navbar navbar-default">
 
     <div class="container-fluid">

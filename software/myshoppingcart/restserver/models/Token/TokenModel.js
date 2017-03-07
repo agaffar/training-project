@@ -15,13 +15,18 @@ var Schema = mongoose.Schema;
 var SchemaTypes = mongoose.Schema.Types;
 
 var tokenSchema = new Schema({
+        token:{
+            type:String,
+            required : true
+        },
         type:{
             type:String
         },
         email:{
             type:String,
             trim:true,
-            required: true
+            required: true,
+            ref : 'User'
         },
         startDate:{
             type:Date

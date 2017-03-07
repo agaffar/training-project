@@ -5,8 +5,10 @@
 (function(){
     angular.module('myApp', [
         'ui.bootstrap',
+        'ui.bootstrap.modal',
         'ezplus',
         'ui.select',
+        'ngStorage',
         'ngSanitize',
         'ui.router',
         'ngRateIt',
