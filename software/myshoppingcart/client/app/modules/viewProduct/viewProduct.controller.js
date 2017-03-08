@@ -170,10 +170,11 @@
              currentLastIndex = allProducts.indexOf(vm.currentList[0]);
              currentStartIndex  = allProducts.indexOf(vm.currentList[vm.currentList.length-1]);
              }*/
-            //console.log(similarList)
+            console.log(similarList)
             vm.currentList = [];
             if(vm.currentStartIndex != 0){
-                for(var i = vm.currentStartIndex ; vm.currentList.length < 4 && i>=0; i--){
+                console.log("oooo");
+                for(var i = vm.currentStartIndex-1 ; vm.currentList.length < 4 && i>=0; i--){
                     //console.log("in prev "+i)
                     var eachProd = similarList[i];
                     vm.currentList.push(eachProd);
@@ -196,7 +197,8 @@
                     vm.noNext = false;
                 }
                 //console.log("in previous appending currentStartIndex = "+vm.currentStartIndex+" currentLastIndex = "+vm.currentLastIndex);
-
+                console.log(vm.currentStartIndex)
+                console.log("vm.noPrev "+vm.noPrev+"  vm.noNext "+vm.noNext)
             }
 
             /*   if(vm.currentStartIndex <  5 && vm.currentList.length <5)
@@ -214,6 +216,7 @@
         function nextListofProducts()
         {
             console.log("in nextlist appending");
+            console.log(similarList);
 
             /*  if(vm.currentLastIndex < allProducts.length)
              {
@@ -248,7 +251,7 @@
              vm.currentLastIndex = i;
              }*/
             vm.currentList = [];
-            for(var i = vm.currentLastIndex; vm.currentList.length<4 && i<similarList.length ; i++){
+            for(var i = vm.currentLastIndex+1; vm.currentList.length<4 && i<similarList.length ; i++){
                 var eachProd = similarList[i];
                 vm.currentList.push(eachProd);
             }
