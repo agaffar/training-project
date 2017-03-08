@@ -52,8 +52,14 @@
                         console.log(vm.productType+"    in slide");
                         productsDisplayFactory.getProducts(vm.productType,selectedOffers,vm.selectedBrandList,vm.slider.min,vm.slider.max).then(function(response)
                         {
-                            vm.productList = response;
-                            console.log( vm.productList);
+                            if(response.status == "ok"){
+                                vm.productList = response.data;
+                                console.log( vm.productList);
+                            }
+                            else{
+                                console.log( "no data retrived");
+                            }
+
                         },function(data)
                         {
                             return null;
@@ -86,8 +92,13 @@
             console.log(selectedOffers)
             productsDisplayFactory.getProducts(vm.productType,selectedOffers,vm.selectedBrandList,vm.slider.min,vm.slider.max).then(function(response)
             {
-                vm.productList = response;
-                console.log( vm.productList);
+                if(response.status == "ok"){
+                    vm.productList = response.data;
+                    console.log( vm.productList);
+                }
+                else{
+                    console.log( "no data retrived");
+                }
             },function(data)
             {
                 return null;
@@ -102,8 +113,13 @@
             vm.productList = [];
             productsDisplayFactory.getProducts(vm.productType,selectedOffers,vm.selectedBrandList,vm.slider.min,vm.slider.max).then(function(response)
             {
-                vm.productList = response;
-                console.log( vm.productList);
+                if(response.status == "ok"){
+                    vm.productList = response.data;
+                    console.log( vm.productList);
+                }
+                else{
+                    console.log( "no data retrived");
+                }
             },function(data)
             {
                 return null;
@@ -116,8 +132,13 @@
             console.log(vm.selectedBrandList);
             productsDisplayFactory.getProducts(vm.productType,selectedOffers,vm.selectedBrandList,vm.slider.min,vm.slider.max).then(function(response)
             {
-                vm.productList = response;
-                console.log( vm.productList);
+                if(response.status == "ok"){
+                    vm.productList = response.data;
+                    console.log( vm.productList);
+                }
+                else{
+                    console.log( "no data retrived");
+                }
             },function(data)
             {
                 return null;

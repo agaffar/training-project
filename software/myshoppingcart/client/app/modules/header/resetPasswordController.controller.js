@@ -16,7 +16,7 @@
         vm.resetPassword = resetPassword;
         headerFactory.getEmailbyToken(reg_token).then(function(response)
         {
-            if(response == "notfound"){
+            if(response.status == "notfound"){
                 vm.tokenFound = false;
                 vm.message = "Token expired!! Request for reset again and continue";
 
@@ -24,7 +24,7 @@
             else{
                 vm.tokenFound = true;
                 console.log(response);
-                vm.emailId = response;
+                vm.emailId = response.data.email;
                 console.log(vm.emailId)
             }
 
@@ -45,7 +45,7 @@
                 headerFactory.resetPassword(vm.emailId,vm.pwd1,reg_token).then(function(response)
                 {
                     console.log(response);
-                    if(response.hasOwnProperty("ok")){
+                    if(response.status == "ok"){
                         console.log("password is reset");
                         $state.go('home');
                     }

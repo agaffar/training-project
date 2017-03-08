@@ -4,7 +4,7 @@
 (function () {
     'use strict'
     angular.module('electronics').factory('productsDisplayFactory',productsDisplay);
-    function productsDisplay($http,$q,$rootScope)
+    function productsDisplay($http,$q,$rootScope,api)
     {
         console.log("------ in product display controller ------ ");
         var ProdType;
@@ -35,7 +35,7 @@
             console.log("sending requesting to server");
             console.log(query);
 
-            $http.get('/api/products/category?q='+JSON.stringify(query)).success(function (response)
+            /*$http.get('/api/products/category?q='+JSON.stringify(query)).success(function (response)
             {
                 //defered = response.data;
 
@@ -45,7 +45,8 @@
             }).error(function (response){
                 defered.reject("failed to load json");
             })
-            return defered.promise;
+            return defered.promise;*/
+            return api.productsByCategory({q : query}).$promise;
             //var allProducts = $rootScope.products;
 
             //console.log("brands selected are none"+brandsSelected)
@@ -157,7 +158,7 @@
             query.type = ProdType;
             console.log("sending requesting to server");
             console.log(typeof query);
-            $http.get('/api/products/brands?q='+JSON.stringify(query)).success(function (response)
+           /* $http.get('/api/products/brands?q='+JSON.stringify(query)).success(function (response)
             {
                 //defered = response.data;
                 defered.resolve(response);
@@ -166,8 +167,8 @@
             }).error(function (response){
                 defered.reject("failed to load json");
             })
-            return defered.promise;
-
+            return defered.promise;*/
+            return api.getAllBrandsByType({q : query}).$promise;
             //console.log(allBrands);
 
             //return allBrands;

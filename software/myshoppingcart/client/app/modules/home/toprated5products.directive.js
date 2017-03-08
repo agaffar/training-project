@@ -35,9 +35,15 @@
         {
             console.log("in top5directive");
             //console.log(response);
-            vm.productList = [];
-            vm.productList = response;
-            console.log( vm.productList);
+            if(response.status == "ok"){
+                vm.productList = [];
+                vm.productList = response.data;
+                console.log( vm.productList);
+            }
+            else{
+                console.log("no data");
+            }
+
         },function(data)
         {
             //console.log(response);

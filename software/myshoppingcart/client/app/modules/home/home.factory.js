@@ -3,7 +3,7 @@
  */
 (function(){
  'use strict'
- angular.module('home').factory('CartData',['$http','$q',function($http,$q)
+ angular.module('home').factory('CartData',['$http','$q','api',function($http,$q,api)
  {
   var homefactoryServices = { };
    homefactoryServices.getJData = getDetails;
@@ -21,7 +21,7 @@
          query.type = type;
          console.log("sending requesting to server");
         console.log(typeof query);
-         $http.get('/api/products/?q='+JSON.stringify(query)).success(function (response)
+        /* $http.get('/api/products/?q='+JSON.stringify(query)).success(function (response)
          {
              //defered = response.data;
              defered.resolve(response);
@@ -32,7 +32,8 @@
          })
 
 
-         return defered.promise;
+         return defered.promise;*/
+         return api.topRatedProducts({q : query}).$promise;
      }
 
 

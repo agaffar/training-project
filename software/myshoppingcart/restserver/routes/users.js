@@ -8,7 +8,7 @@ var users = require('../utils/user/registration');
   router.get('/users/register/checkemail', users.checkUserEmails);
   router.get('/users/login/', users.checkNLogin);
   router.get('/users/getUser', users.getUser);
-  router.get('/users/forgotPassword', users.forgotPasswordSendLink);
+  router.post('/users/forgotPassword', users.forgotPasswordSendLink);
   router.put('/users/resetpassword', users.resetPassword);
   router.delete('/users/logout', users.checkLogout);
   router.post('/users/register/createUser', users.createRegisterUser);

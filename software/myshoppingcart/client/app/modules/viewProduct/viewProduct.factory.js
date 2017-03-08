@@ -4,7 +4,7 @@
  */
 (function(){
     'use strict'
-    angular.module('viewProduct').factory('viewProductFactory',['$http','$q',function($http,$q)
+    angular.module('viewProduct').factory('viewProductFactory',['$http','$q','api',function($http,$q,api)
     {
         var homefactoryServices = { };
         homefactoryServices.getProduct = getProductDetails;
@@ -23,7 +23,7 @@
             query.productId = productId;
             console.log("sending requesting to server");
             console.log(typeof query);
-            $http.get('/api/products/viewproduct/?q='+JSON.stringify(query)).success(function (response)
+          /*  $http.get('/api/products/viewproduct/?q='+JSON.stringify(query)).success(function (response)
             {
                 //defered = response.data;
                 defered.resolve(response);
@@ -34,7 +34,8 @@
             })
 
 
-            return defered.promise;
+            return defered.promise;*/
+            return api.getProduct({q:query}).$promise;
         }
         function getSimilarProducts(prodId,subType){
             var defered = $q.defer();
@@ -46,7 +47,7 @@
             console.log(query);
             console.log(JSON.stringify(query)
             );
-            $http.get('/api/products/viewproduct/similarProducts/?q='+JSON.stringify(query)).success(function (response)
+          /*  $http.get('/api/products/viewproduct/similarProducts/?q='+JSON.stringify(query)).success(function (response)
             {
                 //defered = response.data;
                 console.log("response in similar");
@@ -60,7 +61,8 @@
                 console.log(response)
                 defered.reject("failed to load json");
             })
-            return defered.promise;
+            return defered.promise;*/
+            return api.getSimilarProducts({q : query}).$promise;
         }
 
 

@@ -18,29 +18,34 @@
         viewProductFactory.getProduct(prodId).then(function(response)
         {
             console.log("in get productview");
-            //console.log(response);
-            var product = {};
-            product = response;
-            console.log( product);
-            vm.product = product;
-            console.log(vm.product.subType)
-            subType = vm.product.subType;
-            vm.picPath = "images/"+subType+"/"+prodId+".jpg";
-            console.log("vm.imagePath in viewctrl"+vm.picPath);
-            console.log("in view controller after getting product");
-            similarList = [];
-            similarList = getSimilarProducts(prodId,subType);
+            console.log(response);
+
+            console.log("status "+response.status)
+
+            if(response.status == "ok"){
+                var product = {};
+                console.log("status ")
+                product = response.data;
+                console.log( product);
+                vm.product = product;
+                console.log(vm.product.subType)
+                subType = vm.product.subType;
+                vm.picPath = "images/"+subType+"/"+prodId+".jpg";
+                console.log("vm.imagePath in viewctrl"+vm.picPath);
+                console.log("in view controller after getting product");
+                similarList = [];
+                similarList = getSimilarProducts(prodId,subType);
+            }
+            else{
+                console.log("data not found");
+            }
+
         },function(data)
         {
             return null;
         });
-
-
-
-
-
         //console.log(similarList);
-        var allProducts = $rootScope.products;
+        //var allProducts = $rootScope.products;
         vm.currentLastIndex = 0;
         vm.currentStartIndex = 0;
         vm.imagePath = "";
@@ -111,10 +116,15 @@
             {
                 console.log("in get product smimalar");
                 //console.log(response);
+                if(response.status == "ok"){
+                    similarList = response.data;
+                    console.log( similarList);
+                    currentSimilarList();
+                }
+                else{
+                    console.log("something went wronr");
+                }
 
-                similarList = response;
-                console.log( similarList);
-                currentSimilarList();
             },function(data)
             {
                 //console.log(response);

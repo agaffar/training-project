@@ -32,7 +32,14 @@ function topRatedProducts(req,res){
         else
         {
             console.log("response received"+response);
-            res.send(response);
+            var data = {};
+            var status = "ok";
+            var serv = {
+                "data" : response,
+                "status" : status
+            };
+            res.send(serv);
+
         }
 
     });
@@ -57,7 +64,13 @@ function searchProducts(req,res){
         else
         {
             console.log("response received"+response+"------");
-            res.send(response);
+            var data = {};
+            var status = "ok";
+            var serv = {
+                "data" : response,
+                "status" : status
+            };
+            res.send(serv);
         }
 
     });
@@ -116,7 +129,13 @@ function productsByCategory(req,res){
         else
         {
             console.log("categorywiseProducts response received"+response.length);
-            res.send(response);
+            var data = {};
+            var status = "ok";
+            var serv = {
+                "data" : response,
+                "status" : status
+            };
+            res.send(serv);
         }
 
     });
@@ -146,7 +165,13 @@ function getAllBrandsByType(req,res){
         else
         {
             console.log("brands response received"+response);
-            res.send(response);
+            var data = {};
+            var status = "ok";
+            var serv = {
+                "data" : response,
+                "status" : status
+            };
+            res.send(serv);
         }
 
     });
@@ -186,7 +211,13 @@ function getProduct(req,res) {
         else
         {
             console.log("response received"+response);
-            res.send(response);
+            var data = {};
+            var status = "ok";
+            var serv = {
+                "data" : response,
+                "status" : status
+            };
+            res.send(serv);
         }
 
     });
@@ -208,7 +239,13 @@ function getSimilarProducts(req,res){
         else
         {
             console.log("response received"+response);
-            res.send(response);
+            var data = {};
+            var status = "ok";
+            var serv = {
+                "data" : response,
+                "status" : status
+            };
+            res.send(serv);
         }
 
     });

@@ -4,7 +4,7 @@
 
 (function(){
     'use strict'
-    angular.module('myApp.header').factory('headerFactory',['$http','$q',function($http,$q)
+    angular.module('myApp.header').factory('headerFactory',['$http','$q','api',function($http,$q,api)
     {
         var headfactoryServices = { };
         headfactoryServices.getSearched = getSearchedProducts;
@@ -27,7 +27,7 @@
             query.token = otp_token;
             console.log("sending requesting to server");
             console.log(typeof query);
-            $http.put('/users/resetpassword?q='+JSON.stringify(query)).success(function (response)
+          /*  $http.put('/users/resetpassword?q='+JSON.stringify(query)).success(function (response)
             {
                 //defered = response.data;
                 defered.resolve(response);
@@ -38,7 +38,8 @@
                 console.log("in header factory error");
 
             })
-            return defered.promise;
+            return defered.promise;*/
+            return api.resetPassword({q : query}).$promise;
         }
         function checkEmailSendLinkForgot(emailId){
             var defered = $q.defer();
@@ -47,7 +48,7 @@
             query.emailId = emailId;
             console.log("sending requesting to server");
             console.log(typeof query);
-            $http.get('/users/forgotPassword?q='+JSON.stringify(query)).success(function (response)
+           /* $http.get('/users/forgotPassword?q='+JSON.stringify(query)).success(function (response)
             {
                 //defered = response.data;
                 defered.resolve(response);
@@ -58,7 +59,8 @@
                 console.log("in header factory error");
 
             })
-            return defered.promise;
+            return defered.promise;*/
+            return api.forgotPassword({q : query}).$promise;
         }
         function logoutUserAuthen(userDetails){
             var defered = $q.defer();
@@ -67,7 +69,7 @@
             query.userDetails = userDetails;
             console.log("sending requesting to server");
             console.log(typeof query);
-            $http.delete('/users/logout?q='+JSON.stringify(query)).success(function (response)
+           /* $http.delete('/users/logout?q='+JSON.stringify(query)).success(function (response)
             {
                 //defered = response.data;
                 defered.resolve(response);
@@ -78,7 +80,9 @@
                 console.log("in header factory error");
 
             })
-            return defered.promise;
+            return defered.promise;*/
+            return api.logout({q : query}).$promise;
+
         }
         function getEmailbyToken(reg_token){
             var defered = $q.defer();
@@ -87,7 +91,7 @@
             query.reg_token = reg_token;
             console.log("sending requesting to server");
             console.log(typeof query);
-            $http.get('/users/getUser?q='+JSON.stringify(query)).success(function (response)
+          /*  $http.get('/users/getUser?q='+JSON.stringify(query)).success(function (response)
             {
                 //defered = response.data;
                 defered.resolve(response);
@@ -98,7 +102,9 @@
                 console.log("in header factory error");
 
             })
-            return defered.promise;
+            return defered.promise;*/
+            return api.getUser({q : query}).$promise;
+
         }
         function confirmRegistration(reg_token){
             var defered = $q.defer();
@@ -107,7 +113,7 @@
             query.reg_token = reg_token;
             console.log("sending requesting to server");
             console.log(typeof query);
-            $http.post('/users/register/confirmregistration?q='+JSON.stringify(query)).success(function (response)
+            /*$http.post('/users/register/confirmregistration?q='+JSON.stringify(query)).success(function (response)
             {
                 //defered = response.data;
                 defered.resolve(response);
@@ -118,7 +124,9 @@
                 console.log("in header factory error");
 
             })
-            return defered.promise;
+            return defered.promise;*/
+            return api.confirmRegistration({q : query}).$promise;
+
         }
         function registerUser(userDetails){
             var defered = $q.defer();
@@ -127,7 +135,7 @@
             query.userDetails = userDetails;
             console.log("sending requesting to server");
             console.log(typeof query);
-            $http.post('/users/register/createUser?q='+JSON.stringify(query)).success(function (response)
+           /* $http.post('/users/register/createUser?q='+JSON.stringify(query)).success(function (response)
             {
                 //defered = response.data;
                 defered.resolve(response);
@@ -138,7 +146,8 @@
                 console.log("in header factory error");
 
             })
-            return defered.promise;
+            return defered.promise;*/
+            return api.createUser({q : query}).$promise;
         }
         function getSearchedProducts(valueEntered)
         {
@@ -152,7 +161,7 @@
             query.valueEntered = valueEntered;
             console.log("sending requesting to server");
             console.log(typeof query);
-            $http.get('/api/products/search?q='+JSON.stringify(query)).success(function (response)
+           /* $http.get('/api/products/search?q='+JSON.stringify(query)).success(function (response)
             {
                 //defered = response.data;
                 defered.resolve(response);
@@ -161,7 +170,8 @@
             }).error(function (response){
                 defered.reject("failed to load json");
             })
-            return defered.promise;
+            return defered.promise;*/
+            return api.searchProducts({q : query}).$promise;
         }
         function checkAllEmail(emailId){
             var defered = $q.defer();
@@ -170,7 +180,7 @@
             query.emailId = emailId;
             console.log("sending requesting to server");
             console.log(typeof query);
-            $http.get('/users/register/checkemail?q='+JSON.stringify(query)).success(function (response)
+           /* $http.get('/users/register/checkemail?q='+JSON.stringify(query)).success(function (response)
             {
                 //defered = response.data;
                 defered.resolve(response);
@@ -181,7 +191,9 @@
                 console.log("in header factory error");
 
             })
-            return defered.promise;
+            return defered.promise;*/
+            return api.checkEmailExist({q : query}).$promise;
+
         }
         function checkLoginAuthenticate(emailId,password){
             var defered = $q.defer();
@@ -191,7 +203,7 @@
             query.password = password;
             console.log("sending requesting to server");
             console.log(typeof query);
-            $http.get('/users/login/?q='+JSON.stringify(query)).success(function (response)
+           /* $http.get('/users/login/?q='+JSON.stringify(query)).success(function (response)
             {
                 //defered = response.data;
                 defered.resolve(response);
@@ -202,7 +214,9 @@
                 console.log("in header factory error");
 
             })
-            return defered.promise;
+            return defered.promise;*/
+            return api.checkNlogin({q : query}).$promise;
+
         }
 
 
