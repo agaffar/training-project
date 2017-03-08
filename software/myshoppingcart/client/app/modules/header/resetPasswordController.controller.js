@@ -12,15 +12,26 @@
         var reg_token = $stateParams.token;
         console.log("token in resetpassword ------- "+reg_token);
         vm.emailId = 'message';
+        vm.tokenFound;
         vm.resetPassword = resetPassword;
         headerFactory.getEmailbyToken(reg_token).then(function(response)
         {
-            console.log(response);
-           vm.emailId = response;
-            console.log(vm.emailId)
+            if(response == "notfound"){
+                vm.tokenFound = false;
+                vm.message = "Token expired!! Request for reset again and continue";
+
+            }
+            else{
+                vm.tokenFound = true;
+                console.log(response);
+                vm.emailId = response;
+                console.log(vm.emailId)
+            }
+
 
         },function(data)
         {
+            vm.tokenFound = false;
             return null;
         });
         if($localStorage.hasOwnProperty("userDetails")){
@@ -37,6 +48,9 @@
                     if(response.hasOwnProperty("ok")){
                         console.log("password is reset");
                         $state.go('home');
+                    }
+                    else{
+                        repc.message = "Token expired!! Request for reset again and continue";
                     }
 
                 },function(data)

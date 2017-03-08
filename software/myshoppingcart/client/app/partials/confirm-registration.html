@@ -1,6 +1,13 @@
-<div>
-    <h1>
-        confirm your registration by clicking on the button below
-    </h1>
-        <button value="" ng-click="rgc.confirmRegistrationUser()">Confirm Registration</button>
-</div>
+<center>
+    <div>
+        <h1>
+            confirm your registration by clicking on the button below
+        </h1>
+        <div ng-if="rgc.tokenFound == false">
+            <img  src="../../images/messages/warning-icon.jpeg"> </img>
+            <span id="error-message" ng-bind="rgc.message"></span>
+        </div>
+        <!--============{{rgc.tokenFound}}-->
+        <button  ng-if="rgc.tokenFound == true" ng-click="rgc.confirmRegistrationUser()">Confirm Registration</button>
+    </div>
+</center>

@@ -37,6 +37,7 @@
         vm.checkAllAdd = checkAllAdd;
         vm.loginForm = loginForm;
         vm.RegisterForm = RegisterForm;
+        displayUser();
         function RegisterForm() {
             $uibModal.open({
                 templateUrl: 'app/partials/registrationform.html',
@@ -175,17 +176,18 @@
                                 $localStorage.userDetails = respone.data;
                                 console.log("$localStorage.userDetails  ");
                                 console.log($localStorage.userDetails);
-                                $uibModalInstance.close();
                                 vm.userIsLogged = true;
+                                displayUser();
+                                $uibModalInstance.close();
                                 $state.go('home');
                             } else {
                                 console.log("error resp");
                                 console.log(respone);
-                                vm.validated = false;
+                                vm1.validated = false;
 
                             }
                         }, function (data) {
-                            vm.validated = false;
+                            vm1.validated = false;
                         });
                     }
                 },
@@ -215,13 +217,15 @@
             }
         }
 
-        if ($localStorage.hasOwnProperty("userDetails")) {
-            vm.userIsLogged = true;
-            vm.UserName = $localStorage.userDetails.firstName + "" + $localStorage.userDetails.lastName;
-        }
-        else {
-            vm.userIsLogged = false;
-        }
+       function displayUser(){
+           if ($localStorage.hasOwnProperty("userDetails")) {
+               vm.userIsLogged = true;
+               vm.UserName = $localStorage.userDetails.firstName + "" + $localStorage.userDetails.lastName;
+           }
+           else {
+               vm.userIsLogged = false;
+           }
+       }
 
         function checkAllAdd(){
             var formDetails = {};

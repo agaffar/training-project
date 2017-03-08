@@ -54,12 +54,12 @@
 
                     Email Id : <input type="email" id="emailId" ng-model="lgc.emailId" ng-keyup="lgc.checkEmailAvailability()" required>
                     <!--<span ng-bind="lgc.mailId+' already exists'" style="color:red" ng-if="lgc.mailExitst == true"></span><br>-->
-                    Password : <input type="password" id="paswd" ng-model="lgc.paswd" required>
-
+                    Password : <input type="password" id="paswd" ng-model="lgc.paswd" required><br>
+                <span style="color:red" ng-if="lgc.validated == false">Invalid emailid or password</span><br>
             <div class="modal-footer">
                 <center><input type="submit" value="Login"> <button type="button" class="btn btn-info btn-lg" data-toggle="modal" ng-click="lgc.forgotForm()">forgot password?</button></center>
             </div>
-                    <span style="color:red" ng-if="lgc.validated == false">Invalid emailid or password</span>
+
 
             </div>
             </form>

@@ -27,7 +27,7 @@
             query.token = otp_token;
             console.log("sending requesting to server");
             console.log(typeof query);
-            $http.get('/users/resetpassword?q='+JSON.stringify(query)).success(function (response)
+            $http.put('/users/resetpassword?q='+JSON.stringify(query)).success(function (response)
             {
                 //defered = response.data;
                 defered.resolve(response);

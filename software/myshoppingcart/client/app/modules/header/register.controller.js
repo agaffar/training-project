@@ -13,6 +13,26 @@
         console.log($stateParams);
         var reg_token = $stateParams.token;
         console.log("token ------- "+reg_token);
+        headerFactory.getEmailbyToken(reg_token).then(function(response)
+        {
+            if(response == "notfound"){
+                vm.tokenFound = false;
+                vm.message = "Token expired!! Might be your registration is confirmed   ";
+
+            }
+            else{
+                vm.tokenFound = true;
+                console.log(response);
+                vm.emailId = response;
+                console.log(vm.emailId)
+            }
+
+
+        },function(data)
+        {
+            vm.tokenFound = false;
+            return null;
+        });
         vm.confirmRegistrationUser = confirmRegistrationUser;
         if($localStorage.hasOwnProperty("userDetails")){
             $state.go('home');

@@ -38,7 +38,7 @@ function resetPassword(req,res){
     console.log("query "+query);
     var emailId = query.emailId;
     var password = query.password;
-    var reg_token = query.reg_token;
+    var reg_token = query.token;
     var hashPassword = passwordHash.generate(password);
     console.log("user reg_token  : "+reg_token);
     var tokenType = tokenTypesEnums.OTP.code;
@@ -51,7 +51,7 @@ function resetPassword(req,res){
         }
         else
         {
-            console.log("users email received"+response1);
+            console.log("users email received"+response);
             //res1.send(response);
             tokenModel.remove({token : reg_token,email : emailId,type : tokenType}).exec(function(err2,resp2){
                 console.log("in remove");
@@ -180,10 +180,13 @@ function confirmRegistration(req,res){
     var tokenType = tokenTypesEnums.REGISTRATION.code;
     tokenModel.findOne({token : reg_token}).exec(function(err, response){
         console.log("in users")
-        if(err)
+        if(err){
             console.log(err);
+            res.send("tokenNotfound");
+        }
         else
         {
+            if(response != null || response )
             console.log(response+  "users email received"+response);
             var updateDate = Date.now();
             userModel.update({email : response.email},{$set :{isActive : true,updatedDate : updateDate}}).exec(function(err1, response1){
