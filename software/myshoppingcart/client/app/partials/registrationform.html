@@ -59,7 +59,7 @@
                     Password : <input type="password" id="paswd" ng-model="rgc.paswd" required>
                     Phone Number : <input type="number" id="phno" ng-model="rgc.phno" required>
 
-                    <span style="color:red" ng-if="rgc.validated == false">enter the details preperly</span>
+                    <span style="color:red" ng-if="rgc.validated == false">enter the details preperly {{rgc .message}}</span>
                     </div>
                     <div class="modal-footer">
                         <center><input type="submit" value="SignUp"></center>

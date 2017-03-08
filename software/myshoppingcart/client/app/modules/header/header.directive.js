@@ -32,9 +32,9 @@
         //console.log(vm.message);
         vm.refreshed = [];
         vm.refreshProds = refreshProductList;
-        vm.checkEmailAvailability = checkAvailability;
+        /*vm.checkEmailAvailability = checkAvailability;*/
         vm.logout = logoutUser;
-        vm.checkAllAdd = checkAllAdd;
+        //vm.checkAllAdd = checkAllAdd;
         vm.loginForm = loginForm;
         vm.RegisterForm = RegisterForm;
         displayUser();
@@ -54,11 +54,19 @@
                         formDetails.paswd = vm1.paswd;
                         formDetails.phno = vm1.phno;
                         if(validateDetails(formDetails)){
+                            vm1.validated = true;
                             console.log("validateed");
+                            console.log(formDetails);
                             headerFactory.registerUser(formDetails).then(function(response){
-                                console.log("response "+response);
-                                $uibModalInstance.close();
-                                $state.go('home');
+                                if(response.status == "ok"){
+                                    console.log("response "+response.data);
+                                    $uibModalInstance.close();
+                                    $state.go('home');
+                                }
+                                else{
+                                    vm1.message = response.status;
+                                }
+
                             }, function (error) {
                                 console.log("error "+error);
                             })
@@ -98,16 +106,19 @@
                         console.log("checkEmail id 2 = "+vm1.mailId);
                         headerFactory.checkEmail(vm1.mailId).then(function(response)
                         {
-                            if(response.length == 0){
-                                vm1.mailExitst = false;
-                                document.getElementById("mailId").focus();
-                                console.log("not exists "+ vm1.mailExitst)
-                            }
-                            else {
+                            if(response.status == "ok"){
+                                if(response.data.length == 0){
+                                    vm1.mailExitst = false;
+                                    document.getElementById("mailId").focus();
+                                    console.log("not exists "+ vm1.mailExitst)
+                                }
+                                else {
 
-                                vm1.mailExitst = true;
-                                console.log("exists "+ vm1.mailExitst)
+                                    vm1.mailExitst = true;
+                                    console.log("exists "+ vm1.mailExitst)
+                                }
                             }
+
                         },function(data)
                         {
                             return null;
@@ -145,7 +156,7 @@
                                 function checkEmailSendLink(){
                                     headerFactory.checkEmailSendLinkForgot(vm2.emailId).then(function (respone) {
                                         console.log(" in login");
-                                        if (respone == "EmailNotFound") {
+                                        if (respone.status == "EmailNotFound") {
                                             vm2.mailExitst = false;
 
                                         } else {
@@ -172,7 +183,7 @@
                             console.log(" in login");
                             if (respone.status == "ok") {
                                 console.log(" succes loggin");
-                                console.log(respone);
+                                console.log(respone.data);
                                 $localStorage.userDetails = respone.data;
                                 console.log("$localStorage.userDetails  ");
                                 console.log($localStorage.userDetails);
@@ -182,7 +193,7 @@
                                 $state.go('home');
                             } else {
                                 console.log("error resp");
-                                console.log(respone);
+                                console.log(respone.data);
                                 vm1.validated = false;
 
                             }
@@ -277,16 +288,23 @@
             console.log("checkEmail id 2 = "+vm.mailId);
             headerFactory.checkEmail(vm.mailId).then(function(response)
             {
-               if(response.length == 0){
-                   vm.mailExitst = false;
-                   document.getElementById("mailId").focus();
-                   console.log("not exists "+ vm.mailExitst)
-               }
-                else {
+                if(response.status == "ok"){
+                    if(response.data.length == 0){
+                        vm.mailExitst = false;
+                        document.getElementById("mailId").focus();
+                        console.log("not exists "+ vm.mailExitst)
+                    }
+                    else {
 
-                   vm.mailExitst = true;
-                   console.log("exists "+ vm.mailExitst)
-               }
+                        vm.mailExitst = true;
+                        console.log("exists "+ vm.mailExitst)
+                    }
+                }
+                else{
+                    vm.mailExitst = true;
+                    console.log("exists "+ vm.mailExitst);
+                }
+
             },function(data)
             {
                 return null;
@@ -306,9 +324,14 @@
                 {
                     console.log("in header");
                     //console.log(response);
-                    vm.refreshed = [];
-                    vm.refreshed = response;
-                    console.log( vm.refreshed);
+                    if(response.status == "ok"){
+                        vm.refreshed = [];
+                        vm.refreshed = response.data;
+                        console.log( vm.refreshed);
+                    }
+                    else{
+                        console.log( "no data searched");
+                    }
                    /* if(refreshed.length ) {
                         vm.refreshed = refreshed;
                         console.log(vm.refreshed.length + "  length");

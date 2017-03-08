@@ -18,29 +18,34 @@
         viewProductFactory.getProduct(prodId).then(function(response)
         {
             console.log("in get productview");
-            //console.log(response);
-            var product = {};
-            product = response;
-            console.log( product);
-            vm.product = product;
-            console.log(vm.product.subType)
-            subType = vm.product.subType;
-            vm.picPath = "images/"+subType+"/"+prodId+".jpg";
-            console.log("vm.imagePath in viewctrl"+vm.picPath);
-            console.log("in view controller after getting product");
-            similarList = [];
-            similarList = getSimilarProducts(prodId,subType);
+            console.log(response);
+
+            console.log("status "+response.status)
+
+            if(response.status == "ok"){
+                var product = {};
+                console.log("status ")
+                product = response.data;
+                console.log( product);
+                vm.product = product;
+                console.log(vm.product.subType)
+                subType = vm.product.subType;
+                vm.picPath = "images/"+subType+"/"+prodId+".jpg";
+                console.log("vm.imagePath in viewctrl"+vm.picPath);
+                console.log("in view controller after getting product");
+                similarList = [];
+                similarList = getSimilarProducts(prodId,subType);
+            }
+            else{
+                console.log("data not found");
+            }
+
         },function(data)
         {
             return null;
         });
-
-
-
-
-
         //console.log(similarList);
-        var allProducts = $rootScope.products;
+        //var allProducts = $rootScope.products;
         vm.currentLastIndex = 0;
         vm.currentStartIndex = 0;
         vm.imagePath = "";
@@ -111,10 +116,15 @@
             {
                 console.log("in get product smimalar");
                 //console.log(response);
+                if(response.status == "ok"){
+                    similarList = response.data;
+                    console.log( similarList.length);
+                    currentSimilarList();
+                }
+                else{
+                    console.log("something went wronr");
+                }
 
-                similarList = response;
-                console.log( similarList);
-                currentSimilarList();
             },function(data)
             {
                 //console.log(response);
@@ -160,10 +170,11 @@
              currentLastIndex = allProducts.indexOf(vm.currentList[0]);
              currentStartIndex  = allProducts.indexOf(vm.currentList[vm.currentList.length-1]);
              }*/
-            //console.log(similarList)
+            console.log(similarList)
             vm.currentList = [];
             if(vm.currentStartIndex != 0){
-                for(var i = vm.currentStartIndex ; vm.currentList.length < 4 && i>=0; i--){
+                console.log("oooo");
+                for(var i = vm.currentStartIndex-1 ; vm.currentList.length < 4 && i>=0; i--){
                     //console.log("in prev "+i)
                     var eachProd = similarList[i];
                     vm.currentList.push(eachProd);
@@ -186,7 +197,8 @@
                     vm.noNext = false;
                 }
                 //console.log("in previous appending currentStartIndex = "+vm.currentStartIndex+" currentLastIndex = "+vm.currentLastIndex);
-
+                console.log(vm.currentStartIndex)
+                console.log("vm.noPrev "+vm.noPrev+"  vm.noNext "+vm.noNext)
             }
 
             /*   if(vm.currentStartIndex <  5 && vm.currentList.length <5)
@@ -204,6 +216,7 @@
         function nextListofProducts()
         {
             console.log("in nextlist appending");
+            console.log(similarList);
 
             /*  if(vm.currentLastIndex < allProducts.length)
              {
@@ -238,7 +251,7 @@
              vm.currentLastIndex = i;
              }*/
             vm.currentList = [];
-            for(var i = vm.currentLastIndex; vm.currentList.length<4 && i<similarList.length ; i++){
+            for(var i = vm.currentLastIndex+1; vm.currentList.length<4 && i<similarList.length ; i++){
                 var eachProd = similarList[i];
                 vm.currentList.push(eachProd);
             }

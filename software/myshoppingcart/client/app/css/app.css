@@ -495,3 +495,8 @@ span#prod-names
     white-space: nowrap;
     font-stretch: ultra-condensed;
   }
+ div.search input[type=search].form-control  {
+    width : 425px !important;;
+   /*display: auto*/
+
+ }

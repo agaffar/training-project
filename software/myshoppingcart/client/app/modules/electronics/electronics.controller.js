@@ -17,8 +17,13 @@
             console.log("in get brands");
             //console.log(response);
 
-            vm.brandList = response;
-            console.log(vm.brandList);
+            if(response.status == "ok"){
+                vm.brandList = response.data;
+                console.log( vm.brandList);
+            }
+            else{
+                console.log( "no data retrived");
+            }
             vm.brandList = productsDisplayFactory.removeDuplicates(vm.brandList);
         },function(data)
         {
@@ -54,8 +59,13 @@
         var offersSelected = [];
         productsDisplayFactory.getProducts(vm.type,offersSelected,vm.selectedBrands,$rootScope.min,$rootScope.max).then(function(response)
         {
-            vm.productList = response;
-            console.log( vm.productList);
+            if(response.status == "ok"){
+                vm.productList = response.data;
+                console.log( vm.productList);
+            }
+            else{
+                console.log( "no data retrived");
+            }
         /*    vm.brandList  = productsDisplayFactory.getBrands(vm.productList);
             vm.allOffers = productsDisplayFactory.getOffers(vm.productList);*/
 

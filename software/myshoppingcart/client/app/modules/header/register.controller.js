@@ -15,15 +15,15 @@
         console.log("token ------- "+reg_token);
         headerFactory.getEmailbyToken(reg_token).then(function(response)
         {
-            if(response == "notfound"){
+            if(response.status == "notfound"){
                 vm.tokenFound = false;
                 vm.message = "Token expired!! Might be your registration is confirmed   ";
 
             }
             else{
                 vm.tokenFound = true;
-                console.log(response);
-                vm.emailId = response;
+                console.log(response.data);
+                vm.emailId = response.data;
                 console.log(vm.emailId)
             }
 
@@ -45,7 +45,7 @@
             headerFactory.confirmRegistration(reg_token).then(function(response)
             {
                 console.log(response);
-                if(response.hasOwnProperty("ok")){
+                if(response.status =="ok"){
                     $state.go('home');
                 }
 

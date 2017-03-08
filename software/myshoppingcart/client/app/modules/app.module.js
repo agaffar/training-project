@@ -9,6 +9,7 @@
         'ezplus',
         'ui.select',
         'ngStorage',
+        'ngResource',
         'ngSanitize',
         'ui.router',
         'ngRateIt',

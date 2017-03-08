@@ -33,7 +33,7 @@ userList ={
 
 function resetPassword(req,res){
     console.log("updating user state")
-    var query = JSON.parse(req.query.q);
+    var query = (req.query && req.query.q) ? JSON.parse(req.query.q) : req.body.q;
 
     console.log("query "+query);
     var emailId = query.emailId;
@@ -47,7 +47,13 @@ function resetPassword(req,res){
         console.log("in users")
         if(err){
             console.log(err);
-            res.send("error token is expired cannot recognise any token with your email");
+            var data = {};
+            var status = "error token is expired cannot recognise any token with your email";
+            var serv = {
+                "data" : data,
+                "status" : status
+            };
+            res.send(serv);
         }
         else
         {
@@ -57,12 +63,23 @@ function resetPassword(req,res){
                 console.log("in remove");
                 if(err2){
                     console.log("err2 ---- "+err2);
-                    res.send("error token is expired or cannot recognise any token with your email");
-
+                    var data = {};
+                    var status = "error token is expired cannot recognise any token with your email";
+                    var serv = {
+                        "data" : data,
+                        "status" : status
+                    };
+                    res.send(serv);
                 }
                 else{
                     console.log("response22222 ---- "+resp2);
-                    res.send(resp2);
+                    var data = {};
+                    var status = "ok";
+                    var serv = {
+                        "data" : resp2,
+                        "status" : status
+                    };
+                    res.send(serv);
                     console.log("removed token  ---- ");
 
                 }
@@ -74,7 +91,7 @@ function resetPassword(req,res){
 }
 function forgotPasswordSendLink(req,res){
     console.log("updating forgot state")
-    var query = JSON.parse(req.query.q);
+    var query = (req.query && req.query.q) ? JSON.parse(req.query.q) : req.body.q;
 
     console.log("query "+query);
     var emailId = query.emailId;
@@ -85,7 +102,14 @@ function forgotPasswordSendLink(req,res){
         console.log("in users")
         if(err){
             console.log(err);
-            res.send("error token is expired cannot recognise any token with your email");
+
+            var data = {};
+            var status = "error";
+            var serv = {
+                "data" : data,
+                "status" : status
+            };
+            res.send(serv);
         }
         else {
             console.log("users email received" + response);
@@ -120,7 +144,13 @@ function forgotPasswordSendLink(req,res){
                                     console.log(error);
                                 } else {
                                     console.log("Message sent: " + respo.message);
-                                    res.send("success");
+                                    var data = {};
+                                    var status = "success";
+                                    var serv = {
+                                        "data" : data,
+                                        "status" : status
+                                    };
+                                    res.send(serv);
                                 }
 
                                 smtpTransport.close(); // shut down the connection pool, no more messages.  Comment this line out to continue sending emails.
@@ -129,11 +159,23 @@ function forgotPasswordSendLink(req,res){
                     });
                 }
                 else{
-                    res.send("EmailNotFound");
+                    var data = {};
+                    var status = "EmailNotFound";
+                    var serv = {
+                        "data" : data,
+                        "status" : status
+                    };
+                    res.send(serv);
                 }
             }
             else{
-                res.send("EmailNotFound");
+                var data = {};
+                var status = "EmailNotFound";
+                var serv = {
+                    "data" : data,
+                    "status" : status
+                };
+                res.send(serv);
             }
         }
 
@@ -142,7 +184,7 @@ function forgotPasswordSendLink(req,res){
 }
 function getUser(req,res){
     console.log("updating user state")
-    var query = JSON.parse(req.query.q);
+    var query = (req.query && req.query.q) ? JSON.parse(req.query.q) : req.body.q;
 
     console.log("query "+query);
     var reg_token = query.reg_token;
@@ -156,13 +198,38 @@ function getUser(req,res){
         {
             console.log(response+  "users email received"+response);
             if(response != undefined){
-                if(response != null)
-                    res.send(response.email);
+                if(response != null){
+                    var data = {};
+                    data.email = response.email;
+                    var status = "ok";
+                    var serv = {
+                        "data" : data,
+                        "status" : status
+                    };
+                    res.send(serv);
+                }
                 else
-                    res.send("notfound");
+                {
+                    var data = {};
+                    var status = "notfound";
+                    var serv = {
+                        "data" : data,
+                        "status" : status
+                    };
+
+                    res.send(serv);
+                }
+
             }
             else{
-                res.send("notfound");
+                var data = {};
+                var status = "notfound";
+                var serv = {
+                    "data" : data,
+                    "status" : status
+                };
+
+                res.send(serv);
             }
 
         }
@@ -172,7 +239,7 @@ function getUser(req,res){
 }
 function confirmRegistration(req,res){
     console.log("updating user state")
-    var query = JSON.parse(req.query.q);
+    var query = (req.query && req.query.q) ? JSON.parse(req.query.q) : req.body.q;
 
     console.log("query "+query);
     var reg_token = query.reg_token;
@@ -182,7 +249,13 @@ function confirmRegistration(req,res){
         console.log("in users")
         if(err){
             console.log(err);
-            res.send("tokenNotfound");
+            var data = {};
+            var status = "tokenNotfound";
+            var serv = {
+                "data" : data,
+                "status" : status
+            };
+            res.send(serv);
         }
         else
         {
@@ -193,7 +266,13 @@ function confirmRegistration(req,res){
                 console.log("in users")
                 if(err1){
                     console.log(err1);
-                    res.send("error token is expired cannot recognise any token with your email");
+                    var data = {};
+                    var status = "error token is expired cannot recognise any token with your email";
+                    var serv = {
+                        "data" : data,
+                        "status" : status
+                    };
+                    res.send(serv);
                 }
                 else
                 {
@@ -203,12 +282,24 @@ function confirmRegistration(req,res){
                         console.log("in remove");
                         if(err2){
                             console.log("err2 ---- "+err2);
-                            res.send("error token is expired or cannot recognise any token with your email");
 
+                            var data = {};
+                            var status = "error token is expired cannot recognise any token with your email";
+                            var serv = {
+                                "data" : data,
+                                "status" : status
+                            };
+                            res.send(serv);
                         }
                         else{
                             console.log("response22222 ---- "+resp2);
-                            res.send(resp2);
+                            var data = {};
+                            var status = "ok";
+                            var serv = {
+                                "data" : resp2,
+                                "status" : status
+                            };
+                            res.send(serv);
                             console.log("removed token  ---- ");
 
                         }
@@ -224,7 +315,8 @@ function confirmRegistration(req,res){
 }
 function createRegisterUser(req,res){
     console.log("in creating user emails")
-    var query = JSON.parse(req.query.q);
+    //var query = (req.query && req.query.q) ? JSON.parse(req.query.q) : req.body.q;
+    var query = (req.query && req.query.q) ? JSON.parse(req.query.q) : req.body.q;
 
     console.log("query "+query);
     console.log(query);
@@ -249,6 +341,64 @@ function createRegisterUser(req,res){
         {
             console.log("users email received");
             //res.send(response);
+            var userLoad = {email : queryTo.email}
+            var token = generateToken(userLoad);
+            var querToken = {};
+            querToken.email = queryTo.email;
+            querToken.startDate = Date.now();
+            querToken.updatedDate = Date.now();
+            querToken.token = token;
+            var tokenType = tokenTypesEnums.REGISTRATION.code;
+            var serverAddress = req.protocol + '://' + req.get('host');
+            querToken.type = tokenType;
+            var tokenObj = tokenModel(querToken);
+            tokenObj.save(function(err){
+                if(err)
+                {
+                    console.log("errorrrr : "+err);
+                }
+                else {
+                    console.log("created "+i);
+                    /* sendmail(
+                     {
+                     user: 'abdulgaffar09@gmail.com',
+                     pass: 'bismillah@213',
+                     from: 'abdulgaffar09@gmail.com',
+                     to: querToken.email,
+                     subject: 'confirm your registration',
+                     html: serverAddress+"/#/confirmregistration/"+token,
+                     }, function(err, reply) {
+                     console.log(err && err.stack);
+                     //console.dir(reply);
+                     });*/
+
+                    smtpTransport.sendMail({  //email options
+                        from: "Abdul Gaffar <abdulgaffar09@gmail.com>", // sender address.  Must be the same as authenticated user if using Gmail.
+                        to: queryTo.lastName +"<"+querToken.email+">", // receiver
+                        subject: "confirm your registration", // subject
+                        text: serverAddress+"/#/confirmregistration/"+token // body
+                    }, function(error, respo){  //callback
+                        if(error){
+                            console.log(error);
+                        }else{
+                            console.log("Message sent: " + respo.message);
+
+
+                        }
+
+                        smtpTransport.close(); // shut down the connection pool, no more messages.  Comment this line out to continue sending emails.
+                    });
+                    var data = {};
+                    var status = "ok";
+                    var serv = {
+                        "data" : data,
+                        "status" : status
+                    };
+                    res.send(serv);
+
+                }
+
+            });
         }
 
     });
@@ -257,54 +407,7 @@ function createRegisterUser(req,res){
     var secret = require('./secret');
     var token = jwt.encode(userLoad,secret());
     console.log("token ------ "+token)*/
-    var userLoad = {email : queryTo.email}
-    var token = generateToken(userLoad);
-    var querToken = {};
-    querToken.email = queryTo.email;
-    querToken.startDate = Date.now();
-    querToken.updatedDate = Date.now();
-    querToken.token = token;
-    var tokenType = tokenTypesEnums.REGISTRATION.code;
-    var serverAddress = req.protocol + '://' + req.get('host');
-    querToken.type = tokenType;
-    var tokenObj = tokenModel(querToken);
-    tokenObj.save(function(err){
-        if(err)
-        {
-            console.log("errorrrr : "+err);
-        }
-        else {
-            console.log("created "+i);
-           /* sendmail(
-               {
-                    user: 'abdulgaffar09@gmail.com',
-                    pass: 'bismillah@213',
-                from: 'abdulgaffar09@gmail.com',
-                to: querToken.email,
-                subject: 'confirm your registration',
-                html: serverAddress+"/#/confirmregistration/"+token,
-            }, function(err, reply) {
-                console.log(err && err.stack);
-                //console.dir(reply);
-            });*/
-            smtpTransport.sendMail({  //email options
-                from: "Abdul Gaffar <abdulgaffar09@gmail.com>", // sender address.  Must be the same as authenticated user if using Gmail.
-                to: queryTo.lastName +"<"+querToken.email+">", // receiver
-                subject: "confirm your registration", // subject
-                text: serverAddress+"/#/confirmregistration/"+token // body
-            }, function(error, respo){  //callback
-                if(error){
-                    console.log(error);
-                }else{
-                    console.log("Message sent: " + respo.message);
-                }
 
-                smtpTransport.close(); // shut down the connection pool, no more messages.  Comment this line out to continue sending emails.
-            });
-            res.send("created")
-        }
-
-    });
 
 }
 function generateToken(queryToken){
@@ -317,7 +420,7 @@ function generateToken(queryToken){
 }
 function checkUserEmails(req,res){
     console.log("checking emails")
-    var query = JSON.parse(req.query.q);
+    var query = (req.query && req.query.q) ? JSON.parse(req.query.q) : req.body.q;
 
     console.log("query "+query);
     var emailId = query.emailId;
@@ -329,14 +432,20 @@ function checkUserEmails(req,res){
         else
         {
             console.log("users email received"+response.length);
-            res.send(response);
+            var data = {};
+            var status = "ok";
+            var serv = {
+                "data" : response,
+                "status" : status
+            };
+            res.send(serv);
         }
 
     });
 }
 function checkNLogin(req,res){
     console.log("checking emails")
-    var query = JSON.parse(req.query.q);
+    var query = (req.query && req.query.q) ? JSON.parse(req.query.q) : req.body.q;
 
     console.log("query "+query);
     var emailId = query.emailId;
@@ -346,7 +455,13 @@ function checkNLogin(req,res){
         console.log("in users")
         if(err){
             console.log(err);
-            res.send("invalid credentials");
+            var data = {};
+            var status = "invalid credentials";
+            var serv = {
+                "data" : data,
+                "status" : status
+            };
+            res.send(serv);
         }
         else
         {
@@ -362,6 +477,13 @@ function checkNLogin(req,res){
                 tokenObject.updatedDate = Date.now();
                 tokenObject.save(function (err2,resp2) {
                     if(err2){
+                        var data = {};
+                        var status = "invalid credentials";
+                        var serv = {
+                            "data" : resp2,
+                            "status" : status
+                        };
+                        res.send(serv);
                         console.log("errorrr in token save login "+err2)
                     }
                     else{
@@ -393,7 +515,7 @@ function checkNLogin(req,res){
 }
 function checkLogout(req,res){
     console.log("checking emails")
-    var query = JSON.parse(req.query.q);
+    var query = (req.query && req.query.q) ? JSON.parse(req.query.q) : req.body.q;
 
     console.log("query "+query);
     var userDetails = query.userDetails;
@@ -406,7 +528,14 @@ function checkLogout(req,res){
        }
        else{
            console.log("token deleted "+response);
-           res.send(response);
+           var data = {};
+           var status = "ok";
+           var serv = {
+               "data" : response,
+               "status" : status
+           };
+           res.send(serv);
+
        }
    });
 }

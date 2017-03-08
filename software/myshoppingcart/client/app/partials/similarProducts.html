@@ -1,7 +1,7 @@
 <div class="row">
 <!--prodtype ; {{similarProductList}}-->
 
-<div ui-sref="product({ id : prod.id })" class="simproducts col-xs-6 col-sm-5  col-md-3"  ng-repeat="prod in similarProductList" ng-if="prod.productId!=productId">
+<div ui-sref="product({ id : prod.productId })" class="simproducts col-xs-6 col-sm-5  col-md-3"  ng-repeat="prod in similarProductList" ng-if="prod.productId!=productId">
     <div class="row"><img  ng-if="prod.type == 'electronics'" src="images/{{prod.subType}}/{{ prod.productId }}.jpg"></div>
     <div class="row"><img  ng-if="prod.type == 'books'" src="images/books/{{ prod.productId }}.jpg"></div>
     <div class="row"><center><span class="prod-name .hidden-xs-down col-sm-5 col-md-3" align="middle" ng-bind="prod.productName" tooltip-placement="top" uib-tooltip="{{prod.productName}}" tooltip-append-to-body="true"></span></center></div>
