@@ -118,7 +118,7 @@
                 //console.log(response);
                 if(response.status == "ok"){
                     similarList = response.data;
-                    console.log( similarList);
+                    console.log( similarList.length);
                     currentSimilarList();
                 }
                 else{

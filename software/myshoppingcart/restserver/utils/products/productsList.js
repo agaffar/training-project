@@ -232,7 +232,7 @@ function getSimilarProducts(req,res){
     console.log(req.query);
     //console.log(req.body);
     var regex = new RegExp(query.prodId,"i");
-    ProductModel.find({subType : query.subType,productId :{$not: regex}}).exec(function(err, response){
+    ProductModel.find({subType : query.subType,productId :{$not: regex}}).sort({rating : -1}).exec(function(err, response){
         console.log("in smilar list")
         if(err)
             console.log(err);
