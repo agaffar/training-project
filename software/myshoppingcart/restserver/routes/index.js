@@ -21,6 +21,9 @@ var appRoute = function(router) {
   router.post('/users/forgotPassword', users);
   router.put('/users/resetpassword', users);
   router.get('/users/getUser', users);
+  router.get('/api/users/user/getProfile', users);
+  router.post('/api/users/user/saveAddress', users);
+
   router.get('/users/register/checkemail', users);
   router.post('/users/register/createUser', users);
   router.post('/users/register/confirmregistration', users);

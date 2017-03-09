@@ -465,50 +465,59 @@ function checkNLogin(req,res){
         }
         else
         {
-            var comparePswd = verifyPassword(password,response.password);
-            console.log("compare result "+comparePswd);
-            console.log("users email received"+response);
-            if(comparePswd){
-                var tokenObject = new tokenModel();
-                tokenObject.token = generateToken(response.email);
-                tokenObject.email = response.email;
-                tokenObject.type = tokenTypesEnums.AUTHENTICATION.code;
-                tokenObject.startDate = Date.now();
-                tokenObject.updatedDate = Date.now();
-                tokenObject.save(function (err2,resp2) {
-                    if(err2){
-                        var data = {};
-                        var status = "invalid credentials";
-                        var serv = {
-                            "data" : resp2,
-                            "status" : status
-                        };
-                        res.send(serv);
-                        console.log("errorrr in token save login "+err2)
-                    }
-                    else{
-                        //email, isActive, authToken, first name, last name
-                        var status = "ok";
-                        var data = {};
-                        data.email = response.email;
-                        data.isActive = response.isActive;
-                        data.firstName = response.firstName;
-                        data.lastName = response.lastName;
-                        data.authToken = tokenObject.token;
-                        var serResponse = {};
-                        serResponse.status = status;
-                        serResponse.data = data;
-                        console.log("resss "+resp2);
-                        res.send(serResponse);
-                    }
-                });
+            if(response){
+                var comparePswd = verifyPassword(password,response.password);
+                console.log("compare result "+comparePswd);
+                console.log("users email received"+response);
+                if(comparePswd){
+                    var tokenObject = new tokenModel();
+                    tokenObject.token = generateToken(response.email);
+                    tokenObject.email = response.email;
+                    tokenObject.type = tokenTypesEnums.AUTHENTICATION.code;
+                    tokenObject.startDate = Date.now();
+                    tokenObject.updatedDate = Date.now();
+                    tokenObject.save(function (err2,resp2) {
+                        if(err2){
+                            var data = {};
+                            var status = "invalid credentials";
+                            var serv = {
+                                "data" : resp2,
+                                "status" : status
+                            };
+                            res.send(serv);
+                            console.log("errorrr in token save login "+err2)
+                        }
+                        else{
+                            //email, isActive, authToken, first name, last name
+                            var status = "ok";
+                            var data = {};
+                            data.email = response.email;
+                            data.isActive = response.isActive;
+                            data.firstName = response.firstName;
+                            data.lastName = response.lastName;
+                            data.authToken = tokenObject.token;
+                            data.tokenId = tokenObject._id;
+                            data.userId = response._id;
+                            var serResponse = {};
+                            serResponse.status = status;
+                            serResponse.data = data;
+                            console.log("resss "+resp2);
+                            res.send(serResponse);
+                        }
+                    });
+                }
+                else{
+                    var servRes = {};
+                    servRes.status = "err";
+                    res.send(servRes);
+                }
+                //res.send(response);
             }
             else{
                 var servRes = {};
                 servRes.status = "err";
                 res.send(servRes);
             }
-            //res.send(response);
         }
 
     });

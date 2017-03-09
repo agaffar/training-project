@@ -160,7 +160,7 @@
                                             vm2.mailExitst = false;
 
                                         } else {
-                                            console.log("error resp");
+                                            console.log("resp");
                                             console.log(respone);
                                             $uibModalInstance.close();
                                             vm2.mailExitst = true;
@@ -232,6 +232,9 @@
            if ($localStorage.hasOwnProperty("userDetails")) {
                vm.userIsLogged = true;
                vm.UserName = $localStorage.userDetails.firstName + "" + $localStorage.userDetails.lastName;
+               vm.userEmail = $localStorage.userDetails.email;
+               vm.auth_token = $localStorage.userDetails.authToken;
+               vm.auth_tokenId = $localStorage.userDetails.tokenId;
            }
            else {
                vm.userIsLogged = false;

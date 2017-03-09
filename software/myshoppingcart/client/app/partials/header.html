@@ -102,8 +102,21 @@
 
     </div>-->
     <div  class="log-regist col-md-3" ng-if="headc.userIsLogged == true">
-        <i class="glyphicon glyphicon-user">Hi, {{headc.UserName}}</i>
-        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" ng-click="headc.logout()">logout</button>
+
+            <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    <i class="glyphicon glyphicon-user">Hi, {{headc.UserName}}</i>
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+            <li><a ui-sref="profile({authtokenId : headc.auth_tokenId})">Profile</a>li>
+            <li><a href="#" ng-click="headc.logout()">Logout</a></li>
+                </ul>
+                </div>
+                </div>
+
+
+                <!--<button type="button" class="btn btn-info btn-lg" data-toggle="modal" ng-click="headc.logout()">logout</button>-->
     </div>
     </div>
 

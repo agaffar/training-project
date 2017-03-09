@@ -50,6 +50,13 @@
             templateUrl: '/app/partials/reset-password.html'
 
         });
+        $stateProvider.state('profile', {
+            url:"/userProfile/:authtokenId",
+            controller: 'userProfileController',
+            controllerAs: 'upc',
+            templateUrl: '/app/partials/profile.html'
+
+        });
         $urlRouterProvider.otherwise('home');
         //$locationProvider.html5Mode(true);
     }

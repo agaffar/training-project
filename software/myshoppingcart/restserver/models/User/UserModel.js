@@ -43,6 +43,10 @@ var userSchema = new Schema({
         isActive: {
             type : Boolean
         },
+        address :[{
+            type: Schema.Types.ObjectId,
+            ref: 'Address'
+        }]
 
     },
     {collection:'users'}

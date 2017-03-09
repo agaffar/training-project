@@ -24,7 +24,8 @@
         'home',
         'electronics',
         "viewProduct",
-        "books"
+        "books",
+        "user"
 
 
     ]);

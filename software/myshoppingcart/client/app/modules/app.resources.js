@@ -98,6 +98,14 @@
             'getSimilarProducts':{
                 method : 'GET',
                 url: '/api/products/viewproduct/similarProducts'
+            },
+            'getUserData':{
+                method : 'GET',
+                url: '/api/users/user/getProfile'
+            },
+            'SaveAddress':{
+                method : 'POST',
+                url: '/api/users/user/saveAddress'
             }
         }
     }
