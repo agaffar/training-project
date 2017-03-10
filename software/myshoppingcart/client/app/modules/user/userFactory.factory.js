@@ -7,19 +7,31 @@
     {
         var userFactoryServices = { };
         userFactoryServices.getUserData = getUserData;
+        userFactoryServices.getUserAddress = getUserAddress;
         userFactoryServices.saveAddress = saveAddress;
         return userFactoryServices;
 
-        function getUserData(tokenId)
+        function getUserData(userId)
         {
             // simulated async function
             var defered = $q.defer();
-            console.log("type home factory = "+tokenId);
+            console.log("type home factory = "+userId);
             var query = {};
-            query.tokenId = tokenId;
+            query.userId = userId;
             console.log("sending requesting to server");
             console.log(typeof query);
             return api.getUserData({q : query}).$promise;
+        }
+        function getUserAddress(userId)
+        {
+            // simulated async function
+            var defered = $q.defer();
+            console.log("type home factory = "+userId);
+            var query = {};
+            query.userId = userId;
+            console.log("sending requesting to server");
+            console.log(typeof query);
+            return api.getUserAddress({q : query}).$promise;
         }
         function saveAddress(Address,userId)
         {

@@ -1,0 +1,31 @@
+<center>
+    <div class="address-form">
+        <div modal="false" close="">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4>Adress</h4>
+                </div>
+                <form name="profileForm" ng-submit="adc.saveAddress()">
+                    <div class="modal-body">
+                        Select Type of Address :  <select ng-model="adc.address.type" ng-options="type for type in adc.selectTypes" >
+                    </select> <br>
+
+                        <tr>Address Line1 :<input type="text" ng-model="adc.address.addressLine1" >
+                        Address Line2 :<input type="text" ng-model="adc.address.addressLine2" ></tr><br>
+                        <tr> Street/Village :<input type="text" ng-model="adc.address.streetVillage" >&nbsp;&nbsp;
+                        Town/City :<input type="text" ng-model="adc.address.townCity" ></tr><br>
+                        <tr>District :<input type="text" ng-model="adc.address.district" >&nbsp;&nbsp;
+                        State  :<input type="text" ng-model="adc.address.state"></tr><br>
+                        <tr>Country :<input type="text" ng-model="adc.address.country" >&nbsp;&nbsp;
+                        ZipCode :<input type="text" ng-model="adc.address.zipCode" ></tr><br>
+
+                        <span ng-if="repc.validate == false" ng-bind="repc.message" style="color : red"></span><br>
+                        </d<div class="modal-footer">
+                        <center><input type="submit" value="Save" ng-click="adc.saveAddressModal(adc.address)"></center>        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</center>

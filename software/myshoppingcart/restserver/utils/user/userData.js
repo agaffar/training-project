@@ -15,71 +15,69 @@ var tokenTypesEnums = require('../../enums/tokenTypes');
 var userData
 userData ={
     getUserProfile : getUserProfile,
+    getUserAddress : getUserAddress,
     saveAddress : saveAddress
 
 }
 function getUserProfile(req,res){
     console.log("in product toppppppp "+req.query.q)
     console.log(typeof req.query.q);
-    var query = JSON.parse(req.query.q);
+    var query = (req.query && req.query.q) ? JSON.parse(req.query.q) : req.body.q;
     console.log(typeof type);
-    console.log("in product type "+query.tokenId)
+    console.log("in in user profile type "+query.userId)
+
+    console.log(req.query);
+    console.log(req.body);
+    userModel.findOne({_id : query.userId}).exec(function(err1, response1){
+        console.log("in userdata")
+        if(err1)
+        {
+            console.log(err1);
+        }
+        else
+        {
+            console.log("userdata response received"+response1);
+            var data = {};
+            var status = "ok";
+            var serv = {
+                "data" : response1,
+                "status" : status
+            };
+            res.send(serv);
+
+        }
+
+    });
+
+}
+function getUserAddress(req,res){
+    console.log("in product toppppppp "+req.query.q)
+    console.log(typeof req.query.q);
+    var query = (req.query && req.query.q) ? JSON.parse(req.query.q) : req.body.q;
+    console.log(typeof type);
+    console.log("in product type "+query.userId)
 
     console.log(req.query);
     console.log(req.body);
 
-    tokenModel.findOne({_id : query.tokenId}).exec(function(err, response){
-        console.log("in token")
-        if(err){
-            console.log(err);
+    userModel.findOne({_id : query.userId},{address : 1,_id : 0}).populate('address').exec(function(err1, response1){
+        console.log("in userdata")
+        if(err1)
+        {
+            console.log(err1);
         }
         else
         {
-           if(response != undefined){
-               if(response != null){
-                   console.log("in userdata")
-                   console.log(response.email)
+            console.log("userdata address response received"+response1);
+            var data = {};
+            var status = "ok";
+            var serv = {
+                "data" : response1,
+                "status" : status
+            };
+            console.log(serv.data);
+            res.send(serv);
 
-                   userModel.findOne({email : response.email}).populate('address').exec(function(err1, response1){
-                       console.log("in userdata")
-                       if(err1)
-                       {
-                           console.log(err1);
-                       }
-                       else
-                       {
-                           console.log("userdata response received"+response1);
-                           var data = {};
-                           var status = "ok";
-                           var serv = {
-                               "data" : response1,
-                               "status" : status
-                           };
-                           res.send(serv);
-
-                       }
-
-                   });
-               }
-               else{
-                   var data = {};
-                   var status = "error";
-                   var serv = {
-                       "data" : data,
-                       "status" : status
-                   };
-                   res.send(serv);
-               }
-           }
-           else{
-               var data = {};
-               var status = "error";
-               var serv = {
-                   "data" : data,
-                   "status" : status
-               };
-               res.send(serv);
-           }
         }
 
     });
@@ -97,6 +95,14 @@ function saveAddress(req,res){
     var address = queryParam.Address;
     var userId = queryParam.userId;
     var addressObj = new addressModel(address);
+    if(address._id){
+        console.log("has _id")
+        addressObj.isNew = false;
+    }
+    else{
+        console.log("has no id")
+        addressObj.isNew = true;
+    }
     addressObj.save(function(err){
         console.log("in token")
         if(err){
@@ -104,45 +110,58 @@ function saveAddress(req,res){
         }
         else
         {
-            userModel.findOne({_id : userId}).exec(function(err1, response1){
-                console.log("in userdata")
-                if(err1)
-                {
-                    console.log(err1);
-                }
-                else
-                {
-                    console.log("userdata response received"+response1);
-                    if(response1.address){
-                        response1.address.push(addressObj._id);
-                        response1.save(function(err2){
-                            if(err2){
-                                console.log(err2);
-                                var data = {};
-                                var status = "error";
-                                var serv = {
-                                    "data" : data,
-                                    "status" : status
-                                };
-                                res.send(serv);
-                            }
-                            else {
-                                console.log(response1);
-                                var data = {};
-                                var status = "ok";
-                                var serv = {
-                                    "data" : response1,
-                                    "status" : status
-                                };
-                                res.send(serv);
-                            }
-                        });
+            console.log("addressObj.isNew   "+addressObj.isNew);
+            if(address._id == undefined && address._id == null){
+                userModel.findOne({_id : userId}).exec(function(err1, response1){
+                    console.log("in userdata")
+                    if(err1)
+                    {
+                        console.log(err1);
+                    }
+                    else
+                    {
+                        console.log("userdata response received"+response1);
+                        if(response1.address.length >0 ){
+                            response1.address.push(addressObj._id);
+                            response1.save(function(err2){
+                                if(err2){
+                                    console.log(err2);
+                                    var data = {};
+                                    var status = "error";
+                                    var serv = {
+                                        "data" : data,
+                                        "status" : status
+                                    };
+                                    res.send(serv);
+                                }
+                                else {
+                                    console.log(response1);
+                                    var data = {};
+                                    var status = "ok";
+                                    var serv = {
+                                        "data" : response1,
+                                        "status" : status
+                                    };
+                                    res.send(serv);
+                                }
+                            });
+                        }
+
+
                     }
 
+                });
+            }
+            else{
+                var data = {};
+                var status = "ok";
+                var serv = {
+                    "data" : {},
+                    "status" : status
+                };
+                res.send(serv);
+            }
 
-                }
-
-            });
         }
 
 

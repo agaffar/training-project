@@ -15,6 +15,7 @@
         'ngRateIt',
         'rzModule',
         'multipleSelect',
+        'ngTable',
         'isteven-multi-select',
         'angularAwesomeSlider',
         'jkAngularRatingStars',

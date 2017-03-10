@@ -187,6 +187,7 @@
                                 $localStorage.userDetails = respone.data;
                                 console.log("$localStorage.userDetails  ");
                                 console.log($localStorage.userDetails);
+                                vm.userDetails = $localStorage.userDetails;
                                 vm.userIsLogged = true;
                                 displayUser();
                                 $uibModalInstance.close();

@@ -502,14 +502,15 @@ span#prod-names
  }
   .address-form
    {
-
-     width:100%;
+  align-items: center;
+   /*  width:100%;
      border: 2px solid #1edda2;
      border-radius: 12px;
-     margin-bottom: 5%;
+     margin-bottom: 5%;*/
    }
-  .address-form  input[type=text], .address-form input[type=date] {
-    /*width: 100%;*/
+  .address-form  input[type=text], .address-form input[type=date] .address-form select {
+    width: 25%;
+    height: 30px;
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;

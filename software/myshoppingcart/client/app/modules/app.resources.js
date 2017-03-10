@@ -103,9 +103,17 @@
                 method : 'GET',
                 url: '/api/users/user/getProfile'
             },
+            'getUserAddress':{
+                method : 'GET',
+                url: '/api/users/user/getAddress'
+            },
             'SaveAddress':{
                 method : 'POST',
                 url: '/api/users/user/saveAddress'
+            },
+            'deleteAddress' : {
+                method : 'DELETE',
+                url: '/api/users/user/deleteAddress'
             }
         }
     }

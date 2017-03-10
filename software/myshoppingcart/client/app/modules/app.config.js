@@ -51,7 +51,7 @@
 
         });
         $stateProvider.state('profile', {
-            url:"/userProfile/:authtokenId",
+            url:"/userProfile/:userId",
             controller: 'userProfileController',
             controllerAs: 'upc',
             templateUrl: '/app/partials/profile.html'
