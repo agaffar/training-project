@@ -11,44 +11,44 @@
             MyShopping Cart
         </h1>
     </div>
-        <div class="search-bar col-sm-3 col-md-3 col-xs-3" align="center">
-            <!--&#45;&#45;&#45;&#45;{{headc.refreshed}}&#45;&#45;&#45;&#45;-->
-            <search-product product-list="headc.refreshed" view-product="headc.viewProduct(prodId)" refresh-prods="headc.refreshProds(selected)">
+    <div class="search-bar col-sm-3 col-md-3 col-xs-3" align="center">
+        <!--&#45;&#45;&#45;&#45;{{headc.refreshed}}&#45;&#45;&#45;&#45;-->
+        <search-product product-list="headc.refreshed" view-product="headc.viewProduct(prodId)" refresh-prods="headc.refreshProds(selected)">
 
-            </search-product>
-        </div>
+        </search-product>
+    </div>
     <div class="log-regist col-md-3" ng-if="headc.userIsLogged == false">
-<!--
-        <div class="reg-form">
-            <div class="modal fade" id="myModal" role="dialog">
-                <div class="modal-dialog">
-                    &lt;!&ndash; Modal content&ndash;&gt;
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">Registration Form-&#45;&#45;</h4>
-                        </div>
-                        <div class="modal-body">
-                            <form name="regForm" ng-submit="headc.checkAllAdd()">
-                                First Name : <input type="text" id="fname" ng-model="headc.fname" required>
-                                Last Name : <input type="text" id="lname" ng-model="headc.lname" required>
-                                Email Id : <input type="email" id="mailId" ng-model="headc.mailId" ng-keyup="headc.checkEmailAvailability()" required>
-                                <span ng-bind="headc.mailId+' already exists'" style="color:red" ng-if="headc.mailExitst == true"></span><br>
-                                Password : <input type="password" id="paswd" ng-model="headc.paswd" required>
-                                Phone Number : <input type="number" id="phno" ng-model="headc.phno" required>
-                                <input type="submit" value="SignUp">
-                                <span style="color:red" ng-if="headc.validated == false">enter the details preperly</span>
-                            </form>
-                        </div>
-                        &lt;!&ndash;  <div class="modal-footer">
-                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                          </div>&ndash;&gt;
-                    </div>
+        <!--
+                <div class="reg-form">
+                    <div class="modal fade" id="myModal" role="dialog">
+                        <div class="modal-dialog">
+                            &lt;!&ndash; Modal content&ndash;&gt;
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">Registration Form-&#45;&#45;</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <form name="regForm" ng-submit="headc.checkAllAdd()">
+                                        First Name : <input type="text" id="fname" ng-model="headc.fname" required>
+                                        Last Name : <input type="text" id="lname" ng-model="headc.lname" required>
+                                        Email Id : <input type="email" id="mailId" ng-model="headc.mailId" ng-keyup="headc.checkEmailAvailability()" required>
+                                        <span ng-bind="headc.mailId+' already exists'" style="color:red" ng-if="headc.mailExitst == true"></span><br>
+                                        Password : <input type="password" id="paswd" ng-model="headc.paswd" required>
+                                        Phone Number : <input type="number" id="phno" ng-model="headc.phno" required>
+                                        <input type="submit" value="SignUp">
+                                        <span style="color:red" ng-if="headc.validated == false">enter the details preperly</span>
+                                    </form>
+                                </div>
+                                &lt;!&ndash;  <div class="modal-footer">
+                                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                  </div>&ndash;&gt;
+                            </div>
 
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
--->
+        -->
         <button type="button" class="btn btn-info btn-lg" data-toggle="modal"  ng-click="headc.RegisterForm()">Register</button>
 
         <button type="button" class="btn btn-info btn-lg" data-toggle="modal" ng-click="headc.loginForm()">Login</button>       <!-- <login-form>
@@ -84,92 +84,91 @@
         </div>
         <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#loginModal">Login</button>-->
     </div>
-   <!-- <button ng-init="showModal = false" class="btn" ng-click="showModal = true">Open Modal</button>
-&lt;!&ndash;{{showModal}}&ndash;&gt;
-    <div modal="false" close="">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4>Modal Dialog</h4>
-            </div>
-            <div class="modal-body">
-                <p>Example paragraph with some text.</p>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-success" ng-click="ok()">Okay</button>
-                <button class="btn" ng-click="'showModal=false'">Cancel</button>
-            </div>
-        </div>
+    <!-- <button ng-init="showModal = false" class="btn" ng-click="showModal = true">Open Modal</button>
+ &lt;!&ndash;{{showModal}}&ndash;&gt;
+     <div modal="false" close="">
+         <div class="modal-content">
+             <div class="modal-header">
+                 <h4>Modal Dialog</h4>
+             </div>
+             <div class="modal-body">
+                 <p>Example paragraph with some text.</p>
+             </div>
+             <div class="modal-footer">
+                 <button class="btn btn-success" ng-click="ok()">Okay</button>
+                 <button class="btn" ng-click="'showModal=false'">Cancel</button>
+             </div>
+         </div>
 
-    </div>-->
+     </div>-->
     <div  class="log-regist col-md-3" ng-if="headc.userIsLogged == true">
 
-            <div class="dropdown">
-                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                    <i class="glyphicon glyphicon-user">Hi, {{headc.UserName}}</i>
-            <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-            <li><a ui-sref="profile({userId : headc.userDetails.userId})">Profile {{headc.userDetails.userId}}</a>li>
-            <li><a href="#" ng-click="headc.logout()">Logout</a></li>
-                </ul>
-                </div>
-                </div>
+        <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                <i class="glyphicon glyphicon-user">Hi, {{headc.UserName}}</i>
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                <li><a ui-sref="profile({userId : headc.userDetails.userId})">Profile {{headc.userDetails.userId}}</a>li>
+                <li><a href="#" ng-click="headc.logout()">Logout</a></li>
+            </ul>
+        </div>
+    </div>
 
 
-                <!--<button type="button" class="btn btn-info btn-lg" data-toggle="modal" ng-click="headc.logout()">logout</button>-->
-    </div>
-    </div>
+    <!--<button type="button" class="btn btn-info btn-lg" data-toggle="modal" ng-click="headc.logout()">logout</button>-->
+</div>
 
 <div class="row">
-<nav class="navbar navbar-default">
+    <nav class="navbar navbar-default">
 
-    <div class="container-fluid">
+        <div class="container-fluid">
 
-        <ul class="nav navbar-nav">
+            <ul class="nav navbar-nav">
 
-            <li class="active"><a ui-sref="home">Home</a></li>
-            <li ><a href="#">Electronics</a>
-            <ul class="subMenu">
-                <li><a ui-sref="electronics({type: 'mobile'})">Mobiles</a></li>
-                <li><a ui-sref="electronics({type: 'pendrive'})">Pendrives</a></li>
-                <li><a ui-sref="electronics({type:'laptop'})">Laptops</a></li>
+                <li class="active"><a ui-sref="home">Home</a></li>
+                <li ><a href="#">Electronics</a>
+                    <ul class="subMenu">
+                        <li><a ui-sref="electronics({type: 'mobile'})">Mobiles</a></li>
+                        <li><a ui-sref="electronics({type: 'pendrive'})">Pendrives</a></li>
+                        <li><a ui-sref="electronics({type:'laptop'})">Laptops</a></li>
+                    </ul>
+                </li>
+                <li ><a href="#">Books</a>
+                    <ul class="subMenu">
+                        <li><a ui-sref="books({type : 'fiction'})" >Fiction</a></li>
+                        <li><a ui-sref="books({type : 'comics'})" >Comics</a></li>
+                        <li><a ui-sref="books({type : 'biography'})">Biography</a></li>
+                    </ul>
+                </li>
+                <li ><a href="#">Home&Furniture</a>
+                    <ul class="subMenu">
+                        <li><a href="#">Chairs</a></li>
+                        <li><a href="#">Beds</a></li>
+                        <li><a href="#">Tables</a></li>
+                    </ul>
+                </li>
             </ul>
-            </li>
-            <li ><a href="#">Books</a>
-                <ul class="subMenu">
-                    <li><a ui-sref="books({type : 'fiction'})" >Fiction</a></li>
-                    <li><a ui-sref="books({type : 'comics'})" >Comics</a></li>
-                    <li><a ui-sref="books({type : 'biography'})">Biography</a></li>
-                </ul>
-            </li>
-            <li ><a href="#">Home&Furniture</a>
-                <ul class="subMenu">
-                    <li>Chairs</li>
-                    <li>Beds</li>
-                    <li>Tables</li>
-                </ul>
-            </li>
-        </ul>
-    <!--    {{headc.refreshed}}
+            <!--    {{headc.refreshed}}
 
-        <div class="search" >
-            {{headc.message}}//
-            <ui-select ng-model="headc.selected" theme='bootstrap' reset-search-input='true' on-select="headc.viewProduct(headc.selected.id)">
-                <ui-select-match placeholder="Select or search a product ..." > {{ $select.selected.name}}</ui-select-match>
-                &lt;!&ndash;minimum-input-length=3 check in future&ndash;&gt;
-                <ui-select-choices  refresh="headc.refreshProds($select.search)"
-                                   refresh-delay="0"
-                                   repeat="prod in headc.refreshed track by prod.id" >
-                    <a ui-sref="product({ id : prod.id })" >{{prod.name}}</a><br>
-                    Cost:{{prod.price | currency:'&#8377;'}}
-                    Rating:<jk-rating-stars class="rating" rating=prod.rating  read-only="true" ></jk-rating-stars>
-                </ui-select-choices>
-            </ui-select>
-        <span>{{ headc.selected.name}}</span>
-        </div>-->
+                <div class="search" >
+                    {{headc.message}}//
+                    <ui-select ng-model="headc.selected" theme='bootstrap' reset-search-input='true' on-select="headc.viewProduct(headc.selected.id)">
+                        <ui-select-match placeholder="Select or search a product ..." > {{ $select.selected.name}}</ui-select-match>
+                        &lt;!&ndash;minimum-input-length=3 check in future&ndash;&gt;
+                        <ui-select-choices  refresh="headc.refreshProds($select.search)"
+                                           refresh-delay="0"
+                                           repeat="prod in headc.refreshed track by prod.id" >
+                            <a ui-sref="product({ id : prod.id })" >{{prod.name}}</a><br>
+                            Cost:{{prod.price | currency:'&#8377;'}}
+                            Rating:<jk-rating-stars class="rating" rating=prod.rating  read-only="true" ></jk-rating-stars>
+                        </ui-select-choices>
+                    </ui-select>
+                <span>{{ headc.selected.name}}</span>
+                </div>-->
 
-    </div>
-</nav>
+        </div>
+    </nav>
 
 </div>
 </body>

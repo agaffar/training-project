@@ -16,7 +16,8 @@ var userData
 userData ={
     getUserProfile : getUserProfile,
     getUserAddress : getUserAddress,
-    saveAddress : saveAddress
+    saveAddress : saveAddress,
+    deleteAddress : deleteAddress
 
 }
 function getUserProfile(req,res){
@@ -164,6 +165,79 @@ function saveAddress(req,res){
 
         }
 
+
+    });
+}
+function deleteAddress(req,res){
+    console.log("in product toppppppp "+req.query.q)
+    console.log(typeof req.query.q);
+    var queryParam = (req.query && req.query.q) ? JSON.parse(req.query.q) : req.body.q;
+    console.log(typeof type);
+    console.log("in user id "+queryParam.userId)
+    console.log("in Address type "+queryParam.Address)
+
+    console.log(req.query);
+    console.log(req.body);
+    var address = queryParam.Address;
+    var userId = queryParam.userId;
+    console.log(address)
+    userModel.findOne({_id : userId}).exec(function(err1, response1){
+        console.log("in userdata")
+        if(err1)
+        {
+            console.log(err1);
+        }
+        else
+        {
+            console.log("userdata response received"+response1);
+            if(response1.address.length >0 ){
+                console.log("before popppppp -- ")
+                console.log(address._id);
+                response1.address.pop(address._id);
+                response1.save(function(err2){
+                    if(err2){
+                        console.log(err2);
+                        var data = {};
+                        var status = "error";
+                        var serv = {
+                            "data" : data,
+                            "status" : status
+                        };
+                        res.send(serv);
+                    }
+                    else {
+                        console.log(response1);
+                        console.log("before remove -- ")
+                        console.log(address._id);
+                        addressModel.remove({_id : address._id}).exec(function(err3,response2){
+                            if(err3){
+                                var data = {};
+                                var status = "error";
+                                var serv = {
+                                    "data" : {},
+                                    "status" : status
+                                };
+                                res.send(serv);
+                            }
+                            else{
+                                var data = {};
+                                var status = "ok";
+                                var serv = {
+                                    "data" : response2,
+                                    "status" : status
+                                };
+                                res.send(serv);
+                            }
+
+
+                        });
+
+                    }
+                });
+            }
+
+
+        }
 
     });
 }

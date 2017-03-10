@@ -236,6 +236,7 @@
                vm.userEmail = $localStorage.userDetails.email;
                vm.auth_token = $localStorage.userDetails.authToken;
                vm.auth_tokenId = $localStorage.userDetails.tokenId;
+               vm.userDetails = $localStorage.userDetails;
            }
            else {
                vm.userIsLogged = false;
