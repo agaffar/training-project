@@ -9,6 +9,7 @@
         userFactoryServices.getUserData = getUserData;
         userFactoryServices.getUserAddress = getUserAddress;
         userFactoryServices.saveAddress = saveAddress;
+        userFactoryServices.deleteAddress = deleteAddress;
         return userFactoryServices;
 
         function getUserData(userId)
@@ -45,6 +46,19 @@
             console.log("sending requesting to server");
             console.log(typeof query);
             return api.SaveAddress({q : query}).$promise;
+        }
+        function deleteAddress(userId,Address)
+        {
+            // simulated async function
+            var defered = $q.defer();
+            console.log("type user factory = "+userId);
+            console.log("type home factory = "+Address);
+            var query = {};
+            query.userId = userId;
+            query.Address = Address;
+            console.log("sending requesting to server");
+            console.log(typeof query);
+            return api.deleteAddress({q : query}).$promise;
         }
 
 

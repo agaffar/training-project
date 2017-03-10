@@ -74,7 +74,7 @@
                         <td title="'Country'"filter="{ country: 'text'}" sortable="'country'"><span ng-bind="address.country" ></span></td>
                         <td title="'ZipCode'" filter="{ zipCode: 'number'}" sortable="'type'"><span ng-bind="address.zipCode" ></span></td>
                         <td><center><Button class="btn btn-primary"  ng-click="upc.loadAddressForm(address)">Edit</Button>
-                       <Button class="btn btn-danger">Del</Button>
+                       <Button class="btn btn-danger" ng-click="upc.deleteAddress(address)">Del</Button>
                             <!--<input type="submit" class="btn btn-danger" value="Del">--></center></td>
                         <!--Password : <input type="password" id="pwd1" ng-model="repc.pwd1" required><br>
                         Confirm Password : <input type="password" id="pwd2" ng-model="repc.pwd2" required><br>-->
