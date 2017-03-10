@@ -511,6 +511,7 @@ span#prod-names
   .address-form  input[type=text], .address-form input[type=date] .address-form select {
     width: 25%;
     height: 30px;
+    height: 30px;
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
