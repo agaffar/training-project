@@ -448,9 +448,17 @@ span#prod-names
     box-sizing: border-box;
   }
 
-  div.reg-form input[type=submit] {
+  div.reg-form input[type=submit]{
 
     background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  div.reg-form button{
     color: white;
     padding: 14px 20px;
     margin: 8px 0;

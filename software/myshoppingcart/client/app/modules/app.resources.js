@@ -103,6 +103,10 @@
                 method : 'GET',
                 url: '/api/users/user/getProfile'
             },
+            'saveUserData':{
+                method : 'PUT',
+                url: '/api/users/user/saveProfile'
+            },
             'getUserAddress':{
                 method : 'GET',
                 url: '/api/users/user/getAddress'

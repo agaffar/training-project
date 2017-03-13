@@ -21,6 +21,7 @@ var appRoute = function(router) {
   router.get('/api/users/user/getProfile', users);
   router.get('/api/users/user/getAddress', users);
   router.post('/api/users/user/saveAddress', users);
+  router.put('/api/users/user/saveProfile', users);
   router.delete('/api/users/user/deleteAddress', users);
 
   router.get('/users/register/checkemail', users);

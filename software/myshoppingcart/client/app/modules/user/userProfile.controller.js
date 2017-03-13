@@ -10,6 +10,7 @@
         vm.saveAddress = saveAddress;
         vm.loadAddressForm = loadAddressForm;
         vm.getUserAddress = getUserAddress;
+        vm.saveUserProfile = saveUserProfile;
         vm.loadAddressTable = loadAddressTable;
         vm.deleteAddress = deleteAddress;
         var userId = $stateParams.userId;
@@ -17,7 +18,7 @@
         getUserDetailsById();
         function loadAddressForm(address){
             console.log("address to modal");
-            console.log(address)
+
             $uibModal.open({
                 templateUrl: 'app/partials/address-form.html',
                 controller: function ($uibModalInstance) {
@@ -40,6 +41,16 @@
                 controllerAs: 'adc'
             });
 
+        }
+        function saveUserProfile(){
+            userFactory.saveUserProfile(address,vm.user._id).then(function(response){
+                    if(response.status == "ok"){
+                        loadAddressTable();
+                    }
+                },
+                function(data){
+
+                });
         }
         function saveAddress(address){
             userFactory.saveAddress(address,vm.user._id).then(function(response){
@@ -160,7 +171,7 @@
                 total : vm.userAddress.length,
                 getData: function (params) {
 
-                    params.total(vm.userAddress.length);
+
 
                     var query = {};
                     query.userId = userId;
@@ -169,7 +180,7 @@
 
                             if(response.status == "ok"){
                                 vm.userAddress = response.data.address;
-
+                                params.total(vm.userAddress.length);
                                 var filterObj = params.filter(),filteredData = $filter('filter')(vm.userAddress, filterObj);
 
                                 // Then we sort the FILTERED DATA ARRAY

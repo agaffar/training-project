@@ -16,6 +16,7 @@ var userData = require('../utils/user/userData.js');
   router.post('/users/register/createUser', users.createRegisterUser);
   router.post('/users/register/confirmregistration', users.confirmRegistration);
   router.get('/api/users/user/getProfile', userData.getUserProfile);
+  router.put('/api/users/user/saveProfile', userData.saveUserProfile);
   router.get('/api/users/user/getAddress', userData.getUserAddress);
   router.post('/api/users/user/saveAddress', userData.saveAddress);
   router.delete('/api/users/user/deleteAddress', userData.deleteAddress);

@@ -16,6 +16,7 @@ var userData
 userData ={
     getUserProfile : getUserProfile,
     getUserAddress : getUserAddress,
+    saveUserProfile : saveUserProfile,
     saveAddress : saveAddress,
     deleteAddress : deleteAddress
 
@@ -75,6 +76,33 @@ function getUserAddress(req,res){
 
             res.send(serv);
 
+        }
+
+    });
+}
+function saveUserProfile(req,res){
+
+    var queryParam = (req.query && req.query.q) ? JSON.parse(req.query.q) : req.body.q;
+
+    var queryToUpdate = queryParam.Address;
+    var userId = queryParam.userId;
+    var addressObj = new addressModel(address);
+    userModel.update({_id : userId},{$set : queryToUpdate}).exec(function(err1, response1){
+        console.log("in userdata")
+        if(err1)
+        {
+            console.log(err1);
+        }
+        else
+        {
+            console.log(response1);
+            var data = {};
+            var status = "ok";
+            var serv = {
+                "data" : response1,
+                "status" : status
+            };
+            res.send(serv);
         }
 
     });

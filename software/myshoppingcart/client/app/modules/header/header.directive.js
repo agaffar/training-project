@@ -44,6 +44,10 @@
                     var vm1 = this;
                     vm1.checkEmailAvailability = checkAvailability;
                     vm1.checkAllAdd = checkAllAdd;
+                    vm1.close = close;
+                    function close(){
+                        $uibModalInstance.close();
+                    }
                     function checkAllAdd(){
                         var formDetails = {};
                         formDetails.fname = vm1.fname;
@@ -132,19 +136,27 @@
                     var vm1 = this;
                     vm1.checkLogin = checkAndLoginUser;
                     vm1.forgotForm = forgotForm;
+                    vm1.close = close;
+                    function close(){
+                        $uibModalInstance.close();
+                    }
                     function forgotForm(){
                         $uibModalInstance.close();
                         loadForgotForm();
                     }
                     function loadForgotForm(){
                         $uibModal.open({
-                        templateUrl: 'app/partials/forgot-password.html',
+                            templateUrl: 'app/partials/forgot-password.html',
                             controller: function ($uibModalInstance) {
-                            console.log("forgot form");
-                            var vm2 = this;
+                                console.log("forgot form");
+                                var vm2 = this;
                                 var emailId = vm2.emailId;
                                 console.log("email  "+vm2.emailId)
                                 vm2.checkEmailSendLink = checkEmailSendLink;
+                                vm2.close = close;
+                                function close(){
+                                    $uibModalInstance.close();
+                                }
                                 function checkEmailSendLink(){
                                     headerFactory.checkEmailSendLinkForgot(vm2.emailId).then(function (respone) {
                                         console.log(" in login");
@@ -164,9 +176,9 @@
                                     });
                                 }
 
-                        },
-                        controllerAs: 'fgp'
-                    });
+                            },
+                            controllerAs: 'fgp'
+                        });
                     }
                     function checkAndLoginUser() {
                         var emailId = vm1.emailId;
@@ -217,19 +229,19 @@
             }
         }
 
-       function displayUser(){
-           if ($localStorage.hasOwnProperty("userDetails")) {
-               vm.userIsLogged = true;
-               vm.UserName = $localStorage.userDetails.firstName + "" + $localStorage.userDetails.lastName;
-               vm.userEmail = $localStorage.userDetails.email;
-               vm.auth_token = $localStorage.userDetails.authToken;
-               vm.auth_tokenId = $localStorage.userDetails.tokenId;
-               vm.userDetails = $localStorage.userDetails;
-           }
-           else {
-               vm.userIsLogged = false;
-           }
-       }
+        function displayUser(){
+            if ($localStorage.hasOwnProperty("userDetails")) {
+                vm.userIsLogged = true;
+                vm.UserName = $localStorage.userDetails.firstName + "" + $localStorage.userDetails.lastName;
+                vm.userEmail = $localStorage.userDetails.email;
+                vm.auth_token = $localStorage.userDetails.authToken;
+                vm.auth_tokenId = $localStorage.userDetails.tokenId;
+                vm.userDetails = $localStorage.userDetails;
+            }
+            else {
+                vm.userIsLogged = false;
+            }
+        }
 
         function checkAllAdd(){
             var formDetails = {};
@@ -256,7 +268,7 @@
             var regEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
             var regexPasswd = "((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{6,20})";
             if(!formDetails.fname.match(stringRegex)){
-            document.getElementById("fname").focus();
+                document.getElementById("fname").focus();
                 return false;
             }
             if(!formDetails.lname.match(stringRegex)){
@@ -274,7 +286,7 @@
                 return false;
 
             }
-        return true;
+            return true;
         }
         //console.log("dddd");
         function checkAvailability(){
