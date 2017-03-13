@@ -38,7 +38,9 @@
         vm.productList = [];
 
         var offersSelected = [];
-        productsDisplayFactory.getProducts(vm.type,offersSelected,vm.selectedBrands,$rootScope.min,$rootScope.max).then(function(response)
+        $rootScope.min = 60;
+        $rootScope.max = 10000;
+        productsDisplayFactory.getProducts(vm.type,offersSelected,vm.selectedBrands, $rootScope.min, $rootScope.max).then(function(response)
         {
             if(response.status == "ok"){
                 vm.productList = response.data;
