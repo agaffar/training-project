@@ -68,8 +68,8 @@
                     <td title="'State'" filter="{ state: 'text'}" sortable="'state'"><span ng-bind="address.state" ></span></td>
                     <td title="'Country'"filter="{ country: 'text'}" sortable="'country'"><span ng-bind="address.country" ></span></td>
                     <td title="'ZipCode'" filter="{ zipCode: 'number'}" sortable="'type'"><span ng-bind="address.zipCode" ></span></td>
-                    <td><a href="" ng-click="upc.loadAddressForm(address)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                        <a href="" ng-click="upc.deleteAddress(address)"><i class="fa fa-times" aria-hidden="true"></i></a>
+                    <td><a href="" ng-click="upc.loadAddressForm(address)"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></a>
+                        <a href="" class="btn btn-danger" ng-click="upc.deleteAddress(address)"><i class="fa fa-times fa-2x" aria-hidden="true"></i></a>
                        </td>
                     <span ng-if="repc.validate == false" ng-bind="repc.message" style="color : red"></span><br>
                 </tr>
@@ -89,7 +89,7 @@
                          Confirm Password : <input type="password" id="pwd2" ng-model="repc.pwd2" required><br>&ndash;&gt;
                          <span ng-if="repc.validate == false" ng-bind="repc.message" style="color : red"></span><br>
                      </tr>-->
-                <a href="" ng-click="upc.loadAddressForm(address)"><i class="fa fa-plus-square-o" aria-hidden="true"></i></a>
+                <a href="" ng-click="upc.loadAddressForm(address)"><i class="fa fa-plus-square-o fa-3x" aria-hidden="true"></i></a>
 
                 </tbody>
 
