@@ -55,13 +55,13 @@ function getUserAddress(req,res){
     console.log("in product toppppppp "+req.query.q)
     console.log(typeof req.query.q);
     var query = (req.query && req.query.q) ? JSON.parse(req.query.q) : req.body.q;
-    console.log(typeof type);
+    console.log(typeof query);
     console.log("in product type "+query.userId)
 
     console.log(req.query);
     console.log(req.body);
 
-    userModel.findOne({_id : query.userId},{address : 1,_id : 0}).populate('address').exec(function(err1, response1){
+    userModel.findOne({_id : query.userId},{address : 1,_id : 0}).populate( {path : 'address',options: { sort: query.sortingCriteria}}).exec(function(err1, response1){
         console.log("in userdata")
         if(err1)
         {
@@ -69,14 +69,15 @@ function getUserAddress(req,res){
         }
         else
         {
-            console.log("userdata address response received"+response1);
+            console.log("userdata address response received");
+            console.log(response1);
             var data = {};
             var status = "ok";
             var serv = {
                 "data" : response1,
                 "status" : status
             };
-            console.log(serv.data);
+            //console.log(serv.data);
             res.send(serv);
 
         }

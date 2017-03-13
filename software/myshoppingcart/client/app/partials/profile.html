@@ -17,16 +17,16 @@
             <center><input type="submit" value="Save"></center>
         </form>
     </div>
-<!--{{upc.tableParams}}-->
+    <!--{{upc.tableParams}}-->
 
     <h2>Address</h2>
     <div class="table-responsive">
 
         <!--length- {{upc.user.address.length}};=={{upc.tableParams}}-->
 
-      <!--  <form name="profileAddressForm" ng-submit="upc.resetPassword()" >-->
-            <div id="no-more-tables">
-                <table ng-table="upc.tableParams"  show-filter="true" class = "table table-bordered">
+        <!--  <form name="profileAddressForm" ng-submit="upc.resetPassword()" >-->
+        <div id="no-more-tables">
+            <table ng-table="upc.tableParams"  show-filter="true" class = "table table-bordered">
                 <!--    <thead>
                     <tr>
                         <th>
@@ -60,46 +60,45 @@
                     </tr>
                     </thead>-->
 
-                    <button class="btn btn-primary" ng-click="upc.loadAddressForm()">Add</button><!--====== {{upc.user.address}}-->
-                    <tbody>
-                    <tr ng-init="readR1 = true" ng-repeat="address in $data"> <!--{{readR1}}-->
-                        <td title="'type'" filter="{ type: 'text'}" sortable="'type'"><span ng-bind="address.type"> </span>
-                        </td>
-                        <td title="'Address Line1'" filter="{ addressLine1: 'text'}" sortable="'addressLine1'"><span ng-bind="address.addressLine1" ></span></td>
-                        <td title="'Address Line2'" filter="{ addressLine2: 'text'}" sortable="'addressLine2'"><span ng-bind="address.addressLine2" ></span></td>
-                        <td title="'Street/Village'" filter="{ streetVillage: 'text'}" sortable="'streetVillage'"><span ng-bind="address.streetVillage" ></span></td>
-                        <td title="'Town/City'" filter="{ townCity: 'text'}" sortable="'townCity'"><span ng-bind="address.townCity" ></span></td>
-                        <td title="'District'" filter="{ district: 'text'}" sortable="'district'"><span ng-bind="address.district" ></span></td>
-                        <td title="'State'" filter="{ state: 'text'}" sortable="'state'"><span ng-bind="address.state" ></span></td>
-                        <td title="'Country'"filter="{ country: 'text'}" sortable="'country'"><span ng-bind="address.country" ></span></td>
-                        <td title="'ZipCode'" filter="{ zipCode: 'number'}" sortable="'type'"><span ng-bind="address.zipCode" ></span></td>
-                        <td><center><Button class="btn btn-primary"  ng-click="upc.loadAddressForm(address)">Edit</Button>
-                       <Button class="btn btn-danger" ng-click="upc.deleteAddress(address)">Del</Button>
-                            <!--<input type="submit" class="btn btn-danger" value="Del">--></center></td>
-                        <!--Password : <input type="password" id="pwd1" ng-model="repc.pwd1" required><br>
-                        Confirm Password : <input type="password" id="pwd2" ng-model="repc.pwd2" required><br>-->
-                        <span ng-if="repc.validate == false" ng-bind="repc.message" style="color : red"></span><br>
-                    </tr>
-               <!--     <tr ng-init="readR2 = true">
-                        <td title="type" >Work</td>
-                        <td title="Address Line1"><input type="text" ng-disabled="readR2"></td>
-                        <td title="Address Line2"><input type="text" ng-disabled="readR2"></td>
-                        <td title="Street/Village"><input type="text" ng-disabled="readR2"></td>
-                        <td title="Town/City"><input type="text" ng-disabled="readR2"></td>
-                        <td title="District"><input type="text" ng-disabled="readR2"></td>
-                        <td title="State"><input type="text" ng-disabled="readR2"></td>
-                        <td title="Country"><input type="text" ng-disabled="readR2"></td>
-                        <td title="ZipCode"><input type="text" ng-disabled="readR2"></td>
-                        <td><Button class="btn btn-primary"  ng-click="readR2 = !readR2">Edit</Button></td>
-                        <td><center><input type="submit" value="Save"></center></td>
-                        &lt;!&ndash;Password : <input type="password" id="pwd1" ng-model="repc.pwd1" required><br>
-                        Confirm Password : <input type="password" id="pwd2" ng-model="repc.pwd2" required><br>&ndash;&gt;
-                        <span ng-if="repc.validate == false" ng-bind="repc.message" style="color : red"></span><br>
-                    </tr>-->
-                    </tbody>
+                <tbody>
+                <tr ng-init="readR1 = true" ng-repeat="address in $data"> <!--{{readR1}}-->
+                    <td title="'type'" filter="{ type: 'text'}" sortable="'type'"><span ng-bind="address.type"> </span>
+                    </td>
+                    <td title="'Address Line1'" filter="{ addressLine1: 'text'}" sortable="'addressLine1'"><span ng-bind="address.addressLine1" ></span></td>
+                    <td title="'Address Line2'" filter="{ addressLine2: 'text'}" sortable="'addressLine2'"><span ng-bind="address.addressLine2" ></span></td>
+                    <td title="'Street/Village'" filter="{ streetVillage: 'text'}" sortable="'streetVillage'"><span ng-bind="address.streetVillage" ></span></td>
+                    <td title="'Town/City'" filter="{ townCity: 'text'}" sortable="'townCity'"><span ng-bind="address.townCity" ></span></td>
+                    <td title="'District'" filter="{ district: 'text'}" sortable="'district'"><span ng-bind="address.district" ></span></td>
+                    <td title="'State'" filter="{ state: 'text'}" sortable="'state'"><span ng-bind="address.state" ></span></td>
+                    <td title="'Country'"filter="{ country: 'text'}" sortable="'country'"><span ng-bind="address.country" ></span></td>
+                    <td title="'ZipCode'" filter="{ zipCode: 'number'}" sortable="'type'"><span ng-bind="address.zipCode" ></span></td>
+                    <td><center><a href="" ng-click="upc.loadAddressForm(address)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                        <a href="" ng-click="upc.deleteAddress(address)"><i class="fa fa-times" aria-hidden="true"></i></a>
+                       </center></td>
+                    <span ng-if="repc.validate == false" ng-bind="repc.message" style="color : red"></span><br>
+                </tr>
+                <!--     <tr ng-init="readR2 = true">
+                         <td title="type" >Work</td>
+                         <td title="Address Line1"><input type="text" ng-disabled="readR2"></td>
+                         <td title="Address Line2"><input type="text" ng-disabled="readR2"></td>
+                         <td title="Street/Village"><input type="text" ng-disabled="readR2"></td>
+                         <td title="Town/City"><input type="text" ng-disabled="readR2"></td>
+                         <td title="District"><input type="text" ng-disabled="readR2"></td>
+                         <td title="State"><input type="text" ng-disabled="readR2"></td>
+                         <td title="Country"><input type="text" ng-disabled="readR2"></td>
+                         <td title="ZipCode"><input type="text" ng-disabled="readR2"></td>
+                         <td><Button class="btn btn-primary"  ng-click="readR2 = !readR2">Edit</Button></td>
+                         <td><center><input type="submit" value="Save"></center></td>
+                         &lt;!&ndash;Password : <input type="password" id="pwd1" ng-model="repc.pwd1" required><br>
+                         Confirm Password : <input type="password" id="pwd2" ng-model="repc.pwd2" required><br>&ndash;&gt;
+                         <span ng-if="repc.validate == false" ng-bind="repc.message" style="color : red"></span><br>
+                     </tr>-->
+                <a href="" ng-click="upc.loadAddressForm()"><i class="fa fa-plus-square-o" aria-hidden="true"></i></a><!--====== {{upc.user.address}}-->
 
-                </table>
-            </div>
-       <!-- </form>-->
+                </tbody>
+
+            </table>
+        </div>
+        <!-- </form>-->
     </div>
 </center>
