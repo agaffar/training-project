@@ -57,7 +57,7 @@ function getUserAddress(req,res){
     var query = (req.query && req.query.q) ? JSON.parse(req.query.q) : req.body.q;
     console.log(req.query);
     console.log(req.body);
-
+    ////TODO: fix comment: Use line indent rules
     userModel.findOne({_id : query.userId},{address : 1,_id : 0}).populate( {path : 'address',options: { sort: query.sortingCriteria}}).exec(function(err1, response1){
 
         if(err1)
@@ -129,7 +129,8 @@ function saveAddress(req,res){
         }
         else
         {
-
+            //TODO: fix comment: Use === operator everywhere
+            //Reference: http://stackoverflow.com/a/523650
             if(address._id == undefined && address._id == null){
                 userModel.findOne({_id : userId}).exec(function(err1, response1){
                     console.log("in userdata")

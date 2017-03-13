@@ -18,6 +18,9 @@
         headfactoryServices.resetPassword = resetPassword;
         return headfactoryServices;
 
+        //TODO: fix comment: Instead of forming the query parameters inside this factory method, Just pass these as a
+        // option to this method from controller
+        //Update in all other places
         function resetPassword(emailId,passwd,otp_token){
             var defered = $q.defer();
             var query = {};

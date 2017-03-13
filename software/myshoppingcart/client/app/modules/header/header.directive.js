@@ -50,6 +50,7 @@
                     }
                     function checkAllAdd(){
                         var formDetails = {};
+                        //TODO: fix comment: If all attributes needs to be copied, then just use angular.copy(Obj)
                         formDetails.fname = vm1.fname;
                         formDetails.lname = vm1.lname;
                         formDetails.mailId = vm1.mailId;
@@ -76,6 +77,8 @@
                         }
                     }
                     function validateDetails(formDetails){
+                        //TODO: fix comment: Generalize the regexes to app.run.js and assign these in
+                        // $rootScope.formValidations = {email: '...', strinRegex: '....'}
                         var stringRegex = /^[A-z]+$/;
                         var regEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
                         var regexPasswd = "((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{6,20})";
@@ -264,6 +267,7 @@
             console.log("submittt"+vm.mailId)
         }
         function validateDetails(formDetails){
+            //TODO: fix comment: Get values from $rootScope
             var stringRegex = /^[A-z]+$/;
             var regEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
             var regexPasswd = "((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{6,20})";

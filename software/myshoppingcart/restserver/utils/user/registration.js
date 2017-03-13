@@ -11,7 +11,10 @@ var tokenModel=require('../../models/Token/TokenModel');
 var passwordHash = require('../../node_modules/password-hash/lib/password-hash');
 var jwt = require('../../node_modules/jwt-simple/lib/jwt');
 var tokenTypesEnums = require('../../enums/tokenTypes');
+//TODO: fix comment: Get rid of this kind of global variables in application
 var i=1;
+//TODO: fix comment: Modularize this code
+//TODO: fix comment: Better if you can write the configuration in external config
 var smtpTransport = nodemailer.createTransport({
     service: "Gmail",  // sets automatically host, port and connection security settings
     auth: {
@@ -126,6 +129,7 @@ function forgotPasswordSendLink(req,res){
                     querToken.startDate = Date.now();
                     querToken.updatedDate = Date.now();
                     querToken.token = token;
+                    //TODO: fix comment: Do not hart-code the ip address
                     var serverAddress = req.protocol + '://' + req.get('host');
                     querToken.type = tokenType;
                     var tokenObj = tokenModel(querToken);
@@ -134,6 +138,7 @@ function forgotPasswordSendLink(req,res){
                             console.log("errorrrr : " + err);
                         }
                         else {
+                            //TODO: fix comment: Use email-templates plugin : https://www.npmjs.com/package/email-templates
                             smtpTransport.sendMail({  //email options
                                 from: "Abdul Gaffar <abdulgaffar09@gmail.com>", // sender address.  Must be the same as authenticated user if using Gmail.
                                 to: response.lastName + "<" + response.email + ">", // receiver
@@ -491,6 +496,7 @@ function checkNLogin(req,res){
                             //email, isActive, authToken, first name, last name
                             var status = "ok";
                             var data = {};
+                            //TODO: fix comment: Remove this code and write a method marshalUser, UnMarshalUser in UserUtil js file
                             data.email = response.email;
                             data.isActive = response.isActive;
                             data.firstName = response.firstName;

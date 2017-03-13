@@ -176,6 +176,7 @@ function getAllBrandsByType(req,res){
 
     });
 }
+//TODO: fix comment: Remove unused code
 function getAllOffersType(req,res) {
     var query = JSON.parse(req.query.q);
 

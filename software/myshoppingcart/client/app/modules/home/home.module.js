@@ -3,5 +3,6 @@
  */
 (function(){
     'use strict'
+    //TODO: fix comment: Update the modulename to <APP_NAME>.home
     angular.module('home',['ngSanitize']);
 })();

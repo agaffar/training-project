@@ -12,6 +12,9 @@ var appRoute = function(router) {
 
   });
 
+    //TODO: fix comment: user redirection code is duplicated
+    //Instead of all these below just redirect like this
+    //router.get('/users/*', users);
   router.get('/users', users);
   router.get('/users/login/', users);
   router.delete('/users/logout', users);
