@@ -166,13 +166,16 @@
             vm.userAddress = [];
             vm.tableParams = new NgTableParams({
                 page : 1,
-                count: 2
+                count: 2,
+               /* settings :{
+                    counts : [2,5,10,25,50,100]
+                }*/
             }, {
                 total : vm.userAddress.length,
+                counts : [2,5,10,25,50,100],
                 getData: function (params) {
 
-
-
+                    //console.log(params)
                     var query = {};
                     query.userId = userId;
                     query.sortingCriteria = params.sorting();
