@@ -46,15 +46,12 @@
                     },
                     onChange: function() {
                         var selectedOffers = getSelectedOffers();
-                        console.log(selectedOffers)
-                        console.log('on change ' + vm.selectedBrandList); // logs 'on change slider-id'
+                    //logs 'on change slider-id'
                         vm.productList = [];
-                        console.log(vm.productType+"    in slide");
                         productsDisplayFactory.getProducts(vm.productType,selectedOffers,vm.selectedBrandList,vm.slider.min,vm.slider.max).then(function(response)
                         {
                             if(response.status == "ok"){
                                 vm.productList = response.data;
-                                console.log( vm.productList);
                             }
                             else{
                                 console.log( "no data retrived");
@@ -64,16 +61,13 @@
                         {
                             return null;
                         });
-                        //console.log( vm.productList); // logs 'on change slider-id'
                     },
                 }
             };
         }
         setPriceSlider();
-        /*console.log("filter component controller brandlist "+vm.brandList);
-         console.log("object values = "+Object.values(vm.brandList))*/
-        console.log("offers");
-        console.log(vm.offersList);
+
+
         function getSelectedOffers()
         {
             var offerSel = [];
@@ -89,12 +83,10 @@
         function checkOfferSelected()
             {
             var selectedOffers = getSelectedOffers();
-            console.log(selectedOffers)
             productsDisplayFactory.getProducts(vm.productType,selectedOffers,vm.selectedBrandList,vm.slider.min,vm.slider.max).then(function(response)
             {
                 if(response.status == "ok"){
                     vm.productList = response.data;
-                    console.log( vm.productList);
                 }
                 else{
                     console.log( "no data retrived");
@@ -106,7 +98,6 @@
         }
         function checkBrandsSelected()
         {
-            console.log(vm.brandList);
             var selectedOffers = getSelectedOffers();
             vm.selectedBrandList = [];
             vm.selectedBrandList = getSelectedBrands(vm.brandList);
@@ -115,7 +106,6 @@
             {
                 if(response.status == "ok"){
                     vm.productList = response.data;
-                    console.log( vm.productList);
                 }
                 else{
                     console.log( "no data retrived");
@@ -128,13 +118,11 @@
         function searchByBrand(input)
         {
             var selectedOffers = getSelectedOffers();
-            console.log('in searchby brand vm.selectedBrandList');
-            console.log(vm.selectedBrandList);
+
             productsDisplayFactory.getProducts(vm.productType,selectedOffers,vm.selectedBrandList,vm.slider.min,vm.slider.max).then(function(response)
             {
                 if(response.status == "ok"){
                     vm.productList = response.data;
-                    console.log( vm.productList);
                 }
                 else{
                     console.log( "no data retrived");

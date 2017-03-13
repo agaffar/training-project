@@ -8,7 +8,6 @@
     function homeController (CartData,$rootScope)
     {
       var vm = this;
-       console.log(vm.message+" mesage");
     }
 
 })();

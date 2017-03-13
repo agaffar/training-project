@@ -7,9 +7,6 @@ var products = require('./productRoute');
 var appRoute = function(router) {
   /* GET home page. */
   router.get('/', function(req, res, next) {
-    console.log("home index");
-    /* var p = path.join(__dirname , '../../client/index');
-     console.log(p+" ooo ")*/
     res.render(path.join(__dirname , '../../client/index'));
     console.log("rendered")
 

@@ -8,9 +8,7 @@
     function resetController ( $scope,headerFactory,$state,$stateParams,$localStorage,$sessionStorage)
     {
         var vm = this;
-        console.log($stateParams);
         var reg_token = $stateParams.token;
-        console.log("token in resetpassword ------- "+reg_token);
         vm.emailId = 'message';
         vm.tokenFound;
         vm.resetPassword = resetPassword;
@@ -23,9 +21,7 @@
             }
             else{
                 vm.tokenFound = true;
-                console.log(response);
                 vm.emailId = response.data.email;
-                console.log(vm.emailId)
             }
 
 
@@ -39,14 +35,11 @@
         }
 
         function resetPassword(){
-            console.log("checkEmail id = "+reg_token);
             var valid = validatePasswords(vm.pwd1,vm.pwd2);
             if(valid == true){
                 headerFactory.resetPassword(vm.emailId,vm.pwd1,reg_token).then(function(response)
                 {
-                    console.log(response);
                     if(response.status == "ok"){
-                        console.log("password is reset");
                         $state.go('home');
                     }
                     else{

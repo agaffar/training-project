@@ -10,9 +10,7 @@
     function registerController ( $scope,headerFactory,$state,$stateParams,$localStorage,$sessionStorage)
     {
         var vm = this;
-        console.log($stateParams);
         var reg_token = $stateParams.token;
-        console.log("token ------- "+reg_token);
         headerFactory.getEmailbyToken(reg_token).then(function(response)
         {
             if(response.status == "notfound"){
@@ -22,9 +20,7 @@
             }
             else{
                 vm.tokenFound = true;
-                console.log(response.data);
                 vm.emailId = response.data;
-                console.log(vm.emailId)
             }
 
 
@@ -40,11 +36,8 @@
 
         function confirmRegistrationUser(){
 
-            console.log("checkEmail id = "+reg_token);
-
             headerFactory.confirmRegistration(reg_token).then(function(response)
             {
-                console.log(response);
                 if(response.status =="ok"){
                     $state.go('home');
                 }

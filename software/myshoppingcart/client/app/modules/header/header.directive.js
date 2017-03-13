@@ -29,12 +29,10 @@
         var vm = this;
         vm.viewProduct = viewSelectedProduct;
         vm.message = "hello directive";
-        //console.log(vm.message);
+
         vm.refreshed = [];
         vm.refreshProds = refreshProductList;
-        /*vm.checkEmailAvailability = checkAvailability;*/
         vm.logout = logoutUser;
-        //vm.checkAllAdd = checkAllAdd;
         vm.loginForm = loginForm;
         vm.RegisterForm = RegisterForm;
         displayUser();
@@ -55,11 +53,9 @@
                         formDetails.phno = vm1.phno;
                         if(validateDetails(formDetails)){
                             vm1.validated = true;
-                            console.log("validateed");
-                            console.log(formDetails);
+
                             headerFactory.registerUser(formDetails).then(function(response){
                                 if(response.status == "ok"){
-                                    console.log("response "+response.data);
                                     $uibModalInstance.close();
                                     $state.go('home');
                                 }
@@ -74,7 +70,6 @@
                         else {
                             vm1.validated = false;
                         }
-                        console.log("submittt"+vm1.mailId)
                     }
                     function validateDetails(formDetails){
                         var stringRegex = /^[A-z]+$/;
@@ -103,19 +98,16 @@
                     }
                     //console.log("dddd");
                     function checkAvailability(){
-                        console.log("checkEmail id 2 = "+vm1.mailId);
                         headerFactory.checkEmail(vm1.mailId).then(function(response)
                         {
                             if(response.status == "ok"){
                                 if(response.data.length == 0){
                                     vm1.mailExitst = false;
                                     document.getElementById("mailId").focus();
-                                    console.log("not exists "+ vm1.mailExitst)
                                 }
                                 else {
 
                                     vm1.mailExitst = true;
-                                    console.log("exists "+ vm1.mailExitst)
                                 }
                             }
 
@@ -136,7 +128,7 @@
             $uibModal.open({
                 templateUrl: 'app/partials/loginPage.html',
                 controller: function ($uibModalInstance) {
-                    console.log("hhhhhhhhhhhhhhhhhhhhhhhh");
+
                     var vm1 = this;
                     vm1.checkLogin = checkAndLoginUser;
                     vm1.forgotForm = forgotForm;
@@ -180,21 +172,18 @@
                         var emailId = vm1.emailId;
                         var password = vm1.paswd;
                         headerFactory.checkLoginAuthenticate(emailId, password).then(function (respone) {
-                            console.log(" in login");
+
                             if (respone.status == "ok") {
-                                console.log(" succes loggin");
-                                console.log(respone.data);
+
                                 $localStorage.userDetails = respone.data;
-                                console.log("$localStorage.userDetails  ");
-                                console.log($localStorage.userDetails);
+
                                 vm.userDetails = $localStorage.userDetails;
                                 vm.userIsLogged = true;
                                 displayUser();
                                 $uibModalInstance.close();
                                 $state.go('home');
                             } else {
-                                console.log("error resp");
-                                console.log(respone.data);
+
                                 vm1.validated = false;
 
                             }
@@ -216,7 +205,6 @@
                 headerFactory.logoutUser($localStorage.userDetails).then(function (response) {
                     vm.userIsLogged = false;
                     $localStorage.$reset();
-                    console.log("logged out");
                     $state.go('home', {reload: true});
 
                 }, function (data) {
@@ -251,7 +239,7 @@
             formDetails.paswd = vm.paswd;
             formDetails.phno = vm.phno;
             if(validateDetails(formDetails)){
-                console.log("validateed");
+
                 headerFactory.registerUser(formDetails).then(function(response){
                     console.log("response "+response);
                 }, function (error) {
@@ -319,48 +307,29 @@
         function refreshProductList(valueEntered)
         {
             vm.refreshed = [];
-            //console.log("entered fun");
-            //$scope.$apply(function() {
-            //console.log($rootScope.products);
+
             if(valueEntered.length>2)
             {
                 var regex = new RegExp(valueEntered,"ig");
                 headerFactory.getSearched(valueEntered).then(function(response)
                 {
-                    console.log("in header");
-                    //console.log(response);
+
+
                     if(response.status == "ok"){
                         vm.refreshed = [];
                         vm.refreshed = response.data;
-                        console.log( vm.refreshed);
+
                     }
                     else{
                         console.log( "no data searched");
                     }
-                   /* if(refreshed.length ) {
-                        vm.refreshed = refreshed;
-                        console.log(vm.refreshed.length + "  length");
-                        console.log(vm.refreshed);
-                    }*/
+
                 },function(data)
                 {
-                    //console.log(response);
 
-                    //console.log(vm.products);
-                    //return null;
                 });
-              /*  for(var i=0;i<$rootScope.products.length;i++)
-                {
-                    var product = $rootScope.products[i];
-                    //console.log(valueEntered+"  regex= "+regex);
 
-                    if(product.productName.toString().match(regex))
-                    {
-                        //console.log("for entered"+valueEntered+" ,"+product.name+" has "+regex+" = "+product.name.toString().match(regex));
-                        refreshed.push(product);
-                    }
-                }*/
-                console.log( vm.refreshed.length);
+
 
 
             } else {
@@ -368,12 +337,12 @@
             }
 
 
-            //});
+
         }
         function viewSelectedProduct(productid)
         {
 
-            console.log("state go = "+productid);
+
             $state.go("product",{id:productid});
         }
     }

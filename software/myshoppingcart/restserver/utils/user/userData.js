@@ -52,32 +52,27 @@ function getUserProfile(req,res){
 
 }
 function getUserAddress(req,res){
-    console.log("in product toppppppp "+req.query.q)
-    console.log(typeof req.query.q);
-    var query = (req.query && req.query.q) ? JSON.parse(req.query.q) : req.body.q;
-    console.log(typeof query);
-    console.log("in product type "+query.userId)
 
+    var query = (req.query && req.query.q) ? JSON.parse(req.query.q) : req.body.q;
     console.log(req.query);
     console.log(req.body);
 
     userModel.findOne({_id : query.userId},{address : 1,_id : 0}).populate( {path : 'address',options: { sort: query.sortingCriteria}}).exec(function(err1, response1){
-        console.log("in userdata")
+
         if(err1)
         {
             console.log(err1);
         }
         else
         {
-            console.log("userdata address response received");
-            console.log(response1);
+
             var data = {};
             var status = "ok";
             var serv = {
                 "data" : response1,
                 "status" : status
             };
-            //console.log(serv.data);
+
             res.send(serv);
 
         }
@@ -85,34 +80,28 @@ function getUserAddress(req,res){
     });
 }
 function saveAddress(req,res){
-    console.log("in product toppppppp "+req.query.q)
-    console.log(typeof req.query.q);
-    var queryParam = (req.query && req.query.q) ? JSON.parse(req.query.q) : req.body.q;
-    console.log(typeof type);
-    console.log("in user id "+queryParam.userId)
-    console.log("in Address type "+queryParam.Address)
 
-    console.log(req.query);
-    console.log(req.body);
+    var queryParam = (req.query && req.query.q) ? JSON.parse(req.query.q) : req.body.q;
+
     var address = queryParam.Address;
     var userId = queryParam.userId;
     var addressObj = new addressModel(address);
     if(address._id){
-        console.log("has _id")
+
         addressObj.isNew = false;
     }
     else{
-        console.log("has no id")
+
         addressObj.isNew = true;
     }
     addressObj.save(function(err){
-        console.log("in token")
+
         if(err){
             console.log(err);
         }
         else
         {
-            console.log("addressObj.isNew   "+addressObj.isNew);
+
             if(address._id == undefined && address._id == null){
                 userModel.findOne({_id : userId}).exec(function(err1, response1){
                     console.log("in userdata")
@@ -122,7 +111,7 @@ function saveAddress(req,res){
                     }
                     else
                     {
-                        console.log("userdata response received"+response1);
+
                         if(response1.address.length >0 ){
                             response1.address.push(addressObj._id);
                             response1.save(function(err2){
@@ -170,30 +159,21 @@ function saveAddress(req,res){
     });
 }
 function deleteAddress(req,res){
-    console.log("in product toppppppp "+req.query.q)
-    console.log(typeof req.query.q);
-    var queryParam = (req.query && req.query.q) ? JSON.parse(req.query.q) : req.body.q;
-    console.log(typeof type);
-    console.log("in user id "+queryParam.userId)
-    console.log("in Address type "+queryParam.Address)
 
-    console.log(req.query);
-    console.log(req.body);
+    var queryParam = (req.query && req.query.q) ? JSON.parse(req.query.q) : req.body.q;
+
     var address = queryParam.Address;
     var userId = queryParam.userId;
-    console.log(address)
     userModel.findOne({_id : userId}).exec(function(err1, response1){
-        console.log("in userdata")
         if(err1)
         {
             console.log(err1);
         }
         else
         {
-            console.log("userdata response received"+response1);
+
             if(response1.address.length >0 ){
-                console.log("before popppppp -- ")
-                console.log(address._id);
+
                 response1.address.pop(address._id);
                 response1.save(function(err2){
                     if(err2){
@@ -207,9 +187,7 @@ function deleteAddress(req,res){
                         res.send(serv);
                     }
                     else {
-                        console.log(response1);
-                        console.log("before remove -- ")
-                        console.log(address._id);
+
                         addressModel.remove({_id : address._id}).exec(function(err3,response2){
                             if(err3){
                                 var data = {};
