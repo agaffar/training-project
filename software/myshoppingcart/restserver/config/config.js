@@ -1,6 +1,8 @@
 /**
  * Created by SB004 on 2/28/2017.
  */
+'use strict';
+
 module.exports = function(){
     console.log(process.env.NODE_ENV);
     switch(process.env.NODE_ENV){
@@ -24,4 +26,6 @@ module.exports = function(){
         default:
             return {};
     }
+
+
 };

@@ -28,6 +28,16 @@
             return api.getUserAddress({q : query}).$promise;
         }
 
+        function saveUserProfile(userId) {
+            // simulated async function
+            var defered = $q.defer();
+
+            var query = {};
+            query.userId = userId;
+            query.Address = Address;
+
+            return api.saveUserData({q : query}).$promise;
+        }
         function saveAddress(Address,userId) {
             // simulated async function
             var defered = $q.defer();

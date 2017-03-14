@@ -16,7 +16,7 @@ var userData
 userData ={
     getUserProfile : getUserProfile,
     getUserAddress : getUserAddress,
-    saveUserProfile : saveUserProfile,
+    saveUserProfiles : saveUserProfiles,
     saveAddress : saveAddress,
     deleteAddress : deleteAddress
 
@@ -25,7 +25,7 @@ function getUserProfile(req,res){
     console.log("in product toppppppp "+req.query.q)
     console.log(typeof req.query.q);
     var query = (req.query && req.query.q) ? JSON.parse(req.query.q) : req.body.q;
-    console.log(typeof type);
+    console.log(query);
     console.log("in in user profile type "+query.userId)
 
     console.log(req.query);
@@ -55,11 +55,12 @@ function getUserProfile(req,res){
 function getUserAddress(req,res){
 
     var query = (req.query && req.query.q) ? JSON.parse(req.query.q) : req.body.q;
-    console.log(req.query);
-    console.log(req.body);
+    //console.log(req.query);
+    console.log(query);
     ////TODO: fix comment: Use line indent rules
-    userModel.findOne({_id : query.userId},{address : 1,_id : 0}).populate( {path : 'address',options: { sort: query.sortingCriteria}}).exec(function(err1, response1){
-
+    userModel.findOne({_id : query.userId},{address : 1,_id : 0}).populate({path : 'address',options: {
+            sort: query.sortingCriteria,skip : query.numberToSkip, limit : query.limitTo }})
+        .exec(function(err1, response1){
         if(err1)
         {
             console.log(err1);
@@ -67,20 +68,36 @@ function getUserAddress(req,res){
         else
         {
 
-            var data = {};
-            var status = "ok";
-            var serv = {
-                "data" : response1,
-                "status" : status
-            };
+            userModel.findOne({_id : query.userId},{address : 1,_id : 0})
+                .exec(function(err2, response2){
+                    if(err1)
+                    {
+                        console.log(err1);
+                    }
+                    else
+                    {
 
-            res.send(serv);
+                        var data = {};
+                        var status = "ok";
+                        var serv = {
+                            "data" : response1,
+                            "total" : response2.address.length,
+                            "status" : status
+                        };
+                        console.log(response1);
+                        console.log(serv);
+                        res.send(serv);
+
+
+                    }
+
+                });
 
         }
 
     });
 }
-function saveUserProfile(req,res){
+function saveUserProfiles(req,res){
 
     var queryParam = (req.query && req.query.q) ? JSON.parse(req.query.q) : req.body.q;
 
@@ -110,7 +127,6 @@ function saveUserProfile(req,res){
 function saveAddress(req,res){
 
     var queryParam = (req.query && req.query.q) ? JSON.parse(req.query.q) : req.body.q;
-
     var address = queryParam.Address;
     var userId = queryParam.userId;
     var addressObj = new addressModel(address);

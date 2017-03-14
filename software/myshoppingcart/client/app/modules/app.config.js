@@ -2,7 +2,6 @@
  * Created by Lenovo on 1/17/2017.
  */
 (function(){
-    //TODO: fix comment: Give application name to this module
     angular.module('myApp').config(navConfig);
     navConfig.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
     function navConfig($stateProvider, $urlRouterProvider, $locationProvider)

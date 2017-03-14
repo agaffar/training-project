@@ -35,36 +35,36 @@
         return {
             'checkEmailExist':{
                 method : 'GET',
-                url: '/users/register/checkemail'
+                url: '/api/users/register/checkemail'
             },
             'createUser':{
                 method : 'POST',
-                url: '/users/register/createUser'
+                url: '/api/users/register/createUser'
             },
             'confirmRegistration':{
                 method : 'POST',
-                url: '/users/register/confirmregistration'
+                url: '/api/users/register/confirmregistration'
             },
             'getUser':{
                 method : 'GET',
-                url: '/users/getUser'
+                url: '/api/users/getUser'
             },
 
             'checkNlogin':{
                 method : 'GET',
-                url: '/users/login/'
+                url: '/api/users/login/'
             },
             'logout':{
                 method : 'DELETE',
-                url: '/users/logout'
+                url: '/api/users/logout'
             },
             'forgotPassword':{
                 method : 'POST',
-                url: '/users/forgotPassword'
+                url: '/api/users/forgotPassword'
             },
             'resetPassword':{
                 method : 'PUT',
-                url: '/users/resetpassword'
+                url: '/api/users/resetpassword'
             },
             /*
              router.get('/api/products', productsList.topRatedProducts);
@@ -77,7 +77,7 @@
              */
             'topRatedProducts':{
                 method : 'GET',
-                url: '/api/products'
+                url: '/api/products/topRatedProducts'
             },
             'searchProducts':{
                 method : 'GET',
@@ -105,7 +105,7 @@
             },
             'saveUserData':{
                 method : 'PUT',
-                url: '/api/users/user/saveProfile'
+                url: '/api/users/user/saveProfiles'
             },
             'getUserAddress':{
                 method : 'GET',

@@ -8,7 +8,6 @@
     {
         var vm = this;
         vm.refreshed = [];
-        //TODO: fix comment: Remove unused methods
         vm.refreshProds = refreshProductList;
         vm.viewProduct = viewSelectedProduct;
 

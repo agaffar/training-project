@@ -1,7 +1,7 @@
 /**
  * Created by SB004 on 3/6/2017.
  */
-var tokenTypeEnums  = {
+var tokenTypeEnum  = {
     "AUTHENTICATION": {code:"AUTHENTICATION", value: "Authentication"},
     "REGISTRATION": {code:"REGISTRATION", value: "Registration"},
     "OTP": {code:"OTP", value: "Otp"},
@@ -9,10 +9,10 @@ var tokenTypeEnums  = {
 
 
 var tokenTypeEnumObj  = {
-    values: Object.keys(tokenTypeEnums ),
+    values: Object.keys(tokenTypeEnum ),
     value: function (code) {
-        return tokenTypeEnums[code].code;
+        return tokenTypeEnum[code].code;
     }
 };
-tokenTypeEnumObj = Object.assign(tokenTypeEnums , tokenTypeEnumObj);
+tokenTypeEnumObj = Object.assign(tokenTypeEnum , tokenTypeEnumObj);
 module.exports = tokenTypeEnumObj;

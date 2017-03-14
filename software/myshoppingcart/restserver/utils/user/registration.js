@@ -5,22 +5,22 @@
 var express = require('express');
 var sendmail = require('sendmail')();
 var nodemailer = require("nodemailer");
-
+var mailerConfig = require('../../config/mailer.config');
 var userModel=require('../../models/User/UserModel');
 var tokenModel=require('../../models/Token/TokenModel');
 var passwordHash = require('../../node_modules/password-hash/lib/password-hash');
 var jwt = require('../../node_modules/jwt-simple/lib/jwt');
-var tokenTypesEnums = require('../../enums/tokenTypes');
+var tokenTypesEnum = require('../../enums/tokenTypes');
+var mailerService = require('../../mailer/mailerService');
+var commonUtil = require('../../utils/commonUtil');
+
 //TODO: fix comment: Get rid of this kind of global variables in application
-var i=1;
+
 //TODO: fix comment: Modularize this code
 //TODO: fix comment: Better if you can write the configuration in external config
 var smtpTransport = nodemailer.createTransport({
     service: "Gmail",  // sets automatically host, port and connection security settings
-    auth: {
-        user: "abdulgaffar09@gmail.com",
-        pass: "bismillah@213"
-    }
+    auth: mailerConfig.mailer.auth
 });
 var userList;
 userList ={
@@ -44,7 +44,7 @@ function resetPassword(req,res){
     var reg_token = query.token;
     var hashPassword = passwordHash.generate(password);
     console.log("user reg_token  : "+reg_token);
-    var tokenType = tokenTypesEnums.OTP.code;
+    var tokenType = tokenTypesEnum.OTP.code;
     var updateDate = Date.now();
     userModel.update({email : emailId},{$set :{password : hashPassword,updatedDate : updateDate}}).exec(function(err, response){
         console.log("in users")
@@ -118,7 +118,7 @@ function forgotPasswordSendLink(req,res){
             console.log("users email received" + response);
             if (response != undefined) {
                 if (response != null) {
-                    var tokenType = tokenTypesEnums.OTP.code;
+                    var tokenType = tokenTypesEnum.OTP.code;
                     var tokenQuery = {
                         email : response.email,
                         type : tokenType
@@ -140,7 +140,7 @@ function forgotPasswordSendLink(req,res){
                         else {
                             //TODO: fix comment: Use email-templates plugin : https://www.npmjs.com/package/email-templates
                             smtpTransport.sendMail({  //email options
-                                from: "Abdul Gaffar <abdulgaffar09@gmail.com>", // sender address.  Must be the same as authenticated user if using Gmail.
+                                from: mailerConfig.mailer.auth.user, // sender address.  Must be the same as authenticated user if using Gmail.
                                 to: response.lastName + "<" + response.email + ">", // receiver
                                 subject: "Reset Password", // subject
                                 text: 'Hi '+response.firstName+' '+response.lastName+'\nA request has been received to change the password. Click on below link to set a new password. '+serverAddress + "/#/resetPassword/" + token // body
@@ -194,7 +194,7 @@ function getUser(req,res){
     console.log("query "+query);
     var reg_token = query.reg_token;
     console.log("user reg_token  : "+reg_token);
-    var tokenType = tokenTypesEnums.REGISTRATION.code;
+    var tokenType = tokenTypesEnum.REGISTRATION.code;
     tokenModel.findOne({token : reg_token}).exec(function(err, response){
         console.log("in users")
         if(err)
@@ -249,7 +249,7 @@ function confirmRegistration(req,res){
     console.log("query "+query);
     var reg_token = query.reg_token;
     console.log("user reg_token  : "+reg_token);
-    var tokenType = tokenTypesEnums.REGISTRATION.code;
+    var tokenType = tokenTypesEnum.REGISTRATION.code;
     tokenModel.findOne({token : reg_token}).exec(function(err, response){
         console.log("in users")
         if(err){
@@ -353,8 +353,9 @@ function createRegisterUser(req,res){
             querToken.startDate = Date.now();
             querToken.updatedDate = Date.now();
             querToken.token = token;
-            var tokenType = tokenTypesEnums.REGISTRATION.code;
-            var serverAddress = req.protocol + '://' + req.get('host');
+            var tokenType = tokenTypesEnum.REGISTRATION.code;
+            //var serverAddress = req.protocol + '://' + req.get('host');
+            console.log()
             querToken.type = tokenType;
             var tokenObj = tokenModel(querToken);
             tokenObj.save(function(err){
@@ -363,7 +364,7 @@ function createRegisterUser(req,res){
                     console.log("errorrrr : "+err);
                 }
                 else {
-                    console.log("created "+i);
+                    //console.log("created "+i);
                     /* sendmail(
                      {
                      user: 'abdulgaffar09@gmail.com',
@@ -376,23 +377,36 @@ function createRegisterUser(req,res){
                      console.log(err && err.stack);
                      //console.dir(reply);
                      });*/
-
-                    smtpTransport.sendMail({  //email options
-                        from: "Abdul Gaffar <abdulgaffar09@gmail.com>", // sender address.  Must be the same as authenticated user if using Gmail.
-                        to: queryTo.lastName +"<"+querToken.email+">", // receiver
-                        subject: "confirm your registration", // subject
-                        text: serverAddress+"/#/confirmregistration/"+token // body
-                    }, function(error, respo){  //callback
-                        if(error){
-                            console.log(error);
-                        }else{
-                            console.log("Message sent: " + respo.message);
-
-
-                        }
-
-                        smtpTransport.close(); // shut down the connection pool, no more messages.  Comment this line out to continue sending emails.
+                    var mailQuery = {};
+                    mailQuery.firstName = userDetails.fname;
+                    mailQuery.lastName = userDetails.lname;
+                    mailQuery.email = querToken.email;
+                    mailQuery.token = token;
+                    mailQuery.serverAddress = commonUtil.getServerAddress(req);
+                    mailerService.sendMail(mailQuery).then(function(success){
+                        console.log("success");
+                        console.log(success);
+                    },
+                    function(data){
+                        console.log("error");
+                        console.log(data);
                     });
+                   /* smtpTransport.sendMail({  //email options
+                     from: mailerConfig.mailer.auth.user, // sender address.  Must be the same as authenticated user if using Gmail.
+                     to: queryTo.lastName +"<"+querToken.email+">", // receiver
+                     subject: "confirm your registration", // subject
+                     text: serverAddress+"/#/confirmregistration/"+token // body
+                     }, function(error, respo){  //callback
+                     if(error){
+                     console.log(error);
+                     }else{
+                     console.log("Message sent: " + respo.message);
+
+
+                     }
+
+                     smtpTransport.close(); // shut down the connection pool, no more messages.  Comment this line out to continue sending emails.
+                     });*/
                     var data = {};
                     var status = "ok";
                     var serv = {
@@ -478,7 +492,7 @@ function checkNLogin(req,res){
                     var tokenObject = new tokenModel();
                     tokenObject.token = generateToken(response.email);
                     tokenObject.email = response.email;
-                    tokenObject.type = tokenTypesEnums.AUTHENTICATION.code;
+                    tokenObject.type = tokenTypesEnum.AUTHENTICATION.code;
                     tokenObject.startDate = Date.now();
                     tokenObject.updatedDate = Date.now();
                     tokenObject.save(function (err2,resp2) {
