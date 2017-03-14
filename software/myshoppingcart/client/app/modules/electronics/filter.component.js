@@ -25,6 +25,8 @@
         vm.selectedAll = checkAllSelected;
         vm.selectedNone = checkNoneSelected;
         vm.checkBrands = checkBrandsSelected;
+        //TODO: fix comment: Do not initialize if it is not being used in component
+        //Fix in all places
         var getSelectedBrands = getSelectedBrands;
         vm.checkOfferSelected = checkOfferSelected;
         var getSelectedOffers = getSelectedOffers;
@@ -48,6 +50,7 @@
                         var selectedOffers = getSelectedOffers();
                     //logs 'on change slider-id'
                         vm.productList = [];
+                        //TODO: fix comment: Make use of filter Object.. Eg: vm.productFilter = {prodTy:, sesle..: .., ...};
                         productsDisplayFactory.getProducts(vm.productType,selectedOffers,vm.selectedBrandList,vm.slider.min,vm.slider.max).then(function(response)
                         {
                             if(response.status == "ok"){
