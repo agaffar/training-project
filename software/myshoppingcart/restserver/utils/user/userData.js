@@ -12,6 +12,8 @@ var addressModel=require('../../models/Address/AddressesModel');
 var passwordHash = require('../../node_modules/password-hash/lib/password-hash');
 var jwt = require('../../node_modules/jwt-simple/lib/jwt');
 var tokenTypesEnums = require('../../enums/tokenTypes');
+var successResponse = require('../../models/successResponse');
+var errorResponse = require('../../models/errorResponse');
 var userData
 userData ={
     getUserProfile : getUserProfile,
@@ -35,17 +37,14 @@ function getUserProfile(req,res){
         if(err1)
         {
             console.log(err1);
+            var message = "no such id";
+            res.send(new errorResponse('error',message,err1));
         }
         else
         {
             console.log("userdata response received"+response1);
-            var data = {};
-            var status = "ok";
-            var serv = {
-                "data" : response1,
-                "status" : status
-            };
-            res.send(serv);
+            var data = response1;
+            res.send(new successResponse('ok',data,'',"success"));
 
         }
 
@@ -59,43 +58,42 @@ function getUserAddress(req,res){
     console.log(query);
     ////TODO: fix comment: Use line indent rules
     userModel.findOne({_id : query.userId},{address : 1,_id : 0}).populate({path : 'address',options: {
-            sort: query.sortingCriteria,skip : query.numberToSkip, limit : query.limitTo }})
+            skip : query.numberToSkip, limit : query.limitTo, sort: query.sortingCriteria }})
         .exec(function(err1, response1){
-        if(err1)
-        {
-            console.log(err1);
-        }
-        else
-        {
+            if(err1)
+            {
+                console.log(err1);
+                var message = "no such id";
+                res.send(new errorResponse('error',message,err1));
+            }
+            else
+            {
 
-            userModel.findOne({_id : query.userId},{address : 1,_id : 0})
-                .exec(function(err2, response2){
-                    if(err1)
-                    {
-                        console.log(err1);
-                    }
-                    else
-                    {
+                userModel.findOne({_id : query.userId},{address : 1,_id : 0})
+                    .exec(function(err2, response2){
+                        if(err1)
+                        {
+                            console.log(err1);
+                            var message = "no such id";
+                            res.send(new errorResponse('error',message,err1));
+                        }
+                        else
+                        {
 
-                        var data = {};
-                        var status = "ok";
-                        var serv = {
-                            "data" : response1,
-                            "total" : response2.address.length,
-                            "status" : status
-                        };
-                        console.log(response1);
-                        console.log(serv);
-                        res.send(serv);
+                            var pagination = {}
+                            pagination.total = response2.address.length;
+                            var data = response1;
+                            console.log(pagination)
+                            res.send(new successResponse('ok',data,pagination,"success"));
 
 
-                    }
+                        }
 
-                });
+                    });
 
-        }
+            }
 
-    });
+        });
 }
 function saveUserProfiles(req,res){
 
@@ -109,17 +107,14 @@ function saveUserProfiles(req,res){
         if(err1)
         {
             console.log(err1);
+            var message = "no such id";
+            res.send(new errorResponse('error',message,err1));
         }
         else
         {
             console.log(response1);
-            var data = {};
-            var status = "ok";
-            var serv = {
-                "data" : response1,
-                "status" : status
-            };
-            res.send(serv);
+            var data = response1;
+            res.send(new successResponse('ok',data,'',"success"));
         }
 
     });
@@ -153,49 +148,38 @@ function saveAddress(req,res){
                     if(err1)
                     {
                         console.log(err1);
+                        var message = "no such id";
+                        res.send(new errorResponse('error',message,err1));
                     }
                     else
                     {
-
-                        if(response1.address.length >0 ){
+                        if(response1){
                             response1.address.push(addressObj._id);
                             response1.save(function(err2){
                                 if(err2){
                                     console.log(err2);
-                                    var data = {};
-                                    var status = "error";
-                                    var serv = {
-                                        "data" : data,
-                                        "status" : status
-                                    };
-                                    res.send(serv);
+                                    var message = "cannot save Address";
+                                    res.send(new errorResponse('error',message,err2));
                                 }
                                 else {
                                     console.log(response1);
-                                    var data = {};
-                                    var status = "ok";
-                                    var serv = {
-                                        "data" : response1,
-                                        "status" : status
-                                    };
-                                    res.send(serv);
+                                    var data = response1;
+                                    res.send(new successResponse('ok',data,'',"success"));
                                 }
                             });
                         }
-
+                        else{
+                            var message = "no such id";
+                            res.send(new errorResponse('error',message,err1));
+                        }
 
                     }
 
                 });
             }
             else{
-                var data = {};
-                var status = "ok";
-                var serv = {
-                    "data" : {},
-                    "status" : status
-                };
-                res.send(serv);
+                var message = "no such id";
+                res.send(new errorResponse('error',message,err));
             }
 
         }
@@ -213,6 +197,8 @@ function deleteAddress(req,res){
         if(err1)
         {
             console.log(err1);
+            var message = "no such id";
+            res.send(new errorResponse('error',message,err1));
         }
         else
         {
@@ -223,34 +209,19 @@ function deleteAddress(req,res){
                 response1.save(function(err2){
                     if(err2){
                         console.log(err2);
-                        var data = {};
-                        var status = "error";
-                        var serv = {
-                            "data" : data,
-                            "status" : status
-                        };
-                        res.send(serv);
+                        var message = "cannot save after delete";
+                        res.send(new errorResponse('error',message,err2));
                     }
                     else {
 
                         addressModel.remove({_id : address._id}).exec(function(err3,response2){
                             if(err3){
-                                var data = {};
-                                var status = "error";
-                                var serv = {
-                                    "data" : {},
-                                    "status" : status
-                                };
-                                res.send(serv);
+                                var message = "cannot remove from address model";
+                                res.send(new errorResponse('error',message,err1));
                             }
                             else{
-                                var data = {};
-                                var status = "ok";
-                                var serv = {
-                                    "data" : response2,
-                                    "status" : status
-                                };
-                                res.send(serv);
+                                var data = response2;
+                                res.send(new successResponse('ok',data,'',"success"));
                             }
 
 

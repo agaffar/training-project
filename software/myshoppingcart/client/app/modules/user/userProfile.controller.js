@@ -175,7 +175,7 @@
                 counts : [2,5,10,25,50,100],
                 getData: function (params) {
 
-                    console.log(params.page())
+                    console.log(params)
                     var query = {};
                     query.numberToSkip = (params.page()-1)*(params.count());
                     console.log(query.numberToSkip);
@@ -187,7 +187,8 @@
                             if(response.status == "ok"){
                                 console.log(response)
                                 vm.userAddress = response.data.address;
-                                params.total(response.total);
+
+                                params.total(response.pagination.total);
                                 var filterObj = params.filter(),filteredData = $filter('filter')(vm.userAddress, filterObj);
 
                                 // Then we sort the FILTERED DATA ARRAY

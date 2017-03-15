@@ -22,8 +22,7 @@
 
         var vm = this;
         vm.searchByBrand = searchByBrand;
-        vm.selectedAll = checkAllSelected;
-        vm.selectedNone = checkNoneSelected;
+        vm.selectedAll = checkAllNoneSelected;
         vm.checkBrands = checkBrandsSelected;
         var getSelectedBrands = getSelectedBrands;
         vm.checkOfferSelected = checkOfferSelected;
@@ -146,20 +145,11 @@
             console.log(selectedBrands);
             return selectedBrands;
         }
-        function checkAllSelected()
+        function checkAllNoneSelected()
         {
-            if(vm.selectedBrandList.length == vm.brandList.length)
+            if(vm.selectedBrandList.length == vm.brandList.length || vm.selectedBrandList.length  == 0)
             {
                 console.log("all selected");
-                vm.productList = $rootScope.products;
-            }
-
-        }
-        function checkNoneSelected()
-        {
-            if(vm.selectedBrandList.length  == 0)
-            {
-                console.log("none selected");
                 vm.productList = $rootScope.products;
             }
 

@@ -11,7 +11,8 @@
         vm.type = $stateParams.type;
 
         vm.brandList = [];
-
+        $rootScope.min = 3000;
+        $rootScope.max = 30000;
         productsDisplayFactory.getBrands(vm.type).then(function(response)
         {
             console.log("in get brands");

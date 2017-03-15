@@ -13,7 +13,8 @@
         var reg_token = $stateParams.token;
         headerFactory.getEmailbyToken(reg_token).then(function(response)
         {
-            if(response.status == "notfound"){
+            console.log(response);
+            if(response.status == "error"){
                 vm.tokenFound = false;
                 vm.message = "Token expired!! Might be your registration is confirmed   ";
 

@@ -4,6 +4,8 @@
 var express = require('express');
 var ProductModel=require('../../models/Product/ProductModel');
 var OfferModel=require('../../models/Offer/Offer');
+var successResponse = require('../../models/successResponse');
+var errorResponse = require('../../models/errorResponse');
 
 var productList
 productList ={
@@ -32,13 +34,8 @@ function topRatedProducts(req,res){
         else
         {
             console.log("response received"+response);
-            var data = {};
-            var status = "ok";
-            var serv = {
-                "data" : response,
-                "status" : status
-            };
-            res.send(serv);
+            var data = response;
+            res.send(new successResponse('ok',data,'',"success"));
 
         }
 
@@ -60,17 +57,14 @@ function searchProducts(req,res){
     ProductModel.find({$or: [{productName: { $regex: regex }}, {brand: { $regex: regex   }}]}).exec(function(err, response){
         console.log("in productlist search")
         if(err)
-            console.log(err);
-        else
         {
-            console.log("response received"+response+"------");
-            var data = {};
-            var status = "ok";
-            var serv = {
-                "data" : response,
-                "status" : status
-            };
-            res.send(serv);
+            var message = "something Went Wrong";
+            res.send(new errorResponse('error',message,err));
+            console.log(err);
+        }
+        else{
+            var data = response;
+            res.send(new successResponse('ok',data,'',"success"));
         }
 
     });
@@ -125,17 +119,16 @@ function productsByCategory(req,res){
     ProductModel.aggregate(queryTo).exec(function(err, response){
         console.log("in productlist categorywiseProducts")
         if(err)
+        {
+            var message = "something Went Wrong";
+            res.send(new errorResponse('error',message,err));
             console.log(err);
+        }
         else
         {
             console.log("categorywiseProducts response received"+response.length);
-            var data = {};
-            var status = "ok";
-            var serv = {
-                "data" : response,
-                "status" : status
-            };
-            res.send(serv);
+            var data = response;
+            res.send(new successResponse('ok',data,'',"success"));
         }
 
     });
@@ -161,17 +154,16 @@ function getAllBrandsByType(req,res){
     ProductModel.distinct(reqBrand,{subType : regex }).exec(function(err, response){
         console.log("in brands list")
         if(err)
+        {
+            var message = "something Went Wrong";
+            res.send(new errorResponse('error',message,err));
             console.log(err);
+        }
         else
         {
             console.log("brands response received"+response);
-            var data = {};
-            var status = "ok";
-            var serv = {
-                "data" : response,
-                "status" : status
-            };
-            res.send(serv);
+            var data = response;
+            res.send(new successResponse('ok',data,'',"success"));
         }
 
     });
@@ -186,11 +178,16 @@ function getAllOffersType(req,res) {
     ProductModel.populate('offers').distinct("offers",{subType : query.type}).exec(function(err, response){
         console.log("in offers list")
         if(err)
+        {
+            var message = "something Went Wrong";
+            res.send(new errorResponse('error',message,err));
             console.log(err);
+        }
         else
         {
             console.log("offers response received"+response);
-            res.send(response);
+            var data = response;
+            res.send(new successResponse('ok',data,'',"success"));
         }
 
     });
@@ -207,17 +204,16 @@ function getProduct(req,res) {
     ProductModel.findOne({productId : query.productId}).populate('offers').populate('comments').exec(function(err, response){
         console.log("in productlist")
         if(err)
+        {
+            var message = "something Went Wrong";
+            res.send(new errorResponse('error',message,err));
             console.log(err);
+        }
         else
         {
             console.log("response received"+response);
-            var data = {};
-            var status = "ok";
-            var serv = {
-                "data" : response,
-                "status" : status
-            };
-            res.send(serv);
+            var data = response;
+            res.send(new successResponse('ok',data,'',"success"));
         }
 
     });
@@ -235,17 +231,16 @@ function getSimilarProducts(req,res){
     ProductModel.find({subType : query.subType,productId :{$not: regex}}).sort({rating : -1}).exec(function(err, response){
         console.log("in smilar list")
         if(err)
+        {
+            var message = "something Went Wrong";
+            res.send(new errorResponse('error',message,err));
             console.log(err);
+        }
         else
         {
             console.log("response received"+response);
-            var data = {};
-            var status = "ok";
-            var serv = {
-                "data" : response,
-                "status" : status
-            };
-            res.send(serv);
+            var data = response;
+            res.send(new successResponse('ok',data,'',"success"));
         }
 
     });

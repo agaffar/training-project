@@ -23,8 +23,8 @@
 
         return directive;
     }
-    headDirectiveController.$inject = ['$scope','$uibModal','headerFactory','$state','$localStorage','$sessionStorage'];
-    function headDirectiveController($scope,$uibModal,headerFactory, $state,$localStorage,$sessionStorage) {
+    headDirectiveController.$inject = ['$scope','$uibModal','headerFactory','$state','$localStorage','$sessionStorage','Regexes'];
+    function headDirectiveController($scope,$uibModal,headerFactory, $state,$localStorage,$sessionStorage,Regexes) {
         //console.log("conteoller directive"+$rootScope.products);
         var vm = this;
         vm.viewProduct = viewSelectedProduct;
@@ -50,7 +50,7 @@
                     }
                     function checkAllAdd(){
                         var formDetails = {};
-                        //TODO: fix comment: If all attributes needs to be copied, then just use angular.copy(Obj)
+
                         formDetails.fname = vm1.fname;
                         formDetails.lname = vm1.lname;
                         formDetails.mailId = vm1.mailId;
@@ -79,9 +79,9 @@
                     function validateDetails(formDetails){
                         //TODO: fix comment: Generalize the regexes to app.run.js and assign these in
                         // $rootScope.formValidations = {email: '...', strinRegex: '....'}
-                        var stringRegex = /^[A-z]+$/;
-                        var regEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-                        var regexPasswd = "((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{6,20})";
+                        var stringRegex = Regexes.stringRegex;
+                        var regEmail = Regexes.regEmail;
+                        var regexPasswd =  Regexes.regexPasswd;
                         if(!formDetails.fname.match(stringRegex)){
                             document.getElementById("fname").focus();
                             return false;
@@ -163,7 +163,7 @@
                                 function checkEmailSendLink(){
                                     headerFactory.checkEmailSendLinkForgot(vm2.emailId).then(function (respone) {
                                         console.log(" in login");
-                                        if (respone.status == "EmailNotFound") {
+                                        if (respone.status == "error") {
                                             vm2.mailExitst = false;
 
                                         } else {

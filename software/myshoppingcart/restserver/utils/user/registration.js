@@ -13,15 +13,11 @@ var jwt = require('../../node_modules/jwt-simple/lib/jwt');
 var tokenTypesEnum = require('../../enums/tokenTypes');
 var mailerService = require('../../mailer/mailerService');
 var commonUtil = require('../../utils/commonUtil');
+var successResponse = require('../../models/successResponse');
+var errorResponse = require('../../models/errorResponse');
+var emailTemplates = require('../../node_modules/email-templates');
+var templateDir = require('../../emailtemplates');
 
-//TODO: fix comment: Get rid of this kind of global variables in application
-
-//TODO: fix comment: Modularize this code
-//TODO: fix comment: Better if you can write the configuration in external config
-var smtpTransport = nodemailer.createTransport({
-    service: "Gmail",  // sets automatically host, port and connection security settings
-    auth: mailerConfig.mailer.auth
-});
 var userList;
 userList ={
   checkUserEmails : checkUserEmails,
@@ -50,13 +46,8 @@ function resetPassword(req,res){
         console.log("in users")
         if(err){
             console.log(err);
-            var data = {};
-            var status = "error token is expired cannot recognise any token with your email";
-            var serv = {
-                "data" : data,
-                "status" : status
-            };
-            res.send(serv);
+            var message = "error token is expired cannot recognise any token with your email";
+            res.send(new errorResponse('error',message,err));
         }
         else
         {
@@ -66,23 +57,13 @@ function resetPassword(req,res){
                 console.log("in remove");
                 if(err2){
                     console.log("err2 ---- "+err2);
-                    var data = {};
-                    var status = "error token is expired cannot recognise any token with your email";
-                    var serv = {
-                        "data" : data,
-                        "status" : status
-                    };
-                    res.send(serv);
+                    var message = "error token is expired cannot recognise any token with your email";
+                    res.send(new errorResponse('error',message,err));
                 }
                 else{
                     console.log("response22222 ---- "+resp2);
-                    var data = {};
-                    var status = "ok";
-                    var serv = {
-                        "data" : resp2,
-                        "status" : status
-                    };
-                    res.send(serv);
+                    var data = resp2;
+                    res.send(new successResponse('ok',data,'',"success"));
                     console.log("removed token  ---- ");
 
                 }
@@ -106,13 +87,8 @@ function forgotPasswordSendLink(req,res){
         if(err){
             console.log(err);
 
-            var data = {};
-            var status = "error";
-            var serv = {
-                "data" : data,
-                "status" : status
-            };
-            res.send(serv);
+            var message = "no such mail";
+            res.send(new errorResponse('error',message,err));
         }
         else {
             console.log("users email received" + response);
@@ -136,51 +112,42 @@ function forgotPasswordSendLink(req,res){
                     tokenObj.save(function (err) {
                         if (err) {
                             console.log("errorrrr : " + err);
+                            var message = "no such mail";
+                            res.send(new errorResponse('error',message,err));
                         }
                         else {
                             //TODO: fix comment: Use email-templates plugin : https://www.npmjs.com/package/email-templates
-                            smtpTransport.sendMail({  //email options
-                                from: mailerConfig.mailer.auth.user, // sender address.  Must be the same as authenticated user if using Gmail.
-                                to: response.lastName + "<" + response.email + ">", // receiver
-                                subject: "Reset Password", // subject
-                                text: 'Hi '+response.firstName+' '+response.lastName+'\nA request has been received to change the password. Click on below link to set a new password. '+serverAddress + "/#/resetPassword/" + token // body
-                            }, function (error, respo) {  //callback
-                                if (error) {
-                                    console.log(error);
-                                } else {
-                                    console.log("Message sent: " + respo.message);
-                                    var data = {};
-                                    var status = "success";
-                                    var serv = {
-                                        "data" : data,
-                                        "status" : status
-                                    };
-                                    res.send(serv);
-                                }
-
-                                smtpTransport.close(); // shut down the connection pool, no more messages.  Comment this line out to continue sending emails.
-                            });
+                            var mailQuery = {};
+                            mailQuery.firstName = response.firstName;
+                            mailQuery.lastName = response.lastName;
+                            mailQuery.email = response.email;
+                            mailQuery.token = token;
+                            mailQuery.serverAddress = commonUtil.getServerAddress(req);
+                            mailQuery.subject = 'Reset Password';
+                            mailQuery.text = 'Hi '+response.firstName+' '+response.lastName+'\nA request has been' +
+                                ' received to change the password. Click on below link to set a new password. ' +
+                                ''+mailQuery.serverAddress + "/#/resetPassword/" + token // body// body
+                            mailerService.sendMail(mailQuery).then(function(success){
+                                    console.log("success");
+                                    console.log(success);
+                                    var data = response;
+                                    res.send(new successResponse('ok',data,'',"success"));
+                                },
+                                function(data){
+                                    console.log("error");
+                                    console.log(data);
+                                });
                         }
                     });
                 }
                 else{
-                    var data = {};
-                    var status = "EmailNotFound";
-                    var serv = {
-                        "data" : data,
-                        "status" : status
-                    };
-                    res.send(serv);
+                    var message = "No record found for the mail";
+                    res.send(new errorResponse('error',message,err));
                 }
             }
             else{
-                var data = {};
-                var status = "EmailNotFound";
-                var serv = {
-                    "data" : data,
-                    "status" : status
-                };
-                res.send(serv);
+                var message = "No record found for the mail";
+                res.send(new errorResponse('error',message,err));
             }
         }
 
@@ -207,36 +174,20 @@ function getUser(req,res){
                     var data = {};
                     data.email = response.email;
                     var status = "ok";
-                    var serv = {
-                        "data" : data,
-                        "status" : status
-                    };
-                    res.send(serv);
+                    var message = "success";
+                    res.send(new successResponse('ok',data,'',message));
                 }
                 else
                 {
-                    var data = {};
-                    var status = "notfound";
-                    var serv = {
-                        "data" : data,
-                        "status" : status
-                    };
-
-                    res.send(serv);
+                    res.send(new errorResponse('error',"notfound",err));
                 }
 
             }
             else{
-                var data = {};
-                var status = "notfound";
-                var serv = {
-                    "data" : data,
-                    "status" : status
-                };
 
-                res.send(serv);
+                var message = "success";
+                res.send(new errorResponse('error',"notfound",err));
             }
-
         }
 
     })
@@ -254,30 +205,22 @@ function confirmRegistration(req,res){
         console.log("in users")
         if(err){
             console.log(err);
-            var data = {};
             var status = "tokenNotfound";
-            var serv = {
-                "data" : data,
-                "status" : status
-            };
-            res.send(serv);
+            var message = "no such mail";
+            res.send(new errorResponse('error',"tokenNotfound",err));
         }
         else
         {
-            if(response != null || response )
+            if(response != undefined && response != null )
             console.log(response+  "users email received"+response);
             var updateDate = Date.now();
             userModel.update({email : response.email},{$set :{isActive : true,updatedDate : updateDate}}).exec(function(err1, response1){
                 console.log("in users")
                 if(err1){
                     console.log(err1);
-                    var data = {};
-                    var status = "error token is expired cannot recognise any token with your email";
-                    var serv = {
-                        "data" : data,
-                        "status" : status
-                    };
-                    res.send(serv);
+
+                    var message = "error token is expired cannot recognise any token with your email";
+                    res.send(new errorResponse('error',message,err1));
                 }
                 else
                 {
@@ -287,24 +230,15 @@ function confirmRegistration(req,res){
                         console.log("in remove");
                         if(err2){
                             console.log("err2 ---- "+err2);
-
-                            var data = {};
-                            var status = "error token is expired cannot recognise any token with your email";
-                            var serv = {
-                                "data" : data,
-                                "status" : status
-                            };
-                            res.send(serv);
+                            var message = "error token is expired cannot recognise any token with your email";
+                            res.send(new errorResponse('error',message,err2));
                         }
                         else{
                             console.log("response22222 ---- "+resp2);
-                            var data = {};
+                            var data = resp2;
                             var status = "ok";
-                            var serv = {
-                                "data" : resp2,
-                                "status" : status
-                            };
-                            res.send(serv);
+                            var message = "success";
+                            res.send(new successResponse('ok',data,'',message));
                             console.log("removed token  ---- ");
 
                         }
@@ -358,10 +292,11 @@ function createRegisterUser(req,res){
             console.log()
             querToken.type = tokenType;
             var tokenObj = tokenModel(querToken);
-            tokenObj.save(function(err){
-                if(err)
+            tokenObj.save(function(err2){
+                if(err2)
                 {
-                    console.log("errorrrr : "+err);
+                    console.log("errorrrr : "+err2);
+
                 }
                 else {
                     //console.log("created "+i);
@@ -383,6 +318,8 @@ function createRegisterUser(req,res){
                     mailQuery.email = querToken.email;
                     mailQuery.token = token;
                     mailQuery.serverAddress = commonUtil.getServerAddress(req);
+                    mailQuery.subject = "confirm registration" // body
+                    mailQuery.text = mailQuery.serverAddress+"/#/confirmregistration/"+mailQuery.token // body
                     mailerService.sendMail(mailQuery).then(function(success){
                         console.log("success");
                         console.log(success);
@@ -409,11 +346,8 @@ function createRegisterUser(req,res){
                      });*/
                     var data = {};
                     var status = "ok";
-                    var serv = {
-                        "data" : data,
-                        "status" : status
-                    };
-                    res.send(serv);
+                    var message = "success";
+                    res.send(new successResponse('ok',data,'',message));
 
                 }
 
@@ -451,13 +385,10 @@ function checkUserEmails(req,res){
         else
         {
             console.log("users email received"+response.length);
-            var data = {};
+            var data = response;
             var status = "ok";
-            var serv = {
-                "data" : response,
-                "status" : status
-            };
-            res.send(serv);
+            var message = "success";
+            res.send(new successResponse('ok',data,'',message));
         }
 
     });
@@ -474,13 +405,8 @@ function checkNLogin(req,res){
         console.log("in users")
         if(err){
             console.log(err);
-            var data = {};
-            var status = "invalid credentials";
-            var serv = {
-                "data" : data,
-                "status" : status
-            };
-            res.send(serv);
+            var message = "invalid credentials";
+            res.send(new errorResponse('error',message,err));
         }
         else
         {
@@ -497,13 +423,8 @@ function checkNLogin(req,res){
                     tokenObject.updatedDate = Date.now();
                     tokenObject.save(function (err2,resp2) {
                         if(err2){
-                            var data = {};
-                            var status = "invalid credentials";
-                            var serv = {
-                                "data" : resp2,
-                                "status" : status
-                            };
-                            res.send(serv);
+                            var message = "invalid credentials";
+                            res.send(new errorResponse('error',message,err2));
                             console.log("errorrr in token save login "+err2)
                         }
                         else{
@@ -518,25 +439,20 @@ function checkNLogin(req,res){
                             data.authToken = tokenObject.token;
                             data.tokenId = tokenObject._id;
                             data.userId = response._id;
-                            var serResponse = {};
-                            serResponse.status = status;
-                            serResponse.data = data;
-                            console.log("resss "+resp2);
-                            res.send(serResponse);
+                            var message = "success";
+                            res.send(new successResponse('ok',data,'',message));
                         }
                     });
                 }
                 else{
-                    var servRes = {};
-                    servRes.status = "err";
-                    res.send(servRes);
+                    var message = "invalid credentials";
+                    res.send(new errorResponse('error',message,err));
                 }
                 //res.send(response);
             }
             else{
-                var servRes = {};
-                servRes.status = "err";
-                res.send(servRes);
+                var message = "invalid credentials";
+                res.send(new errorResponse('error',message,err));
             }
         }
 
@@ -554,16 +470,15 @@ function checkLogout(req,res){
    tokenModel.remove({email : emailId,token : authToken}).exec(function(err,response){
        if(err){
            console.log("errrorrrrrrr in logout  "+err);
+           var message = "something Went Wrong";
+           res.send(new errorResponse('error',message,err));
        }
        else{
            console.log("token deleted "+response);
-           var data = {};
+           var data = response;
            var status = "ok";
-           var serv = {
-               "data" : response,
-               "status" : status
-           };
-           res.send(serv);
+           var message = "success";
+           res.send(new successResponse('ok',data,'',message));
 
        }
    });

@@ -10,7 +10,7 @@
 
                     First Name : <input type="text" id="fname" ng-model="rgc.fname" required>
                     Last Name : <input type="text" id="lname" ng-model="rgc.lname" required>
-                    Email Id : <input type="email" id="mailId" ng-model="rgc.mailId" ng-keyup="rgc.checkEmailAvailability()" required>
+                    Email Id : <input type="email" id="mailId" ng-model="rgc.mailId" ng-keyup="rgc.checkEmailAvailability()" >
                     <span ng-bind="rgc.mailId+' already exists'" style="color:red" ng-if="rgc.mailExitst == true"></span><br>
                     Password : <input type="password" id="paswd" ng-model="rgc.paswd" required>
                     Phone Number : <input type="number" id="phno" ng-model="rgc.phno" required>

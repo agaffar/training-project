@@ -14,7 +14,7 @@
         vm.resetPassword = resetPassword;
         headerFactory.getEmailbyToken(reg_token).then(function(response)
         {
-            if(response.status == "notfound"){
+            if(response.status == "error"){
                 vm.tokenFound = false;
                 vm.message = "Token expired!! Request for reset again and continue";
 

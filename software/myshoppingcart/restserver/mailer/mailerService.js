@@ -18,8 +18,8 @@ function sendMail(queryTo){
         smtpTransport.sendMail({  //email options
             from: mailerConfig.mailer.auth.user, // sender address.  Must be the same as authenticated user if using Gmail.
             to: queryTo.lastName +"<"+queryTo.email+">", // receiver
-            subject: "confirm your registration", // subject
-            text: queryTo.serverAddress+"/#/confirmregistration/"+queryTo.token // body
+            subject: queryTo.subject, // subject
+            text: queryTo.text // body
         }, function(error, respo){  //callback
             if(error){
                 defered.reject(error);
