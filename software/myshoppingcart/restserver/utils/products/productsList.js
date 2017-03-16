@@ -50,7 +50,6 @@ function searchProducts(req,res){
 
     console.log(req.query);
     console.log(req.body);
-    /*ProductModel.find({ $text: { $search: query.valueEntered } })*/
     var reg = "/^"+query.valueEntered+"/i";
     var regex = new RegExp(query.valueEntered,"i");
     console.log(reg)
@@ -81,24 +80,7 @@ function productsByCategory(req,res){
     console.log(req.body);
 
     var queryTo =[];
-    queryTo.push({ "$unwind": "$offers" });
-    queryTo.push({$lookup : { from : "offers",localField : "offers",foreignField : "_id", as : "prodObject"}});
-    queryTo.push({ "$unwind": "$prodObject" });
     queryTo.push({"$match" : {"subType" : query.type, "productPrice" : {$gt : query.min,$lt : query.max}}});
-   /*/!* queryTo.$unwind = "$prodObject";
-    queryTo.subType = query.type;
-    queryTo.productPrice = {$gt : query.min, $lt :query.max};*!/
-    queryTo.offers = {};*/
-   /* {"$match" : {"prodObject.type" : { $in : ["discount","exchange"]},
-        "subType" : "mobile","brand" : {$in : ["Samsung","Lenovo"]}, "productPrice" : {$gt : 1000,$lt : 20000}}}*/
-    if(offersSelectedArray != undefined){
-        if(offersSelectedArray.length !=0){
-            //queryTo.offers.type = {$in : offersSelectedArray};
-            queryTo.push({"$match" : {"prodObject.type" : {$in : offersSelectedArray}}});
-            console.log("quertoooo + "+queryTo)
-            console.log(queryTo)
-        }
-    }
     if(brandsSelectedArray != undefined){
         if(brandsSelectedArray.length !=0){
             var regexBrandArray = getRegexsBrands(brandsSelectedArray);
@@ -106,16 +88,29 @@ function productsByCategory(req,res){
                 queryTo.push({"$match" : {"Features.Publisher" : {$in : regexBrandArray}}});
             else
                 queryTo.push({"$match" : {"brand" : {$in : regexBrandArray}}});
-        console.log("quertoooo + "+queryTo)
-        console.log(queryTo)
+            console.log("quertoooo + "+queryTo)
+            console.log(queryTo)
         }
     }
+    queryTo.push({ "$unwind": "$offers" });
+    queryTo.push({$lookup : { from : "offers",localField : "offers",foreignField : "_id", as : "offers"}});
+    queryTo.push({ "$unwind": "$offers" });
+
+    if(offersSelectedArray != undefined){
+        if(offersSelectedArray.length !=0){
+            queryTo.push({"$match" : {"offers.type" : {$in : offersSelectedArray}}});
+
+        }
+    }
+    queryTo.push({"$group":{"_id":"$_id", "data":{"$addToSet":{"off":"$offers", "product":{"_id": "$_id", "productId" : "$productId","productName" : "$productName",
+            "productPrice" : "$productPrice","rating" : "$rating","type" : "$type","subType" : "$subType"
+        }}}}},
+        {"$project":{"data.off":1, "product":{"$arrayElemAt":["$data.product", 0] }}}
+    );
     console.log("quertoooo formed + "+queryTo)
 
     console.log(queryTo)
-   /* aggregate([{ "$unwind": "$offers" },
-        {$lookup : { from : "offers",localField : "offers",foreignField : "_id", as : "prodObject"}},
-        { "$unwind": "$prodObject" },{"$match" : {"prodObject.type" : { $in : ["discount","exchange"]}}} ])*/
+
     ProductModel.aggregate(queryTo).exec(function(err, response){
         console.log("in productlist categorywiseProducts")
         if(err)

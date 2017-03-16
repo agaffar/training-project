@@ -16,7 +16,8 @@ var commonUtil = require('../../utils/commonUtil');
 var successResponse = require('../../models/successResponse');
 var errorResponse = require('../../models/errorResponse');
 var emailTemplates = require('../../node_modules/email-templates');
-var templateDir = require('../../emailtemplates');
+var path = require('path');
+var templateDir = path.resolve(__dirname, '..', '../templates');
 
 var userList;
 userList ={
@@ -124,10 +125,12 @@ function forgotPasswordSendLink(req,res){
                             mailQuery.token = token;
                             mailQuery.serverAddress = commonUtil.getServerAddress(req);
                             mailQuery.subject = 'Reset Password';
-                            mailQuery.text = 'Hi '+response.firstName+' '+response.lastName+'\nA request has been' +
+                            mailQuery.fullName = mailQuery.firstName+" "+mailQuery.lastName;
+                            mailQuery.url = mailQuery.serverAddress + "/#/resetPassword/" + token;
+                            /*mailQuery.text = 'Hi '+response.firstName+' '+response.lastName+'\nA request has been' +
                                 ' received to change the password. Click on below link to set a new password. ' +
-                                ''+mailQuery.serverAddress + "/#/resetPassword/" + token // body// body
-                            mailerService.sendMail(mailQuery).then(function(success){
+                                ''+mailQuery.serverAddress + "/#/resetPassword/" + token // body// body*/
+                            mailerService.sendMail('reset_password',mailQuery).then(function(success){
                                     console.log("success");
                                     console.log(success);
                                     var data = response;
@@ -318,9 +321,10 @@ function createRegisterUser(req,res){
                     mailQuery.email = querToken.email;
                     mailQuery.token = token;
                     mailQuery.serverAddress = commonUtil.getServerAddress(req);
+                    mailQuery.fullName = mailQuery.firstName+" "+mailQuery.lastName;
                     mailQuery.subject = "confirm registration" // body
-                    mailQuery.text = mailQuery.serverAddress+"/#/confirmregistration/"+mailQuery.token // body
-                    mailerService.sendMail(mailQuery).then(function(success){
+                    mailQuery.url = mailQuery.serverAddress+"/#/confirmregistration/"+mailQuery.token // body
+                    mailerService.sendMail('confirm_registration',mailQuery).then(function(success){
                         console.log("success");
                         console.log(success);
                     },

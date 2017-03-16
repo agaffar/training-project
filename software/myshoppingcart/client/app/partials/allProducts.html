@@ -1,15 +1,15 @@
 <!--prodtype {{allProds.productType}}-->
 <div class="row">
-    <div  ui-sref="product({ id : product.productId })" class="all-products col-xs-12 col-xs-4 col-sm-4 col-md-3" ng-repeat="product in allProds.productList | orderBy:'-rating'">
+    <div  ui-sref="product({ id : product.product.productId })" class="all-products col-xs-12 col-xs-4 col-sm-4 col-md-3" ng-repeat="product in allProds.productList | orderBy:'-product.rating'">
         <!--<div class="container">-->
-       <div  ng-if="product.type == 'electronics'"><img  src="images/{{allProds.productType}}/{{ product.productId }}.jpg"></div>
-       <div ng-if="product.type == 'books'"><img  src="images/books/{{ product.productId }}.jpg"></div>
-           <!-- Use <span bg-bind="product.name"></span> instead of  <span>{{product.name}}</span>. Try to avoid {{}}. Do this in all places-->
-           <span id="prod-names" ng-bind="product.productName" tooltip-placement="top" uib-tooltip="{{product.productName}}" tooltip-append-to-body="true"></span>
+       <div  ng-if="product.product.type == 'electronics'"><img  src="images/{{allProds.productType}}/{{ product.product.productId }}.jpg"></div>
+       <div ng-if="product.product.type == 'books'"><img  src="images/books/{{ product.product.productId }}.jpg"></div>
+           <!-- Use <span bg-bind="product.product.name"></span> instead of  <span>{{product.product.name}}</span>. Try to avoid {{}}. Do this in all places-->
+           <span id="prod-names" ng-bind="product.product.productName" tooltip-placement="top" uib-tooltip="{{product.product.productName}}" tooltip-append-to-body="true"></span>
            <!---->
-        <div class="row"><label class="col-xs-2 col-sm-2 col-md-2">Cost:</label><span class="col-xs-2 col-sm-2 col-md-2" ng-bind="product.productPrice | currency:'&#8377;'"></span></div>
-        <div class="row"><label class="col-xs-12 col-sm-12 col-md-3">Rating:</label><div class="col-xs-12 col-sm-12 col-md-8"><ng-rate-it min = 0 max = 5 read-only = "true" ng-model=product.rating >
-        </ng-rate-it></div> </div><!--<jk-rating-stars class="rating" rating="product.rating" read-only="true"></jk-rating-stars>-->
+        <div class="row"><label class="col-xs-2 col-sm-2 col-md-2">Cost:</label><span class="col-xs-2 col-sm-2 col-md-2" ng-bind="product.product.productPrice | currency:'&#8377;'"></span></div>
+        <div class="row"><label class="col-xs-12 col-sm-12 col-md-3">Rating:</label><div class="col-xs-12 col-sm-12 col-md-8"><ng-rate-it min = 0 max = 5 read-only = "true" ng-model=product.product.rating >
+        </ng-rate-it></div> </div><!--<jk-rating-stars class="rating" rating="product.product.rating" read-only="true"></jk-rating-stars>-->
         <!--</div>-->
     </div>
 

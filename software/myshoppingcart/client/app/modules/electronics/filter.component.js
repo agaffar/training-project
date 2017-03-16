@@ -51,6 +51,7 @@
                         {
                             if(response.status == "ok"){
                                 vm.productList = response.data;
+                                console.log(vm.productList);
                             }
                             else{
                                 console.log( "no data retrived");
@@ -86,6 +87,8 @@
             {
                 if(response.status == "ok"){
                     vm.productList = response.data;
+                    console.log(vm.productList);
+
                 }
                 else{
                     console.log( "no data retrived");
@@ -105,6 +108,8 @@
             {
                 if(response.status == "ok"){
                     vm.productList = response.data;
+                    console.log(vm.productList);
+
                 }
                 else{
                     console.log( "no data retrived");
@@ -122,6 +127,8 @@
             {
                 if(response.status == "ok"){
                     vm.productList = response.data;
+                    console.log(vm.productList);
+
                 }
                 else{
                     console.log( "no data retrived");
