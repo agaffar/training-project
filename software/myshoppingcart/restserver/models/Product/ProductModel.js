@@ -35,7 +35,7 @@ var productSchema = new Schema({
         subType:{
             type:String
         },
-        RAM: {
+        ram: {
             type : String
         },
         productModelName :{
@@ -50,7 +50,7 @@ var productSchema = new Schema({
         camera: {
            type : Object
         },
-        Author:{
+        author:{
             type:String
         },
         rating:{
@@ -64,7 +64,7 @@ var productSchema = new Schema({
          type: Schema.Types.ObjectId,
          ref: 'Offer'
          }],
-        Features :{
+        features :{
             type : Object
         }
     },

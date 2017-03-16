@@ -3,24 +3,45 @@
     <div modal="false" close="">
         <div class="modal-content">
             <div class="modal-header">
-                <h4>Login Form</h4>
+                <h4>Registration Form</h4>
             </div>
-            <form name="regForm" ng-submit="rgc.checkAllAdd()">
+            <form name="form" ng-submit="rgc.checkAllAdd(form.$valid)">
                 <div class="modal-body">
+                    <div class="form-group" ng-class="{ 'has-error': form.fname.$dirty && form.fname.$error.required }">
 
-                    First Name : <input type="text" id="fname" ng-model="rgc.fname" required>
-                    Last Name : <input type="text" id="lname" ng-model="rgc.lname" required>
-                    Email Id : <input type="email" id="mailId" ng-model="rgc.mailId" ng-keyup="rgc.checkEmailAvailability()" >
-                    <span ng-bind="rgc.mailId+' already exists'" style="color:red" ng-if="rgc.mailExitst == true"></span><br>
-                    Password : <input type="password" id="paswd" ng-model="rgc.paswd" required>
-                    Phone Number : <input type="number" id="phno" ng-model="rgc.phno" required>
-
-                    <span style="color:red" ng-if="rgc.validated == false">enter the details preperly {{rgc.message}}</span>
+                        <label for="fname">First Name : </label>
+                        <input type="text" name="fname" id="fname"  ng-model="rgc.fname" ng-minlength="3" ng-maxlength="20" ng-pattern="rgc.stringRegex" required>
+                        <span style="color:red" ng-show="form.fname.$dirty && form.fname.$error.minlength" ng-class="help-block">minimum length should be 3</span>
+                        <span style="color:red" ng-show="form.fname.$dirty && form.fname.$error.pattern" ng-class="help-block">first name should be string</span>
                     </div>
-                    <div class="modal-footer">
-                        <center><input type="submit" value="SignUp">
+                    <div class="form-group" ng-class="{ 'has-error': form.lname.$dirty && form.lname.$error.required }">
+                        <label for="lname">Last Name : </label>
+                        <input type="text" name="lname" id="lname" ng-model="rgc.lname" ng-minlength="3" ng-maxlength="20" ng-pattern="rgc.stringRegex" required>
+                        <span style="color:red" ng-show="form.lname.$dirty && form.lname.$error.minlength" ng-class="help-block">minimum length should be 3</span>
+                        <span style="color:red" ng-show="form.lname.$dirty && form.lname.$error.pattern" ng-class="help-block">last name should be string</span>
+                    </div>
+                    <div class="form-group" ng-class="{ 'has-error': form.mailId.$dirty && form.mailId.$error.required }">
+                        <label for="mailId">Email Id : </label>
+                        <input type="email" name="mailId" id="mailId" ng-model="rgc.mailId" ng-keyup="rgc.checkEmailAvailability()" ng-pattern="rgc.regEmail" >
+                        <span  ng-bind="rgc.mailId+' already exists'" style="color:red" ng-if="rgc.mailExitst == true" ></span><br>
+                        <span style="color:red" ng-show="form.mailId.$dirty && form.mailId.$error.pattern" ng-class="help-block">email should be a valid</span>
+                    </div>
+                    <div class="form-group" ng-class="{ 'has-error': form.fname.$dirty && form.fname.$error.required }">
+                        <label for="paswd">Password : </label>
+                        <input type="password" name="paswd" id="paswd" ng-model="rgc.paswd" ng-pattern="rgc.regexPasswd" required>
+                        <span style="color:red" ng-show="form.paswd.$dirty && form.paswd.$error.pattern" ng-class="help-block">password should have atleast 1uppercase 1lowercase 1numeric and 1character</span>
+                    </div>
+                    <div class="form-group" ng-class="{ 'has-error': form.fname.$dirty && form.fname.$error.required }">
+
+                        <label for="phno">Phone Number : </label>
+                        <input type="number" name="phno" id="phno" ng-model="rgc.phno" minlength="10" maxlength="12" required>
+                        <span style="color:red" ng-show="form.phno.$dirty && form.phno.$error.minlength" ng-class="help-block">minimum length should be 10</span>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <center><input type="submit" value="SignUp" ng-disabled="form.$invalid">
                         <button class="btn btn-danger" data-toggle="modal" ng-click="rgc.close()">Cancel</button>
-                        </center>
+                    </center>
                 </div>
             </form>
         </div>

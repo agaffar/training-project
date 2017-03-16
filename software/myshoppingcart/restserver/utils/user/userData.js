@@ -56,7 +56,6 @@ function getUserAddress(req,res){
     var query = (req.query && req.query.q) ? JSON.parse(req.query.q) : req.body.q;
     //console.log(req.query);
     console.log(query);
-    ////TODO: fix comment: Use line indent rules
     userModel.findOne({_id : query.userId},{address : 1,_id : 0}).populate({path : 'address',options: {
             skip : query.numberToSkip, limit : query.limitTo, sort: query.sortingCriteria }})
         .exec(function(err1, response1){
@@ -92,7 +91,6 @@ function getUserAddress(req,res){
                     });
 
             }
-
         });
 }
 function saveUserProfiles(req,res){

@@ -35,13 +35,18 @@
         vm.logout = logoutUser;
         vm.loginForm = loginForm;
         vm.RegisterForm = RegisterForm;
+
         displayUser();
         function RegisterForm() {
             $uibModal.open({
                 templateUrl: 'app/partials/registrationform.html',
                 controller: function ($uibModalInstance) {
                     console.log("hhhhhhhhhhhhhhhhhhhhhhhh");
+
                     var vm1 = this;
+                    vm1.stringRegex =  Regexes.stringRegex;
+                    vm1.regEmail =  Regexes.regEmail;
+                    vm1.regexPasswd =  Regexes.regexPasswd;
                     vm1.checkEmailAvailability = checkAvailability;
                     vm1.checkAllAdd = checkAllAdd;
                     vm1.close = close;
@@ -50,78 +55,43 @@
                     }
                     function checkAllAdd(){
                         var formDetails = {};
-
                         formDetails.fname = vm1.fname;
                         formDetails.lname = vm1.lname;
                         formDetails.mailId = vm1.mailId;
                         formDetails.paswd = vm1.paswd;
                         formDetails.phno = vm1.phno;
-                        if(validateDetails(formDetails)){
-                            vm1.validated = true;
-
-                            headerFactory.registerUser(formDetails).then(function(response){
-                                if(response.status == "ok"){
-                                    $uibModalInstance.close();
-                                    $state.go('home');
-                                }
-                                else{
-                                    vm1.message = response.status;
-                                }
-
-                            }, function (error) {
-                                console.log("error "+error);
-                            })
-                        }
-                        else {
-                            vm1.validated = false;
-                        }
-                    }
-                    function validateDetails(formDetails){
-                        //TODO: fix comment: Generalize the regexes to app.run.js and assign these in
-                        // $rootScope.formValidations = {email: '...', strinRegex: '....'}
-                        var stringRegex = Regexes.stringRegex;
-                        var regEmail = Regexes.regEmail;
-                        var regexPasswd =  Regexes.regexPasswd;
-                        if(!formDetails.fname.match(stringRegex)){
-                            document.getElementById("fname").focus();
-                            return false;
-                        }
-                        if(!formDetails.lname.match(stringRegex)){
-                            document.getElementById("lname").focus();
-                            return false;
-
-                        }
-                        if(!formDetails.mailId.match(regEmail)){
-                            document.getElementById("mailId").focus();
-                            return false;
-
-                        }
-                        if(!formDetails.paswd.match(regexPasswd)){
-                            document.getElementById("paswd").focus();
-                            return false;
-
-                        }
-                        return true;
-                    }
-                    //console.log("dddd");
-                    function checkAvailability(){
-                        headerFactory.checkEmail(vm1.mailId).then(function(response)
-                        {
+                        headerFactory.registerUser(formDetails).then(function(response){
                             if(response.status == "ok"){
-                                if(response.data.length == 0){
-                                    vm1.mailExitst = false;
-                                    document.getElementById("mailId").focus();
-                                }
-                                else {
-
-                                    vm1.mailExitst = true;
-                                }
+                                $uibModalInstance.close();
+                                $state.go('home');
+                            }
+                            else{
+                                vm1.message = response.status;
                             }
 
-                        },function(data)
-                        {
-                            return null;
+                        }, function (error) {
+                            console.log("error "+error);
                         });
+                    }
+                    function checkAvailability(){
+                        if(vm1.mailId != undefined ){
+                            headerFactory.checkEmail(vm1.mailId).then(function(response)
+                            {
+                                if(response.status == "ok"){
+                                    if(response.data.length == 0){
+                                        vm1.mailExitst = false;
+                                    }
+                                    else {
+
+                                        vm1.mailExitst = true;
+                                    }
+                                }
+                            },function(data)
+                            {
+                                return null;
+                            });
+                        }
+
                         return true;
                     }
                 },

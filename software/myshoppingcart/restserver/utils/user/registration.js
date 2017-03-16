@@ -18,10 +18,11 @@ var errorResponse = require('../../models/errorResponse');
 var emailTemplates = require('../../node_modules/email-templates');
 var path = require('path');
 var templateDir = path.resolve(__dirname, '..', '../templates');
+var marshalUser = require('../marshals/marshalUser.service')
 
 var userList;
 userList ={
-  checkUserEmails : checkUserEmails,
+    checkUserEmails : checkUserEmails,
     getUser : getUser,
     createRegisterUser : createRegisterUser,
     confirmRegistration : confirmRegistration,
@@ -81,8 +82,6 @@ function forgotPasswordSendLink(req,res){
     console.log("query "+query);
     var emailId = query.emailId;
     console.log("user reg_token  : "+emailId);
-    var serverAddress = req.protocol + '://' + req.get('host');
-
     userModel.findOne({email : emailId}).exec(function(err, response){
         console.log("in users")
         if(err){
@@ -106,8 +105,6 @@ function forgotPasswordSendLink(req,res){
                     querToken.startDate = Date.now();
                     querToken.updatedDate = Date.now();
                     querToken.token = token;
-                    //TODO: fix comment: Do not hart-code the ip address
-                    var serverAddress = req.protocol + '://' + req.get('host');
                     querToken.type = tokenType;
                     var tokenObj = tokenModel(querToken);
                     tokenObj.save(function (err) {
@@ -117,19 +114,15 @@ function forgotPasswordSendLink(req,res){
                             res.send(new errorResponse('error',message,err));
                         }
                         else {
-                            //TODO: fix comment: Use email-templates plugin : https://www.npmjs.com/package/email-templates
                             var mailQuery = {};
-                            mailQuery.firstName = response.firstName;
-                            mailQuery.lastName = response.lastName;
                             mailQuery.email = response.email;
                             mailQuery.token = token;
-                            mailQuery.serverAddress = commonUtil.getServerAddress(req);
                             mailQuery.subject = 'Reset Password';
-                            mailQuery.fullName = mailQuery.firstName+" "+mailQuery.lastName;
-                            mailQuery.url = mailQuery.serverAddress + "/#/resetPassword/" + token;
+                            mailQuery.fullName = response.firstName+" "+response.lastName;
+                            mailQuery.url = commonUtil.getServerAddress(req) + "/#/resetPassword/" + token;
                             /*mailQuery.text = 'Hi '+response.firstName+' '+response.lastName+'\nA request has been' +
-                                ' received to change the password. Click on below link to set a new password. ' +
-                                ''+mailQuery.serverAddress + "/#/resetPassword/" + token // body// body*/
+                             ' received to change the password. Click on below link to set a new password. ' +
+                             ''+mailQuery.serverAddress + "/#/resetPassword/" + token // body// body*/
                             mailerService.sendMail('reset_password',mailQuery).then(function(success){
                                     console.log("success");
                                     console.log(success);
@@ -168,7 +161,10 @@ function getUser(req,res){
     tokenModel.findOne({token : reg_token}).exec(function(err, response){
         console.log("in users")
         if(err)
+        {
             console.log(err);
+            res.send(new errorResponse('error',"notfound",err));
+        }
         else
         {
             console.log(response+  "users email received"+response);
@@ -215,7 +211,7 @@ function confirmRegistration(req,res){
         else
         {
             if(response != undefined && response != null )
-            console.log(response+  "users email received"+response);
+                console.log(response+  "users email received"+response);
             var updateDate = Date.now();
             userModel.update({email : response.email},{$set :{isActive : true,updatedDate : updateDate}}).exec(function(err1, response1){
                 console.log("in users")
@@ -278,7 +274,10 @@ function createRegisterUser(req,res){
     user.save(function(err){
         console.log("in users")
         if(err)
+        {
             console.log(err);
+            res.send(new errorResponse('error',"details are not proper",err));
+        }
         else
         {
             console.log("users email received");
@@ -299,22 +298,9 @@ function createRegisterUser(req,res){
                 if(err2)
                 {
                     console.log("errorrrr : "+err2);
-
+                    res.send(new errorResponse('error',"details are not proper",err2));
                 }
                 else {
-                    //console.log("created "+i);
-                    /* sendmail(
-                     {
-                     user: 'abdulgaffar09@gmail.com',
-                     pass: 'bismillah@213',
-                     from: 'abdulgaffar09@gmail.com',
-                     to: querToken.email,
-                     subject: 'confirm your registration',
-                     html: serverAddress+"/#/confirmregistration/"+token,
-                     }, function(err, reply) {
-                     console.log(err && err.stack);
-                     //console.dir(reply);
-                     });*/
                     var mailQuery = {};
                     mailQuery.firstName = userDetails.fname;
                     mailQuery.lastName = userDetails.lname;
@@ -325,33 +311,19 @@ function createRegisterUser(req,res){
                     mailQuery.subject = "confirm registration" // body
                     mailQuery.url = mailQuery.serverAddress+"/#/confirmregistration/"+mailQuery.token // body
                     mailerService.sendMail('confirm_registration',mailQuery).then(function(success){
-                        console.log("success");
-                        console.log(success);
-                    },
-                    function(data){
-                        console.log("error");
-                        console.log(data);
-                    });
-                   /* smtpTransport.sendMail({  //email options
-                     from: mailerConfig.mailer.auth.user, // sender address.  Must be the same as authenticated user if using Gmail.
-                     to: queryTo.lastName +"<"+querToken.email+">", // receiver
-                     subject: "confirm your registration", // subject
-                     text: serverAddress+"/#/confirmregistration/"+token // body
-                     }, function(error, respo){  //callback
-                     if(error){
-                     console.log(error);
-                     }else{
-                     console.log("Message sent: " + respo.message);
+                            console.log("success");
+                            console.log(success);
+                            var data = {};
+                            var message = "success";
+                            res.send(new successResponse('ok',data,'',message));
+                        },
+                        function(data){
+                            console.log("error");
+                            console.log(data);
+                            res.send(new errorResponse('error',"details are not proper eg: improper email id",data));
 
+                        });
 
-                     }
-
-                     smtpTransport.close(); // shut down the connection pool, no more messages.  Comment this line out to continue sending emails.
-                     });*/
-                    var data = {};
-                    var status = "ok";
-                    var message = "success";
-                    res.send(new successResponse('ok',data,'',message));
 
                 }
 
@@ -359,17 +331,10 @@ function createRegisterUser(req,res){
         }
 
     });
-    /*console.log("token genration ")
-    var userLoad = {email : queryTo.email}
-    var secret = require('./secret');
-    var token = jwt.encode(userLoad,secret());
-    console.log("token ------ "+token)*/
 
 
 }
 function generateToken(queryToken){
-
-    //var userLoad = {email : emailId}
     var secret = require('./secret');
     var token = jwt.encode(queryToken,secret());
     console.log("token ------ "+token)
@@ -382,17 +347,27 @@ function checkUserEmails(req,res){
     console.log("query "+query);
     var emailId = query.emailId;
     console.log("user email entered : "+emailId);
-    userModel.find({email : emailId}).exec(function(err, response){
+    userModel.findOne({email : emailId}).exec(function(err, response){
         console.log("in users")
         if(err)
+        {
             console.log(err);
+            res.send(new errorResponse('error',"details are not proper eg: improper email id",err));
+
+        }
         else
         {
-            console.log("users email received"+response.length);
-            var data = response;
-            var status = "ok";
-            var message = "success";
-            res.send(new successResponse('ok',data,'',message));
+            if(response !=  undefined && response != null){
+                console.log("users email received"+response);
+                var data = new marshalUser(response);
+                var status = "ok";
+                var message = "success";
+                res.send(new successResponse('ok',data,'',message));
+            }
+            else{
+                res.send(new errorResponse('error',"details are not proper eg: improper email id",err));
+
+            }
         }
 
     });
@@ -436,13 +411,9 @@ function checkNLogin(req,res){
                             var status = "ok";
                             var data = {};
                             //TODO: fix comment: Remove this code and write a method marshalUser, UnMarshalUser in UserUtil js file
-                            data.email = response.email;
-                            data.isActive = response.isActive;
-                            data.firstName = response.firstName;
-                            data.lastName = response.lastName;
+                            data.user = marshalUser(response);
                             data.authToken = tokenObject.token;
                             data.tokenId = tokenObject._id;
-                            data.userId = response._id;
                             var message = "success";
                             res.send(new successResponse('ok',data,'',message));
                         }
@@ -471,23 +442,23 @@ function checkLogout(req,res){
     var emailId = userDetails.email;
     var authToken = userDetails.authToken;
     console.log("user email entered : "+emailId);
-   tokenModel.remove({email : emailId,token : authToken}).exec(function(err,response){
-       if(err){
-           console.log("errrorrrrrrr in logout  "+err);
-           var message = "something Went Wrong";
-           res.send(new errorResponse('error',message,err));
-       }
-       else{
-           console.log("token deleted "+response);
-           var data = response;
-           var status = "ok";
-           var message = "success";
-           res.send(new successResponse('ok',data,'',message));
+    tokenModel.remove({email : emailId,token : authToken}).exec(function(err,response){
+        if(err){
+            console.log("errrorrrrrrr in logout  "+err);
+            var message = "something Went Wrong";
+            res.send(new errorResponse('error',message,err));
+        }
+        else{
+            console.log("token deleted "+response);
+            var data = response;
+            var status = "ok";
+            var message = "success";
+            res.send(new successResponse('ok',data,'',message));
 
-       }
-   });
+        }
+    });
 }
 function verifyPassword(password,dbPassword){
-return passwordHash.verify(password,dbPassword);
+    return passwordHash.verify(password,dbPassword);
 }
 module.exports = userList;

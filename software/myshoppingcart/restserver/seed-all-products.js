@@ -27,40 +27,6 @@ var jsonContent = JSON.parse(contents);
 console.log("length = "+jsonContent.length);
 var allProducts = [];
 var allComments = [];
-
-   /* firstName:{
-        type:String
-    },
-    lastName:{
-        type:String
-    },
-    email:{
-        type:String,
-        trim:true,
-        required: true
-    },
-    password:{
-        type:String,
-        trim:true,
-        required: true
-    },
-    phoneNumber:{
-        type:Number ,
-        trim:true,
-        required: true
-    },
-
-    startDate:{
-        type:Date
-    },
-    updatedDate:{
-        type:Date
-    },
-    isActive: {
-        type : Boolean
-    },
-
-},*/
 var user1 = UserModel();
 user1.firstName = "Abdul";
 user1.lastName = "Gaffar";
@@ -157,12 +123,12 @@ function insertProductToModel(eachProduct){
     newProduct.subType = eachProduct.subType;
     newProduct.Author = eachProduct.Author;
     newProduct.rating = eachProduct.rating;
-    newProduct.RAM = eachProduct.RAM;
+    newProduct.ram = eachProduct.ram;
     newProduct.productModelName = eachProduct.productModelName;
     newProduct.color = eachProduct.color;
     newProduct.battery = eachProduct.battery;
     newProduct.camera= eachProduct.camera;
-    newProduct.Features= eachProduct.Features;
+    newProduct.features= eachProduct.features;
 
     newProduct.offers = [];
     newProduct.comments = [];

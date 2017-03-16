@@ -52,7 +52,7 @@ function searchProducts(req,res){
     console.log(req.body);
     var reg = "/^"+query.valueEntered+"/i";
     var regex = new RegExp(query.valueEntered,"i");
-    console.log(reg)
+    //console.log(reg)
     ProductModel.find({$or: [{productName: { $regex: regex }}, {brand: { $regex: regex   }}]}).exec(function(err, response){
         console.log("in productlist search")
         if(err)

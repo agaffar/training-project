@@ -1761,14 +1761,14 @@
   },
   {
     "id": "ELEC_PRD_43",
-    "name": "Nexus 6P Special Edition",
+    "name": "Nexus 6P Special edition",
     "price": 30998,
     "description": "A 14.478 cm (5.7), high-resolution WQHD AMOLED display and front-facing stereo speakers - all housed in a contoured aluminium body and powered by Android 6.0 Marshmallow.",
     "type": "electronics",
     "subType": "mobile",
     "brand": "Nexus",
     "RAM": "3GB",
-    "productModelName": "Nexus 6P Special Edition",
+    "productModelName": "Nexus 6P Special edition",
     "color": "Gold",
     "battery": "3450 mAh",
     "camera": {
@@ -2119,12 +2119,12 @@
     "rating": 4.3,
     "subType": "fiction",
     "Author": "Ruskin Bond",
-    "Features": {
-      "Language": "English",
+    "features": {
+      "language": "English",
       "ISBN": "9780140239591",
-      "Pages" : "223",
-      "Publisher" : "Penguin",
-      "Edition" : "1st, 2000"
+      "pages" : "223",
+      "publisher" : "Penguin",
+      "edition" : "1st, 2000"
     },
     "comments": [
       {
@@ -2161,12 +2161,12 @@
     "rating": 4.3,
     "subType": "fiction",
     "Author": "Coelho, Paulo",
-    "Features": {
-      "Language": "English",
+    "features": {
+      "language": "English",
       "ISBN": "9780007435180",
-      "Pages" : "250",
-      "Publisher" : "HarperCollins",
-      "Edition" : "1, 2011"
+      "pages" : "250",
+      "publisher" : "HarperCollins",
+      "edition" : "1, 2011"
     },
     "comments": [
       {
@@ -2203,12 +2203,12 @@
     "rating": 4.5,
     "subType": "fiction",
     "Author": "Conan Doyle",
-    "Features": {
-      "Language": "English",
+    "features": {
+      "language": "English",
       "ISBN": "9780553212419",
-      "Pages" : "1086",
-      "Publisher" : "Random House Publishing Group",
-      "Edition" : "1986"
+      "pages" : "1086",
+      "publisher" : "Random House Publishing Group",
+      "edition" : "1986"
     },
     "comments": [
       {
@@ -2245,12 +2245,12 @@
     "rating": 4.5,
     "subType": "fiction",
     "Author": "Conan Doyle",
-    "Features": {
-      "Language": "English",
+    "features": {
+      "language": "English",
       "ISBN": "9780553212419",
-      "Pages" : "1086",
-      "Publisher" : "Random House Publishing Group",
-      "Edition" : "1986"
+      "pages" : "1086",
+      "publisher" : "Random House Publishing Group",
+      "edition" : "1986"
     },
     "comments": [
       {
@@ -2287,12 +2287,12 @@
     "rating": 4.5,
     "subType": "fiction",
     "Author": "David Michie",
-    "Features": {
-      "Language": "English",
+    "features": {
+      "language": "English",
       "ISBN": "9789381431719",
-      "Pages" : "220",
-      "Publisher" : "Hay House",
-      "Edition" : "1st Edition, 2012"
+      "pages" : "220",
+      "publisher" : "Hay House",
+      "edition" : "1st edition, 2012"
     },
     "comments": [
       {
@@ -2329,12 +2329,12 @@
     "rating": 4.6,
     "subType": "fiction",
     "Author": "Lee Child",
-    "Features": {
-      "Language": "English",
+    "features": {
+      "language": "English",
       "ISBN": " 9780553815863",
-      "Pages" : "496",
-      "Publisher" : "Transworld",
-      "Edition" : " 01, 2006"
+      "pages" : "496",
+      "publisher" : "Transworld",
+      "edition" : " 01, 2006"
     },
     "comments": [
       {
@@ -2371,12 +2371,12 @@
     "rating": 3,
     "subType": "fiction",
     "Author": "Raj Kundra",
-    "Features": {
-      "Language": "English",
+    "features": {
+      "language": "English",
       "ISBN": "  9788184003970",
-      "Pages" : "397",
-      "Publisher" : "Random House",
-      "Edition" : "1st, 2013"
+      "pages" : "397",
+      "publisher" : "Random House",
+      "edition" : "1st, 2013"
     },
     "comments": [
       {
@@ -2413,12 +2413,12 @@
     "rating": 4.4,
     "subType": "fiction",
     "Author": "Lahiri, Jhumpa",
-    "Features": {
-      "Language": "English",
+    "features": {
+      "language": "English",
       "ISBN": "9780007258918",
-      "Pages" : "304",
-      "Publisher" : "Harper Collins India",
-      "Edition" : "1, 2007"
+      "pages" : "304",
+      "publisher" : "Harper Collins India",
+      "edition" : "1, 2007"
     },
     "comments": [
       {
@@ -2455,12 +2455,12 @@
     "rating": 4.2,
     "subType": "fiction",
     "Author": "Chetan Bhagat",
-    "Features": {
-      "Language": "English",
+    "features": {
+      "language": "English",
       "ISBN": "9788129142146",
-      "Pages" : "280",
-      "Publisher" : "Rupa Publications India",
-      "Edition" : "1, 2016"
+      "pages" : "280",
+      "publisher" : "Rupa Publications India",
+      "edition" : "1, 2016"
     },
     "comments": [
       {
@@ -2497,12 +2497,12 @@
     "rating": 4.4,
     "subType": "fiction",
     "Author": "Chitra Banerjee Divakaruni",
-    "Features": {
-      "Language": "English",
+    "features": {
+      "language": "English",
       "ISBN": " 9780330458535",
-      "Pages" : "384",
-      "Publisher" : "Picador",
-      "Edition" : "1st, 2009"
+      "pages" : "384",
+      "publisher" : "Picador",
+      "edition" : "1st, 2009"
     },
     "comments": [
       {
@@ -2539,12 +2539,12 @@
     "rating": 3.9,
     "subType": "fiction",
     "Author": "Tiruvalluvar",
-    "Features": {
-      "Language": "English",
+    "features": {
+      "language": "English",
       "ISBN": " 9789383064700",
-      "Pages" : "188",
-      "Publisher" : "Aleph Book Company",
-      "Edition" : "2015"
+      "pages" : "188",
+      "publisher" : "Aleph Book Company",
+      "edition" : "2015"
     },
     "comments": [
       {
@@ -2581,12 +2581,12 @@
     "rating": 4,
     "subType": "fiction",
     "Author": "Sheldon, Sidney & Bagshawe, Tilly",
-    "Features": {
-      "Language": "English",
+    "features": {
+      "language": "English",
       "ISBN": " 9780008146849",
-      "Pages" : "400",
-      "Publisher" : "Harper Collins",
-      "Edition" : "1, 2015"
+      "pages" : "400",
+      "publisher" : "Harper Collins",
+      "edition" : "1, 2015"
     },
     "comments": [
       {
@@ -2623,12 +2623,12 @@
     "rating": 4.3,
     "subType": "fiction",
     "Author": "Novoneel Chakraborty",
-    "Features": {
-      "Language": "English",
+    "features": {
+      "language": "English",
       "ISBN": " 9788184007305",
-      "Pages" : "296",
-      "Publisher" : "Random House India",
-      "Edition" : "2016"
+      "pages" : "296",
+      "publisher" : "Random House India",
+      "edition" : "2016"
     },
     "comments": [
       {
@@ -2665,12 +2665,12 @@
     "rating": 4.4,
     "subType": "fiction",
     "Author": "J K Rowling,John Tiffany,Jack Thorne",
-    "Features": {
-      "Language": "English",
+    "features": {
+      "language": "English",
       "ISBN": " 9780751565355",
-      "Pages" : "352",
-      "Publisher" : "Hachette India",
-      "Edition" : "2016"
+      "pages" : "352",
+      "publisher" : "Hachette India",
+      "edition" : "2016"
     },
     "comments": [
       {
@@ -2707,12 +2707,12 @@
     "rating": 4.2,
     "subType": "fiction",
     "Author": "Sudeep Nagarkar",
-    "Features": {
-      "Language": "English",
+    "features": {
+      "language": "English",
       "ISBN": " 9788184007459",
-      "Pages" : "256",
-      "Publisher" : " Random House India",
-      "Edition" : "2016"
+      "pages" : "256",
+      "publisher" : " Random House India",
+      "edition" : "2016"
     },
     "comments": [
       {
@@ -2749,12 +2749,12 @@
     "rating": 4.4,
     "subType": "fiction",
     "Author": "Ruskin Bond",
-    "Features": {
-      "Language": "English",
+    "features": {
+      "language": "English",
       "ISBN": " 9780140169027",
-      "Pages" : "116",
-      "Publisher" : "Penguin",
-      "Edition" : "1st, 1991"
+      "pages" : "116",
+      "publisher" : "Penguin",
+      "edition" : "1st, 1991"
     },
     "comments": [
       {
@@ -2791,12 +2791,12 @@
     "rating": 4.4,
     "subType": "fiction",
     "Author": "Novoneel Chakraborty",
-    "Features": {
-      "Language": "English",
+    "features": {
+      "language": "English",
       "ISBN": " 9788184005967",
-      "Pages" : "288",
-      "Publisher" : "Random House India",
-      "Edition" : "1st Edition, 2014"
+      "pages" : "288",
+      "publisher" : "Random House India",
+      "edition" : "1st edition, 2014"
     },
     "comments": [
       {
@@ -2833,12 +2833,12 @@
     "rating": 4.4,
     "subType": "fiction",
     "Author": "Ravinder Singh",
-    "Features": {
-      "Language": "English",
+    "features": {
+      "language": "English",
       "ISBN": " 9780143418764",
-      "Pages" : "216",
-      "Publisher" : "Penguin Random House India",
-      "Edition" : "1, 2016"
+      "pages" : "216",
+      "publisher" : "Penguin Random House India",
+      "edition" : "1, 2016"
     },
     "comments": [
       {
@@ -2875,12 +2875,12 @@
     "rating": 4.4,
     "subType": "fiction",
     "Author": "Harper Lee",
-    "Features": {
-      "Language": "English",
+    "features": {
+      "language": "English",
       "ISBN": " 9780099549482",
-      "Pages" : "281",
-      "Publisher" : "Random House",
-      "Edition" : "2010"
+      "pages" : "281",
+      "publisher" : "Random House",
+      "edition" : "2010"
     },
     "comments": [
       {
@@ -2917,12 +2917,12 @@
     "rating": 4.3,
     "subType": "fiction",
     "Author": "Anuj Tiwari",
-    "Features": {
-      "Language": "English",
+    "features": {
+      "language": "English",
       "ISBN": " 9788129137326",
-      "Pages" : "226",
-      "Publisher" : "Rupa Publications India",
-      "Edition" : "2016"
+      "pages" : "226",
+      "publisher" : "Rupa Publications India",
+      "edition" : "2016"
     },
     "comments": [
       {
@@ -2959,12 +2959,12 @@
     "rating": 4.2,
     "subType": "fiction",
     "Author": "Durjoy Dutta",
-    "Features": {
-      "Language": "English",
+    "features": {
+      "language": "English",
       "ISBN": " 9780143424611",
-      "Pages" : "288",
-      "Publisher" : "Penguin Books Ltd",
-      "Edition" : "1, 2016"
+      "pages" : "288",
+      "publisher" : "Penguin Books Ltd",
+      "edition" : "1, 2016"
     },
     "comments": [
       {
@@ -3001,12 +3001,12 @@
     "rating": 4.1,
     "subType": "fiction",
     "Author": "Ashwin Sanghi",
-    "Features": {
-      "Language": "English",
+    "features": {
+      "language": "English",
       "ISBN": " 9789385724060",
-      "Pages" : "588",
-      "Publisher" : "Westland",
-      "Edition" : "2016"
+      "pages" : "588",
+      "publisher" : "Westland",
+      "edition" : "2016"
     },
     "comments": [
       {
