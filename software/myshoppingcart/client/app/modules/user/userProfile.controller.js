@@ -180,7 +180,6 @@
                 total : vm.userAddress.length,
                 counts : [2,5,10,25,50,100],
                 getData: function (params) {
-
                     console.log(params)
                     var query = {};
                     query.numberToSkip = (params.page()-1)*(params.count());
