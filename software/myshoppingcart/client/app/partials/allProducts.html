@@ -1,6 +1,6 @@
 <!--prodtype {{allProds.productType}}-->
 <div class="row">
-    <div  ui-sref="product({ id : product.product.productId })" class="all-products col-xs-12 col-xs-4 col-sm-4 col-md-3" ng-repeat="product in allProds.productList | orderBy:'-product.rating'">
+    <div  ui-sref="product({ id : product.product.productId })" class="all-products col-xs-12 col-sm-4 col-md-3" ng-repeat="product in allProds.productList | orderBy:'-product.rating'">
         <!--<div class="container">-->
        <div  ng-if="product.product.type == 'electronics'"><img  src="images/{{allProds.productType}}/{{ product.product.productId }}.jpg"></div>
        <div ng-if="product.product.type == 'books'"><img  src="images/books/{{ product.product.productId }}.jpg"></div>

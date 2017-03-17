@@ -22,7 +22,6 @@
 
         var vm = this;
         vm.searchByBrand = searchByBrand;
-        vm.selectedAll = checkAllNoneSelected;
         vm.checkBrands = checkBrandsSelected;
         var getSelectedBrands = getSelectedBrands;
         vm.checkOfferSelected = checkOfferSelected;
@@ -101,15 +100,6 @@
             }
             console.log(selectedBrands);
             return selectedBrands;
-        }
-        function checkAllNoneSelected()
-        {
-            if(vm.selectedBrandList.length == vm.brandList.length || vm.selectedBrandList.length  == 0)
-            {
-                console.log("all selected");
-                vm.productList = $rootScope.products;
-            }
-
         }
         function getProductsFiltered(productType,selectedOffers,selectedBrandList,min,max)
         {
