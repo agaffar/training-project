@@ -9,13 +9,8 @@
    homefactoryServices.getJData = getDetails;
   return homefactoryServices;
 
-     function getDetails(type)
+     function getDetails(query)
      {
-         // simulated async function
-         var defered = $q.defer();
-         var query = {};
-         query.type = type;
-
          return api.topRatedProducts({q : query}).$promise;
      }
 

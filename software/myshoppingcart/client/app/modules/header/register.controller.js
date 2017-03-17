@@ -11,7 +11,9 @@
     {
         var vm = this;
         var reg_token = $stateParams.token;
-        headerFactory.getEmailbyToken(reg_token).then(function(response)
+        var query = {};
+        query.reg_token = reg_token;
+        headerFactory.getEmailbyToken(query).then(function(response)
         {
             console.log(response);
             if(response.status == "error"){
@@ -36,8 +38,9 @@
         }
 
         function confirmRegistrationUser(){
-
-            headerFactory.confirmRegistration(reg_token).then(function(response)
+            var query = {};
+            query.reg_token = reg_token;
+            headerFactory.confirmRegistration(query).then(function(response)
             {
                 if(response.status =="ok"){
                     $state.go('home');

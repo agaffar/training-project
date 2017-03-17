@@ -4,15 +4,18 @@
 
 (function(){
     angular.module('myApp.header').controller('resetPasswordController',resetController);
-    resetController.$inject = ['$scope','headerFactory','$state','$stateParams','$localStorage','$sessionStorage'];
-    function resetController ( $scope,headerFactory,$state,$stateParams,$localStorage,$sessionStorage)
+    resetController.$inject = ['$scope','headerFactory','$state','$stateParams','$localStorage','$sessionStorage','Regexes'];
+    function resetController ( $scope,headerFactory,$state,$stateParams,$localStorage,$sessionStorage,Regexes)
     {
         var vm = this;
         var reg_token = $stateParams.token;
         vm.emailId = 'message';
         vm.tokenFound;
+        vm.regexPasswd = Regexes.regexPasswd;
         vm.resetPassword = resetPassword;
-        headerFactory.getEmailbyToken(reg_token).then(function(response)
+        var query = {};
+        query.reg_token = reg_token;
+        headerFactory.getEmailbyToken(query).then(function(response)
         {
             if(response.status == "error"){
                 vm.tokenFound = false;
@@ -37,7 +40,11 @@
         function resetPassword(){
             var valid = validatePasswords(vm.pwd1,vm.pwd2);
             if(valid == true){
-                headerFactory.resetPassword(vm.emailId,vm.pwd1,reg_token).then(function(response)
+                var query = {};
+                query.emailId = vm.emailId;
+                query.password = vm.pwd1;
+                query.token = reg_token;
+                headerFactory.resetPassword(query).then(function(response)
                 {
                     if(response.status == "ok"){
                         $state.go('home');
@@ -57,16 +64,9 @@
             }
 
         }
-        function validatePasswords(passwd1,passwd2){
-            var regexPasswd = "((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{6,20})";
-            if(!passwd1.match(regexPasswd) || !passwd2.match(regexPasswd)){
-                vm.message = "Passwords are not according to password policy";
-                document.getElementById("pwd1").focus();
-                return false;
-            }
-            if(passwd1 != passwd2){
+        function validatePasswords(){
+            if(vm.pwd1 != vm.pwd2){
                 vm.message = "Passwords are not matching";
-                document.getElementById("pwd1"  ).focus();
                 return false;
             }
             return true;

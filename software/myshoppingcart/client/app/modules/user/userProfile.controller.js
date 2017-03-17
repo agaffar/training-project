@@ -53,7 +53,10 @@
                 });
         }
         function saveAddress(address){
-            userFactory.saveAddress(address,vm.user._id).then(function(response){
+            var query = {};
+            query.userId = vm.user._id;
+            query.Address = address;
+            userFactory.saveAddress(query).then(function(response){
                     if(response.status == "ok"){
                         loadAddressTable();
                     }
@@ -63,7 +66,9 @@
                 });
         }
         function getUserDetailsById() {
-            userFactory.getUserData(userId).then(function(response){
+            var query = {};
+            query.userId = userId;
+            userFactory.getUserData(query).then(function(response){
                     if(response.status == "ok"){
                         vm.user = response.data;
                         if(vm.user.address && vm.user.address.length>0){
@@ -144,8 +149,10 @@
 
         }
         function deleteAddress(address){
-
-            userFactory.deleteAddress(userId,address).then(function(response){
+            var query = {};
+            query.userId = userId;
+            query.Address = address;
+            userFactory.deleteAddress(query).then(function(response){
 
                     if(response.status == "ok"){
                         loadAddressTable();
@@ -153,7 +160,6 @@
                     }
                     else{
                         console.log("no data found");
-
                     }
                 },
                 function(data){
@@ -167,9 +173,9 @@
             vm.tableParams = new NgTableParams({
                 page : 1,
                 count: 2,
-               /* settings :{
-                    counts : [2,5,10,25,50,100]
-                }*/
+                /* settings :{
+                 counts : [2,5,10,25,50,100]
+                 }*/
             }, {
                 total : vm.userAddress.length,
                 counts : [2,5,10,25,50,100],

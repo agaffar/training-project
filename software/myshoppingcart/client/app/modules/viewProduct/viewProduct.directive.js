@@ -23,7 +23,6 @@
             console.log("hhhhhhhhhhhhhhhhhhhhhhhhhhhh "+attr.productType);
 
         }
-
         return directive;
     }
     similarProductsDirectController.$inject = ['$scope', 'CartData','$rootScope', '$timeout','$stateParams'];

@@ -548,5 +548,6 @@ div.search input[type=search].form-control  {
 }
 .fa-plus-square-o:before {
   content: "\f196";
-  margin-left: 1100px;
+  position: absolute;
+  right: 71px;
 }

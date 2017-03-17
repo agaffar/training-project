@@ -29,7 +29,9 @@
     function homeTopDirectiveController($scope,CartData,$rootScope,$timeout,$state)
     {
         var vm = this;
-        CartData.getJData(vm.productType).then(function(response)
+        var query = {};
+        query.type = vm.productType;
+        CartData.getJData(query).then(function(response)
         {
             if(response.status == "ok"){
                 vm.productList = [];

@@ -11,27 +11,11 @@
         homefactoryServices.getSimilarProducts = getSimilarProducts;
         return homefactoryServices;
 
-        function getProductDetails(productId)
-        {
-
-            // simulated async function
-            var defered = $q.defer();
-            var query = {};
-            query.productId = productId;
-
+        function getProductDetails(query){
             return api.getProduct({q:query}).$promise;
         }
-        function getSimilarProducts(prodId,subType){
-            var defered = $q.defer();
-            var query = {};
-            query.prodId = prodId;
-            query.subType = subType;
-
-
+        function getSimilarProducts(query){
             return api.getSimilarProducts({q : query}).$promise;
         }
-
-
-
     }]);
 })();

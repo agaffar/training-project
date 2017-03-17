@@ -410,10 +410,13 @@ function checkNLogin(req,res){
                             //email, isActive, authToken, first name, last name
                             var status = "ok";
                             var data = {};
-                            //TODO: fix comment: Remove this code and write a method marshalUser, UnMarshalUser in UserUtil js file
-                            data.user = marshalUser(response);
+                            var Marshuser = {};
+                            Marshuser = new marshalUser(response);
+                            console.log("data marshalled user");
+                            console.log(Marshuser.user);
                             data.authToken = tokenObject.token;
                             data.tokenId = tokenObject._id;
+                            data.user = Marshuser.user;
                             var message = "success";
                             res.send(new successResponse('ok',data,'',message));
                         }

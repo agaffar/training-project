@@ -60,7 +60,9 @@
                         formDetails.mailId = vm1.mailId;
                         formDetails.paswd = vm1.paswd;
                         formDetails.phno = vm1.phno;
-                        headerFactory.registerUser(formDetails).then(function(response){
+                        var query={};
+                        query.userDetails = formDetails;
+                        headerFactory.registerUser(query).then(function(response){
                             if(response.status == "ok"){
                                 $uibModalInstance.close();
                                 $state.go('home');
@@ -75,7 +77,9 @@
                     }
                     function checkAvailability(){
                         if(vm1.mailId != undefined ){
-                            headerFactory.checkEmail(vm1.mailId).then(function(response)
+                            var query =  {};
+                            query.emailId = vm1.mailId;
+                            headerFactory.checkEmail(query).then(function(response)
                             {
                                 if(response.status == "ok"){
                                     if(response.data.length == 0){
@@ -96,11 +100,8 @@
                     }
                 },
                 controllerAs: 'rgc'
-
-
             });
         }
-
         function loginForm() {
             $uibModal.open({
                 templateUrl: 'app/partials/loginPage.html',
@@ -131,7 +132,9 @@
                                     $uibModalInstance.close();
                                 }
                                 function checkEmailSendLink(){
-                                    headerFactory.checkEmailSendLinkForgot(vm2.emailId).then(function (respone) {
+                                    var query = {};
+                                    query.emailId = vm2.emailId;
+                                    headerFactory.checkEmailSendLinkForgot(query).then(function (respone) {
                                         console.log(" in login");
                                         if (respone.status == "error") {
                                             vm2.mailExitst = false;
@@ -156,10 +159,13 @@
                     function checkAndLoginUser() {
                         var emailId = vm1.emailId;
                         var password = vm1.paswd;
-                        headerFactory.checkLoginAuthenticate(emailId, password).then(function (respone) {
+                        var query = {};
+                        query.emailId = vm1.emailId;
+                        query.password = vm1.paswd;
+                        headerFactory.checkLoginAuthenticate(query).then(function (respone) {
 
                             if (respone.status == "ok") {
-
+                                console.log(respone.data);
                                 $localStorage.userDetails = respone.data;
 
                                 vm.userDetails = $localStorage.userDetails;
@@ -182,12 +188,11 @@
 
             });
         }
-
         function logoutUser() {
             if ($localStorage.hasOwnProperty("userDetails")) {
-
-
-                headerFactory.logoutUser($localStorage.userDetails).then(function (response) {
+                var query = {};
+                query.userDetails = $localStorage.userDetails;
+                headerFactory.logoutUser(query).then(function (response) {
                     vm.userIsLogged = false;
                     $localStorage.$reset();
                     $state.go('home', {reload: true});
@@ -201,12 +206,12 @@
                 vm.userIsLogged = false;
             }
         }
-
         function displayUser(){
             if ($localStorage.hasOwnProperty("userDetails")) {
                 vm.userIsLogged = true;
-                vm.UserName = $localStorage.userDetails.firstName + "" + $localStorage.userDetails.lastName;
-                vm.userEmail = $localStorage.userDetails.email;
+                console.log($localStorage.userDetails);
+                vm.UserName = $localStorage.userDetails.user.firstName + "" + $localStorage.userDetails.user.lastName;
+                vm.userEmail = $localStorage.userDetails.user.email;
                 vm.auth_token = $localStorage.userDetails.authToken;
                 vm.auth_tokenId = $localStorage.userDetails.tokenId;
                 vm.userDetails = $localStorage.userDetails;
@@ -215,92 +220,14 @@
                 vm.userIsLogged = false;
             }
         }
-
-        function checkAllAdd(){
-            var formDetails = {};
-            formDetails.fname = vm.fname;
-            formDetails.lname = vm.lname;
-            formDetails.mailId = vm.mailId;
-            formDetails.paswd = vm.paswd;
-            formDetails.phno = vm.phno;
-            if(validateDetails(formDetails)){
-
-                headerFactory.registerUser(formDetails).then(function(response){
-                    console.log("response "+response);
-                }, function (error) {
-                    console.log("error "+error);
-                })
-            }
-            else {
-                vm.validated = false;
-            }
-            console.log("submittt"+vm.mailId)
-        }
-        function validateDetails(formDetails){
-            //TODO: fix comment: Get values from $rootScope
-            var stringRegex = /^[A-z]+$/;
-            var regEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-            var regexPasswd = "((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{6,20})";
-            if(!formDetails.fname.match(stringRegex)){
-                document.getElementById("fname").focus();
-                return false;
-            }
-            if(!formDetails.lname.match(stringRegex)){
-                document.getElementById("lname").focus();
-                return false;
-
-            }
-            if(!formDetails.mailId.match(regEmail)){
-                document.getElementById("mailId").focus();
-                return false;
-
-            }
-            if(!formDetails.paswd.match(regexPasswd)){
-                document.getElementById("paswd").focus();
-                return false;
-
-            }
-            return true;
-        }
-        //console.log("dddd");
-        function checkAvailability(){
-            console.log("checkEmail id 2 = "+vm.mailId);
-            headerFactory.checkEmail(vm.mailId).then(function(response)
-            {
-                if(response.status == "ok"){
-                    if(response.data.length == 0){
-                        vm.mailExitst = false;
-                        document.getElementById("mailId").focus();
-                        console.log("not exists "+ vm.mailExitst)
-                    }
-                    else {
-
-                        vm.mailExitst = true;
-                        console.log("exists "+ vm.mailExitst)
-                    }
-                }
-                else{
-                    vm.mailExitst = true;
-                    console.log("exists "+ vm.mailExitst);
-                }
-
-            },function(data)
-            {
-                return null;
-            });
-            return true;
-        }
-        function refreshProductList(valueEntered)
-        {
+        function refreshProductList(valueEntered) {
             vm.refreshed = [];
-
             if(valueEntered.length>2)
             {
-                var regex = new RegExp(valueEntered,"ig");
-                headerFactory.getSearched(valueEntered).then(function(response)
+                var query = {};
+                query.valueEntered = valueEntered;
+                headerFactory.getSearched(query).then(function(response)
                 {
-
-
                     if(response.status == "ok"){
                         vm.refreshed = [];
                         vm.refreshed = response.data;
@@ -309,26 +236,15 @@
                     else{
                         console.log( "no data searched");
                     }
-
                 },function(data)
                 {
 
                 });
-
-
-
-
             } else {
                 vm.refreshed = [];
             }
-
-
-
         }
-        function viewSelectedProduct(productid)
-        {
-
-
+        function viewSelectedProduct(productid){
             $state.go("product",{id:productid});
         }
     }

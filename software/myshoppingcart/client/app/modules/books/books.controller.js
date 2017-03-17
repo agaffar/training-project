@@ -14,7 +14,9 @@
         console.log(vm.type+" in books type");
         vm.brandList = [];
         //vm.brandList = productsDisplayFactory.getBrands(vm.type);
-        productsDisplayFactory.getBrands(vm.type).then(function(response)
+        var query = {};
+        query.type = vm.type;
+        productsDisplayFactory.getBrands(query).then(function(response)
         {
 
             if(response.status == "ok"){
@@ -32,15 +34,21 @@
 
         vm.selectedBrands = [];
         vm.allOffers = productsDisplayFactory.getOffers(vm.type);
-
-
-
         vm.productList = [];
 
         var offersSelected = [];
         $rootScope.min = 60;
         $rootScope.max = 10000;
-        productsDisplayFactory.getProducts(vm.type,offersSelected,vm.selectedBrands, $rootScope.min, $rootScope.max).then(function(response)
+        var query = {};
+        query.type = vm.type;
+        var offersNamesArray = productsDisplayFactory.getNamesOfferSelected(offersSelected);
+        var brandsNamesArray = productsDisplayFactory.getNamesBrands(vm.selectedBrands);
+
+        query.offersSelected = offersNamesArray;
+        query.brandsSelected = brandsNamesArray;
+        query.min = $rootScope.min;
+        query.max = $rootScope.max;
+        productsDisplayFactory.getProducts(query).then(function(response)
         {
             if(response.status == "ok"){
                 vm.productList = response.data;

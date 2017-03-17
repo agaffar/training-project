@@ -3,18 +3,12 @@
  */
 (function(){
     'use strict';
-
-    angular.module('myApp')
-
-        .factory('api', api);
-
+    angular.module('myApp').factory('api', api);
     api.$inject = ['$resource','$rootScope'];
-
     //clinical trail API for data calls
     function api ($resource, $rootScope) {
         return $resource('/', getParamDefaults(), getActions($rootScope));
     }
-
     //default parameters will go here..
     var getParamDefaults = function() {
         return {
@@ -22,15 +16,6 @@
         };
     };
 
-    //default actions and methods will go here..
-    /*
-     router.get('/users/login/', users.checkNLogin);
-     router.get('/users/getUser', users.getUser);
-     router.get('/users/forgotPassword', users.forgotPasswordSendLink);
-     router.put('/users/resetpassword', users.resetPassword);
-     router.delete('/users/logout', users.checkLogout);
-
-     */
     var getActions = function() {
         return {
             'checkEmailExist':{
@@ -66,15 +51,6 @@
                 method : 'PUT',
                 url: '/api/users/resetpassword'
             },
-            /*
-             router.get('/api/products', productsList.topRatedProducts);
-             router.get('/api/products/search', productsList.searchProducts);
-             router.get('/api/products/category', productsList.productsByCategory);
-             router.get('/api/products/brands', productsList.getAllBrandsByType);
-             //router.get('/api/products/offers', productsList.getAllOffersType);
-             router.get('/api/products/viewproduct', productsList.getProduct);
-             router.get('/api/products/viewproduct/similarProducts', productsList.getSimilarProducts);
-             */
             'topRatedProducts':{
                 method : 'GET',
                 url: '/api/products/topRatedProducts'

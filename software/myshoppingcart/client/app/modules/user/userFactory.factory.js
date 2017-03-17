@@ -12,56 +12,29 @@
         userFactoryServices.deleteAddress = deleteAddress;
         return userFactoryServices;
 
-        function getUserData(userId) {
+        function getUserData(query) {
             // simulated async function
-            var defered = $q.defer();
-
-            var query = {};
-            query.userId = userId;
-
             return api.getUserData({q : query}).$promise;
         }
 
         function getUserAddress(query) {
             // simulated async function
-
             return api.getUserAddress({q : query}).$promise;
         }
 
-        function saveUserProfile(userId) {
+        function saveUserProfile(query) {
             // simulated async function
-            var defered = $q.defer();
-
-            var query = {};
-            query.userId = userId;
-            query.Address = Address;
-
             return api.saveUserData({q : query}).$promise;
         }
-        function saveAddress(Address,userId) {
-            // simulated async function
-            var defered = $q.defer();
-
-            var query = {};
-            query.userId = userId;
-            query.Address = Address;
-
+        function saveAddress(query) {
+            // simulated async functio
             return api.SaveAddress({q : query}).$promise;
         }
 
-        function deleteAddress(userId,Address)
+        function deleteAddress(query)
         {
-            // simulated async function
-            var defered = $q.defer();
-
-            var query = {};
-            query.userId = userId;
-            query.Address = Address;
-
+            // simulated async functio
             return api.deleteAddress({q : query}).$promise;
         }
-
-
-
     }]);
 })();

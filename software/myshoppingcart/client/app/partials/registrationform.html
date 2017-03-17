@@ -26,12 +26,12 @@
                         <span  ng-bind="rgc.mailId+' already exists'" style="color:red" ng-if="rgc.mailExitst == true" ></span><br>
                         <span style="color:red" ng-show="form.mailId.$dirty && form.mailId.$error.pattern" ng-class="help-block">email should be a valid</span>
                     </div>
-                    <div class="form-group" ng-class="{ 'has-error': form.fname.$dirty && form.fname.$error.required }">
+                    <div class="form-group" ng-class="{ 'has-error': form.paswd.$dirty && form.paswd.$error.required }">
                         <label for="paswd">Password : </label>
                         <input type="password" name="paswd" id="paswd" ng-model="rgc.paswd" ng-pattern="rgc.regexPasswd" required>
                         <span style="color:red" ng-show="form.paswd.$dirty && form.paswd.$error.pattern" ng-class="help-block">password should have atleast 1uppercase 1lowercase 1numeric and 1character</span>
                     </div>
-                    <div class="form-group" ng-class="{ 'has-error': form.fname.$dirty && form.fname.$error.required }">
+                    <div class="form-group" ng-class="{ 'has-error': form.phno.$dirty && form.phno.$error.required }">
 
                         <label for="phno">Phone Number : </label>
                         <input type="number" name="phno" id="phno" ng-model="rgc.phno" minlength="10" maxlength="12" required>

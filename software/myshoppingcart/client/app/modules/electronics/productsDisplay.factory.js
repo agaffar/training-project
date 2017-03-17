@@ -13,27 +13,15 @@
             getProducts : getProductsFiltered,
             getBrands   : getAllBrandsFromProducts,
             getOffers   : getAllOffers,
-            removeDuplicates : removeDuplicates
+            removeDuplicates : removeDuplicates,
+            getNamesOfferSelected : getNamesOfferSelected,
+            getNamesBrands : getNamesBrands
         };
 
         return productServices;
 
-        function getProductsFiltered(type,offersSelected,brandsSelected,min,max)
-        {
-            var productFiltered = [];
-            var defered = $q.defer();
-            var query = {};
-            query.type = type;
-            var offersNamesArray = getNamesOfferSelected(offersSelected);
-            var brandsNamesArray = getNamesBrands(brandsSelected);
-
-            query.offersSelected = offersNamesArray;
-            query.brandsSelected = brandsNamesArray;
-            query.min = min;
-            query.max = max;
-
+        function getProductsFiltered(query) {
             return api.productsByCategory({q : query}).$promise;
-
         }
         function getNamesOfferSelected(offersSelected){
             var offerTypes = [];
@@ -47,21 +35,8 @@
             return offerTypes;
         }
 
-        function getAllBrandsFromProducts(type)
-        {
-            ProdType = type;
-            var allBrands = [];
-
-            var array = [];
-            var brandObject;
-            var brandExistList;
-            var defered = $q.defer();
-            var query = {};
-            query.type = ProdType;
-
-
+        function getAllBrandsFromProducts(query) {
             return api.getAllBrandsByType({q : query}).$promise;
-
         }
         function removeDuplicates(allBrandsRetrieved){
             var brandExistList;
@@ -84,8 +59,7 @@
             }
             return allBrands;
         }
-        function getNamesBrands(brandsSelected)
-        {
+        function getNamesBrands(brandsSelected) {
             var brandNames = [];
 
             for(var i=0;i<brandsSelected.length;i++)
@@ -96,8 +70,7 @@
 
             return brandNames;
         }
-        function CheckExist(arrayBrandNames,brand)
-        {
+        function CheckExist(arrayBrandNames,brand) {
 
             var reg = new RegExp(brand,"ig");
             for(var i = 0; i< arrayBrandNames.length;i++)
@@ -146,8 +119,7 @@
             }
             return allOffers;
         }
-        function checkOfferExist(allOffers,type)
-        {
+        function checkOfferExist(allOffers,type) {
             var reg = new RegExp(type,"ig");
             for(var i = 0; i< allOffers.length;i++)
             {

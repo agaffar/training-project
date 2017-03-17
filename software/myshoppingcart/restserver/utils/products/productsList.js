@@ -85,7 +85,7 @@ function productsByCategory(req,res){
         if(brandsSelectedArray.length !=0){
             var regexBrandArray = getRegexsBrands(brandsSelectedArray);
             if(query.type == "fiction" || query.type == "comics" || query.type == "Biography")
-                queryTo.push({"$match" : {"Features.Publisher" : {$in : regexBrandArray}}});
+                queryTo.push({"$match" : {"features.publisher" : {$in : regexBrandArray}}});
             else
                 queryTo.push({"$match" : {"brand" : {$in : regexBrandArray}}});
             console.log("quertoooo + "+queryTo)
@@ -99,7 +99,6 @@ function productsByCategory(req,res){
     if(offersSelectedArray != undefined){
         if(offersSelectedArray.length !=0){
             queryTo.push({"$match" : {"offers.type" : {$in : offersSelectedArray}}});
-
         }
     }
     queryTo.push({"$group":{"_id":"$_id", "data":{"$addToSet":{"off":"$offers", "product":{"_id": "$_id", "productId" : "$productId","productName" : "$productName",
@@ -141,7 +140,7 @@ function getAllBrandsByType(req,res){
     queryTo.subType = type;
     var reqBrand = "";
     if(query.type == "fiction" || query.type == 'comics' || query.type == 'Biography')
-        reqBrand = "Features.Publisher";
+        reqBrand = "features.publisher";
     else
         reqBrand = "brand";
     var regex = new RegExp(query.type,"i");

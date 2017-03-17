@@ -4,7 +4,7 @@
 (function(){
     angular.module('viewProduct').component('productComments',{
         bindings :{
-           allComments : '='
+            allComments : '='
         },
         templateUrl :'app/partials/comments.html',
         controller : commentsControl,
@@ -19,9 +19,9 @@
         function changeLimit(){
             //console.log(vm.limit)
             if(vm.limit == 1 )
-            vm.limit = vm.allComments.length;
+                vm.limit = vm.allComments.length;
             else
-            vm.limit = 1;
+                vm.limit = 1;
         }
     }
 })();

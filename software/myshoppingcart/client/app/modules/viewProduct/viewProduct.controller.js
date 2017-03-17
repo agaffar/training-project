@@ -14,7 +14,9 @@
         var getSimilarProducts = getSimilarProducts;
         var similarList = [];
         vm.currentList = [];
-        viewProductFactory.getProduct(prodId).then(function(response)
+        var query = {};
+        query.productId = prodId;
+        viewProductFactory.getProduct(query).then(function(response)
         {
 
             if(response.status == "ok"){
@@ -68,12 +70,14 @@
                 }
             }
         }
-
         //console.log(" currentlist length "+vm.currentList.length);
         vm.prevList = previousListofProdducts;
         vm.nextList = nextListofProducts;
         function getSimilarProducts(prodId,subType){
-            viewProductFactory.getSimilarProducts(prodId,subType).then(function(response)
+            var query = {};
+            query.prodId = prodId;
+            query.subType = subType;
+            viewProductFactory.getSimilarProducts(query).then(function(response)
             {
 
                 if(response.status == "ok"){
@@ -87,7 +91,7 @@
             },function(data)
             {
                 return null;
-            });;
+            });
         }
         function previousListofProdducts() {
 

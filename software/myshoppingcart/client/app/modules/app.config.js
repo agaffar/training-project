@@ -6,7 +6,6 @@
     navConfig.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
     function navConfig($stateProvider, $urlRouterProvider, $locationProvider)
     {
-
         //console.log("uuuuuuuuuuu");
         $stateProvider.state('home', {
             url:"/home",
